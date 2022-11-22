@@ -2,58 +2,58 @@ import React from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { routes as appRoutes } from "./routes";
+ import { routes as appRoutes } from "./routes";
 import Layout from "./component/Layout";
 
-//pages
-import Patient from "./Pages/Patient";
-import Provider from "./Pages/Provider";
-import Payer from "./Pages/Payer";
-import Contact from './Pages/Contact';
+// //pages
+// import Patient from "./Pages/Patient";
+// import Provider from "./Pages/Provider";
+// import Payer from "./Pages/Payer";
+// import Contact from './Pages/Contact';
 
 
-// other
-import {FC} from "react";
+// // other
+// import {FC} from "react";
 
-interface Route {
-  key: string,
-  title: string,
-  path: string,
-  enabled: boolean,
-  component: FC<{}>
-}
+// interface Route {
+//   key: string,
+//   title: string,
+//   path: string,
+//   enabled: boolean,
+//   component: FC<{}>
+// }
 
-const routes: Array<Route> = [
-  {
-      key: 'patient',
-      title: 'Patient',
-      path: '/patient',
-      enabled: true,
-      component: Patient
-  },
-  {
-      key: 'provider',
-      title: 'Provider',
-      path: '/provider',
-      enabled: true,
-      component: Provider
-  },
-  {
-      key: 'payer',
-      title: 'Payer',
-      path: '/payer',
-      enabled: true,
-      component: Payer
-  },
-  {
-      key: 'contact',
-      title: 'Contact',
-      path: '/contact',
-      enabled: true,
-      component: Contact
-  },
+// const routes: Array<Route> = [
+//   {
+//       key: 'patient',
+//       title: 'Patient',
+//       path: '/patient',
+//       enabled: true,
+//       component: Patient
+//   },
+//   {
+//       key: 'provider',
+//       title: 'Provider',
+//       path: '/provider',
+//       enabled: true,
+//       component: Provider
+//   },
+//   {
+//       key: 'payer',
+//       title: 'Payer',
+//       path: '/payer',
+//       enabled: true,
+//       component: Payer
+//   },
+//   {
+//       key: 'contact',
+//       title: 'Contact',
+//       path: '/contact',
+//       enabled: true,
+//       component: Contact
+//   },
   
-]
+// ]
 
 function App() {
   // define theme
@@ -80,17 +80,18 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-          <Route
+            {/* <Route path = '/patient' element = {<Patient/>}/> */}
+          {/* <Route
                 key={routes[0].key}
                 path={routes[0].path}
-                element={<Patient/>}/>
-            {/* {appRoutes.map((route) => (
+                element={<Patient/>}/> */}
+            {appRoutes.map((route) => (
               <Route
                 key={route.key}
                 path={route.path}
                 element={<route.component />}
               />
-            ))} */}
+            ))}
           </Routes>
         </Layout>
       </Router>
