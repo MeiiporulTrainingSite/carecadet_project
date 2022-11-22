@@ -7,6 +7,7 @@ import Layout from "./component/Layout";
 import ProtectedRoute from "./ProtectedRoute";
 
 import Login from "./Pages/Login";
+import Home from "./Pages/Home";
 
 // //pages
 // import Patient from "./Pages/Patient";
@@ -108,7 +109,7 @@ function App() {
       </ProtectedRoute>
     )}
     />*/}
-  
+  <Route path="/" element={<Home/>}/> 
   <Route path="/login" element={<Login/>}/> 
             {/* <Route path = '/patient' element = {<Patient/>}/> */}
           {/* <Route
