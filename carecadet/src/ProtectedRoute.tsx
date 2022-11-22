@@ -1,16 +1,13 @@
-import React,{FC} from 'react'
-import {Route,RouteProps,Navigate} from "react-router"
+import React, { FC } from "react";
+import { Route, RouteProps, Navigate } from "react-router";
+import "./check.css"
 
-
-interface Props   {
-    
-    children:JSX.Element
-  
+interface Props {
+  children: JSX.Element;
 }
-const ProtectedRoute = ({children}: Props) => {
-  const isAuth=false
-   return isAuth?children:<Navigate to="/login" replace/>
- 
-}
+const ProtectedRoute = ({ children }: Props) => {
+  const isAuth = true;
+  return isAuth ? <div className="check"><div>sidenav</div>{children}</div> : <Navigate to="/login" replace />;
+};
 
-export default ProtectedRoute
+export default ProtectedRoute;

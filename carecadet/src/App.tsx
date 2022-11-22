@@ -115,6 +115,7 @@ function App() {
                 key={routes[0].key}
                 path={routes[0].path}
                 element={<Patient/>}/> */}
+          
             {appRoutes.map((route) => (
               <Route
               key={route.key}
