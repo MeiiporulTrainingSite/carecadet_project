@@ -1,0 +1,196 @@
+import React from "react";
+
+import "./App.css";
+import TextField from "@mui/material/TextField";
+import FormTextField from "./Components/Textfield";
+import { Formik, FormikHelpers, Form, Field, ErrorMessage } from "formik";
+import SelectField from "./Components/Select";
+import * as Yup from "yup";
+import Check from "./Components/Checkbox";
+import ErrorProps from "./Components/Errorprops";
+import { Buttoncomponent } from "./Components/Buttoncomp";
+import RadioComp from "./Components/Radiocomponent";
+import SwitchComponent from "./Components/Switchcomponent";
+import DatePickerField from "./Components/Datepicker";
+import { Dayjs } from "dayjs";
+
+interface FormValues {
+  fname: string;
+  select: any;
+  multiCheckbox: {
+    [key: string]: boolean;
+    one: boolean;
+    two: boolean;
+    three: boolean;
+  };
+  gender: string;
+  toggle: boolean;
+  date?: Dayjs | null;
+}
+
+const App: React.FC<{}> = () => {
+  const initialValues: FormValues = {
+    fname: "",
+    select: "",
+    multiCheckbox: {
+      one: false,
+      two: false,
+      three: false,
+    },
+    gender: "",
+    toggle: false,
+    date: null,
+  };
+
+  const optionRadio = [
+    {
+      label: "one",
+    },
+    {
+      label: "two",
+    },
+    {
+      label: "three",
+    },
+  ];
+  const validationSchema = Yup.object().shape({
+    fname: Yup.string().required("Required"),
+    select: Yup.string().required("Required"),
+    multiCheckbox: Yup.object({
+      one: Yup.boolean().notRequired().default(false),
+      two: Yup.boolean().notRequired().default(false),
+      three: Yup.boolean().notRequired().default(false),
+    })
+      .required("Required")
+      .test(
+        "multiCheckbox",
+        "At least one of the checkbox is required",
+        (val) => {
+          return Object.values(val).some((v) => v === true);
+        }
+      ),
+    gender: Yup.string().required("Required"),
+    date: Yup.string().nullable().required("Required"),
+    // toggle: Yup.boolean().required("Required").default(false),
+  });
+  const optionscheck = [
+    {
+      name: "one",
+      label: "one",
+    },
+    {
+      name: "two",
+      label: "two",
+    },
+    {
+      name: "three",
+      label: "three",
+    },
+  ];
+
+  const options = [
+    {
+      item: "one",
+      value: 1,
+    },
+    {
+      item: "two",
+      value: 2,
+    },
+    {
+      item: "three",
+      value: 3,
+    },
+  ];
+  return (
+    <Formik
+    initialValues={initialValues}
+    validationSchema={validationSchema}
+    onSubmit={(values, actions) => {
+      let checkValue = values.multiCheckbox;
+      let filteredOutput = Object.keys(checkValue).filter(
+        (key) => checkValue[key] === true
+      );
+      // const justStrings = Object.assign({}, filteredOutput);
+      // let filterop=  OK.filter(key => checkValue[key]===true)
+      // console.log("FOP", justStrings);
+
+      // .map((key, index) => {
+      //   return <div key={key}>
+
+      //            <p>{checkValue[key].main}</p>
+      //          </div>
+      // }
+      // )
+     
+     
+      let result = {
+        fname: values.fname,
+        select: values.select,
+        filteredOutput: filteredOutput,
+        gender: values.gender,
+        toggle: values.toggle,
+    date:values.date?.format("DD-MM-YYYY")
+      };
+      console.log("result", result);
+      alert(JSON.stringify(result, null, 2));
+      actions.resetForm({
+        values: {
+          fname: "",
+          select: "",
+          multiCheckbox: {
+            one: false,
+            two: false,
+            three: false,
+          },
+          gender: "",
+          toggle: false,
+          date: null
+        },
+      });
+    }}
+  >
+    <Form>
+      <label>name</label>
+      <FormTextField
+        container={{ ...TextField }}
+        name="fname"
+        placeholder="name"
+        type="text"
+      />
+      <SelectField name="select" selectData={options} />
+      {/* <Text data={options} name="select"  label="select" /> */}
+
+      {/* <CheckBox name="check" checkdata={optionscheck} /> */}
+      {/* <label>One</label> */}
+      <Check name={"multiCheckbox.one"} label="one" />
+      {/* <label>Two</label> */}
+      <Check name={"multiCheckbox.two"} label="two" />
+      {/* <label>Three</label> */}
+      <Check name={"multiCheckbox.three"} label="three" />
+
+      <ErrorMessage name="multiCheckbox">
+        {(error) => <ErrorProps>{error}</ErrorProps>}
+      </ErrorMessage>
+
+      <RadioComp name="gender" radioarray={optionRadio} />
+
+      <SwitchComponent name="toggle" label="toggle" />
+
+      <DatePickerField label="Date" name="date" />
+
+      <Buttoncomponent
+        type="submit"
+        variant="contained"
+        size="large"
+        color="success"
+      >
+        Submit
+      </Buttoncomponent>
+    </Form>
+  </Formik>
+  );
+};
+
+export default App;
+
