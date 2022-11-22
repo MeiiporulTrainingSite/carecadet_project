@@ -4,6 +4,9 @@ import { createTheme } from "@mui/material/styles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
  import { routes as appRoutes } from "./routes";
 import Layout from "./component/Layout";
+import ProtectedRoute from "./ProtectedRoute";
+
+import Login from "./Pages/Login";
 
 // //pages
 // import Patient from "./Pages/Patient";
@@ -80,6 +83,33 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+
+          {/* <Route
+    path="/provider"
+    element={(
+      <ProtectedRoute>
+       <Provider/>
+      </ProtectedRoute>
+    )}
+  />
+   <Route
+    path="/patient"
+    element={(
+      <ProtectedRoute>
+       <Patient/>
+      </ProtectedRoute>
+    )}
+  />
+  <Route
+    path="/contact"
+    element={(
+      <ProtectedRoute>
+       <Contact/>
+      </ProtectedRoute>
+    )}
+    />*/}
+  
+  <Route path="/login" element={<Login/>}/> 
             {/* <Route path = '/patient' element = {<Patient/>}/> */}
           {/* <Route
                 key={routes[0].key}
@@ -87,10 +117,14 @@ function App() {
                 element={<Patient/>}/> */}
             {appRoutes.map((route) => (
               <Route
-                key={route.key}
-                path={route.path}
-                element={<route.component />}
-              />
+              key={route.key}
+              path={route.path}
+              element={(
+                <ProtectedRoute>
+               <route.component />
+                </ProtectedRoute>
+              )}
+            />
             ))}
           </Routes>
         </Layout>

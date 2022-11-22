@@ -14,7 +14,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { routes } from "../routes";
 import { NavLink } from "react-router-dom";
 
-const Navbar: FC = (): ReactElement => {
+const Navbar=()=>{
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event: any) => {
