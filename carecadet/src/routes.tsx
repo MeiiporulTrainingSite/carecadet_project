@@ -7,7 +7,7 @@ import Pricelist from "./Pages/pricelist";
 import Pricelisthome from "./Pages/Pricelisthome";
 
 // other
-import { FC } from "react";
+import {FC} from "react";
 
 interface Route {
   key: string;
@@ -60,4 +60,5 @@ export const routes: Array<Route> = [
     enabled: true,
    component: Pricelisthome
   },
-];
+  
+]
