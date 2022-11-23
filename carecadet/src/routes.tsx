@@ -5,6 +5,7 @@ import Payer from "./Pages/Payer";
 import Contact from './Pages/Contact';
 
 
+
 // other
 import {FC} from "react";
 
@@ -45,5 +46,6 @@ export const routes: Array<Route> = [
       enabled: true,
       component: Contact
   },
+  
   
 ]

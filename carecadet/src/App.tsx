@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./component/Layout";
 import ProtectedRoute from "./ProtectedRoute";
 
+import Signup from "./Pages/Signup";
+
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 
@@ -111,6 +113,7 @@ function App() {
     />*/}
   <Route path="/" element={<Home/>}/> 
   <Route path="/login" element={<Login/>}/> 
+  <Route path="/signup" element={<Signup/>}/> 
             {/* <Route path = '/patient' element = {<Patient/>}/> */}
           {/* <Route
                 key={routes[0].key}
