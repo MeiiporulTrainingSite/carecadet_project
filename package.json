@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "csv-parse": "^5.3.2",
+    "react-file-reader": "^1.1.4"
+  }
+}
