@@ -6,7 +6,7 @@ interface Props {
   children: JSX.Element;
 }
 const ProtectedRoute = ({ children }: Props) => {
-  const isAuth = false;
+  const isAuth = true;
   return isAuth ? <div className="check"><div>sidenav</div>{children}</div> : <Navigate to="/login" replace />;
 };
 
