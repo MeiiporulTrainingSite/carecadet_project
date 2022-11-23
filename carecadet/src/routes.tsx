@@ -8,6 +8,7 @@ import Contact from './Pages/Contact';
 
 // other
 import {FC} from "react";
+import OrganizationInfo from "./Pages/OrganizationInfo";
 
 interface Route {
   key: string,
@@ -46,6 +47,13 @@ export const routes: Array<Route> = [
       enabled: true,
       component: Contact
   },
+  {
+    key: 'org',
+    title: 'Org',
+    path: '/org',
+    enabled: true,
+    component: OrganizationInfo
+},
   
   
 ]

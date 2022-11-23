@@ -66,15 +66,15 @@ function App() {
   const theme = createTheme({
     palette: {
       primary: {
-        light: "#63b8ff",
-        main: "#0989e3",
-        dark: "#005db0",
+        light: "#EBF3FA", // page background
+        main: "#687B9E",  //dark
+        dark: "#E4ECF7",  // nav background
         contrastText: "#000",
       },
       secondary: {
         main: "#4db6ac",
-        light: "#82e9de",
-        dark: "#00867d",
+        light: "#728AB7", // Title background
+        dark: "#4D77FF", //button
         contrastText: "#000",
       },
     },
