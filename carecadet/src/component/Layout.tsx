@@ -16,13 +16,13 @@ const Layout = ({ children }:LayoutProps) => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
-          minHeight: "100vh",
-          maxWidth: "100vw",
+          // minHeight: "100vh",
+          // maxWidth: "100vw",
           flexGrow: 1,
         }}
       >
         <Navbar />
-        {children}
+       <Box sx ={{marginTop:"8vh"}}>{children}</Box> 
     
       </Box>
     </>

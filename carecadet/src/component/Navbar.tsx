@@ -29,8 +29,10 @@ const Navbar=()=>{
     <Box
       sx={{
         width: "100%",
-        height: "auto",
-        backgroundColor: "secondary.main",
+        height: "7vh",
+        backgroundColor: "secondary.light",
+        position:"fixed",
+        zIndex:1
       }}
     >
       <Container maxWidth="xl">
@@ -92,7 +94,7 @@ const Navbar=()=>{
             variant="h6"
             noWrap
             component="div"
-            sx={{   display: { xs: "flex", md: "none" } }}
+            sx={{  display: { xs: "flex", md: "none" } }}
           >
           <Box sx ={{flexGrow: "1", cursor: "pointer",display: { xs: "flex", md: "none" }}}>CareCadet</Box>
           </Typography>

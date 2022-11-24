@@ -33,7 +33,7 @@ const location = useLocation();
             <Toolbar
                 sx={{
                     //   bgcolor: "#FEB224",
-                    marginTop: "-15px",
+                    marginTop: "-25px",
                     borderRadius: { xs: "0", md: "20px 20px 0 0" },
                     height: "30vh",
                 }}
@@ -51,7 +51,6 @@ const location = useLocation();
                         borderRadius: "50%",
                     }}
                 />
-
             </Toolbar>
             <Typography
                 sx={{
@@ -78,7 +77,7 @@ const location = useLocation();
                                     // color: "#ff451b",                                   
                                     borderRadius: "10px"
                                 },
-                                bgcolor: location.pathname === list.path ? "red": "green",
+                                bgcolor: location.pathname === list.path ? "secondary.dark": "primary.light",
                                 diplay: "flex",
                                 gap: "15px",
                                 padding: "5%",
@@ -107,44 +106,27 @@ const location = useLocation();
     );
 
     return (
-        <>
-            <Box sx={{ display: "flex" }}>
-                <CssBaseline />
-                <MenuList
-                    sx={{ display: { xs: "none", md: "block" } }}
-                >
-                    <Paper
+    
+                <Paper
                         sx={{
                             display: { xs: "none", md: "block" },
                             height: "100vh",
-                            width: "19vw",
+                             width: "20vw",
                             borderRadius: "15px",
-                            margin: "5px"
+                            position:"fixed",
+                            bgcolor:"primary.light"
                         }}
                         elevation={9}
                     >
                         {drawer}
                     </Paper>
-                </MenuList>
-                <Drawer
-                    variant="temporary"
-                    open={mobileOpen}
-                    onClose={handleDrawerToggle}
-                    ModalProps={{
-                        keepMounted: true, // Better open performance on mobile.
-                    }}
-                    sx={{
-                        display: { xs: "block", md: "none" },
-                        "& .MuiDrawer-paper": {
-                            boxSizing: "border-box",
-                            width: drawerWidth,
-                        },
-                        zIndex: (theme) => theme.zIndex.drawer + 1,
-                    }}
-                >
-                    <Box sx={{ overflow: "hidden" }}>{drawer}</Box>
-                </Drawer>
-            </Box>
-        </>
+
+         
+                
+                   
+              
+               
+          
+      
     );
 }
