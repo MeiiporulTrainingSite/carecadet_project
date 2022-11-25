@@ -6,15 +6,19 @@ import "./check.css";
 
 interface Props {
   children: JSX.Element;
+  token?:boolean
 }
-const ProtectedRoute = ({ children }: Props) => {
-  const isAuth = true;
+const ProtectedRoute = ({ children ,token}: Props) => {
+  console.log(token,"d")
+  let isAuth=token
   return isAuth ? (
-    <Grid container >
+    <Grid container>
       <Grid item xs={2.5}>
         <SideNavBar />
       </Grid>
-      <Grid item xs={9.5}>{children}</Grid>
+      <Grid item xs={9.5}>
+        {children}
+      </Grid>
     </Grid>
   ) : (
     <Navigate to="/login" replace />
@@ -22,12 +26,6 @@ const ProtectedRoute = ({ children }: Props) => {
 };
 
 export default ProtectedRoute;
-
-
-
-
-
-
 
 // import React from "react";
 // import { Route, RouteProps, Navigate } from "react-router";

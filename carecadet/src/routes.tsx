@@ -10,6 +10,7 @@ import Contact from './Pages/Contact';
 import {FC} from "react";
 import OrganizationInfo from "./Pages/OrganizationInfo";
 import FacilityPage from "./Pages/FacilityInfo";
+import Login from "./Pages/Login";
 
 interface Route {
   key: string,
@@ -30,9 +31,9 @@ export const routes: Array<Route> = [
   {
       key: 'provider',
       title: 'Provider',
-      path: '/provider',
+      path: '/login',
       enabled: true,
-      component: Provider
+      component: Login
   },
   {
       key: 'payer',
