@@ -7,7 +7,7 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-  Typography,
+  Typography,Paper
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
@@ -24,29 +24,33 @@ const Navbar=()=>{
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+  
 
   return (
-    <Box
+    <Paper
+  
       sx={{
         width: "100%",
         height: "7vh",
-        backgroundColor: "secondary.light",
+        backgroundColor: "primary.light",       
         position:"fixed",
-        zIndex:1
+        zIndex:1,
+        border:"1px solid #728AB7",
+       
       }}
     >
       <Container maxWidth="xl">
       
         <Toolbar disableGutters>
           <Typography
-            variant="h5"
+             variant="h5"
             noWrap
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
             }}
           >
-         <Box sx={{fontWeight:"bold"}}>CareCadet</Box> 
+         <Box sx ={{fontWeight:"bold",}} >CareCadet</Box> 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -91,12 +95,12 @@ const Navbar=()=>{
             </Menu>
           </Box>
           <Typography
-            variant="h6"
-            noWrap
+             variant="h6"
+            // noWrap
             component="div"
             sx={{  display: { xs: "flex", md: "none" } }}
           >
-          <Box sx ={{flexGrow: "1", cursor: "pointer",display: { xs: "flex", md: "none" }}}>CareCadet</Box>
+          <Box sx ={{flexGrow: "1", cursor: "pointer",display: { xs: "flex", md: "none",fontWeight:"bold" }}}>CareCadet</Box>
           </Typography>
           <Box sx={{  display: { xs: "none", md: "flex" } }}>
             <Box sx= {{  marginLeft: {md:'25em',l:'45em',xl:'55em'}, display: "flex"}}>
@@ -108,7 +112,7 @@ const Navbar=()=>{
                   color="black"
                   underline="none"
                   variant="button"
-                  sx={{ fontSize: "large", marginLeft: "2rem" }}
+                  sx={{ fontSize: "1.2rem", marginLeft: "2rem" }}
                 >
                   {page.title}
                 </Link>
@@ -117,7 +121,7 @@ const Navbar=()=>{
           </Box>
         </Toolbar>
       </Container>
-    </Box>
+    </Paper>
   );
 };
 

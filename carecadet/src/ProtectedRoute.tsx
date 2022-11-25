@@ -10,7 +10,7 @@ interface Props {
 const ProtectedRoute = ({ children }: Props) => {
   const isAuth = true;
   return isAuth ? (
-    <Grid container>
+    <Grid container >
       <Grid item xs={2.5}>
         <SideNavBar />
       </Grid>

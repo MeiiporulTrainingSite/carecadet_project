@@ -5,19 +5,26 @@ import ErrorProps from "./Errorprops"
 interface props{
     selectData:selectprops[];
     name:string;
-
+    label:string;
+    sx?:any;
+    container:any;
 }
 
 interface selectprops{
     value:string | number;
     item:string | number;
+  
 }
 
 const SelectField= (props:props) => {
   return (
 <FormControl sx={{ width: "100%" }}>
-        <InputLabel>Select</InputLabel>
-        <Field as={Select} name={props.name} label="Select"  
+        <InputLabel sx={{letterSpacing:"0.2rem","&.MuiInputLabel-shrink": { letterSpacing:0 }}}>{props.label}</InputLabel>
+        <Field as={props.container} name={props.name} label={props.label}    
+         sx = {props.sx}
+        inputProps={{
+          sx: props.sx,
+        }} 
          >
           {props.selectData.map((select, index) => (
             <MenuItem key={index + 1} value={select.value}>

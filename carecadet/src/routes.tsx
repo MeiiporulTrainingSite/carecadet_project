@@ -8,6 +8,7 @@ import Contact from './Pages/Contact';
 // other
 import {FC} from "react";
 import OrganizationInfo from "./Pages/OrganizationInfo";
+import FacilityPage from "./Pages/FacilityInfo";
 
 interface Route {
   key: string,
@@ -46,12 +47,54 @@ export const routes: Array<Route> = [
       enabled: true,
       component: Contact
   },
-  {
-    key: 'org',
-    title: 'Org',
-    path: '/org',
-    enabled: true,
-    component: OrganizationInfo
-},
+ 
   
 ]
+
+export const routespages: Array<Route> = [
+    {
+        key: 'patient',
+        title: 'Patient',
+        path: '/patient',
+        enabled: true,
+        component: Patient
+    },
+    {
+        key: 'provider',
+        title: 'Provider',
+        path: '/provider',
+        enabled: true,
+        component: Provider
+    },
+    {
+        key: 'payer',
+        title: 'Payer',
+        path: '/payer',
+        enabled: true,
+        component: Payer
+    },
+    {
+        key: 'contact',
+        title: 'Contact',
+        path: '/contact',
+        enabled: true,
+        component: Contact
+    },
+   
+    {
+      key: 'org',
+      title: 'Org',
+      path: '/org',
+      enabled: true,
+      component: OrganizationInfo
+  },
+  {
+      key: 'facility',
+      title: 'Facility',
+      path: '/facility',
+      enabled: true,
+      component: FacilityPage
+  },
+    
+  ]
+

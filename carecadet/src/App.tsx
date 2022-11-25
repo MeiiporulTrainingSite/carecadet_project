@@ -2,7 +2,7 @@ import React from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
- import { routes as appRoutes } from "./routes";
+ import { routespages as appRoutes } from "./routes";
 import Layout from "./component/Layout";
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -74,6 +74,10 @@ function App() {
         light: "#728AB7", // Title background
         dark: "#4D77FF", //button
         contrastText: "#000",
+      },
+      text: {
+        primary: '#173A5E',
+        secondary: '#46505A',
       },
     },
   });

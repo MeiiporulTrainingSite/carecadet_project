@@ -1,7 +1,7 @@
 import * as React from "react";
 import profilephoto from "../images/profile.jpg";
 import { menuItems } from "./MenuItem";
-import { Link,useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
     Typography,
     Toolbar,
@@ -17,22 +17,98 @@ import {
 } from "@mui/material";
 
 
-
-const drawerWidth = 240;
+import ListSubheader from '@mui/material/ListSubheader';
+import { listItemClasses } from '@mui/material';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Collapse from '@mui/material/Collapse';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import DraftsIcon from '@mui/icons-material/Drafts';
+import SendIcon from '@mui/icons-material/Send';
+import ExpandLess from '@mui/icons-material/ExpandLess';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import StarBorder from '@mui/icons-material/StarBorder';
 
 export default function SideNavBar() {
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+    const handleClick = () => {
+        setOpen(!open);
     };
- 
-const location = useLocation();
+
+
+    const location = useLocation();
+
+    const drawerWidth = 240;
+    const menu = {
+        fontSize: "1.2rem",
+        marginLeft: "40px",
+        color: "#173A5E",
+        fontWeight: "bold",
+
+    }
+    const submenu = {
+        fontSize: "1.2rem",
+        marginLeft: "40px",
+        color: "#173A5E",
+        padding: "5px 0 5px 10px",
+
+    }
+    const button = {
+        "&$selected": {
+            backgroundColor: "red",
+            color: "white",
+            "& .MuiListItemIcon-root": {
+                color: "white"
+            }
+        },
+        "&:hover": {
+            backgroundColor: "secondary.dark",
+            color: "white",
+            "& .MuiListItemIcon-root": {
+                color: "white"
+            }
+        },
+
+    }
+    const submenubutton = {
+        "&:hover": {
+            backgroundColor: "secondary.dark",
+            color: "white",
+            "& .MuiListItemIcon-root": {
+                color: "white"
+            }
+        },
+        "&$selected": {
+            backgroundColor: "red",
+            color: "white",
+            "& .MuiListItemIcon-root": {
+                color: "white"
+            }
+        },
+        "&$selected:hover": {
+            backgroundColor: "purple",
+            color: "white",
+            "& .MuiListItemIcon-root": {
+                color: "white"
+            }
+        },
+        selected: {}
+    }
+
+
+    // export default function SideNavBar() {
+    //     const [mobileOpen, setMobileOpen] = React.useState(false);
+
+    //     const handleDrawerToggle = () => {
+    //         setMobileOpen(!mobileOpen);
+    //     };
+
     const drawer = (
         <List>
             <Toolbar
                 sx={{
-                    //   bgcolor: "#FEB224",
                     marginTop: "-25px",
                     borderRadius: { xs: "0", md: "20px 20px 0 0" },
                     height: "30vh",
@@ -42,11 +118,11 @@ const location = useLocation();
                     src={profilephoto}
                     alt="profile"
                     style={{
-                        width: "220px",
-                        height: "230px",
+                        width: "200px",
+                        height: "200px",
                         position: "relative",
                         top: "35px",
-                        left: "13%",
+                        left: "19%",
                         border: "2px solid white",
                         borderRadius: "50%",
                     }}
@@ -56,58 +132,64 @@ const location = useLocation();
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    fontWeight: "800",
-                    // fontFamily: "Poppins",
-                    fontSize: "30px",
+                    fontWeight: "600",
+                    fontSize: "1.5rem",
                     margin: "20px 0 20px 0"
                 }}
             >
                 ABC UrgentCare
             </Typography>
-            <Divider />
 
-            {menuItems.map((list, i) => (
+            {/* <Divider /> */}
+
+
+
+
+
+            {/* {menuItems.map((list, i) => (
                 <Box key={i}>
-                    <Link to={list.path}  >
-                       {/* className = {location.pathname === list.path ? "side_active": "side_inactive"} */}
-                        <ListItem
+                    <Link to={list.path} style = {{textDecoration:'none'}} > */}
+            {/* className = {location.pathname === list.path ? "side_active": "side_inactive"} */}
+            {/* <ListItem
                             sx={{
                                 ":hover ": {
                                     transition: "all .3s ease",
-                                    // color: "#ff451b",                                   
-                                    borderRadius: "10px"
-                                },
+                                    bgcolor: "secondary.dark",                                    */}
+            {/* // borderRadius: "10px" */}
+            {/* },
                                 bgcolor: location.pathname === list.path ? "secondary.dark": "primary.light",
                                 diplay: "flex",
                                 gap: "15px",
                                 padding: "5%",
                                 textTransform: "capitalize",
                                 justifyContent: "flex-start",
-                                alignItems: "center"
+                                alignItems: "center",
+                                
                             }}
                         >
                             <Typography
-                                sx={{
-                                    fontWeight: 700,
+                                sx={{ */}
+            {/* // fontWeight: 400,
                                     // fontFamily: "Poppins",
-                                    fontSize: "20px",
+                                    fontSize: "1.3rem",
                                     color: "primary.contrastText",
-                                    marginLeft: "25px"
+                                    marginLeft:"40px"
+                                   
                                 }}
                             >
                                 {list.title}
                             </Typography>
                         </ListItem>
-                    </Link>
-                    <Divider />
-                </Box>
-            ))}
+                    </Link> */}
+            {/* <Divider /> */}
+            {/* </Box>
+            ))} */}
         </List>
     );
 
-    return (
-    
-                <Paper
+    // return (
+
+    {/* <Paper
                         sx={{
                             display: { xs: "none", md: "block" },
                             height: "100vh",
@@ -119,14 +201,77 @@ const location = useLocation();
                         elevation={9}
                     >
                         {drawer}
-                    </Paper>
+                    </Paper> */}
 
-         
-                
-                   
-              
-               
-          
-      
+
+    return (
+        <>
+            <Paper
+                sx={{
+                    display: { xs: "none", md: "block" },
+                    height: "89vh",
+                    width: "20vw",
+                    borderRadius: "15px",
+                    position: "fixed",
+                    bgcolor: "primary.light"
+                }}
+                elevation={9}
+            >
+                {drawer}
+                <Box sx={{}}>
+                    <List
+                        sx={{
+                            width: '100%', 
+                            bgcolor: 'primary.light',
+                            // hover states
+                            '& .MuiListItemButton-root:hover': {
+                                bgcolor: 'secondary.dark',
+                            },
+                        }}
+                        component="nav"
+                    >
+
+                        <ListItemButton onClick={handleClick} >
+                            <ListItemText primaryTypographyProps={{ style: menu }} primary="Profile" />
+                            {open ? <ExpandLess /> : <ExpandMore />}
+                        </ListItemButton>
+                        <Collapse in={open} timeout="auto" unmountOnExit>
+                            <List component="div" disablePadding>
+                                <Link to="/org" style={{ textDecoration: "none" }}>
+                                    <ListItemButton sx={{ pl: 4, bgcolor: location.pathname === "/org" ? "secondary.dark" : "primary.light" }}>
+                                        <ListItemText primaryTypographyProps={{ style: submenu }} primary="Organization" />
+                                    </ListItemButton>
+                                </Link>
+                                <Link to="/facility" style={{ textDecoration: "none" }}>
+                                    <ListItemButton sx={{ pl: 4, bgcolor: location.pathname === "/facility" ? "secondary.dark" : "primary.light" }} >
+                                        <ListItemText primaryTypographyProps={{ style: submenu }} primary="Facility" />
+                                    </ListItemButton>
+                                </Link>
+                            </List>
+                        </Collapse>
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <ListItemButton onClick={handleClick} >
+                                <ListItemText primaryTypographyProps={{ style: menu }} primary="Price listing" />
+                            </ListItemButton>
+                        </Link>
+                        <Link to="/" style={{ textDecoration: "none" }}>
+                            <ListItemButton onClick={handleClick} >
+                                <ListItemText primaryTypographyProps={{ style: menu }} primary="Review price listing" />
+                            </ListItemButton>
+                        </Link>
+                    </List>
+                </Box>
+            </Paper>
+        </>
     );
 }
+
+
+
+
+
+
+
+
+    // );
+// }
