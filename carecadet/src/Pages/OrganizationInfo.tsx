@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid } from "@mui/material";
+import { TextField, Box, Typography, Grid,Paper } from "@mui/material";
 import axios from "axios";
 
 import FormTextField from "../Components/Textfield";
@@ -176,7 +176,7 @@ const OrganizationInfo = () => {
     },
   ];
   return (
-    <Box sx={{ backgroundColor: "primary.light", padding: "1.5rem" }}>
+    <Paper elevation = {5}  sx={{ backgroundColor: "primary.light", padding: "1.5rem" ,borderRadius: "15px"}}>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>
           <Grid container spacing={2}>
@@ -286,7 +286,7 @@ const OrganizationInfo = () => {
           </Grid>
         </Form>
       </Formik>
-    </Box>
+    </Paper>
   );
 };
 
