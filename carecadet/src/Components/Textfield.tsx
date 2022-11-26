@@ -1,5 +1,6 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
+import {TextField, FormControl, InputLabel, MenuItem, Select} from "@mui/material"
 import ErrorProps from "./Errorprops";
 interface props {
   name: string;
@@ -12,10 +13,12 @@ interface props {
 }
 const FormTextField = (props: props) => {
   return (
-    <>
+    <FormControl sx={{ width: "100%" }}>
+       
       <Field
       label={props.label}
         as={props.container}
+        sx = {props.sx}
         inputProps={{
           sx: props.sx,
         }}
@@ -29,7 +32,7 @@ const FormTextField = (props: props) => {
           </ErrorMessage>
         }
       />
-    </>
+    </FormControl>
   );
 };
 

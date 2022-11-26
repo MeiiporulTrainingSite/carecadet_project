@@ -1,10 +1,12 @@
 import React from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
- import { routes as appRoutes } from "./routes";
+import { BrowserRouter as Router, Routes, Route ,Navigate} from "react-router-dom";
+ import { routespages as appRoutes } from "./routes";
 import Layout from "./component/Layout";
 import ProtectedRoute from "./ProtectedRoute";
+
+import Signup from "./Pages/Signup";
 
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -60,7 +62,9 @@ import Home from "./Pages/Home";
 // ]
 
 function App() {
+  const [auth,setAuth]=React.useState<any>(localStorage.getItem("token"))
   // define theme
+  
   const theme = createTheme({
     palette: {
       primary: {
@@ -74,6 +78,10 @@ function App() {
         light: "#728AB7", // Title background
         dark: "#4D77FF", //button
         contrastText: "#000",
+      },
+      text: {
+        primary: '#173A5E',
+        secondary: '#46505A',
       },
     },
   });
@@ -111,6 +119,8 @@ function App() {
     />*/}
   <Route path="/" element={<Home/>}/> 
   <Route path="/login" element={<Login/>}/> 
+  
+  <Route path="/signup" element={<Signup/>}/> 
             {/* <Route path = '/patient' element = {<Patient/>}/> */}
           {/* <Route
                 key={routes[0].key}
@@ -122,7 +132,7 @@ function App() {
               key={route.key}
               path={route.path}
               element={(
-                <ProtectedRoute>
+                <ProtectedRoute token={auth}>
                <route.component />
                 </ProtectedRoute>
               )}

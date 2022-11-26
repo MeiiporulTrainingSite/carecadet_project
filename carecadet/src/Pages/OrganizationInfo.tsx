@@ -1,13 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid } from "@mui/material";
+import { TextField, Box, Typography, Grid,Paper } from "@mui/material";
 import axios from "axios";
 
 import FormTextField from "../Components/Textfield";
 import { Buttoncomponent } from "../Components/Buttoncomp";
 
-interface initialValues {
+interface InitialValues {
   organizationInformation: {
     providerID: string;
     organizationName: string;
@@ -29,7 +29,7 @@ interface initialValues {
 }
 
 const OrganizationInfo = () => {
-  const initialValues: initialValues = {
+  const initialValues: InitialValues = {
     organizationInformation: {
       providerID: "",
       organizationName: "",
@@ -49,7 +49,7 @@ const OrganizationInfo = () => {
       email: "",
     },
   };
-  const onSubmit = (values: initialValues) => {
+  const onSubmit = (values:InitialValues,actions:any) => {
     const orgdata = {
       providerID: values.organizationInformation.providerID,
       organizationName: values.organizationInformation.organizationName,
@@ -76,8 +76,32 @@ const OrganizationInfo = () => {
       .post("http://localhost:4200/organization/createOrganization", orgdata)
       .then((res) => {
         alert("success");
+        actions.resetForm({
+          values: initialValues
+        });
       });
+   
   };
+
+  const validationSchema = Yup.object().shape({
+    organizationInformation: Yup.object().shape({
+      organizationName: Yup.string().required("Organization Name is required"),
+      streetAdd1: Yup.string().required("Address is required"),
+      city: Yup.string().required("city is required"),
+      state: Yup.string().required("state is required"),
+      zipCode: Yup.string().required("zip code is required"),
+      Email: Yup.string().required("Email is required").email("invalid email"),
+    }),
+    contactPersonInformation: Yup.object().shape({
+      firstName: Yup.string().required("First Name is a required field"),
+      lastName: Yup.string().required("Last Name is required"),
+      role: Yup.string().required("Role is a required field"),
+      contactno: Yup.string().required("Contact is a required field"),
+      email: Yup.string()
+        .required("Email is a required field")
+        .email("invalid email"),
+    }),
+  });
 
   const organizationData = [
     {
@@ -176,8 +200,8 @@ const OrganizationInfo = () => {
     },
   ];
   return (
-    <Box sx={{ backgroundColor: "primary.light", padding: "1.5rem" }}>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px" }}>
+      <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           <Grid container spacing={2}>
             <Grid item xs={12}>
@@ -248,6 +272,7 @@ const OrganizationInfo = () => {
                 <FormTextField
                   container={TextField}
                   sx={{
+                    // boxShadow: "0 0 45px 1px red" ,
                     "&::placeholder": {
                       // color: "green",
                       letterSpacing: "0.2rem",
@@ -274,7 +299,7 @@ const OrganizationInfo = () => {
                   color: "#fff",
                   "&:hover": {
                     color: "secondary.dark",
-                    border:"1px solid blue"
+                    border: "1px solid blue",
                     // letterSpacing: "0.2rem",
                     // fontSize: "1rem",
                   },
@@ -286,7 +311,7 @@ const OrganizationInfo = () => {
           </Grid>
         </Form>
       </Formik>
-    </Box>
+    </Paper>
   );
 };
 
