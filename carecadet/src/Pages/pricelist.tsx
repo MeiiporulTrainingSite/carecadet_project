@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 // import useStyles from "./style";
 import { Buttoncomponent } from "../Components/Buttoncomp"
-import Pricelisthome from "./Pricelisthome"
+
 
 interface props {
     textalign : string
@@ -85,8 +85,9 @@ function Pricelist() {
           type="submit"
           variant="contained"
           size="large"
+
           color="primary"
-         margin="100px"
+         
         onClick={navigateToupload}
       >
         Upload Price List
@@ -130,7 +131,7 @@ function Pricelist() {
       variant="contained"
       size="large"
       color="primary"
-     margin="100px"
+    
         // className={classes.button}
         // sx={{ mt: 5 }}
       >
