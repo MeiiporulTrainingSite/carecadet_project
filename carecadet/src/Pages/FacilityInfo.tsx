@@ -138,7 +138,7 @@ export default function FacilityPage() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Typography
-                                mb={"0.8rem"}
+                                mb={"0.5rem"}
                                 sx={{
                                     backgroundColor: "#B4C8FC",
                                     padding: "1.2rem",
@@ -153,7 +153,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Facility NPI
@@ -179,7 +179,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Facility Name
@@ -210,7 +210,7 @@ export default function FacilityPage() {
                                 // variant="h6"
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Facility Type
@@ -224,7 +224,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
 
                                 }}
                             >
@@ -251,7 +251,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Street Address2
@@ -277,7 +277,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 City
@@ -303,7 +303,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 State
@@ -329,7 +329,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 ZipCode
@@ -355,7 +355,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Phone
@@ -381,7 +381,7 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    m: "0.5rem 0 0.2rem 0",
                                 }}
                             >
                                 Email
