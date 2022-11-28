@@ -9,12 +9,9 @@ import Pricelisthome from "./Pages/Pricelisthome";
 
 // other
 import {FC} from "react";
-<<<<<<< HEAD
-=======
 import OrganizationInfo from "./Pages/OrganizationInfo";
 import FacilityPage from "./Pages/FacilityInfo";
 import Login from "./Pages/Login";
->>>>>>> 5400cd5da7b43b068caf0f2f49556bedbced0473
 
 interface Route {
   key: string;
@@ -26,7 +23,6 @@ interface Route {
 
 export const routes: Array<Route> = [
   {
-<<<<<<< HEAD
     key: "patient",
     title: "Patient",
     path: "/patient",
@@ -68,37 +64,6 @@ export const routes: Array<Route> = [
     enabled: true,
    component: Pricelisthome
   },
-=======
-      key: 'patient',
-      title: 'Patient',
-      path: '/patient',
-      enabled: true,
-      component: Patient
-  },
-  {
-      key: 'provider',
-      title: 'Provider',
-      path: '/login',
-      enabled: true,
-      component: Login
-  },
-  {
-      key: 'payer',
-      title: 'Payer',
-      path: '/payer',
-      enabled: true,
-      component: Payer
-  },
-  {
-      key: 'contact',
-      title: 'Contact',
-      path: '/contact',
-      enabled: true,
-      component: Contact
-  },
- 
-  
->>>>>>> 5400cd5da7b43b068caf0f2f49556bedbced0473
   
 ]
 
