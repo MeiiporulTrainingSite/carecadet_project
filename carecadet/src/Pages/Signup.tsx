@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 import { Grid,Box, Typography,TextField,Paper } from "@mui/material";
 import Formtext from "../Components/Textfield";
 import {Buttoncomponent} from "../Components/Buttoncomp";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 // interface Iconprops{
 //  icon: any
