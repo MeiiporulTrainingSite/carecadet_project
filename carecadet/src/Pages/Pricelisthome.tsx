@@ -11,23 +11,86 @@ import { parse } from "csv-parse/browser/esm/sync";
 
 type cvsItem = {
   id: string;
+  SNo: string;
   value: string;
 };
-
-const columns = [
-  {
-    field: "id",
-    headerName: "Id",
-  },
-  {
-    field: "value",
-    headerName: "Value",
-  },
-];
 
 export default function Pricelisthome() {
   const [csvData, setCsvData] = useState<cvsItem[]>([]);
   const [filename, setFilename] = useState("");
+  const [pageSize, setPagesize] = useState(5);
+
+  const onCellEditCommit = (cellData: any) => {
+    const { id, field, value } = cellData;
+    console.log(cellData);
+    let r = csvData.map((data) => {
+      if (data.SNo === id) {
+        // if (field === "Sno") {
+        //   return { ...data, value: value };
+        // }
+        if (field === "Service Code") {
+          return { ...data, value: value };
+        }
+        if (field === "Diagnosis Test/Service Name") {
+          return { ...data, value: value };
+        }
+        if (field === "Organisation Prices") {
+          return { ...data, value: value };
+        }
+        if (field === "Facility 1 Prices") {
+          return { ...data, value: value };
+        }
+        if (field === "Facility 2 Prices") {
+          return { ...data, value: value };
+        }
+        if (field === "Facility 3 Prices") {
+          return { ...data, value: value };
+        }
+      }
+
+      return data;
+    });
+
+    setCsvData(r);
+  };
+
+  const columns = [
+    {
+      field: "SNo",
+      headerName: "S.No",
+      editable: true,
+    },
+    {
+      field: "Service Code",
+      headerName: "Service Code",
+      editable: true,
+    },
+    {
+      field: "Diagnosis Test/Service Name",
+      headerName: "Diagnosis Test/Service Name",
+      editable: true,
+    },
+    {
+      field: "Organisation Prices",
+      headerName: "Organisation Prices",
+      editable: true,
+    },
+    {
+      field: "Facility 1 Prices",
+      headerName: "Facility 1 Prices",
+      editable: true,
+    },
+    {
+      field: "Facility 2 Prices",
+      headerName: "Facility 2 Prices",
+      editable: true,
+    },
+    {
+      field: "Facility 3 Prices",
+      headerName: "Facility 3 Prices",
+      editable: true,
+    },
+  ];
 
   function csvJSON(csv: any) {
     console.log("csvdata");
@@ -92,13 +155,21 @@ export default function Pricelisthome() {
 
   return (
     <>
-   <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px",height:"88.8vh" }}>
+      <Paper
+        elevation={9}
+        sx={{
+          backgroundColor: "primary.light",
+          padding: "1.5rem",
+          borderRadius: "15px",
+          height: "88.8vh",
+        }}
+      >
         <Typography
           variant="h6"
           textAlign={"right"}
           justifyItems={"right"}
           sx={{ color: "Black" }}
-          margin={"40px"}
+          margin={"15px"}
           marginBottom={"5px"}
         >
           Hello User,
@@ -123,82 +194,104 @@ export default function Pricelisthome() {
           Upload your facility's Pricelist
         </Typography>
         <br></br>
-        <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
-        <Button
-          component="label"
-          variant="outlined"
-          startIcon={<UploadFileIcon />}
+        <Box
           sx={{
-          
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "15vw",
-            color: "#fff",
-            fontSize: "1rem",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              fontSize: "1rem"
-            },
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
           }}
         >
-          Upload CSV
-          <input type="file" accept=".csv" hidden onChange={handleFileUpload} />
-        </Button>
-      
-        {/* service pricelist.csv in <i>src dir</i> */}
-        <Box>{filename}</Box>
+          <Button
+            component="label"
+            variant="outlined"
+            startIcon={<UploadFileIcon />}
+            sx={{
+              mt: 2,
+              backgroundColor: "secondary.dark",
+              width: "15vw",
+              color: "#fff",
+              fontSize: "1rem",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+                fontSize: "1rem",
+              },
+            }}
+          >
+            Upload CSV
+            <input
+              type="file"
+              accept=".csv"
+              hidden
+              onChange={handleFileUpload}
+            />
+          </Button>
+
+          {/* service pricelist.csv in <i>src dir</i> */}
+          <Box>{filename}</Box>
         </Box>
         <DataGrid
           autoHeight
           rows={csvData}
           columns={columns}
-          hideFooter
+          getRowId={(row) => row.SNo}
+          pagination={true}
+          pageSize={pageSize}
+          onPageSizeChange={(newPageSize) => setPagesize(newPageSize)}
+          rowsPerPageOptions={[5, 10, 20]}
+          // onCellEditCommit={onCellEditCommit}
+          // initialState={{
+          //   pagination: {
+          //     pageSize: 100
+          //   }
+          // }}
+          // hideFooter
           sx={{ mt: 1 }}
         />
-        <Box sx={{display:"flex",gap:"1.5rem"}}>
-        <Buttoncomponent
-          type="submit"
-          variant="contained"
-          size="large"
-          color="primary"
-          sx={{
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "10vw",
-            color: "#fff",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              letterSpacing: "0.2rem",
-              fontSize: "1rem",
-            },
-          }}
-        >
-          Save
-        </Buttoncomponent>
-        <Buttoncomponent
-          type="submit"
-          variant="contained"
-          size="large"
-          color="primary"
-          sx={{
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "10vw",
-            color: "#fff",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              letterSpacing: "0.2rem",
-              fontSize: "1rem",
-            },
-          }}
+        <Box sx={{ display: "flex", gap: "1.5rem" }}>
+          <Buttoncomponent
+            type="submit"
+            variant="contained"
+            size="large"
+            color="primary"
+            sx={{
+              mt: 2,
+              backgroundColor: "secondary.dark",
+              width: "10vw",
+              color: "#fff",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+                letterSpacing: "0.2rem",
+                fontSize: "1rem",
+              },
+            }}
+          >
+            Save
+          </Buttoncomponent>
+          <Buttoncomponent
+            type="submit"
+            variant="contained"
+            size="large"
+            color="primary"
+            sx={{
+              mt: 2,
+              backgroundColor: "secondary.dark",
+              width: "10vw",
+              color: "#fff",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+                letterSpacing: "0.2rem",
+                fontSize: "1rem",
+              },
+            }}
 
-          // onClick={onSubmit}
-        >
-          Publish
-        </Buttoncomponent>
+            // onClick={onSubmit}
+          >
+            Publish
+          </Buttoncomponent>
         </Box>
       </Paper>
     </>

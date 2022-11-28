@@ -100,6 +100,20 @@ export const routespages: Array<Route> = [
       enabled: true,
       component: FacilityPage
   },
+  {
+    key: 'priceliat',
+    title: 'Pricelist',
+    path: '/pricelist',
+    enabled: true,
+    component: Pricelist
+},
+{
+    key: 'pricelisthome',
+    title: 'Pricelisthome',
+    path: '/pricelisthome',
+    enabled: true,
+    component: Pricelisthome
+},
     
   ]
 

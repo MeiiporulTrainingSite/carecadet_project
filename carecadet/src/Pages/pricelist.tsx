@@ -79,7 +79,18 @@ function Pricelist() {
           size="large"
 
           color="primary"
-         
+          sx={{
+            mt: 2,
+            backgroundColor: "secondary.dark",
+            width: "10vw",
+            color: "#fff",
+            "&:hover": {
+              color: "secondary.dark",
+              border: "1px solid blue",
+              letterSpacing: "0.2rem",
+              fontSize: "1rem",
+            },
+          }}
         onClick={navigateToupload}
       >
         Upload Price List
@@ -123,7 +134,18 @@ function Pricelist() {
       variant="contained"
       size="large"
       color="primary"
-    
+      sx={{
+        mt: 2,
+        backgroundColor: "secondary.dark",
+        width: "10vw",
+        color: "#fff",
+        "&:hover": {
+          color: "secondary.dark",
+          border: "1px solid blue",
+          letterSpacing: "0.2rem",
+          fontSize: "1rem",
+        },
+      }}
         // className={classes.button}
         // sx={{ mt: 5 }}
       >
