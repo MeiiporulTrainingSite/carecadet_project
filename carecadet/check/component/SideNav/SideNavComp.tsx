@@ -249,7 +249,7 @@ export default function SideNavBar() {
                                 </Link>
                             </List>
                         </Collapse>
-                        <Link to="/pricelist" style={{ textDecoration: "none" }}>
+                        <Link to="/" style={{ textDecoration: "none" }}>
                             <ListItemButton onClick={handleClick} >
                                 <ListItemText primaryTypographyProps={{ style: menu }} primary="Price listing" />
                             </ListItemButton>

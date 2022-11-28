@@ -115,24 +115,6 @@ export default function FacilityPage() {
 
     return (
         <Paper elevation={5} sx={{ backgroundColor: "primary.light", padding: "1.8rem", borderRadius: "15px" }}>
-           <Typography
-          variant="h6"
-          textAlign={"right"}
-          justifyItems={"right"}
-          sx={{ color: "Black" }}
-          margin={"10px"}
-          marginBottom={"5px"}
-        >
-          Hello User,
-        </Typography>
-        <div
-          style={{
-            marginBottom:"10px",
-            flex: 1,
-            height: "3px",
-            backgroundColor: "darkgray",
-          }}
-        />
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 <Form>
                     <Grid container spacing={2}>
@@ -140,7 +122,7 @@ export default function FacilityPage() {
                             <Typography
                                 mb={"0.8rem"}
                                 sx={{
-                                    backgroundColor: "#B4C8FC",
+                                    backgroundColor: "secondary.light",
                                     padding: "1.2rem",
                                     textAlign: "center",
                                     fontSize: "1.5rem",

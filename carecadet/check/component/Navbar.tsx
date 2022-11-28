@@ -50,7 +50,7 @@ const Navbar=()=>{
               display: { xs: "none", md: "flex" },
             }}
           >
-         <Box sx ={{display:"flex",fontWeight:"bold"}} >Care<Box sx={{color:"#4D77FF"}}>Cadet</Box></Box> 
+         <Box sx ={{fontWeight:"bold",}} >CareCadet</Box> 
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -103,13 +103,13 @@ const Navbar=()=>{
           <Box sx ={{flexGrow: "1", cursor: "pointer",display: { xs: "flex", md: "none",fontWeight:"bold" }}}>CareCadet</Box>
           </Typography>
           <Box sx={{  display: { xs: "none", md: "flex" } }}>
-            <Box sx= {{  marginLeft: {md:'40em',xl:'55em'}, display: "flex"}}>
+            <Box sx= {{  marginLeft: {md:'25em',l:'45em',xl:'55em'}, display: "flex"}}>
              {routes.map((page) => (
                 <Link
                   key={page.key}
                   component={NavLink}
                   to={page.path}
-                  color="primary.main"
+                  color="black"
                   underline="none"
                   variant="button"
                   sx={{ fontSize: "1.2rem", marginLeft: "2rem" }}

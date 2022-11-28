@@ -92,7 +92,15 @@ export default function Pricelisthome() {
 
   return (
     <>
-   <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px",height:"88.8vh" }}>
+      <Container
+      //   sx={{
+      //     maxWidth: "sm",
+      //     display: "flex",
+      //     flexDirection: "column",
+      //     justifyContent: "center",
+      //     alignItems: "center",
+      //   }}
+      >
         <Typography
           variant="h6"
           textAlign={"right"}
@@ -123,32 +131,17 @@ export default function Pricelisthome() {
           Upload your facility's Pricelist
         </Typography>
         <br></br>
-        <Box sx={{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
         <Button
           component="label"
           variant="outlined"
           startIcon={<UploadFileIcon />}
-          sx={{
-          
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "15vw",
-            color: "#fff",
-            fontSize: "1rem",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              fontSize: "1rem"
-            },
-          }}
+          sx={{ marginRight: "1rem" }}
         >
           Upload CSV
           <input type="file" accept=".csv" hidden onChange={handleFileUpload} />
         </Button>
-      
-        {/* service pricelist.csv in <i>src dir</i> */}
+        service pricelist.csv in <i>src dir</i>
         <Box>{filename}</Box>
-        </Box>
         <DataGrid
           autoHeight
           rows={csvData}
@@ -156,24 +149,11 @@ export default function Pricelisthome() {
           hideFooter
           sx={{ mt: 1 }}
         />
-        <Box sx={{display:"flex",gap:"1.5rem"}}>
         <Buttoncomponent
           type="submit"
           variant="contained"
           size="large"
           color="primary"
-          sx={{
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "10vw",
-            color: "#fff",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              letterSpacing: "0.2rem",
-              fontSize: "1rem",
-            },
-          }}
         >
           Save
         </Buttoncomponent>
@@ -182,25 +162,12 @@ export default function Pricelisthome() {
           variant="contained"
           size="large"
           color="primary"
-          sx={{
-            mt: 2,
-            backgroundColor: "secondary.dark",
-            width: "10vw",
-            color: "#fff",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-              letterSpacing: "0.2rem",
-              fontSize: "1rem",
-            },
-          }}
 
           // onClick={onSubmit}
         >
           Publish
         </Buttoncomponent>
-        </Box>
-      </Paper>
+      </Container>
     </>
   );
 }

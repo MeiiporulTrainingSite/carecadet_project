@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 import { Grid,Box, Typography,TextField,Paper } from "@mui/material";
 import Formtext from "../Components/Textfield";
 import {Buttoncomponent} from "../Components/Buttoncomp";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 // interface Iconprops{
 //  icon: any
@@ -33,7 +33,7 @@ export default function Register() {
   const navigate = useNavigate();
   return (
    
-    <Box sx={{ width: "100%",mt:"-0.5vh", height:"95vh" , backgroundColor: "primary.light" }}>
+    <Box sx={{ width: "100%",flexGrow: 1, backgroundColor: "primary.light" }}>
       
         
       <Formik
@@ -84,7 +84,6 @@ export default function Register() {
           boxShadow: 1,
           borderRadius: 2,
           padding: 5,
-          mt:2,
           minWidth: 300,
         }} >
        <Typography variant="h4" >
@@ -114,7 +113,7 @@ export default function Register() {
          sx={{
           width: "20vw",
           "&::placeholder": {
-            // color: "green",
+            color: "green",
 
             letterSpacing: "0.2rem",
             fontSize: "1rem",
@@ -138,7 +137,7 @@ export default function Register() {
          sx={{
           width: "20vw",
           "&::placeholder": {
-            // color: "green",
+            color: "green",
 
             letterSpacing: "0.2rem",
             fontSize: "1rem",
@@ -162,7 +161,7 @@ export default function Register() {
          sx={{
           width: "20vw",
           "&::placeholder": {
-            // color: "green",
+            color: "green",
 
             letterSpacing: "0.2rem",
             fontSize: "1rem",
@@ -179,7 +178,7 @@ export default function Register() {
                     sx={{
                       mt: 2,
                       backgroundColor: "secondary.dark",
-                      width: "20vw",
+                      width: "22vw",
                       color: "#fff",
                       "&:hover": {
                         color: "secondary.dark",

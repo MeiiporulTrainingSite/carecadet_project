@@ -10,7 +10,7 @@ interface Props {
 }
 const ProtectedRoute = ({ children ,token}: Props) => {
   console.log(token,"d")
-  let isAuth=true
+  let isAuth=token
   return isAuth ? (
     <Grid container>
       <Grid item xs={2.5}>

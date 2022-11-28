@@ -6,7 +6,7 @@ import { Buttoncomponent } from "../Components/Buttoncomp";
 
 const Home = () => {
   return (
-    <Box sx={{ width: "100%",mt:"-0.5vh", height:"95vh", backgroundColor: "primary.light"}}>
+    <Box sx={{ width: "100%", flexGrow: 1, backgroundColor: "primary.light"}}>
       <Grid
         container
         direction="row"
@@ -20,10 +20,9 @@ const Home = () => {
             // justifyContent="space-between"
             alignItems="center"
           >
-            {/* <Typography variant="h3" sx={{mr:18,mb:2,mt:2,color:"#728AB7"}}  >
+            <Typography variant="h3" sx={{mr:18,mb:2,mt:2,color:"#728AB7"}}  >
               HealthLens
-            </Typography> */}
-             <Typography variant="h3" sx={{display:"flex",color:"#728AB7",fontWeight:"bold"}} >Care<Box sx={{color:"#4D77FF"}}>Cadet</Box></Typography> 
+            </Typography>
 
             <Typography variant="h4" sx={{ margin: 2,color:"#728AB7" }}>
               Home to check the cost of <br></br> health care
@@ -49,12 +48,12 @@ const Home = () => {
           
               sx={{
                 margin: 2,
-                backgroundColor: "secondary.dark",
+                backgroundColor: "primary.light",
                 width: "20vw",
-                color: "white",
+                color: "primary",
                 "&:hover": {
-                  backgroundColor: "primary.light",
-                  color: "#728AB7",
+                  backgroundColor: "secondary.dark",
+                  color: "white",
                   active:"secondary.dark",
                   border: "1px solid blue",
                   letterSpacing: "0.2rem",
@@ -74,15 +73,15 @@ const Home = () => {
               type="button"
               fullWidth={false}
               variant="contained"
-              color="secondary"
+              color="primary"
               sx={{
                 margin: 2,
-                backgroundColor: "secondary.dark",
+                backgroundColor: "primary.light",
                 width: "20vw",
-                color: "white",
+                color: "primary",
                 "&:hover": {
-                  backgroundColor: "primary.light",
-                  color: "#728AB7",
+                  backgroundColor: "secondary.dark",
+                  color: "white",
                   active:"secondary.dark",
                   border: "1px solid blue",
                   letterSpacing: "0.2rem",
@@ -105,11 +104,11 @@ const Home = () => {
               color="primary"
               sx={{
                 margin: 2,
-                backgroundColor: "secondary.dark",
+                backgroundColor: "primary.light",
                 width: "20vw",
-                color: "white",
+                color: "primary",
                 "&:hover": {
-                  backgroundColor: "primary.light",
+                  backgroundColor: "secondary.dark",
                   color: "white",
                   active:"secondary.dark",
                   border: "1px solid blue",

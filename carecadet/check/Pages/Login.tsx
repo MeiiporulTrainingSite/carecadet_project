@@ -25,7 +25,7 @@ export default function Login() {
   return (
   
       <Box
-        sx={{backgroundColor:"#EBF3FA", height:"95vh",mt:"-0.5vh" }}
+        sx={{backgroundColor:"#EBF3FA", flexGrow: 1 }}
       >
             <Grid
               container
@@ -158,7 +158,7 @@ export default function Login() {
                   sx={{
                     mt: 2,
                     backgroundColor: "secondary.dark",
-                    width: "20vw",
+                    width: "22vw",
                     color: "#fff",
                     "&:hover": {
                       color: "secondary.dark",

@@ -9,9 +9,6 @@ import Pricelisthome from "./Pages/Pricelisthome";
 
 // other
 import {FC} from "react";
-import OrganizationInfo from "./Pages/OrganizationInfo";
-import FacilityPage from "./Pages/FacilityInfo";
-import Login from "./Pages/Login";
 
 interface Route {
   key: string;
@@ -50,8 +47,20 @@ export const routes: Array<Route> = [
     enabled: true,
     component: Contact,
   },
-  
-  
+  {
+    key: "Pricelist",
+    title: "Pricelist",
+    path: "/pricelist",
+    enabled: true,
+    component: Pricelist,
+  },
+  {
+    key: "Pricelisthome",
+    title: "Pricelisthome",
+    path: "/pricelisthome",
+    enabled: true,
+   component: Pricelisthome
+  },
   
 ]
 
@@ -98,20 +107,6 @@ export const routespages: Array<Route> = [
       path: '/facility',
       enabled: true,
       component: FacilityPage
-  },
-  {
-    key: "Pricelist",
-    title: "Pricelist",
-    path: "/pricelist",
-    enabled: true,
-    component: Pricelist,
-  },
-  {
-    key: "Pricelisthome",
-    title: "Pricelisthome",
-    path: "/pricelisthome",
-    enabled: true,
-   component: Pricelisthome
   },
     
   ]

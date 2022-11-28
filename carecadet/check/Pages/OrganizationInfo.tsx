@@ -201,24 +201,6 @@ const OrganizationInfo = () => {
   ];
   return (
     <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px" }}>
-       <Typography
-          variant="h6"
-          textAlign={"right"}
-          justifyItems={"right"}
-          sx={{ color: "Black" }}
-          margin={"10px"}
-          marginBottom={"5px"}
-        >
-          Hello User,
-        </Typography>
-        <div
-          style={{
-            marginBottom:"10px",
-            flex: 1,
-            height: "3px",
-            backgroundColor: "darkgray",
-          }}
-        />
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           <Grid container spacing={2}>
@@ -226,7 +208,7 @@ const OrganizationInfo = () => {
               <Typography
                 mb={"0.5rem"}
                 sx={{
-                  backgroundColor: "#B4C8FC",
+                  backgroundColor: "secondary.light",
                   padding: "0.7rem",
                   textAlign: "center",
                   fontSize: "1.5rem",
@@ -267,7 +249,7 @@ const OrganizationInfo = () => {
               <Typography
                 mb={"0.5rem"}
                 sx={{
-                  backgroundColor: "#B4C8FC",
+                  backgroundColor: "secondary.light",
                   padding: "0.7rem",
                   textAlign: "center",
                   fontSize: "1.5rem",

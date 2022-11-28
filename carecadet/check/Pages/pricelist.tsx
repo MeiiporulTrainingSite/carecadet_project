@@ -29,8 +29,16 @@ function Pricelist() {
  
  
   return (
-  
-    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px",height:"88.8vh" }}>
+    <>
+    <Container
+    //   sx={{
+    //     maxWidth: "sm",
+    //     display: "flex",
+    //     flexDirection: "column",
+    //     justifyContent: "center",
+    //     alignItems: "center",
+    //   }}
+    >
       <Typography variant="h6" textAlign={"right"} justifyItems={"right"} sx={{ color: "Black" }} margin={"40px"} marginBottom={"5px"}>
         Hello User,
       </Typography>
@@ -146,9 +154,9 @@ function Pricelist() {
         corresponding to each facility
         {/* </p> */}
       </Typography>
-    </Paper>
+    </Container>
    
-    
+    </>
   );
 }
 
