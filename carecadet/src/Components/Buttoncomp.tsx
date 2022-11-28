@@ -7,7 +7,7 @@ type:"button" | "submit" | "reset"
 fullWidth?: boolean;
 variant?: "text" | "outlined" | "contained" ;
 color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" ;
-
+onClick?:React.MouseEventHandler<HTMLButtonElement> | undefined   
 sx?:any
 children:React.ReactNode;
 }
@@ -21,10 +21,10 @@ export function Buttoncomponent (props: IAppProps) {
           fullWidth={props.fullWidth}
           variant={props.variant} 
           color={props.color}
+          onClick={props.onClick}
           sx={props.sx}
           >
             {props.children}
         </Button>
   );
 }
-

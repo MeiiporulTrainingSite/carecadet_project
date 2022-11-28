@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Form,Formik } from "formik";
 import * as yup from "yup";
@@ -46,7 +45,7 @@ export default function Register() {
         validationSchema={schema}
       
         onSubmit={(values) => {
-          alert(JSON.stringify(values));
+          // alert(JSON.stringify(values));
           console.log(values, "values");
           const Registerdata = {
             firstName: values.firstName,
