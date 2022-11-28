@@ -10,7 +10,11 @@ import styles from "./styles.module.css";
 import { Grid,Box, Typography,TextField,Paper } from "@mui/material";
 import Formtext from "../Components/Textfield";
 import {Buttoncomponent} from "../Components/Buttoncomp";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+// interface Iconprops{
+//  icon: any
+// }
 //create schema
 const schema = yup.object().shape({
   firstName: yup.string().required("Username is a required field"),
@@ -68,8 +72,7 @@ export default function Register() {
        
             <Form>
           
-              <Typography variant="h4" >
-      Welcome! </Typography>
+             
       <Grid
               container
               direction="row"
@@ -77,14 +80,22 @@ export default function Register() {
               //  alignItems="center"
               
             >
-      <Paper variant="outlined" elevation={24}   sx={{
-          bgcolor: 'background.paper',
+      <Paper variant="outlined"   sx={{
+          bgcolor: '#E4ECF7',
           boxShadow: 1,
           borderRadius: 2,
-          p: 2,
+          padding: 5,
           minWidth: 300,
         }} >
-      
+       <Typography variant="h4" >
+      Welcome Provider! </Typography>
+      <Typography variant="h4" sx={{ml:9}} >
+      Sign Up </Typography>
+    {/* <Grid>
+    <FontAwesomeIcon icon="fa-brands fa-twitter" />
+    <FontAwesomeIcon icon ="fa-brands fa-facebook" />
+    <FontAwesomeIcon icon="fa-brands fa-twitter" />
+    </Grid> */}
       <Typography
                     variant="h6"
                     sx={{

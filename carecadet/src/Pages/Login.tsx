@@ -32,8 +32,7 @@ export default function Login() {
             >
               <Grid item md={7}
                 sx={{display:"flex",justifyContent:"center"
-                
-              }}
+                              }}
                              
               >
         <Formik
