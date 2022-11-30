@@ -9,6 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 
 import FormTextField from "../Components/Textfield";
 import { Buttoncomponent } from "../Components/Buttoncomp";
+import { logininfo } from '../Reduxstate/LoginSlice';
+import  {useAppDispatch}  from "../Reduxstate/Hooks";
 
 const schema = yup.object().shape({
   email: yup
@@ -21,6 +23,7 @@ const schema = yup.object().shape({
     .min(4, "password must be at least 4 characters"),
 });
 export default function Login() {
+  const dispatch = useAppDispatch()
   const navigate = useNavigate();
   return (
   
@@ -28,9 +31,8 @@ export default function Login() {
         sx={{backgroundColor:"#EBF3FA", height:"95vh",mt:"-0.5vh" }}
       >
             <Grid
-              container
-                                 
-            >
+              container>            
+            
               <Grid item md={7}
                 sx={{display:"flex",justifyContent:"center"
                               }}
@@ -55,10 +57,10 @@ export default function Login() {
               axios
                 .post("http://localhost:5200/user/login", Logindata)
                 .then((res) => {
-                  localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
-                  localStorage.setItem("token", JSON.stringify(res.data.data.token));
+                  // localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
+                  // localStorage.setItem("token", JSON.stringify(res.data.data.token));
                   console.log(res);
-                 
+                  dispatch(logininfo(res.data.data));
                   //  window.location = "/profile";
                   alert("Success");
                   navigate("/org");

@@ -7,7 +7,7 @@ import { ChangeEvent } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { parse } from "csv-parse/browser/esm/sync";
+
 
 type cvsItem = {
   id: string;
@@ -235,10 +235,10 @@ export default function Pricelisthome() {
           autoHeight
           rows={csvData}
           columns={columns}
-          getRowId={(row) => row.SNo}
+          getRowId={(row:any) => row.SNo}
           pagination={true}
           pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPagesize(newPageSize)}
+          onPageSizeChange={(newPageSize:any) => setPagesize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}
           // onCellEditCommit={onCellEditCommit}
           // initialState={{

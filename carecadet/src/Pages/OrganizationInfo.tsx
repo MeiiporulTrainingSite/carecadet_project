@@ -1,11 +1,12 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid,Paper } from "@mui/material";
+import { TextField, Box, Typography, Grid, Paper } from "@mui/material";
 import axios from "axios";
 
 import FormTextField from "../Components/Textfield";
 import { Buttoncomponent } from "../Components/Buttoncomp";
+import { useAppSelector } from "../Reduxstate/Hooks";
 
 interface InitialValues {
   organizationInformation: {
@@ -29,6 +30,7 @@ interface InitialValues {
 }
 
 const OrganizationInfo = () => {
+  const data = useAppSelector((state) => state.loginstate.info)
   const initialValues: InitialValues = {
     organizationInformation: {
       providerID: "",
@@ -49,9 +51,9 @@ const OrganizationInfo = () => {
       email: "",
     },
   };
-  const onSubmit = (values:InitialValues,actions:any) => {
+  const onSubmit = (values: InitialValues, actions: any) => {
     const orgdata = {
-      providerID: values.organizationInformation.providerID,
+      providerID: data.userID,
       organizationName: values.organizationInformation.organizationName,
 
       address: {
@@ -73,14 +75,14 @@ const OrganizationInfo = () => {
     };
     alert(JSON.stringify(orgdata, null, 2));
     axios
-      .post("http://localhost:4200/organization/createOrganization", orgdata)
+      .post("http://localhost:5200/organization/createOrganization", orgdata)
       .then((res) => {
         alert("success");
         actions.resetForm({
           values: initialValues
         });
       });
-   
+
   };
 
   const validationSchema = Yup.object().shape({
@@ -200,25 +202,25 @@ const OrganizationInfo = () => {
     },
   ];
   return (
-    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px" }}>
-       <Typography
-          variant="h6"
-          textAlign={"right"}
-          justifyItems={"right"}
-          sx={{ color: "Black" }}
-          margin={"10px"}
-          marginBottom={"5px"}
-        >
-          Hello User,
-        </Typography>
-        <div
-          style={{
-            marginBottom:"10px",
-            flex: 1,
-            height: "3px",
-            backgroundColor: "darkgray",
-          }}
-        />
+    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem", borderRadius: "15px" }}>
+      <Typography
+        variant="h6"
+        textAlign={"right"}
+        justifyItems={"right"}
+        sx={{ color: "Black" }}
+        margin={"10px"}
+        marginBottom={"5px"}
+      >
+        Hello User,
+      </Typography>
+      <div
+        style={{
+          marginBottom: "10px",
+          flex: 1,
+          height: "3px",
+          backgroundColor: "darkgray",
+        }}
+      />
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
         <Form>
           <Grid container spacing={2}>
