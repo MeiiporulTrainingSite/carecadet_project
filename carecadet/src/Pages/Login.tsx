@@ -73,7 +73,7 @@ export default function Login() {
                  
                   //  window.location = "/profile";
                   alert("Success");
-                  navigate("/org");
+                  navigate("/providerlanding");
                 })
                 .catch((err) => {
                   if (

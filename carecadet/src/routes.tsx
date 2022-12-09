@@ -7,7 +7,8 @@ import Contact from "./Pages/Contact";
 
 // other
 import { FC } from "react";
-import OrganizationInfo from "./Pages/OrganizationInfo";
+import OrganizationInfo from "./Pages/Organization/OrganizationInfo";
+import EditOrganization from "./Pages/Organization/EditOrganization";
 import CreateFacility from "./Pages/Facility/CreateFacility";
 import UpdateFacility from "./Pages/Facility/EditFacility";
 import ViewFacility from "./Pages/Facility/ViewFacility";
@@ -19,6 +20,7 @@ import Pricelistlandingpage from "./Pages/Services/pricelistlandingpage";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
+import ProviderLandingPage from "./Pages/Landingpage";
 
 interface Route {
   key: string;
@@ -109,6 +111,13 @@ export const routespages: Array<Route> = [
     enabled: true,
     component: Contact,
   },
+  {
+    key: "providerorg",
+    title: "providerOrg",
+    path: "/providerlanding",
+    enabled: true,
+    component: ProviderLandingPage,
+  },
 
   {
     key: "org",
@@ -116,6 +125,13 @@ export const routespages: Array<Route> = [
     path: "/org",
     enabled: true,
     component: OrganizationInfo,
+  },
+  {
+    key: "editorg",
+    title: "editOrg",
+    path: "/editOrg",
+    enabled: true,
+    component: EditOrganization,
   },
   {
     key: "viewFacility",
@@ -157,14 +173,14 @@ export const routespages: Array<Route> = [
     title: "Pricelistedit",
     path: "/pricelistedit",
     enabled: true,
-    component: Pricelisthome,
+    component: PricelistEditpage,
   },
   {
     key: "pricelistlanding",
     title: "Pricelistlanding",
     path: "/pricelistlanding",
     enabled: true,
-    component: Pricelisthome,
+    component: Pricelistlandingpage,
   },
 
 ];

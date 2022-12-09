@@ -16,12 +16,12 @@ import {
   GridRowId,
   GridRowModel
 } from "@mui/x-data-grid";
-import {
-  randomCreatedDate,
-  randomTraderName,
-  randomUpdatedDate,
-  randomId
-} from "@mui/x-data-grid-generator";
+// import {
+//   randomCreatedDate,
+//   randomTraderName,
+//   randomUpdatedDate,
+//   randomId
+// } from "@mui/x-data-grid-generator";
 import {
   CheckBoxOutlineBlankSharp,
   ConstructionOutlined
@@ -46,7 +46,7 @@ export default function PricelistEditpage() {
 
   const getData = async () => {
     const pricelistdetails = await axios.get(
-      "http://localhost:4000/getPriceList"
+      "http://localhost:5200/getPriceList"
     );
     setData(pricelistdetails.data.data);
     console.log(pricelistdetails.data, "pricelist");

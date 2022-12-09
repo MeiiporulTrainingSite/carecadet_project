@@ -170,7 +170,7 @@ export default function ViewFacility() {
                                                 }} />
                                         </IconButton>
                                         <IconButton>
-                                            <MedicalServicesIcon />
+                                            <MedicalServicesIcon onClick = {() => navigate('/pricelistlanding')} />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>

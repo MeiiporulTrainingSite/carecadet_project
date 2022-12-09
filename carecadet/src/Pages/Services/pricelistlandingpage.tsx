@@ -26,7 +26,7 @@ export default function Pricelistlandingpage() {
 
   const getData = async () => {
     const pricelistdetails = await axios.get(
-      "http://localhost:4000/getPriceList"
+      "http://localhost:5200/getPriceList"
     );
     setData(pricelistdetails.data.data);
     console.log(pricelistdetails.data, "pricelist");

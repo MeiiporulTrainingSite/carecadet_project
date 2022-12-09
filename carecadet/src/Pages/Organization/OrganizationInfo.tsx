@@ -4,11 +4,12 @@ import * as Yup from "yup";
 import { TextField, Box, Typography, Grid, Paper } from "@mui/material";
 import axios from "axios";
 
-import FormTextField from "../Components/Textfield";
-import { Buttoncomponent } from "../Components/Buttoncomp";
+import FormTextField from "../../Components/Textfield";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
 
-import { useAppDispatch, useAppSelector } from "../Redux/Hook";
-import { axiosPrivate } from "../axios/axios";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
+import { axiosPrivate } from "../../axios/axios";
+import OrganizationLandingView from "./OrganizationLandingView";
 
 interface InitialValues {
   organizationInformation: {
@@ -345,6 +346,9 @@ const OrganizationInfo = () => {
           </Grid>
         </Form>
       </Formik>
+      <br></br>
+      <br></br>
+      <OrganizationLandingView/>
     </Paper>
   );
 };

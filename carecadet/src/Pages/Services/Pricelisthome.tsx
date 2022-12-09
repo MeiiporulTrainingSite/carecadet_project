@@ -7,7 +7,7 @@ import { ChangeEvent } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-import { parse } from "csv-parse/browser/esm/sync";
+// import { parse } from "csv-parse/browser/esm/sync";
 
 type cvsItem = {
   id: string;

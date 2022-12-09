@@ -14,6 +14,7 @@ import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import ProtectedLogin from "./ProtectedRoutes/ProtectedLogin";
 
 import { useAppDispatch, useAppSelector } from "./Redux/Hook";
+import ProviderLandingPage from "./Pages/Landingpage";
 
 function App() {
   const theme = createTheme({
@@ -26,7 +27,7 @@ function App() {
       },
       secondary: {
         main: "#4db6ac",
-        light: "#728AB7", // Title background
+        light: "#B4C8FC",//"#728AB7", // Title background
         dark: "#4D77FF", //button
         contrastText: "#000",
       },
@@ -43,6 +44,7 @@ function App() {
       <Router>
         <Layout>
           <Routes>
+            <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/>
             {appRoutes.map((route) => (
               <Route
                 key={route.key}

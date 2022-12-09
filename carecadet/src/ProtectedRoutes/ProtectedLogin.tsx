@@ -15,7 +15,7 @@ const ProtectedLogin = ({ children }: Props) => {
   const authUser = useAppSelector((state) => state.auth.logoutButton);
 
   // let isAuth=true
-  return !authUser ? <> { children }</> : <Navigate to="/org" replace />;
+  return !authUser ? <> { children }</> : <Navigate to="/providerlanding" replace />;
 };
 
 export default ProtectedLogin;
