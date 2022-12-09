@@ -1,17 +1,16 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid, Paper } from "@mui/material";
-import axios from "axios";
+import { TextField, Box, Typography, Grid, Paper,Button } from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import FormTextField from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
-import OrganizationLandingView from "./OrganizationLandingView";
-import { organizationEdit } from "../../Redux/LoginSlice";
 import { useNavigate } from "react-router-dom";
+import { tabValueNav } from "../../Redux/LoginSlice";
 
 interface InitialValues {
   organizationInformation: {
@@ -35,10 +34,10 @@ interface InitialValues {
 }
 
 const EditOrganization = () => {
-  const dispatch=useAppDispatch()
+  const dispatch = useAppDispatch();
   const select = useAppSelector((state) => state.edit.orgEditData);
-  const navigate=useNavigate()
-  console.log(select,"s")
+  const navigate = useNavigate();
+  console.log(select, "s");
 
   const initialValues: InitialValues = {
     organizationInformation: {
@@ -55,14 +54,14 @@ const EditOrganization = () => {
     contactPersonInformation: {
       firstName: select.contactPerson.firstName,
       lastName: select.contactPerson.lastName,
-      role:select.contactPerson.role,
+      role: select.contactPerson.role,
       contactno: select.contactPerson.contact,
       email: select.contactPerson.email,
     },
   };
   const onSubmit = (values: InitialValues, actions: any) => {
     const orgdata = {
-      organizationID:select.organizationID,
+      organizationID: select.organizationID,
       providerID: values.organizationInformation.providerID,
       organizationName: values.organizationInformation.organizationName,
 
@@ -240,6 +239,30 @@ const EditOrganization = () => {
           backgroundColor: "darkgray",
         }}
       />
+      <Grid container item xs={12} justifyContent="left">
+        <Button
+          variant="outlined"
+          type="button"
+          onClick={() => {
+            dispatch(tabValueNav(0))
+            navigate("/providerlanding");
+          }}
+          sx={{
+            backgroundColor: "secondary.dark",
+            width: "8vw",
+
+            marginBottom: "0.5rem",
+            color: "#fff",
+            "&:hover": {
+              color: "secondary.dark",
+              border: "1px solid blue",
+            },
+          }}
+          startIcon={<ArrowBackIcon fontSize="large" />}
+        >
+          BACK
+        </Button>
+      </Grid>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -354,7 +377,6 @@ const EditOrganization = () => {
           </Grid>
         </Form>
       </Formik>
-     
     </Paper>
   );
 };

@@ -1,0 +1,699 @@
+Nov-02-2022 15:51:13 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 15:51:13 [31merror[39m: [31mClass constructor ResObject cannot be invoked without 'new'[39m
+Nov-02-2022 15:52:01 [31merror[39m: [31merr{"errors":{"contact":{"name":"ValidatorError","message":"Enter a contact","properties":{"message":"Enter a contact","type":"required","path":"contact"},"kind":"required","path":"contact"},"role":{"name":"ValidatorError","message":"Enter a role","properties":{"message":"Enter a role","type":"required","path":"role"},"kind":"required","path":"role"},"createdBy":{"name":"ValidatorError","message":"Enter a created by","properties":{"message":"Enter a created by","type":"required","path":"createdBy","value":""},"kind":"required","path":"createdBy","value":""}},"_message":"Provider validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Provider validation failed: contact: Enter a contact, role: Enter a role, createdBy: Enter a created by"}[39m
+Nov-02-2022 15:52:01 [31merror[39m: [31mProvider validation failed: contact: Enter a contact, role: Enter a role, createdBy: Enter a created by[39m
+Nov-02-2022 15:52:33 [31merror[39m: [31merr{"errors":{"role":{"name":"ValidatorError","message":"Enter a role","properties":{"message":"Enter a role","type":"required","path":"role"},"kind":"required","path":"role"},"createdBy":{"name":"ValidatorError","message":"Enter a created by","properties":{"message":"Enter a created by","type":"required","path":"createdBy","value":""},"kind":"required","path":"createdBy","value":""}},"_message":"Provider validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Provider validation failed: role: Enter a role, createdBy: Enter a created by"}[39m
+Nov-02-2022 15:52:33 [31merror[39m: [31mProvider validation failed: role: Enter a role, createdBy: Enter a created by[39m
+Nov-02-2022 15:52:52 [31merror[39m: [31merr{"errors":{"createdBy":{"name":"ValidatorError","message":"Enter a created by","properties":{"message":"Enter a created by","type":"required","path":"createdBy","value":""},"kind":"required","path":"createdBy","value":""}},"_message":"Provider validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Provider validation failed: createdBy: Enter a created by"}[39m
+Nov-02-2022 15:52:52 [31merror[39m: [31mProvider validation failed: createdBy: Enter a created by[39m
+Nov-02-2022 16:11:50 [31merror[39m: [31merr{"errors":{"password":{"stringValue":"\"Promise { <pending> }\"","valueType":"Promise","kind":"string","value":{},"path":"password","reason":null,"name":"CastError","message":"Cast to string failed for value \"Promise { <pending> }\" (type Promise) at path \"password\""}},"_message":"Provider validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Provider validation failed: password: Cast to string failed for value \"Promise { <pending> }\" (type Promise) at path \"password\""}[39m
+Nov-02-2022 16:11:50 [31merror[39m: [31mProvider validation failed: password: Cast to string failed for value "Promise { <pending> }" (type Promise) at path "password"[39m
+Nov-02-2022 16:12:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:12:30 [31merror[39m: [31mIllegal arguments: string, undefined[39m
+Nov-02-2022 16:18:57 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:18:57 [31merror[39m: [31mCannot read property 'isModified' of undefined[39m
+Nov-02-2022 16:20:09 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:20:09 [31merror[39m: [31mCannot read property 'isModified' of undefined[39m
+Nov-02-2022 16:21:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:21:20 [31merror[39m: [31millegal arguments: string[39m
+Nov-02-2022 16:22:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:22:58 [31merror[39m: [31mAlready a user exists with this email[39m
+Nov-02-2022 16:58:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 16:58:08 [31merror[39m: [31mreq is not defined[39m
+Nov-02-2022 17:04:42 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:04:42 [31merror[39m: [31memployeeFindData is not defined[39m
+Nov-02-2022 17:05:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:05:11 [31merror[39m: [31mjwt is not defined[39m
+Nov-02-2022 17:05:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:05:52 [31merror[39m: [31mClass constructor ResObject cannot be invoked without 'new'[39m
+Nov-02-2022 17:33:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:33:00 [31merror[39m: [31mCannot create property 'name' on string 'Error'[39m
+Nov-02-2022 17:34:37 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:34:37 [31merror[39m: [31mNo Authorization provided[39m
+Nov-02-2022 17:35:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:35:05 [31merror[39m: [31mCannot create property 'name' on string 'Error'[39m
+Nov-02-2022 17:35:29 [31merror[39m: [31merr{"name":"TokenExpiredError","statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:35:29 [31merror[39m: [31mAuthorization or session expired, Please login again[39m
+Nov-02-2022 17:48:01 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:48:01 [31merror[39m: [31mparsedData is not defined[39m
+Nov-02-2022 17:48:47 [31merror[39m: [31merr{"name":"JsonWebTokenError","message":"invalid signature","statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:48:47 [31merror[39m: [31mInvalid Token[39m
+Nov-02-2022 17:51:27 [31merror[39m: [31merr{"name":"JsonWebTokenError","message":"invalid signature","statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:51:27 [31merror[39m: [31mInvalid Token[39m
+Nov-02-2022 17:58:46 [31merror[39m: [31merr{"name":"TokenExpiredError","statusCode":500,"status":"error"}[39m
+Nov-02-2022 17:58:46 [31merror[39m: [31mAuthorization or session expired, Please login again[39m
+Nov-02-2022 18:22:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 18:22:24 [31merror[39m: [31m user dose exists with this email[39m
+Nov-02-2022 18:23:40 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 18:23:40 [31merror[39m: [31mIncorrect password[39m
+Nov-02-2022 18:26:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 18:26:28 [31merror[39m: [31mIncorrect password[39m
+Nov-02-2022 18:27:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 18:27:17 [31merror[39m: [31mIncorrect password[39m
+Nov-02-2022 18:30:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 18:30:23 [31merror[39m: [31m provider dose exists [39m
+Nov-02-2022 19:46:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-02-2022 19:46:29 [31merror[39m: [31mCannot access 'Organization' before initialization[39m
+Nov-04-2022 12:55:18 [31merror[39m: [31muncaughtException: listen EADDRINUSE: address already in use :::4200[39m
+[31mError: listen EADDRINUSE: address already in use :::4200[39m
+[31m    at Server.setupListenHandle [as _listen2] (node:net:1463:16)[39m
+[31m    at listenInCluster (node:net:1511:12)[39m
+[31m    at Server.listen (node:net:1599:7)[39m
+[31m    at Function.listen (E:\node\Healthlens\npm_healthlens_nodejs\node_modules\express\lib\application.js:635:24)[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/server.js:88:5[39m
+Nov-04-2022 12:55:47 [31merror[39m: [31muncaughtException: listen EADDRINUSE: address already in use :::4200[39m
+[31mError: listen EADDRINUSE: address already in use :::4200[39m
+[31m    at Server.setupListenHandle [as _listen2] (node:net:1463:16)[39m
+[31m    at listenInCluster (node:net:1511:12)[39m
+[31m    at Server.listen (node:net:1599:7)[39m
+[31m    at Function.listen (E:\node\Healthlens\npm_healthlens_nodejs\node_modules\express\lib\application.js:635:24)[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/server.js:88:5[39m
+Nov-04-2022 12:56:12 [31merror[39m: [31muncaughtException: listen EADDRINUSE: address already in use :::4200[39m
+[31mError: listen EADDRINUSE: address already in use :::4200[39m
+[31m    at Server.setupListenHandle [as _listen2] (node:net:1463:16)[39m
+[31m    at listenInCluster (node:net:1511:12)[39m
+[31m    at Server.listen (node:net:1599:7)[39m
+[31m    at Function.listen (E:\node\Healthlens\npm_healthlens_nodejs\node_modules\express\lib\application.js:635:24)[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/server.js:88:5[39m
+Nov-04-2022 13:24:57 [31merror[39m: [31muncaughtException: listen EADDRINUSE: address already in use :::4200[39m
+[31mError: listen EADDRINUSE: address already in use :::4200[39m
+[31m    at Server.setupListenHandle [as _listen2] (node:net:1463:16)[39m
+[31m    at listenInCluster (node:net:1511:12)[39m
+[31m    at Server.listen (node:net:1599:7)[39m
+[31m    at Function.listen (E:\node\Healthlens\npm_healthlens_nodejs\node_modules\express\lib\application.js:635:24)[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/server.js:88:5[39m
+Nov-04-2022 13:43:42 [31merror[39m: [31muncaughtException: getOrganizationByProvider is not defined[39m
+[31mReferenceError: getOrganizationByProvider is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:10:37[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:43:54 [31merror[39m: [31muncaughtException: updateOrganization is not defined[39m
+[31mReferenceError: updateOrganization is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:34[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:02 [31merror[39m: [31muncaughtException: updateOrganization is not defined[39m
+[31mReferenceError: updateOrganization is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:11 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:16 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:22 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:28 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:43 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:49 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:56 [31merror[39m: [31muncaughtException: updateFacility is not defined[39m
+[31mReferenceError: updateFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:12:30[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:44:59 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:08 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:15 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:21 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:27 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:34 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 13:45:39 [31merror[39m: [31muncaughtException: deleteFacility is not defined[39m
+[31mReferenceError: deleteFacility is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/api/facility/facility.controller.js:13:33[39m
+[31m    at ModuleJob.run (node:internal/modules/esm/module_job:193:25)[39m
+[31m    at async Promise.all (index 0)[39m
+[31m    at async ESMLoader.import (node:internal/modules/esm/loader:526:24)[39m
+[31m    at async loadESM (node:internal/process/esm_loader:91:5)[39m
+[31m    at async handleMainPromise (node:internal/modules/run_main:65:12)[39m
+Nov-04-2022 14:13:07 [31merror[39m: [31merr{"errors":{"FacilityID":{"name":"ValidatorError","message":"Enter a Facility ID","properties":{"message":"Enter a Facility ID","type":"required","path":"FacilityID"},"kind":"required","path":"FacilityID"}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: FacilityID: Enter a Facility ID"}[39m
+Nov-04-2022 14:13:07 [31merror[39m: [31mFacility validation failed: FacilityID: Enter a Facility ID[39m
+Nov-04-2022 17:07:49 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Nov-04-2022 17:07:49 [31merror[39m: [31mNo Authorization provided[39m
+Nov-04-2022 17:10:19 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Nov-04-2022 17:10:19 [31merror[39m: [31mNo Authorization provided[39m
+Nov-04-2022 17:15:41 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Nov-04-2022 17:15:41 [31merror[39m: [31mNo Authorization provided[39m
+Nov-04-2022 17:21:11 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Nov-04-2022 17:21:11 [31merror[39m: [31mNo Authorization provided[39m
+Nov-04-2022 18:02:22 [31merror[39m: [31muncaughtException: startAuthAPI is not defined[39m
+[31mReferenceError: startAuthAPI is not defined[39m
+[31m    at file:///E:/node/Healthlens/npm_healthlens_nodejs/server.js:77:1[39m
+Nov-04-2022 18:03:02 [31merror[39m: [31merr{"errors":{"providerID":{"name":"ValidatorError","message":"Enter a provider ID","properties":{"message":"Enter a provider ID","type":"required","path":"providerID"},"kind":"required","path":"providerID"},"contact":{"name":"ValidatorError","message":"Enter a contact","properties":{"message":"Enter a contact","type":"required","path":"contact"},"kind":"required","path":"contact"}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: providerID: Enter a provider ID, contact: Enter a contact"}[39m
+Nov-04-2022 18:03:02 [31merror[39m: [31mFacility validation failed: providerID: Enter a provider ID, contact: Enter a contact[39m
+Nov-04-2022 18:07:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:07:19 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 18:31:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:31:07 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 18:40:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:40:17 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 18:43:14 [31merror[39m: [31merr{"index":0,"code":11000,"keyPattern":{"FacilityID":1},"keyValue":{"FacilityID":null},"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:43:14 [31merror[39m: [31mE11000 duplicate key error collection: hltest.Facility index: FacilityID_1 dup key: { FacilityID: null }[39m
+Nov-04-2022 18:43:59 [31merror[39m: [31merr{"index":0,"code":11000,"keyPattern":{"FacilityID":1},"keyValue":{"FacilityID":null},"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:43:59 [31merror[39m: [31mE11000 duplicate key error collection: hltest.Facility index: FacilityID_1 dup key: { FacilityID: null }[39m
+Nov-04-2022 18:49:04 [31merror[39m: [31merr{"index":0,"code":11000,"keyPattern":{"FacilityID":1},"keyValue":{"FacilityID":null},"statusCode":500,"status":"error"}[39m
+Nov-04-2022 18:49:04 [31merror[39m: [31mE11000 duplicate key error collection: hltest.Facility index: FacilityID_1 dup key: { FacilityID: null }[39m
+Nov-04-2022 18:59:51 [31merror[39m: [31merr{"errors":{"firstName":{"name":"ValidatorError","message":"Enter a first name","properties":{"message":"Enter a first name","type":"required","path":"firstName"},"kind":"required","path":"firstName"}},"_message":"Provider validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Provider validation failed: firstName: Enter a first name"}[39m
+Nov-04-2022 18:59:51 [31merror[39m: [31mProvider validation failed: firstName: Enter a first name[39m
+Nov-04-2022 19:18:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 19:18:24 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 21:40:51 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 21:40:51 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 21:42:13 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 21:42:13 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 21:42:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 21:42:28 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 21:52:43 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 21:52:44 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 21:53:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 21:53:00 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:29:50 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:29:50 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:36:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:36:29 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:45:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:45:39 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:47:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:47:27 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:53:51 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:53:51 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:56:43 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:56:43 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:58:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:58:29 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 22:59:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 22:59:58 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 23:06:10 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 23:06:10 [31merror[39m: [31mFacility already exists[39m
+Nov-04-2022 23:07:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-04-2022 23:07:16 [31merror[39m: [31mFacility already exists[39m
+Nov-05-2022 08:46:15 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-05-2022 08:46:15 [31merror[39m: [31mFacility already exists[39m
+Nov-05-2022 08:50:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-05-2022 08:50:39 [31merror[39m: [31mFacility already exists[39m
+Nov-05-2022 10:46:06 [31merror[39m: [31merr{"errors":{"providerID":{"name":"ValidatorError","message":"Enter a provider ID","properties":{"message":"Enter a provider ID","type":"required","path":"providerID","value":""},"kind":"required","path":"providerID","value":""}},"_message":"Organization validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Organization validation failed: providerID: Enter a provider ID"}[39m
+Nov-05-2022 10:46:06 [31merror[39m: [31mOrganization validation failed: providerID: Enter a provider ID[39m
+Nov-05-2022 11:03:09 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-05-2022 11:03:09 [31merror[39m: [31mUser not found[39m
+Nov-05-2022 11:06:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-05-2022 11:06:23 [31merror[39m: [31mUser not found[39m
+Nov-07-2022 16:55:57 [31merror[39m: [31merr{"index":0,"code":11000,"keyPattern":{"providerID":1},"keyValue":{"providerID":"PVD-13"},"statusCode":500,"status":"error"}[39m
+Nov-07-2022 16:55:57 [31merror[39m: [31mE11000 duplicate key error collection: hltest.Organization index: providerID_1 dup key: { providerID: "PVD-13" }[39m
+Nov-07-2022 20:49:23 [31merror[39m: [31merr{"errors":{"facilityType":{"name":"ValidatorError","message":"Enter Facility Type","properties":{"message":"Enter Facility Type","type":"required","path":"facilityType","value":""},"kind":"required","path":"facilityType","value":""}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: facilityType: Enter Facility Type"}[39m
+Nov-07-2022 20:49:23 [31merror[39m: [31mFacility validation failed: facilityType: Enter Facility Type[39m
+Nov-30-2022 13:08:13 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-30-2022 13:08:13 [31merror[39m: [31mUser not found[39m
+Nov-30-2022 13:09:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-30-2022 13:09:07 [31merror[39m: [31mUser not found[39m
+Nov-30-2022 13:09:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-30-2022 13:09:19 [31merror[39m: [31mUser not found[39m
+Nov-30-2022 13:09:27 [31merror[39m: [31merr{"expose":true,"statusCode":400,"status":400,"body":"{\r\n    \"userName\": \"irfan25\",\r\n    \"password\": \"1234\",\r\n \r\n}","type":"entity.parse.failed"}[39m
+Nov-30-2022 13:09:27 [31merror[39m: [31mUnexpected token } in JSON at position 59[39m
+Nov-30-2022 13:09:32 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Nov-30-2022 13:09:32 [31merror[39m: [31mUser not found[39m
+Dec-01-2022 12:01:02 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-01-2022 12:01:02 [31merror[39m: [31mIncorrect password[39m
+Dec-05-2022 11:18:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 11:18:24 [31merror[39m: [31morganization not found[39m
+Dec-05-2022 11:36:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 11:36:23 [31merror[39m: [31mfacility not found[39m
+Dec-05-2022 11:58:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 11:58:54 [31merror[39m: [31mplease provider provider id[39m
+Dec-05-2022 13:56:59 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:56:59 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:56:59 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:56:59 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:24 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:24 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:33 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:33 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:33 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:33 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:57 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:57 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 13:58:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 13:58:58 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 14:06:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 14:06:47 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 14:06:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 14:06:47 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 17:11:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 17:11:29 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 17:11:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 17:11:29 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 18:13:02 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 18:13:02 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 18:13:02 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 18:13:02 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 18:13:10 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 18:13:10 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 18:13:10 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 18:13:10 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 20:17:33 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 20:17:33 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 20:17:33 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 20:17:33 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 20:24:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 20:24:31 [31merror[39m: [31mfacility not found[39m
+Dec-05-2022 20:25:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 20:25:47 [31merror[39m: [31mfacility not found[39m
+Dec-05-2022 20:47:32 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 20:47:32 [31merror[39m: [31mInvalid body parameter[39m
+Dec-05-2022 22:03:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 22:03:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 22:03:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 22:03:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 22:03:41 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:41 [31merror[39m: [31mplease provide provider id[39m
+Dec-05-2022 22:03:41 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-05-2022 22:03:41 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 12:47:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 12:47:53 [31merror[39m: [31mFacility already exists[39m
+Dec-06-2022 12:50:03 [31merror[39m: [31merr{"errors":{"providerID":{"name":"ValidatorError","message":"Enter a provider ID","properties":{"message":"Enter a provider ID","type":"required","path":"providerID"},"kind":"required","path":"providerID"}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: providerID: Enter a provider ID"}[39m
+Dec-06-2022 12:50:03 [31merror[39m: [31mFacility validation failed: providerID: Enter a provider ID[39m
+Dec-06-2022 12:51:19 [31merror[39m: [31merr{"errors":{"providerID":{"name":"ValidatorError","message":"Enter a provider ID","properties":{"message":"Enter a provider ID","type":"required","path":"providerID"},"kind":"required","path":"providerID"}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: providerID: Enter a provider ID"}[39m
+Dec-06-2022 12:51:19 [31merror[39m: [31mFacility validation failed: providerID: Enter a provider ID[39m
+Dec-06-2022 12:55:18 [31merror[39m: [31merr{"errors":{"providerID":{"name":"ValidatorError","message":"Enter a provider ID","properties":{"message":"Enter a provider ID","type":"required","path":"providerID"},"kind":"required","path":"providerID"}},"_message":"Facility validation failed","statusCode":500,"status":"error","name":"ValidationError","message":"Facility validation failed: providerID: Enter a provider ID"}[39m
+Dec-06-2022 12:55:18 [31merror[39m: [31mFacility validation failed: providerID: Enter a provider ID[39m
+Dec-06-2022 13:00:18 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:18 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:18 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:18 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:37 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:37 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:49 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:00:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:00:49 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:25 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:25 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:25 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:25 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:44 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:44 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:44 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:44 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:46 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:46 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:46 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:46 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:47 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:47 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:51 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:51 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:51 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:51 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:08:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:08:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:09:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:09:39 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:09:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:09:39 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:10:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:10:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:10:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:10:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:15 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:15 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:37 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:37 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:40 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:40 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:11:40 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:11:40 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:12:18 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:12:18 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:12:18 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:12:18 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:12:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:12:21 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:12:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:12:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:12:52 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:12:52 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:13:33 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:13:33 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:13:45 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:13:45 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:13:46 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:13:46 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:21 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:22 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 13:16:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 13:16:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:47:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:47:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:47:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:47:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:47:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:47:12 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:47:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:47:12 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:52:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:52:00 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:52:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:52:00 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:52:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:52:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:52:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:52:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:54:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:54:54 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:54:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:54:54 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:54:57 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:54:57 [31merror[39m: [31mplease provide provider id[39m
+Dec-06-2022 21:54:57 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-06-2022 21:54:57 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 10:26:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 10:26:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 10:26:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 10:26:31 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:39:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:39:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:39:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:39:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:55:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:55:49 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:55:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:55:49 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:55:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:55:54 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:55:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:55:54 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:59:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:59:00 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:59:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:59:00 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:59:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:59:07 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 12:59:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 12:59:07 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:00:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:00:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:00:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:00:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:16 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:22 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:22 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:38 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:38 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:38 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:38 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:41 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:41 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:41 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:41 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:53 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:02:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:02:53 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:14 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:14 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:14 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:14 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:17 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:17 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:21 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:21 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:30 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:32 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:32 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:32 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:32 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:34 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:34 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:34 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:34 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:36 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:36 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:36 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:36 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:38 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:38 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:03:38 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:03:38 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:04:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:04:58 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:04:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:04:58 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:05 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:11 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:11 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:05:23 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:05:23 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:27:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:27:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:27:08 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:27:08 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:27:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:27:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:27:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:27:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:28:02 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:28:02 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 13:28:02 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 13:28:02 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 16:48:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 16:48:16 [31merror[39m: [31mfacility not found[39m
+Dec-07-2022 16:49:45 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 16:49:45 [31merror[39m: [31mfacility not found[39m
+Dec-07-2022 16:52:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 16:52:11 [31merror[39m: [31mfacility not found[39m
+Dec-07-2022 19:41:44 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 19:41:44 [31merror[39m: [31mPlease provide facilityID[39m
+Dec-07-2022 20:51:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:07 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 20:51:07 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:07 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 20:51:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:11 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 20:51:11 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:11 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 20:51:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:17 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 20:51:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 20:51:17 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:07:06 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:07:06 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:07:06 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:07:06 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:07:09 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:07:09 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:07:09 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:07:09 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:23:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:23:24 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:23:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:23:24 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:24:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:24:22 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:24:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:24:22 [31merror[39m: [31mplease provide provider id[39m
+Dec-07-2022 21:25:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-07-2022 21:25:24 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:02:55 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:02:55 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:02:55 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:02:55 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:07:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:07:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:07:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:07:27 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:07:34 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:07:34 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 11:07:34 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 11:07:34 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:14:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:14:39 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:14:39 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:14:39 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:23:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:23:20 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:23:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:23:20 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:23:42 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:23:42 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:23:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:23:58 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:24:01 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:24:01 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:24:14 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:24:14 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 12:24:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 12:24:21 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 21:05:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 21:05:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 21:05:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 21:05:28 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 21:07:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 21:07:12 [31merror[39m: [31mplease provide provider id[39m
+Dec-08-2022 21:07:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-08-2022 21:07:12 [31merror[39m: [31mplease provide provider id[39m

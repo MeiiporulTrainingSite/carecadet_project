@@ -192,6 +192,7 @@ import { Buttoncomponent } from "../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../Redux/Hook";
 import { logoutButton, storeLoginInfo } from "../Redux/LoginSlice";
 import Cookies from "js-cookie";
+import { refrestState } from "../Redux/orgSlice";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -208,7 +209,7 @@ const Navbar = () => {
   };
   const onLogout=()=>{
     dispatch(logoutButton())
-    dispatch(storeLoginInfo({}))
+   dispatch(refrestState())
     Cookies.remove("token")
     localStorage.removeItem("pageUserType")
     navigate("/")
