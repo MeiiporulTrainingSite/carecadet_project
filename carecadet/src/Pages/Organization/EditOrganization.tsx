@@ -89,7 +89,7 @@ const EditOrganization = () => {
       .then((res) => {
         alert("success");
         // dispatch(organizationEdit(orgdata))
-        navigate("/org")
+        // navigate("/org")
         // actions.resetForm({
         //   values: initialValues,
         // });

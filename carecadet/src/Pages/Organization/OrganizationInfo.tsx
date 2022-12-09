@@ -346,9 +346,7 @@ const OrganizationInfo = () => {
           </Grid>
         </Form>
       </Formik>
-      <br></br>
-      <br></br>
-      <OrganizationLandingView/>
+   
     </Paper>
   );
 };
