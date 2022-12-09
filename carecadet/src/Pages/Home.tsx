@@ -1,10 +1,22 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import healthcare from "../Images/healthcare.jpg";
+import { useNavigate } from "react-router-dom";
+
+import { useAppDispatch } from "../Redux/Hook";
+import { pageUser } from "../Redux/LoginSlice";
 
 import { Buttoncomponent } from "../Components/Buttoncomp";
 
 const Home = () => {
+  const dispatch=useAppDispatch()
+  const navigation =useNavigate()
+  const onRouteUser=(userType:string)=>{
+   localStorage.setItem("pageUserType",userType)
+    dispatch(pageUser(userType))
+
+    navigation("/login")
+  }
   return (
     <Box sx={{ width: "100%",mt:"-0.5vh", height:"95vh", backgroundColor: "primary.light"}}>
       <Grid
@@ -46,7 +58,7 @@ const Home = () => {
               fullWidth={false}
               variant="contained"
               color="secondary"
-          
+              onClick={()=>{onRouteUser("PATIENT")}}
               sx={{
                 margin: 2,
                 backgroundColor: "secondary.dark",
@@ -69,12 +81,13 @@ const Home = () => {
             </Buttoncomponent>
 
             <Buttoncomponent
-              href="/login"
+              // href="/login"
               size="medium"
               type="button"
               fullWidth={false}
               variant="contained"
               color="secondary"
+              onClick={()=>{onRouteUser("PROVIDER")}}
               sx={{
                 margin: 2,
                 backgroundColor: "secondary.dark",
@@ -103,6 +116,7 @@ const Home = () => {
               fullWidth={false}
               variant="contained"
               color="primary"
+              onClick={()=>{onRouteUser("PAYER")}}
               sx={{
                 margin: 2,
                 backgroundColor: "secondary.dark",

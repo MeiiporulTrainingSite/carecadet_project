@@ -3,19 +3,26 @@ import Patient from "./Pages/Patient";
 import Provider from "./Pages/Provider";
 import Payer from "./Pages/Payer";
 import Contact from "./Pages/Contact";
-import Pricelist from "./Pages/pricelist";
-import Pricelisthome from "./Pages/Pricelisthome";
 
 
 // other
-import {FC} from "react";
+import { FC } from "react";
 import OrganizationInfo from "./Pages/OrganizationInfo";
-import FacilityPage from "./Pages/FacilityInfo";
+import CreateFacility from "./Pages/Facility/CreateFacility";
+import UpdateFacility from "./Pages/Facility/EditFacility";
+import ViewFacility from "./Pages/Facility/ViewFacility";
+import Pricelist from "./Pages/Services/pricelist";
+import Pricelisthome from "./Pages/Services/Pricelisthome";
+import PricelistEditpage from "./Pages/Services/pricelisteditpage";
+import Pricelistlandingpage from "./Pages/Services/pricelistlandingpage";
+
 import Login from "./Pages/Login";
+import Home from "./Pages/Home";
+import Signup from "./Pages/Signup";
 
 interface Route {
   key: string;
-  title: string;
+  title?: string;
   path: string;
   enabled: boolean;
   component: FC<{}>;
@@ -23,97 +30,141 @@ interface Route {
 
 export const routes: Array<Route> = [
   {
-      key: 'patient',
-      title: 'Patient',
-      path: '/patient',
-      enabled: true,
-      component: Patient
+    key: "patient",
+    title: "Patient",
+    path: "/patient",
+    enabled: true,
+    component: Patient,
   },
   {
-      key: 'provider',
-      title: 'Provider',
-      path: '/login',
-      enabled: true,
-      component: Login
+    key: "provider",
+    title: "Provider",
+    path: "/login",
+    enabled: true,
+    component: Login,
   },
   {
-      key: 'payer',
-      title: 'Payer',
-      path: '/payer',
-      enabled: true,
-      component: Payer
+    key: "payer",
+    title: "Payer",
+    path: "/payer",
+    enabled: true,
+    component: Payer,
   },
   {
-      key: 'contact',
-      title: 'Contact',
-      path: '/contact',
-      enabled: true,
-      component: Contact
+    key: "contact",
+    title: "Contact",
+    path: "/contact",
+    enabled: true,
+    component: Contact,
   },
- 
-  
-  
-]
+];
 
- 
+export const login: Array<Route> = [
+  {
+    key: "home",
+    path: "/",
+    enabled: true,
+    component: Home,
+  },
+  {
+    key: "login",
+    path: "/login",
+    enabled: true,
+    component: Login,
+  },
+  {
+    key: "signup",
+    path: "/signup",
+    enabled: true,
+    component: Signup,
+  },
+];
+
 export const routespages: Array<Route> = [
-    {
-        key: 'patient',
-        title: 'Patient',
-        path: '/patient',
-        enabled: true,
-        component: Patient
-    },
-    {
-        key: 'provider',
-        title: 'Provider',
-        path: '/provider',
-        enabled: true,
-        component: Provider
-    },
-    {
-        key: 'payer',
-        title: 'Payer',
-        path: '/payer',
-        enabled: true,
-        component: Payer
-    },
-    {
-        key: 'contact',
-        title: 'Contact',
-        path: '/contact',
-        enabled: true,
-        component: Contact
-    },
-   
-    {
-      key: 'org',
-      title: 'Org',
-      path: '/org',
-      enabled: true,
-      component: OrganizationInfo
+  {
+    key: "patient",
+    title: "Patient",
+    path: "/patient",
+    enabled: true,
+    component: Patient,
   },
   {
-      key: 'facility',
-      title: 'Facility',
-      path: '/facility',
-      enabled: true,
-      component: FacilityPage
+    key: "provider",
+    title: "Provider",
+    path: "/provider",
+    enabled: true,
+    component: Provider,
   },
   {
-    key: 'priceliat',
-    title: 'Pricelist',
-    path: '/pricelist',
+    key: "payer",
+    title: "Payer",
+    path: "/payer",
     enabled: true,
-    component: Pricelist
-},
-{
-    key: 'pricelisthome',
-    title: 'Pricelisthome',
-    path: '/pricelisthome',
+    component: Payer,
+  },
+  {
+    key: "contact",
+    title: "Contact",
+    path: "/contact",
     enabled: true,
-    component: Pricelisthome
-},
-    
-  ]
+    component: Contact,
+  },
 
+  {
+    key: "org",
+    title: "Org",
+    path: "/org",
+    enabled: true,
+    component: OrganizationInfo,
+  },
+  {
+    key: "viewFacility",
+    title: "Facility",
+    path: "/facility",
+    enabled: true,
+    component: ViewFacility,
+  },
+  {
+    key: "createFacility",
+    title: "Facility",
+    path: "/addFacility",
+    enabled: true,
+    component: CreateFacility,
+  },
+  {
+    key: "updateFacility",
+    title: "Facility",
+    path: "/update",
+    enabled: true,
+    component: UpdateFacility,
+  },
+  {
+    key: "priceliat",
+    title: "Pricelist",
+    path: "/pricelist",
+    enabled: true,
+    component: Pricelist,
+  },
+  {
+    key: "pricelisthome",
+    title: "Pricelisthome",
+    path: "/pricelisthome",
+    enabled: true,
+    component: Pricelisthome,
+  },
+  {
+    key: "pricelistedit",
+    title: "Pricelistedit",
+    path: "/pricelistedit",
+    enabled: true,
+    component: Pricelisthome,
+  },
+  {
+    key: "pricelistlanding",
+    title: "Pricelistlanding",
+    path: "/pricelistlanding",
+    enabled: true,
+    component: Pricelisthome,
+  },
+
+];

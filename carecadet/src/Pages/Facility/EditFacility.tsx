@@ -1,20 +1,21 @@
-import React from "react";
-import { Formik, Form, ErrorMessage } from "formik";
+import React, { useEffect, useState } from "react";
+import { Formik, Form, ErrorMessage, validateYupSchema } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
-// import {toast} from 'react-toastify';
-import {
-    Grid, Typography, Paper, TextField, Select
-} from "@mui/material";
+import { Grid, Typography, Paper, TextField, Select, IconButton, Button } from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 //components
-import FormTextField from "../Components/Textfield";
-import { Buttoncomponent } from "../Components/Buttoncomp";
-import SelectField from '../Components/Select';
-import ErrorProps from "../Components/Errorprops";
+import FormTextField from "../../Components/Textfield";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
+import SelectField from '../../Components/Select';
+
+//redux store
+import { useAppSelector } from '../../Redux/Hook';
 
 interface forminitialValues {
-
     providerID: string;
     facilityNPI?: string | number;
     facilityName: string;
@@ -35,44 +36,26 @@ const options = [
     { value: "Type3", item: "Type3" }
 ];
 
-export default function FacilityPage() {
-
-    const initialValues: forminitialValues = {
-
-        providerID: "",
-        facilityNPI: "",
-        facilityName: "",
-        facilityType: "",
-        addressLine1: "",
-        addressLine2: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        contact: "",
-        email: "",
+export default function UpdateFacility() {
+    const navigate = useNavigate();
+    const getid = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+    const facilityinput = useAppSelector((state: { editFacility: { fData: any } }) => state.editFacility.fData)
+    const initialValues = {
+        providerID: getid.userID,
+        facilityNPI: facilityinput.facilityNPI,
+        facilityName: facilityinput.facilityName,
+        facilityType: facilityinput.facilityType,
+        addressLine1: facilityinput.address.addressLine1,
+        addressLine2: facilityinput.address.addressLine2,
+        city: facilityinput.address.city,
+        state: facilityinput.address.state,
+        zipCode: facilityinput.address.zipCode,
+        contact: facilityinput.contact,
+        email: facilityinput.email,
     }
-
-    const validationSchema = Yup.object().shape({
-        facilityName: Yup.string().required("Required"),
-        facilityType: Yup.string().required("Required"),
-        addressLine1: Yup.string().required("Required"),
-        // addressLine2: Yup.string().required("Required field"),
-        city: Yup.string().nullable().required("Required"),
-        zipCode: Yup.string()
-            .required("Required")
-            .test(
-                "len",
-                (val: any) => val && val.length === 6
-            ),
-        state: Yup.string().nullable().required("Required"),
-        contact: Yup.string().required("Required"),
-        email: Yup.string().email().required("Required")
-    });
-
-
-
     const onSubmit = (values: forminitialValues, actions: any) => {
         const facilitydata = {
+            facilityID: facilityinput.facilityID,
             providerID: values.providerID,
             facilityNPI: values.facilityNPI,
             facilityName: values.facilityName,
@@ -86,7 +69,6 @@ export default function FacilityPage() {
             },
             email: values.email,
             contact: values.contact,
-
         };
         alert(JSON.stringify(facilitydata, null, 2));
         actions.resetForm({
@@ -102,28 +84,69 @@ export default function FacilityPage() {
                 email: "",
                 contact: ""
             }
-
         });
         axios
-            .post("http://localhost:5200/facility/createFacility", facilitydata)
+            .put(`http://localhost:5200/facility/updateFacility`, facilitydata)
             .then((res) => {
-                alert('success')
+                // alert('updated')
+                toast.success("Successfully Updated")
                 console.log("i", res.data)
+                navigate('/facility')
             })
             .catch((e) => console.log(e));
     };
 
     return (
         <Paper elevation={5} sx={{ backgroundColor: "primary.light", padding: "1.8rem", borderRadius: "15px" }}>
-            <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
+            <Typography
+                variant="h6"
+                textAlign={"right"}
+                justifyItems={"right"}
+                sx={{ color: "Black" }}
+                margin={"10px"}
+                marginBottom={"5px"}
+            >
+                Hello {getid.userID},
+            </Typography>
+            <div
+                style={{
+                    marginBottom: "10px",
+                    flex: 1,
+                    height: "3px",
+                    backgroundColor: "darkgray",
+                }}
+            />
+            <Grid container item xs={12} justifyContent="left">
+
+                <Button
+                    variant="outlined"
+                    type="button"
+                    onClick={() => { navigate("/facility") }}
+                    sx={{
+                        backgroundColor: "secondary.dark",
+                        width: "8vw",
+
+                        marginBottom: "0.5rem",
+                        color: "#fff",
+                        "&:hover": {
+                            color: "secondary.dark",
+                            border: "1px solid blue",
+                        },
+                    }}
+                    startIcon={<ArrowBackIcon fontSize="large" />}>
+                    BACK
+                </Button>
+            </Grid>
+
+            <Formik initialValues={initialValues} onSubmit={onSubmit}>
                 <Form>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Typography
-                                mb={"0.8rem"}
+                                mb={"0.5rem"}
                                 sx={{
-                                    backgroundColor: "secondary.light",
-                                    padding: "1.2rem",
+                                    backgroundColor: "#B4C8FC",
+                                    padding: "0.7rem",
                                     textAlign: "center",
                                     fontSize: "1.5rem",
                                 }}
@@ -135,7 +158,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility NPI
@@ -161,7 +185,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility Name
@@ -192,7 +217,8 @@ export default function FacilityPage() {
                                 // variant="h6"
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility Type
@@ -206,8 +232,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
-
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Street Address1
@@ -233,7 +259,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Street Address2
@@ -259,7 +286,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 City
@@ -285,7 +313,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 State
@@ -311,7 +340,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 ZipCode
@@ -337,7 +367,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Phone
@@ -363,7 +394,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.9rem 0 0.5rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Email
@@ -412,6 +444,7 @@ export default function FacilityPage() {
         </Paper>
     );
 };
+
 
 
 

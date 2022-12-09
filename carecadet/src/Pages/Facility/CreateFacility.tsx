@@ -2,19 +2,22 @@ import React from "react";
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from 'axios';
-// import {toast} from 'react-toastify';
-import {
-    Grid, Typography, Paper, TextField, Select
-} from "@mui/material";
+import {Grid, Typography, Paper, TextField, Select, IconButton, Button} from "@mui/material";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+//redux store
+import { useAppSelector } from '../../Redux/Hook';
 
 //components
-import FormTextField from "../Components/Textfield";
-import { Buttoncomponent } from "../Components/Buttoncomp";
-import SelectField from '../Components/Select';
-import ErrorProps from "../Components/Errorprops";
+import FormTextField from "../../Components/Textfield";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
+import SelectField from '../../Components/Select';
+import { axiosPrivate } from "../../axios/axios";
+
 
 interface forminitialValues {
-
     providerID: string;
     facilityNPI?: string | number;
     facilityName: string;
@@ -35,11 +38,13 @@ const options = [
     { value: "Type3", item: "Type3" }
 ];
 
-export default function FacilityPage() {
+export default function CreateFacility() {
+    const navigate = useNavigate();
+    const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+    console.log('data', data);
 
     const initialValues: forminitialValues = {
-
-        providerID: "",
+        providerID: data.userID,
         facilityNPI: "",
         facilityName: "",
         facilityType: "",
@@ -53,6 +58,7 @@ export default function FacilityPage() {
     }
 
     const validationSchema = Yup.object().shape({
+        
         facilityName: Yup.string().required("Required"),
         facilityType: Yup.string().required("Required"),
         addressLine1: Yup.string().required("Required"),
@@ -62,7 +68,7 @@ export default function FacilityPage() {
             .required("Required")
             .test(
                 "len",
-                (val: any) => val && val.length === 6
+                (val: any) => val && val.length === 5
             ),
         state: Yup.string().nullable().required("Required"),
         contact: Yup.string().required("Required"),
@@ -104,35 +110,59 @@ export default function FacilityPage() {
             }
 
         });
-        axios
+        axiosPrivate
             .post("http://localhost:5200/facility/createFacility", facilitydata)
             .then((res) => {
-                alert('success')
+                // alert('success')
+                toast.success("Successfully Added ")               
                 console.log("i", res.data)
             })
             .catch((e) => console.log(e));
     };
 
+
     return (
         <Paper elevation={5} sx={{ backgroundColor: "primary.light", padding: "1.8rem", borderRadius: "15px" }}>
-           <Typography
-          variant="h6"
-          textAlign={"right"}
-          justifyItems={"right"}
-          sx={{ color: "Black" }}
-          margin={"10px"}
-          marginBottom={"5px"}
-        >
-          Hello User,
-        </Typography>
-        <div
-          style={{
-            marginBottom:"10px",
-            flex: 1,
-            height: "3px",
-            backgroundColor: "darkgray",
-          }}
-        />
+            <Typography
+                variant="h6"
+                textAlign={"right"}
+                justifyItems={"right"}
+                sx={{ color: "Black" }}
+                margin={"10px"}
+                marginBottom={"5px"}
+            >
+                Hello {data.userID},
+            </Typography>
+            <div
+                style={{
+                    marginBottom: "10px",
+                    flex: 1,
+                    height: "3px",
+                    backgroundColor: "darkgray",
+                }}
+            />
+            <Grid container item xs={12} justifyContent="left">
+                {/* <button ></button> */}
+                <Button
+                    variant="outlined"
+                    type="button"
+                    onClick={() => { navigate("/facility") }}
+                    sx={{
+                        backgroundColor: "secondary.dark",
+                        width: "8vw",
+
+                        marginBottom: "0.5rem",
+                        color: "#fff",
+                        "&:hover": {
+                            color: "secondary.dark",
+                            border: "1px solid blue",
+                        },
+                    }}
+                    startIcon={<ArrowBackIcon fontSize="large" />}>
+                    BACK
+                </Button>
+            </Grid>
+
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 <Form>
                     <Grid container spacing={2}>
@@ -140,8 +170,8 @@ export default function FacilityPage() {
                             <Typography
                                 mb={"0.5rem"}
                                 sx={{
-                                    backgroundColor: "#B4C8FC",
-                                    padding: "1.2rem",
+                                    backgroundColor: "secondary.light",
+                                    padding: "0.7rem",
                                     textAlign: "center",
                                     fontSize: "1.5rem",
                                 }}
@@ -153,7 +183,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility NPI
@@ -179,7 +210,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility Name
@@ -210,7 +242,8 @@ export default function FacilityPage() {
                                 // variant="h6"
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Facility Type
@@ -224,8 +257,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
-
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Street Address1
@@ -251,7 +284,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Street Address2
@@ -277,7 +311,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 City
@@ -303,7 +338,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 State
@@ -329,7 +365,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 ZipCode
@@ -355,7 +392,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Phone
@@ -381,7 +419,8 @@ export default function FacilityPage() {
                             <Typography
                                 sx={{
                                     fontSize: "1.2rem",
-                                    m: "0.5rem 0 0.2rem 0",
+                                    // m: "0.5rem 0 0.2rem 0",
+                                    mb: "0.5rem"
                                 }}
                             >
                                 Email

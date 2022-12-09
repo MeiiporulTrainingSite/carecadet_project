@@ -1,34 +1,19 @@
 import * as React from "react";
 import profilephoto from "../images/profile.jpg";
-import { menuItems } from "./MenuItem";
+
 import { Link, useLocation } from 'react-router-dom';
 import {
     Typography,
     Toolbar,
     Paper,
-    Box,
-    CssBaseline,
-    Divider,
-    Drawer,
-    List,
-    ListItem,
-    MenuList,
-
-} from "@mui/material";
-
-
-import ListSubheader from '@mui/material/ListSubheader';
-import { listItemClasses } from '@mui/material';
+    Box,   
+    List} from "@mui/material";
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Collapse from '@mui/material/Collapse';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
+
 
 export default function SideNavBar() {
     const [open, setOpen] = React.useState(true);
@@ -97,13 +82,7 @@ export default function SideNavBar() {
         selected: {}
     }
 
-
-    // export default function SideNavBar() {
-    //     const [mobileOpen, setMobileOpen] = React.useState(false);
-
-    //     const handleDrawerToggle = () => {
-    //         setMobileOpen(!mobileOpen);
-    //     };
+  
 
     const drawer = (
         <List>
@@ -140,75 +119,17 @@ export default function SideNavBar() {
                 ABC UrgentCare
             </Typography>
 
-            {/* <Divider /> */}
-
-
-
-
-
-            {/* {menuItems.map((list, i) => (
-                <Box key={i}>
-                    <Link to={list.path} style = {{textDecoration:'none'}} > */}
-            {/* className = {location.pathname === list.path ? "side_active": "side_inactive"} */}
-            {/* <ListItem
-                            sx={{
-                                ":hover ": {
-                                    transition: "all .3s ease",
-                                    bgcolor: "secondary.dark",                                    */}
-            {/* // borderRadius: "10px" */}
-            {/* },
-                                bgcolor: location.pathname === list.path ? "secondary.dark": "primary.light",
-                                diplay: "flex",
-                                gap: "15px",
-                                padding: "5%",
-                                textTransform: "capitalize",
-                                justifyContent: "flex-start",
-                                alignItems: "center",
-                                
-                            }}
-                        >
-                            <Typography
-                                sx={{ */}
-            {/* // fontWeight: 400,
-                                    // fontFamily: "Poppins",
-                                    fontSize: "1.3rem",
-                                    color: "primary.contrastText",
-                                    marginLeft:"40px"
-                                   
-                                }}
-                            >
-                                {list.title}
-                            </Typography>
-                        </ListItem>
-                    </Link> */}
-            {/* <Divider /> */}
-            {/* </Box>
-            ))} */}
+            
         </List>
     );
 
-    // return (
-
-    {/* <Paper
-                        sx={{
-                            display: { xs: "none", md: "block" },
-                            height: "100vh",
-                             width: "20vw",
-                            borderRadius: "15px",
-                            position:"fixed",
-                            bgcolor:"primary.light"
-                        }}
-                        elevation={9}
-                    >
-                        {drawer}
-                    </Paper> */}
-
+   
 
     return (
         <>
             <Paper
                 sx={{
-                    display: { xs: "none", md: "block" },
+                    // display: { xs: "none", md: "block" },
                     height: "89vh",
                     width: "20vw",
                     borderRadius: "15px",
@@ -272,6 +193,3 @@ export default function SideNavBar() {
 
 
 
-
-    // );
-// }

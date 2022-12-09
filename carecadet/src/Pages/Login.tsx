@@ -6,11 +6,14 @@ import axios from "axios";
 import login from "../Images/login.jpg";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
+import Cookie from "js-cookie"
 
 import FormTextField from "../Components/Textfield";
 import { Buttoncomponent } from "../Components/Buttoncomp";
-import { logininfo } from '../Reduxstate/LoginSlice';
-import  {useAppDispatch}  from "../Reduxstate/Hooks";
+
+import { useAppDispatch,useAppSelector } from "../Redux/Hook";
+import { loginButton, storeLoginInfo } from "../Redux/LoginSlice";
+import { axiosPrivate } from "../axios/axios";
 
 const schema = yup.object().shape({
   email: yup
@@ -23,16 +26,17 @@ const schema = yup.object().shape({
     .min(4, "password must be at least 4 characters"),
 });
 export default function Login() {
-  const dispatch = useAppDispatch()
   const navigate = useNavigate();
+  const dispatch=useAppDispatch();
   return (
   
       <Box
         sx={{backgroundColor:"#EBF3FA", height:"95vh",mt:"-0.5vh" }}
       >
             <Grid
-              container>            
-            
+              container
+                                 
+            >
               <Grid item md={7}
                 sx={{display:"flex",justifyContent:"center"
                               }}
@@ -54,13 +58,19 @@ export default function Login() {
               };
               console.log(Logindata, "values");
 
-              axios
-                .post("http://localhost:5200/user/login", Logindata)
+              axiosPrivate
+                .post("/user/login", Logindata)
                 .then((res) => {
-                  // localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
-                  // localStorage.setItem("token", JSON.stringify(res.data.data.token));
+                  //  localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
+                  //  localStorage.setItem("token", JSON.stringify(res.data.data.token));
+                  // localStorage.setItem("auth",JSON.stringify(res.data.data))
+                  Cookie.set("token",JSON.stringify(res.data.data),{secure:true,sameSite:"strict",path:"/"})
+                  localStorage.setItem("pageUserType",res.data.data.userType)
+                  dispatch(storeLoginInfo(res.data.data))
+                  dispatch(loginButton())
                   console.log(res);
-                  dispatch(logininfo(res.data.data));
+                  
+                 
                   //  window.location = "/profile";
                   alert("Success");
                   navigate("/org");

@@ -1,31 +1,24 @@
 import React from "react";
 import { Route, RouteProps, Navigate } from "react-router";
-import SideNavBar from "./component/SideNav/SideNavComp";
-import { Grid } from "@mui/material";
-import "./check.css";
+import SideNavBar from "../component/SideNav/SideNavComp";
+import { Box, Grid, Paper } from "@mui/material";
 
-interface Props {
-  children: JSX.Element;
-  token?:boolean
+import { useAppSelector, useAppDispatch } from "../Redux/Hook";
+import { refresh } from "../Redux/LoginSlice";
+
+type Props= {
+  children: React.ReactNode
 }
-const ProtectedRoute = ({ children ,token}: Props) => {
-  console.log(token,"d")
-  let isAuth=token
-  return isAuth ? (
-    <Grid container>
-      <Grid item xs={2.5}>
-        <SideNavBar />
-      </Grid>
-      <Grid item xs={9.5}>
-        {children}
-      </Grid>
-    </Grid>
-  ) : (
-    <Navigate to="/login" replace />
-  );
+const ProtectedLogin = ({ children }: Props) => {
+  // const dispatch = useAppDispatch();
+  // dispatch(refresh());
+  const authUser = useAppSelector((state) => state.auth.logoutButton);
+
+  // let isAuth=true
+  return !authUser ? <> { children }</> : <Navigate to="/org" replace />;
 };
 
-export default ProtectedRoute;
+export default ProtectedLogin;
 
 // import React from "react";
 // import { Route, RouteProps, Navigate } from "react-router";

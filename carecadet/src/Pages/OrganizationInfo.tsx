@@ -6,7 +6,9 @@ import axios from "axios";
 
 import FormTextField from "../Components/Textfield";
 import { Buttoncomponent } from "../Components/Buttoncomp";
-import { useAppSelector } from "../Reduxstate/Hooks";
+
+import { useAppDispatch, useAppSelector } from "../Redux/Hook";
+import { axiosPrivate } from "../axios/axios";
 
 interface InitialValues {
   organizationInformation: {
@@ -30,7 +32,8 @@ interface InitialValues {
 }
 
 const OrganizationInfo = () => {
-  const data = useAppSelector((state) => state.loginstate.info)
+  const select = useAppSelector((state) => state.auth.login);
+
   const initialValues: InitialValues = {
     organizationInformation: {
       providerID: "",
@@ -53,7 +56,7 @@ const OrganizationInfo = () => {
   };
   const onSubmit = (values: InitialValues, actions: any) => {
     const orgdata = {
-      providerID: data.userID,
+      providerID: select.userID,
       organizationName: values.organizationInformation.organizationName,
 
       address: {
@@ -74,15 +77,14 @@ const OrganizationInfo = () => {
       },
     };
     alert(JSON.stringify(orgdata, null, 2));
-    axios
-      .post("http://localhost:5200/organization/createOrganization", orgdata)
+    axiosPrivate
+      .post("/organization/createOrganization", orgdata)
       .then((res) => {
         alert("success");
         actions.resetForm({
-          values: initialValues
+          values: initialValues,
         });
       });
-
   };
 
   const validationSchema = Yup.object().shape({
@@ -202,7 +204,15 @@ const OrganizationInfo = () => {
     },
   ];
   return (
-    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem", borderRadius: "15px" }}>
+    <Paper
+      elevation={9}
+      sx={{
+        backgroundColor: "primary.light",
+        padding: "1.5rem",
+        borderRadius: "15px",
+      }}
+    >
+      {/* <p>{JSON.stringify(select)}</p> */}
       <Typography
         variant="h6"
         textAlign={"right"}
@@ -221,7 +231,11 @@ const OrganizationInfo = () => {
           backgroundColor: "darkgray",
         }}
       />
-      <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
+      >
         <Form>
           <Grid container spacing={2}>
             <Grid item xs={12}>

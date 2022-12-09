@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import { Grid, Typography, Button, Paper, Box, Container } from "@mui/material";
 import axios from "axios";
-import { Buttoncomponent } from "../Components/Buttoncomp";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
-
+import { parse } from "csv-parse/browser/esm/sync";
 
 type cvsItem = {
   id: string;
@@ -19,6 +19,7 @@ export default function Pricelisthome() {
   const [csvData, setCsvData] = useState<cvsItem[]>([]);
   const [filename, setFilename] = useState("");
   const [pageSize, setPagesize] = useState(5);
+  console.log(csvData, "checkd");
 
   const onCellEditCommit = (cellData: any) => {
     const { id, field, value } = cellData;
@@ -28,24 +29,25 @@ export default function Pricelisthome() {
         // if (field === "Sno") {
         //   return { ...data, value: value };
         // }
-        if (field === "Service Code") {
-          return { ...data, value: value };
-        }
-        if (field === "Diagnosis Test/Service Name") {
-          return { ...data, value: value };
-        }
-        if (field === "Organisation Prices") {
-          return { ...data, value: value };
-        }
-        if (field === "Facility 1 Prices") {
-          return { ...data, value: value };
-        }
-        if (field === "Facility 2 Prices") {
-          return { ...data, value: value };
-        }
-        if (field === "Facility 3 Prices") {
-          return { ...data, value: value };
-        }
+        return { ...data, [field]: value };
+        // if (field === "Service Code") {
+        //   return { ...data, ["Service Code"]: value };
+        // }
+        // if (field === "Diagnosis Test/Service Name") {
+        //   return { ...data, ["Diagnosis Test/Service Name"]: value };
+        // }
+        // if (field === "Organisation Prices") {
+        //   return { ...data, ["Organisation Prices"]: value };
+        // }
+        // if (field === "Facility 1 Prices") {
+        //   return { ...data, ["Facility 1 Prices"]: value };
+        // }
+        // if (field === "Facility 2 Prices") {
+        //   return { ...data, ["Facility 2 Prices"]: value };
+        // }
+        // if (field === "Facility 3 Prices") {
+        //   return { ...data, ["Facility 3 Prices"]: value };
+        // }
       }
 
       return data;
@@ -153,6 +155,49 @@ export default function Pricelisthome() {
     console.log(csvData);
   };
 
+  const upload = (e: any) => {
+    e.preventDefault();
+    // if(output){
+    //    let formData = new FormData();
+    //  formData.append("screenshot", output);
+    let datacheck = { name: filename, csv: csvData };
+    axios
+      .post(
+        "http://localhost:5200/upload",
+        datacheck
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   },
+        // }
+      )
+      .then((res) => {
+        console.log("Success ", res);
+        alert("success");
+      }); //  }
+  };
+
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    // if(output){
+    //    let formData = new FormData();
+    //  formData.append("screenshot", output);
+    let datacheck = { name: filename, csv: csvData };
+    axios
+      .post(
+        "http://localhost:5200/publish",
+        datacheck
+        // {
+        //   headers: {
+        //     "Content-Type": "multipart/form-data",
+        //   },
+        // }
+      )
+      .then((res) => {
+        console.log("Success ", res);
+        alert("success");
+      }); //  }
+  };
   return (
     <>
       <Paper
@@ -162,6 +207,20 @@ export default function Pricelisthome() {
           padding: "1.5rem",
           borderRadius: "15px",
           height: "88.8vh",
+
+          "&::-webkit-scrollbar": {
+            width: 20,
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "grey",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "secondary.dark",
+            borderRadius: 2,
+          },
+          overflowX: "hidden",
+
+          // height: "88.8vh",
         }}
       >
         <Typography
@@ -235,12 +294,12 @@ export default function Pricelisthome() {
           autoHeight
           rows={csvData}
           columns={columns}
-          getRowId={(row:any) => row.SNo}
+          getRowId={(row: any) => row.SNo}
           pagination={true}
           pageSize={pageSize}
-          onPageSizeChange={(newPageSize:any) => setPagesize(newPageSize)}
+          onPageSizeChange={(newPageSize: number) => setPagesize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}
-          // onCellEditCommit={onCellEditCommit}
+          onCellEditCommit={onCellEditCommit}
           // initialState={{
           //   pagination: {
           //     pageSize: 100
@@ -255,6 +314,7 @@ export default function Pricelisthome() {
             variant="contained"
             size="large"
             color="primary"
+            onClick={upload}
             sx={{
               mt: 2,
               backgroundColor: "secondary.dark",
@@ -287,8 +347,7 @@ export default function Pricelisthome() {
                 fontSize: "1rem",
               },
             }}
-
-            // onClick={onSubmit}
+            onClick={onSubmit}
           >
             Publish
           </Buttoncomponent>

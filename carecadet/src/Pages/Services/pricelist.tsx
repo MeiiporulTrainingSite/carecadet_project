@@ -10,74 +10,82 @@ import {
   Divider,
 } from "@mui/material";
 // import useStyles from "./style";
-import { Buttoncomponent } from "../Components/Buttoncomp"
-
+import { Buttoncomponent } from "../../Components/Buttoncomp";
 
 interface props {
-    textalign : string
-    children: JSX.Element;
-
+  textalign: string;
+  children: JSX.Element;
 }
 function Pricelist() {
   const navigate = useNavigate();
-  
+
   const navigateToupload = () => {
-  
     // This will navigate to second component
-    navigate('/Pricelisthome'); 
+    navigate("/Pricelisthome");
   };
- 
- 
+
   return (
-  
-    <Paper elevation={9} sx={{ backgroundColor: "primary.light", padding: "1.5rem",borderRadius:"15px",height:"88.8vh" }}>
-      <Typography variant="h6" textAlign={"right"} justifyItems={"right"} sx={{ color: "Black" }} margin={"40px"} marginBottom={"5px"}>
+    <Paper
+      elevation={9}
+      sx={{
+        backgroundColor: "primary.light",
+        padding: "1.5rem",
+        borderRadius: "15px",
+      }}
+    >
+      <Typography
+        variant="h6"
+        textAlign={"right"}
+        justifyItems={"right"}
+        sx={{ color: "Black" }}
+        margin={"40px"}
+        marginBottom={"5px"}
+      >
         Hello User,
       </Typography>
       <div
-          style={{
-            flex: 1,
-            height: "3px",
-            backgroundColor: "darkgray",
-          }}
-        />
-      <Typography   variant="h6"
-      margin={"40px"}
+        style={{
+          flex: 1,
+          height: "3px",
+          backgroundColor: "darkgray",
+        }}
+      />
+      <Typography
+        variant="h6"
+        margin={"40px"}
         sx={{
-           
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop:"50px"
-      }}
-    >
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "50px",
+        }}
+      >
         {/* <p className="para" style={{ paddingTop: "50px" }}> */}
         Please upload a discounted cash price information for procedures
         performed in your facility
         {/* </p> */}
       </Typography>
 
-      <Typography   
-      variant="h6"
-      margin={"40px"}
+      <Typography
+        variant="h6"
+        margin={"40px"}
         sx={{
-           
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop:"50px"
-      }}>
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "50px",
+        }}
+      >
         {/* <p className="para" style={{ paddingTop: "0" }}> */}I want to...
         {/* </p> */}
       </Typography>
-      <Typography align='center'>
-      <Buttoncomponent
+      <Typography align="center">
+        <Buttoncomponent
           type="submit"
           variant="contained"
           size="large"
-
           color="primary"
           sx={{
             mt: 2,
@@ -91,12 +99,11 @@ function Pricelist() {
               fontSize: "1rem",
             },
           }}
-        onClick={navigateToupload}
-      >
-        Upload Price List
-       
-      </Buttoncomponent>
-</Typography>
+          onClick={navigateToupload}
+        >
+          Upload Price List
+        </Buttoncomponent>
+      </Typography>
       <div
         style={{
           display: "flex",
@@ -127,50 +134,47 @@ function Pricelist() {
           }}
         />
       </div>
-      <Typography align='center'>
-      <Buttoncomponent
-      
-      type="submit"
-      variant="contained"
-      size="large"
-      color="primary"
-      sx={{
-        mt: 2,
-        backgroundColor: "secondary.dark",
-        width: "10vw",
-        color: "#fff",
-        "&:hover": {
-          color: "secondary.dark",
-          border: "1px solid blue",
-          letterSpacing: "0.2rem",
-          fontSize: "1rem",
-        },
-      }}
-        // className={classes.button}
-        // sx={{ mt: 5 }}
-      >
-        Create Manually
-      </Buttoncomponent>
+      <Typography align="center">
+        <Buttoncomponent
+          type="submit"
+          variant="contained"
+          size="large"
+          color="primary"
+          sx={{
+            mt: 2,
+            backgroundColor: "secondary.dark",
+            width: "10vw",
+            color: "#fff",
+            "&:hover": {
+              color: "secondary.dark",
+              border: "1px solid blue",
+              letterSpacing: "0.2rem",
+              fontSize: "1rem",
+            },
+          }}
+          // className={classes.button}
+          // sx={{ mt: 5 }}
+        >
+          Create Manually
+        </Buttoncomponent>
       </Typography>
-      <Typography   
-      variant="h6"
-      margin={"40px"}
+      <Typography
+        variant="h6"
+        margin={"40px"}
         sx={{
-           
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop:"50px"
-      }}>
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "50px",
+        }}
+      >
         {/* <p className="para"> */}
         If you have more than one facility, you will be prompted to select files
         corresponding to each facility
         {/* </p> */}
       </Typography>
     </Paper>
-   
-    
   );
 }
 
