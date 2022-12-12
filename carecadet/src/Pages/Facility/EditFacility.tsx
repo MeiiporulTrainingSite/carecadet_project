@@ -22,7 +22,7 @@ import SelectField from "../../Components/Select";
 
 //redux store
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import { tabValueNav } from "../../Redux/LoginSlice";
+import { editButton, tabValueNav } from "../../Redux/LoginSlice";
 
 interface forminitialValues {
   providerID: string;
@@ -142,6 +142,7 @@ export default function UpdateFacility() {
           type="button"
           onClick={() => {
             dispatch(tabValueNav(1));
+            dispatch(editButton())
             navigate("/providerlanding");
           }}
           sx={{

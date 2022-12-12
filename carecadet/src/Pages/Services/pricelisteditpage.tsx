@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Paper, TextField , Box, Typography} from "@mui/material";
+import { Paper, TextField, Box, Typography, Grid, Button } from "@mui/material";
 import axios from "axios";
 import {
   GridRowsProp,
@@ -14,7 +14,7 @@ import {
   GridActionsCellItem,
   GridEventListener,
   GridRowId,
-  GridRowModel
+  GridRowModel,
 } from "@mui/x-data-grid";
 // import {
 //   randomCreatedDate,
@@ -24,17 +24,17 @@ import {
 // } from "@mui/x-data-grid-generator";
 import {
   CheckBoxOutlineBlankSharp,
-  ConstructionOutlined
+  ConstructionOutlined,
 } from "@mui/icons-material";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 interface forminitialValues {
   SNo: "string";
   ServiceCode: "string";
   DiagnosisTestorServiceName: "string";
   OrganisationPrices: "string";
-  
 }
 
 export default function PricelistEditpage() {
@@ -66,7 +66,7 @@ export default function PricelistEditpage() {
     console.log(cellData);
     let d = data.filter((data1) => data1.SNo === id);
 
-    let dd = csvEdit.filter((ddd) => ddd.SNo=== id);
+    let dd = csvEdit.filter((ddd) => ddd.SNo === id);
 
     if (dd.length !== 0) {
       let r = csvEdit.map((dd) => {
@@ -103,16 +103,17 @@ export default function PricelistEditpage() {
     setData(result);
     //return result; //JavaScript object
     return JSON.stringify(result); //JSON
-  } const upload = (e: any) => {
+  }
+  const upload = (e: any) => {
     e.preventDefault();
     // if(output){
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
-    let datacheck={name:filename,csv:data}
+    let datacheck = { name: filename, csv: data };
     axios
       .post(
         "http://localhost:4000/upload",
-      datacheck
+        datacheck
         // {
         //   headers: {
         //     "Content-Type": "multipart/form-data",
@@ -125,8 +126,6 @@ export default function PricelistEditpage() {
       });
     //  }
   };
-  
-  
 
   const columns = [
     {
@@ -139,20 +138,39 @@ export default function PricelistEditpage() {
       field: "ServiceCode",
       headerName: "Service Code",
       editable: true,
-      width:150,
+      width: 100,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
       editable: true,
-      width: 400,
+      width: 350,
+    },
+    {
+      field: "Organisationid",
+      headerName: "Organisation ID",
+      editable: true,
+      width: 100,
     },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       editable: true,
-      width: 200,
+      width: 100,
     },
+    {
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
+      editable: true,
+      width: 100,
+    },
+    {
+      field: "FacilityPrices",
+      headerName: "Facility Prices",
+      editable: true,
+      width: 100,
+    },
+
     {
       field: "actions",
       type: "actions",
@@ -168,20 +186,18 @@ export default function PricelistEditpage() {
             label="Delete"
             onClick={handleDeleteClick(id)}
             color="inherit"
-          />
+          />,
         ];
-      }
-    }
+      },
+    },
   ];
 
   const navigate = useNavigate();
-  
-  const navigateToAdd = () => {
-  
-    // This will navigate to second component
-    navigate('/Pricelisthome'); 
-  };
 
+  const navigateToAdd = () => {
+    // This will navigate to second component
+    navigate("/Pricelisthome");
+  };
 
   return (
     <>
@@ -195,35 +211,57 @@ export default function PricelistEditpage() {
         }}
       >
         <Typography
-                mb={"0.5rem"}
-                sx={{
-                  backgroundColor: "#B4C8FC",
-                  padding: "0.7rem",
-                  textAlign: "center",
-                  fontSize: "1.5rem",
-                }}
-              >
-                Pricelist Edit Page
-              </Typography>
+          mb={"0.5rem"}
+          sx={{
+            backgroundColor: "#B4C8FC",
+            padding: "0.7rem",
+            textAlign: "center",
+            fontSize: "1.5rem",
+          }}
+        >
+          Pricelist Edit Page
+        </Typography>
+        <Grid container item xs={12} justifyContent="left">
+          <Button
+            variant="outlined"
+            type="button"
+            onClick={() => {
+              // dispatch(tabValueNav(1));
+              navigate("/pricelistlanding");
+            }}
+            sx={{
+              backgroundColor: "secondary.dark",
+              width: "8vw",
+
+              marginBottom: "0.5rem",
+              color: "#fff",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+              },
+            }}
+            startIcon={<ArrowBackIcon fontSize="large" />}
+          >
+            BACK
+          </Button>
+        </Grid>
         <>
-        <Box sx={{ display: "flex", gap: "2rem" }} >
-        
-        <DataGrid
-          autoHeight
-          autoPageSize
-          getRowId={(row) => row.SNo}
-          rows={data}
-          columns={columns}
-          
-          pagination={true}
-          pageSize={pageSize}
-          onPageSizeChange={(newPageSize) => setPagesize(newPageSize)}
-          rowsPerPageOptions={[5, 10, 20]}
-          onCellEditCommit={onCellEditCommit}
-          sx={{ m: 10, fontSize: "1rem", backgroundColor: "lightgray" }}
-        />
-</Box>
-<Buttoncomponent
+          <Box sx={{ display: "flex", gap: "2rem" }}>
+            <DataGrid
+              autoHeight
+              autoPageSize
+              getRowId={(row) => row.SNo}
+              rows={data}
+              columns={columns}
+              pagination={true}
+              pageSize={pageSize}
+              onPageSizeChange={(newPageSize) => setPagesize(newPageSize)}
+              rowsPerPageOptions={[5, 10, 20]}
+              onCellEditCommit={onCellEditCommit}
+              sx={{ m: 10, fontSize: "1rem", backgroundColor: "lightgray" }}
+            />
+          </Box>
+          <Buttoncomponent
             type="submit"
             variant="contained"
             size="large"
@@ -245,13 +283,12 @@ export default function PricelistEditpage() {
           >
             Save
           </Buttoncomponent>
-{JSON.stringify(csvEdit)}
-      <br />
-      
-      {JSON.stringify(csvdel)}
+          {/* {JSON.stringify(csvEdit)}
+          <br />
+
+          {JSON.stringify(csvdel)} */}
         </>
       </Paper>
     </>
-
   );
 }

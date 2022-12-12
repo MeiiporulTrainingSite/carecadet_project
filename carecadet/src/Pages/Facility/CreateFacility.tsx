@@ -8,13 +8,14 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 //redux store
-import { useAppSelector } from '../../Redux/Hook';
+import { useAppDispatch, useAppSelector } from '../../Redux/Hook';
 
 //components
 import FormTextField from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import SelectField from '../../Components/Select';
 import { axiosPrivate } from "../../axios/axios";
+import { tabValueNav } from "../../Redux/LoginSlice";
 
 
 interface forminitialValues {
@@ -39,6 +40,7 @@ const options = [
 ];
 
 export default function CreateFacility() {
+    const dispatch=useAppDispatch()
     const navigate = useNavigate();
     const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
     console.log('data', data);
@@ -146,7 +148,9 @@ export default function CreateFacility() {
                 <Button
                     variant="outlined"
                     type="button"
-                    onClick={() => { navigate("/facility") }}
+                    onClick={() => { 
+                        dispatch(tabValueNav(1))
+                        navigate("/providerlanding") }}
                     sx={{
                         backgroundColor: "secondary.dark",
                         width: "8vw",

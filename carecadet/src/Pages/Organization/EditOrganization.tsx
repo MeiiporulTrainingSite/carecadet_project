@@ -10,7 +10,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
-import { tabValueNav } from "../../Redux/LoginSlice";
+import { editButton, tabValueNav } from "../../Redux/LoginSlice";
 
 interface InitialValues {
   organizationInformation: {
@@ -36,6 +36,7 @@ interface InitialValues {
 const EditOrganization = () => {
   const dispatch = useAppDispatch();
   const select = useAppSelector((state) => state.edit.orgEditData);
+  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
   const navigate = useNavigate();
   console.log(select, "s");
 
@@ -229,7 +230,7 @@ const EditOrganization = () => {
         margin={"10px"}
         marginBottom={"5px"}
       >
-        Hello User,
+        Hello {data.userID},
       </Typography>
       <div
         style={{
@@ -245,6 +246,7 @@ const EditOrganization = () => {
           type="button"
           onClick={() => {
             dispatch(tabValueNav(0))
+            dispatch(editButton())
             navigate("/providerlanding");
           }}
           sx={{

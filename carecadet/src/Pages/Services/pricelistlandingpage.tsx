@@ -48,25 +48,43 @@ export default function Pricelistlandingpage() {
       field: "SNo",
       headerName: "S.No",
 
-      width: 200,
+      width: 100,
     },
     {
       field: "ServiceCode",
       headerName: "Service Code",
 
-      width: 200,
+      width: 100,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
 
-      width: 450,
+      width: 350,
+    },
+    {
+      field: "Organisationid",
+      headerName: "Organisation ID",
+
+      width: 100,
     },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
 
-      width: 200,
+      width: 100,
+    },
+    {
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
+
+      width: 100,
+    },
+    {
+      field: "FacilityPrices",
+      headerName: "Facility Prices",
+
+      width: 100,
     },
   ];
 
@@ -94,7 +112,7 @@ export default function Pricelistlandingpage() {
       >
         <>
           <Box sx={{ display: "flex", gap: "2rem" }}>
-            <TextField
+            {/* <TextField
               placeholder="Search"
               sx={{ letterSpacing: "0.2rem", ml: 10, mr: 110 }}
               InputProps={{
@@ -104,7 +122,7 @@ export default function Pricelistlandingpage() {
                   </InputAdornment>
                 ),
               }}
-            ></TextField>
+            ></TextField> */}
             <Buttoncomponent
               type="submit"
               variant="contained"

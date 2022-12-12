@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 // import useStyles from "./style";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
+import { useAppDispatch,useAppSelector } from "../../Redux/Hook";
 
 interface props {
   textalign: string;
@@ -18,7 +19,7 @@ interface props {
 }
 function Pricelist() {
   const navigate = useNavigate();
-
+  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
   const navigateToupload = () => {
     // This will navigate to second component
     navigate("/Pricelisthome");
@@ -41,7 +42,7 @@ function Pricelist() {
         margin={"40px"}
         marginBottom={"5px"}
       >
-        Hello User,
+        Hello {data.userID},
       </Typography>
       <div
         style={{

@@ -6,6 +6,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
 
 import { DataGrid } from "@mui/x-data-grid";
+import { useAppDispatch,useAppSelector } from "../../Redux/Hook";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 // import { parse } from "csv-parse/browser/esm/sync";
 
@@ -19,6 +20,9 @@ export default function Pricelisthome() {
   const [csvData, setCsvData] = useState<cvsItem[]>([]);
   const [filename, setFilename] = useState("");
   const [pageSize, setPagesize] = useState(5);
+
+  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+  console.log(data,"dat")
   console.log(csvData, "checkd");
 
   const onCellEditCommit = (cellData: any) => {
@@ -60,37 +64,44 @@ export default function Pricelisthome() {
     {
       field: "SNo",
       headerName: "S.No",
-      editable: true,
+      editable:true,
+      width: 100,
     },
     {
-      field: "Service Code",
+      field: "ServiceCode",
       headerName: "Service Code",
-      editable: true,
+      editable:true,
+      width: 100,
     },
     {
-      field: "Diagnosis Test/Service Name",
+      field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
-      editable: true,
+      editable:true,
+      width: 350,
     },
     {
-      field: "Organisation Prices",
+      field: "Organisationid",
+      headerName: "Organisation ID",
+      editable:true,
+      width: 100,
+    },
+    {
+      field: "OrganisationPrices",
       headerName: "Organisation Prices",
-      editable: true,
+      editable:true,
+      width: 100,
     },
     {
-      field: "Facility 1 Prices",
-      headerName: "Facility 1 Prices",
-      editable: true,
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
+      editable:true,
+      width: 100,
     },
     {
-      field: "Facility 2 Prices",
-      headerName: "Facility 2 Prices",
-      editable: true,
-    },
-    {
-      field: "Facility 3 Prices",
-      headerName: "Facility 3 Prices",
-      editable: true,
+      field: "FacilityPrices",
+      headerName: "Facility Prices",
+editable:true,
+      width: 100,
     },
   ];
 
@@ -101,8 +112,9 @@ export default function Pricelisthome() {
     var result = [];
 
     var headers = lines[0].split(",");
-
-    for (var i = 1; i < lines.length; i++) {
+console.log(headers,"headers")
+    for (var i = 1; i < lines.length-1; i++) {
+     
       var obj: any = {};
       var currentline = lines[i].split(",");
 
@@ -231,7 +243,7 @@ export default function Pricelisthome() {
           margin={"15px"}
           marginBottom={"5px"}
         >
-          Hello User,
+          Hello {data.userID},
         </Typography>
         <div
           style={{

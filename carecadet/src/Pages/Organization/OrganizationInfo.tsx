@@ -222,7 +222,7 @@ const OrganizationInfo = () => {
         margin={"10px"}
         marginBottom={"5px"}
       >
-        Hello User,
+        Hello {select.userID},
       </Typography>
       <div
         style={{

@@ -45,7 +45,7 @@ function a11yProps(index: number) {
 
 export default function ProviderLandingPage() {
   const tabValue = useAppSelector((state) => state.auth.tabValue);
-  console.log(tabValue,"dd")
+  const tab=tabValue!==undefined||null?tabValue:0
   const [value, setValue] = React.useState(tabValue);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

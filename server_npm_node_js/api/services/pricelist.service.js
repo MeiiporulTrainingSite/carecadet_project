@@ -4,11 +4,13 @@ import mongoose from "mongoose";
 import fs from "fs";
 import csv from "fast-csv";
 // import csv from "convert-csv-to-json";
-// import csvjson from "csvtojson";
+import csvjson from "csvtojson";
 import pkg from "json-2-csv";
 const { json2csv } = pkg;
 const __dirname = path.resolve(path.dirname(""));
-export default { uploadPricelist, publishPricelist, getPriceList };
+export default { uploadPricelist, publishPricelist, getPriceList, updatePricelist,
+  deletePricelist,
+  getPriceListbyFacility };
 
 async function uploadPricelist(file) {
   const filedata = file.csv;
@@ -26,47 +28,19 @@ async function uploadPricelist(file) {
     });
   });
 
-  // console.log("fileop", filedata);
 
-  // json2csv(filedata, (err, csv) => {
-  //   if (err) {
-  //     throw err;
-  //   }
-  //   console.log(csv,"csvop");
-  //   const filename = Date.now() + "_" + file.name;
-  //   let uploadPath = __dirname + "/uploads/" + filename;
-  //   // csv.mv(uploadPath, (err) => {
-  //   //     if (err) {
-  //   //       // return res.send(err);
-  //   //       console.log("error");
-  //   //     }
-  //   //   });
-  //   // print CSV string
-
-  //   // fs.writeFile("filename.csv", csv);
-  // });
-
-  // console.log("file", file)
-  // const filename = Date.now() + "_" + file.name;
-  // const file1 = file;
-  // let uploadPath = __dirname + "/uploads/" + filename;
-  // file1.mv(uploadPath, (err) => {
-  //   if (err) {
-  //     // return res.send(err);
-  //     console.log("error");
-  //   }
-  // });
 }
 
 // async function publishPricelist(file) {
+//   const filedata = file.csv;
 //   // if (!file) return res.status(400).send("No files were uploaded.");
-//   if (!file) {
+//   if (!filedata) {
 //     console.log("No files were uploaded");
 //   }
-//   var authorFile = file;
+//   var authorFile = filedata;
 
 //   var authors = [];
-//   const originaldata = [];
+//   // const originaldata = [];
 //   //   let CSVstring = await fs.promises.readFile(authorFile );
 //   //   const CSVoptions = {
 //   //     trim: true,
@@ -169,43 +143,51 @@ async function getPriceList() {
         SNo: 1,
         ServiceCode: 1,
         DiagnosisTestorServiceName: 1,
+        Organisationid:1,
         OrganisationPrices: 1,
+        FacilityNPI:1,
+        FacilityPrices:1,
+        createdBy: 1,
+        createdDate: 1,
+          updatedBy: 1,
+          updatedDate: 1,
+
       },
     },
   ]);
   return { data: PriceList };
 }
 
-async function publishPricelist(file) {
-  // if (!file) return res.status(400).send("No files were uploaded.");
-  if (!file) {
-    console.log("No files were uploaded");
-  }
-  var authorFile = file;
-  const fileName = file.csv;
-  // var authors = [];
-  // const originaldata = [];
+// async function publishPricelist(file) {
+//   // if (!file) return res.status(400).send("No files were uploaded.");
+//   if (!file) {
+//     console.log("No files were uploaded");
+//   }
+//   var authorFile = file;
+//   const fileName = file.csv;
+//   // var authors = [];
+//   // const originaldata = [];
 
-  //convert csvfile to jsonArray
-  csv()
-    .fromFile(fileName())
-    .then((jsonObj) => {
-      //insertmany is used to save bulk data in database.
-      //saving the data in collection(table)
-      authorFile.insertMany(jsonObj, (err, data) => {
-        if (err) {
-          res.status(400).json({
-            message: "Something went wrong!",
-          });
-        } else {
-          res.status(200).json({
-            message: "File Uploaded Successfully!",
-            result: data,
-          });
-        }
-      });
-    });
-}
+//   //convert csvfile to jsonArray
+//   csv()
+//     .fromFile(fileName())
+//     .then((jsonObj) => {
+//       //insertmany is used to save bulk data in database.
+//       //saving the data in collection(table)
+//       authorFile.insertMany(jsonObj, (err, data) => {
+//         if (err) {
+//           res.status(400).json({
+//             message: "Something went wrong!",
+//           });
+//         } else {
+//           res.status(200).json({
+//             message: "File Uploaded Successfully!",
+//             result: data,
+//           });
+//         }
+//       });
+//     });
+// }
 
 // async function publishPricelist(file) {
 //   if (!file)
@@ -233,3 +215,140 @@ async function publishPricelist(file) {
 //        res.send(authors.length + ' authors have been successfully uploaded.');
 //    });
 // };
+// async function publishPricelist(file) {
+//   const filedata = file.csv;
+//   //convert csvfile to jsonArray     
+//   // csv()  
+//   // .fromFile(file)  
+//   // .then((jsonObj)=>{  
+//   // console.log(jsonObj);  }
+//   csvjson()
+//  .fromFile(filedata)
+//  .then((jsonObj)=>{  
+//  console.log(jsonObj);  })
+//  //.then(function(jsonArrayObj){ //when parse finished, result will be emitted here.
+//   // mongoose.connection.db.listCollections({name: 'students'})
+//   // .next(function(err, collinfo) {
+//   //   if (collinfo) {
+//   //    mongoose.connection.db.hltest('students', function(err, result) {
+
+//   //     jsonArrayObj.forEach(element => {
+//   //          student.create(element)
+//   //      });
+//   //    });
+
+//   //   }else{
+//   //    jsonArrayObj.forEach(element => {
+//   //         student.create(element)
+//   //     });
+//   //   }
+//   // });
+  
+//  }
+async function publishPricelist(file){
+  const originaldata=file.csv
+  Pricelist.create(originaldata, function (err, documents) {
+            if (err) throw err;
+          });
+}
+
+// async function publishPricelist(file) {
+//   // if (!file) return res.status(400).send("No files were uploaded.");
+//   if (!file) {
+//     console.log("No files were uploaded");
+//   }
+//   var authorFile = file;
+//   const fileName = file.csv;
+//   // var authors = [];
+//   // const originaldata = [];
+
+//   //convert csvfile to jsonArray
+//   csvjson()
+//     .fromFile("./uploads/(${file.name}")
+//     .then((fileName) => {
+// console.log("fileName", fileName)
+//       //insertmany is used to save bulk data in database.
+//       //saving the data in collection(table)
+//       // authorFile.insertMany(jsonObj, (err, data) => {
+//       //   if (err) {
+//       //     res.status(400).json({
+//       //       message: "Something went wrong!",
+//       //     });
+//       //   } else {
+//       //     res.status(200).json({
+//       //       message: "File Uploaded Successfully!",
+//       //       result: data,
+//       //     });
+//       //   }
+//       // });
+//     });
+// }
+
+async function updatePricelist(body) {
+  console.log("body ", body);
+  if (Object.keys(body).length === 0) {
+      throw Error("Invalid body parameter");
+  }
+  const findPricelist = await Pricelist.findOne({SNo: body.SNo });
+  if(findSNo){
+      await Pricelist.findOneAndUpdate(
+          { SNo: body.SNo },
+          {
+            SNo: body.SNo,
+            ServiceCode: body.ServiceCode,
+            DiagnosisTestorServiceName: body.DiagnosisTestorServiceName,
+            Organisationid: body.Organisationid,
+            OrganisationPrices: body.OrganisationPrices,
+            FacilityNPI :body.FacilityNPI,
+            FacilityPrices:body.FacilityPrices,
+            createdBy: body.FacilityNPI,
+            createdDate: body.createdDate,
+              updatedBy: body.FacilityNPI,
+              updatedDate: new Date(),
+          }
+      );
+      return { message: 'Successfully saved' };
+  } else {
+      throw Error('Service not found');
+  }
+}
+
+async function deletePricelist(SNo) {
+  if(SNo){
+      await Pricelist.deleteOne( { SNo: SNo });
+      return { message: 'successfully deleted'};
+  } else {
+      throw Error('Service not found');
+  }
+}
+
+async function getPriceListbyFacility(FacilityNPI) {
+  if(FacilityNPI){
+      const PricelistDetails = await Pricelist.aggregate(
+          [
+              { $match: { FacilityNPI: FacilityNPI }},
+              {
+                $project: {
+                  SNo: 1,
+                  ServiceCode: 1,
+                  DiagnosisTestorServiceName: 1,
+                  Organisationid:1,
+                  OrganisationPrices: 1,
+                  FacilityNPI:1,
+                  FacilityPrices:1,
+                  createdBy: 1,
+                  createdDate: 1,
+                    updatedBy: 1,
+                    updatedDate: 1,
+          
+                },
+              },
+              { $limit: 1 },
+          ]
+      );
+      return { data: PricelistDetails };
+  } else {
+      throw Error('please provide facility npi')
+  }
+} 
+ 

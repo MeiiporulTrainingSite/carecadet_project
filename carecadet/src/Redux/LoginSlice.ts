@@ -9,8 +9,8 @@ interface CounterState {
   login: any;
   pageUser: string;
   logoutButton: boolean;
- 
-  tabValue:number
+  editOptions: boolean;
+  tabValue: number;
 }
 
 // Define the initial state using that type
@@ -18,8 +18,8 @@ const initialState: CounterState = {
   login: {},
   pageUser: "",
   logoutButton: false,
-
-  tabValue:0
+  editOptions: false,
+  tabValue: 0,
 };
 
 export const loginSlice = createSlice({
@@ -62,20 +62,26 @@ export const loginSlice = createSlice({
     },
     logoutButton: (state) => {
       return {
-        login:{},
-      logoutButton:false,
-      pageUser:"",
-      tabValue:0
+        login: {},
+        logoutButton: false,
+        pageUser: "",
+        tabValue: 0,
+        editOptions:false
       };
     },
     loginButton: (state) => {
       return {
-      ...state,
-      logoutButton:true
-      
+        ...state,
+        logoutButton: true,
       };
     },
-    
+    editButton: (state) => {
+      return {
+        ...state,
+        editOptions: !state.editOptions,
+      };
+    },
+
     tabValueNav: (state, action: PayloadAction<any>) => {
       return {
         ...state,
@@ -83,11 +89,17 @@ export const loginSlice = createSlice({
       };
     },
   },
-
 });
 
-export const { storeLoginInfo, refresh, pageUser, logoutButton,tabValueNav, loginButton } =
-  loginSlice.actions;
+export const {
+  storeLoginInfo,
+  refresh,
+  pageUser,
+  logoutButton,
+  tabValueNav,
+  loginButton,
+  editButton
+} = loginSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.auth.login.token
 

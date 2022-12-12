@@ -8163,3 +8163,856 @@ Dec-09-2022 18:41:44 [32mhttp[39m: [32mGET /organization/getOrganizationByPro
 [32m[39m
 Dec-09-2022 18:41:44 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 411.826 ms[39m
 [32m[39m
+Dec-09-2022 18:55:54 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-09-2022 18:55:54 [32minfo[39m: [32mEnvironment : development[39m
+Dec-09-2022 18:55:54 [32minfo[39m: [32m2022-12-09T13:25:54.222Z[39m
+Dec-12-2022 09:53:50 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 09:53:50 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 09:53:50 [32minfo[39m: [32m2022-12-12T04:23:50.341Z[39m
+Dec-12-2022 09:54:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 200 523 - 34149.778 ms[39m
+[32m[39m
+Dec-12-2022 09:54:26 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 200 523 - 16126.691 ms[39m
+[32m[39m
+Dec-12-2022 09:57:46 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 689.225 ms[39m
+[32m[39m
+Dec-12-2022 09:57:46 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 646.365 ms[39m
+[32m[39m
+Dec-12-2022 09:57:57 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 349.572 ms[39m
+[32m[39m
+Dec-12-2022 09:57:57 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 302.890 ms[39m
+[32m[39m
+Dec-12-2022 09:57:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 320.581 ms[39m
+[32m[39m
+Dec-12-2022 09:57:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 421.008 ms[39m
+[32m[39m
+Dec-12-2022 09:58:17 [32mhttp[39m: [32mPOST /user/login 200 500 - 1996.834 ms[39m
+[32m[39m
+Dec-12-2022 09:58:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 336.754 ms[39m
+[32m[39m
+Dec-12-2022 09:58:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 378.167 ms[39m
+[32m[39m
+Dec-12-2022 09:58:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 605.689 ms[39m
+[32m[39m
+Dec-12-2022 09:58:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 307.582 ms[39m
+[32m[39m
+Dec-12-2022 10:00:15 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 - - - - ms[39m
+[32m[39m
+Dec-12-2022 10:00:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 - - - - ms[39m
+[32m[39m
+Dec-12-2022 10:00:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 578 - 3313.458 ms[39m
+[32m[39m
+Dec-12-2022 10:00:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 836.326 ms[39m
+[32m[39m
+Dec-12-2022 10:00:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 558.143 ms[39m
+[32m[39m
+Dec-12-2022 10:00:27 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 864.908 ms[39m
+[32m[39m
+Dec-12-2022 10:00:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 304.511 ms[39m
+[32m[39m
+Dec-12-2022 10:00:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 520.041 ms[39m
+[32m[39m
+Dec-12-2022 10:00:46 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 354.315 ms[39m
+[32m[39m
+Dec-12-2022 10:00:46 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 305.392 ms[39m
+[32m[39m
+Dec-12-2022 10:01:00 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 901.673 ms[39m
+[32m[39m
+Dec-12-2022 10:01:00 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 308.233 ms[39m
+[32m[39m
+Dec-12-2022 10:01:11 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 - - - - ms[39m
+[32m[39m
+Dec-12-2022 10:01:15 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 578 - 2366.682 ms[39m
+[32m[39m
+Dec-12-2022 10:01:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 1834.962 ms[39m
+[32m[39m
+Dec-12-2022 10:01:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 - - - - ms[39m
+[32m[39m
+Dec-12-2022 10:01:47 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 578 - 15807.674 ms[39m
+[32m[39m
+Dec-12-2022 10:01:48 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 1640.111 ms[39m
+[32m[39m
+Dec-12-2022 10:01:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 380.606 ms[39m
+[32m[39m
+Dec-12-2022 10:01:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 566.894 ms[39m
+[32m[39m
+Dec-12-2022 10:02:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 788.222 ms[39m
+[32m[39m
+Dec-12-2022 10:02:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 321.743 ms[39m
+[32m[39m
+Dec-12-2022 10:02:31 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 1637.206 ms[39m
+[32m[39m
+Dec-12-2022 10:02:32 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 398.532 ms[39m
+[32m[39m
+Dec-12-2022 10:02:42 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 2504.896 ms[39m
+[32m[39m
+Dec-12-2022 10:02:44 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 1716.968 ms[39m
+[32m[39m
+Dec-12-2022 10:03:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 432.874 ms[39m
+[32m[39m
+Dec-12-2022 10:03:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 318.374 ms[39m
+[32m[39m
+Dec-12-2022 10:03:13 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 428.923 ms[39m
+[32m[39m
+Dec-12-2022 10:03:13 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 303.959 ms[39m
+[32m[39m
+Dec-12-2022 10:03:22 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 307.263 ms[39m
+[32m[39m
+Dec-12-2022 10:03:22 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 308.005 ms[39m
+[32m[39m
+Dec-12-2022 10:03:43 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 586.514 ms[39m
+[32m[39m
+Dec-12-2022 10:03:44 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 987.529 ms[39m
+[32m[39m
+Dec-12-2022 10:03:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 896.783 ms[39m
+[32m[39m
+Dec-12-2022 10:04:00 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 305.465 ms[39m
+[32m[39m
+Dec-12-2022 10:04:02 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 985.407 ms[39m
+[32m[39m
+Dec-12-2022 10:04:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 621.516 ms[39m
+[32m[39m
+Dec-12-2022 10:04:43 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 566.390 ms[39m
+[32m[39m
+Dec-12-2022 10:04:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 300.161 ms[39m
+[32m[39m
+Dec-12-2022 10:05:12 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 326.112 ms[39m
+[32m[39m
+Dec-12-2022 10:05:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 312.518 ms[39m
+[32m[39m
+Dec-12-2022 10:05:29 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 324.626 ms[39m
+[32m[39m
+Dec-12-2022 10:06:12 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 410.527 ms[39m
+[32m[39m
+Dec-12-2022 10:06:12 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 301.513 ms[39m
+[32m[39m
+Dec-12-2022 10:07:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 505.251 ms[39m
+[32m[39m
+Dec-12-2022 10:07:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 420.509 ms[39m
+[32m[39m
+Dec-12-2022 10:11:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 368.741 ms[39m
+[32m[39m
+Dec-12-2022 10:11:09 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 594.655 ms[39m
+[32m[39m
+Dec-12-2022 10:12:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 30 - 370.393 ms[39m
+[32m[39m
+Dec-12-2022 10:12:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 650.047 ms[39m
+[32m[39m
+Dec-12-2022 10:14:59 [32mhttp[39m: [32mPOST /organization/createOrganization 200 53 - 1087.012 ms[39m
+[32m[39m
+Dec-12-2022 10:15:07 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 585 - 597.923 ms[39m
+[32m[39m
+Dec-12-2022 10:15:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 506.954 ms[39m
+[32m[39m
+Dec-12-2022 10:16:02 [32mhttp[39m: [32mPUT /organization/updateOrganization 200 51 - 900.628 ms[39m
+[32m[39m
+Dec-12-2022 10:16:10 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 615 - 382.896 ms[39m
+[32m[39m
+Dec-12-2022 10:16:11 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 404.659 ms[39m
+[32m[39m
+Dec-12-2022 10:16:31 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 449.385 ms[39m
+[32m[39m
+Dec-12-2022 10:16:38 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 619.915 ms[39m
+[32m[39m
+Dec-12-2022 10:16:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 570.791 ms[39m
+[32m[39m
+Dec-12-2022 10:16:42 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 387.280 ms[39m
+[32m[39m
+Dec-12-2022 10:16:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 337.531 ms[39m
+[32m[39m
+Dec-12-2022 10:17:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 526.598 ms[39m
+[32m[39m
+Dec-12-2022 10:17:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 521.313 ms[39m
+[32m[39m
+Dec-12-2022 10:17:38 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 508.518 ms[39m
+[32m[39m
+Dec-12-2022 10:17:45 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 308.086 ms[39m
+[32m[39m
+Dec-12-2022 10:18:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 471.146 ms[39m
+[32m[39m
+Dec-12-2022 10:18:29 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 562.769 ms[39m
+[32m[39m
+Dec-12-2022 10:18:41 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 491.008 ms[39m
+[32m[39m
+Dec-12-2022 10:18:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 664.580 ms[39m
+[32m[39m
+Dec-12-2022 10:19:02 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 335.170 ms[39m
+[32m[39m
+Dec-12-2022 10:19:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 426.094 ms[39m
+[32m[39m
+Dec-12-2022 10:19:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 462.749 ms[39m
+[32m[39m
+Dec-12-2022 10:19:22 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 382.921 ms[39m
+[32m[39m
+Dec-12-2022 10:19:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 644.754 ms[39m
+[32m[39m
+Dec-12-2022 10:20:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 387.252 ms[39m
+[32m[39m
+Dec-12-2022 10:21:10 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 435.775 ms[39m
+[32m[39m
+Dec-12-2022 10:21:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 320.774 ms[39m
+[32m[39m
+Dec-12-2022 10:21:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 319.584 ms[39m
+[32m[39m
+Dec-12-2022 10:21:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 366.325 ms[39m
+[32m[39m
+Dec-12-2022 10:21:47 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 607.800 ms[39m
+[32m[39m
+Dec-12-2022 10:21:48 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 508.603 ms[39m
+[32m[39m
+Dec-12-2022 10:21:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 395.039 ms[39m
+[32m[39m
+Dec-12-2022 10:22:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 417.437 ms[39m
+[32m[39m
+Dec-12-2022 10:22:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 360.214 ms[39m
+[32m[39m
+Dec-12-2022 10:22:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 384.720 ms[39m
+[32m[39m
+Dec-12-2022 10:22:21 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 714.872 ms[39m
+[32m[39m
+Dec-12-2022 10:22:22 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 320.821 ms[39m
+[32m[39m
+Dec-12-2022 10:22:28 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 399.584 ms[39m
+[32m[39m
+Dec-12-2022 10:22:29 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 611.752 ms[39m
+[32m[39m
+Dec-12-2022 10:22:37 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 461.502 ms[39m
+[32m[39m
+Dec-12-2022 10:22:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 596.847 ms[39m
+[32m[39m
+Dec-12-2022 10:22:53 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 395.044 ms[39m
+[32m[39m
+Dec-12-2022 10:22:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 497.188 ms[39m
+[32m[39m
+Dec-12-2022 10:22:58 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 412.069 ms[39m
+[32m[39m
+Dec-12-2022 10:23:00 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 583.722 ms[39m
+[32m[39m
+Dec-12-2022 10:23:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 346.672 ms[39m
+[32m[39m
+Dec-12-2022 10:24:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 340.417 ms[39m
+[32m[39m
+Dec-12-2022 10:26:49 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 431.330 ms[39m
+[32m[39m
+Dec-12-2022 10:26:49 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 567.105 ms[39m
+[32m[39m
+Dec-12-2022 10:27:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 416.085 ms[39m
+[32m[39m
+Dec-12-2022 10:27:49 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 403.203 ms[39m
+[32m[39m
+Dec-12-2022 10:27:53 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 650.314 ms[39m
+[32m[39m
+Dec-12-2022 10:29:33 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 304.938 ms[39m
+[32m[39m
+Dec-12-2022 10:29:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 358.982 ms[39m
+[32m[39m
+Dec-12-2022 10:29:45 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 312.072 ms[39m
+[32m[39m
+Dec-12-2022 10:29:49 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 398.672 ms[39m
+[32m[39m
+Dec-12-2022 10:30:21 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 467.104 ms[39m
+[32m[39m
+Dec-12-2022 10:30:27 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 406.872 ms[39m
+[32m[39m
+Dec-12-2022 10:30:35 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 502.352 ms[39m
+[32m[39m
+Dec-12-2022 10:30:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 569.426 ms[39m
+[32m[39m
+Dec-12-2022 10:31:10 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 421.222 ms[39m
+[32m[39m
+Dec-12-2022 10:31:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 358.622 ms[39m
+[32m[39m
+Dec-12-2022 10:31:29 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 517.621 ms[39m
+[32m[39m
+Dec-12-2022 10:31:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 315.300 ms[39m
+[32m[39m
+Dec-12-2022 10:32:05 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 383.646 ms[39m
+[32m[39m
+Dec-12-2022 10:32:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 782.941 ms[39m
+[32m[39m
+Dec-12-2022 10:32:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 393.791 ms[39m
+[32m[39m
+Dec-12-2022 10:32:41 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 584.370 ms[39m
+[32m[39m
+Dec-12-2022 10:32:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 403.345 ms[39m
+[32m[39m
+Dec-12-2022 10:32:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 491.310 ms[39m
+[32m[39m
+Dec-12-2022 10:33:17 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 570.539 ms[39m
+[32m[39m
+Dec-12-2022 10:33:18 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 611.247 ms[39m
+[32m[39m
+Dec-12-2022 10:33:45 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 377.613 ms[39m
+[32m[39m
+Dec-12-2022 10:33:52 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 550.078 ms[39m
+[32m[39m
+Dec-12-2022 10:33:53 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 406.813 ms[39m
+[32m[39m
+Dec-12-2022 10:33:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 498.210 ms[39m
+[32m[39m
+Dec-12-2022 10:33:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 399.893 ms[39m
+[32m[39m
+Dec-12-2022 10:35:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 436.754 ms[39m
+[32m[39m
+Dec-12-2022 10:35:21 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 463.034 ms[39m
+[32m[39m
+Dec-12-2022 10:35:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 577.302 ms[39m
+[32m[39m
+Dec-12-2022 10:35:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 510.981 ms[39m
+[32m[39m
+Dec-12-2022 10:35:32 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 337.175 ms[39m
+[32m[39m
+Dec-12-2022 10:35:38 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 425.048 ms[39m
+[32m[39m
+Dec-12-2022 10:35:39 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 509.910 ms[39m
+[32m[39m
+Dec-12-2022 10:37:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 317.781 ms[39m
+[32m[39m
+Dec-12-2022 10:37:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 366.436 ms[39m
+[32m[39m
+Dec-12-2022 10:37:28 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 543.467 ms[39m
+[32m[39m
+Dec-12-2022 10:37:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 333.643 ms[39m
+[32m[39m
+Dec-12-2022 10:37:41 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 859.701 ms[39m
+[32m[39m
+Dec-12-2022 10:37:42 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 667.150 ms[39m
+[32m[39m
+Dec-12-2022 10:37:54 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 346.291 ms[39m
+[32m[39m
+Dec-12-2022 10:37:57 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 443.933 ms[39m
+[32m[39m
+Dec-12-2022 10:37:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 516.093 ms[39m
+[32m[39m
+Dec-12-2022 10:38:05 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 507.841 ms[39m
+[32m[39m
+Dec-12-2022 10:38:11 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 585.878 ms[39m
+[32m[39m
+Dec-12-2022 10:38:17 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 324.777 ms[39m
+[32m[39m
+Dec-12-2022 10:38:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 570.086 ms[39m
+[32m[39m
+Dec-12-2022 10:39:05 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 503.314 ms[39m
+[32m[39m
+Dec-12-2022 10:39:05 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 322.431 ms[39m
+[32m[39m
+Dec-12-2022 10:39:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 404.844 ms[39m
+[32m[39m
+Dec-12-2022 10:39:12 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 395.913 ms[39m
+[32m[39m
+Dec-12-2022 10:39:14 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 463.383 ms[39m
+[32m[39m
+Dec-12-2022 10:39:36 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 365.600 ms[39m
+[32m[39m
+Dec-12-2022 10:39:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 491.193 ms[39m
+[32m[39m
+Dec-12-2022 10:39:44 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 551.759 ms[39m
+[32m[39m
+Dec-12-2022 10:39:48 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 448.912 ms[39m
+[32m[39m
+Dec-12-2022 10:39:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 337.985 ms[39m
+[32m[39m
+Dec-12-2022 10:40:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 423.068 ms[39m
+[32m[39m
+Dec-12-2022 10:40:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 367.413 ms[39m
+[32m[39m
+Dec-12-2022 10:40:10 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 325.597 ms[39m
+[32m[39m
+Dec-12-2022 10:40:18 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 600.052 ms[39m
+[32m[39m
+Dec-12-2022 10:40:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 539.609 ms[39m
+[32m[39m
+Dec-12-2022 10:40:23 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 354.310 ms[39m
+[32m[39m
+Dec-12-2022 10:40:27 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 459.471 ms[39m
+[32m[39m
+Dec-12-2022 10:40:32 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 704.854 ms[39m
+[32m[39m
+Dec-12-2022 10:40:35 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 389.230 ms[39m
+[32m[39m
+Dec-12-2022 10:40:47 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 524.440 ms[39m
+[32m[39m
+Dec-12-2022 10:40:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 378.594 ms[39m
+[32m[39m
+Dec-12-2022 10:40:54 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 508.098 ms[39m
+[32m[39m
+Dec-12-2022 10:40:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 491.725 ms[39m
+[32m[39m
+Dec-12-2022 10:40:59 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 736.466 ms[39m
+[32m[39m
+Dec-12-2022 10:41:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 449.287 ms[39m
+[32m[39m
+Dec-12-2022 10:41:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 343.913 ms[39m
+[32m[39m
+Dec-12-2022 10:41:12 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 607.389 ms[39m
+[32m[39m
+Dec-12-2022 10:41:14 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 424.156 ms[39m
+[32m[39m
+Dec-12-2022 10:41:17 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 659.674 ms[39m
+[32m[39m
+Dec-12-2022 10:41:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 357.043 ms[39m
+[32m[39m
+Dec-12-2022 10:41:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 512.838 ms[39m
+[32m[39m
+Dec-12-2022 10:42:18 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 755.775 ms[39m
+[32m[39m
+Dec-12-2022 10:42:35 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 724.097 ms[39m
+[32m[39m
+Dec-12-2022 10:42:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 353.153 ms[39m
+[32m[39m
+Dec-12-2022 10:42:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 556.960 ms[39m
+[32m[39m
+Dec-12-2022 10:43:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 412.004 ms[39m
+[32m[39m
+Dec-12-2022 10:43:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 413.742 ms[39m
+[32m[39m
+Dec-12-2022 10:43:47 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 548.178 ms[39m
+[32m[39m
+Dec-12-2022 10:44:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 438.337 ms[39m
+[32m[39m
+Dec-12-2022 10:44:39 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 562.333 ms[39m
+[32m[39m
+Dec-12-2022 10:44:53 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 624.205 ms[39m
+[32m[39m
+Dec-12-2022 10:45:10 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 602.511 ms[39m
+[32m[39m
+Dec-12-2022 10:45:10 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 399.001 ms[39m
+[32m[39m
+Dec-12-2022 10:45:14 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 311.548 ms[39m
+[32m[39m
+Dec-12-2022 10:45:14 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 319.010 ms[39m
+[32m[39m
+Dec-12-2022 10:46:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 479.740 ms[39m
+[32m[39m
+Dec-12-2022 10:46:32 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 473.514 ms[39m
+[32m[39m
+Dec-12-2022 10:46:44 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 403.204 ms[39m
+[32m[39m
+Dec-12-2022 10:46:50 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 644.032 ms[39m
+[32m[39m
+Dec-12-2022 10:46:53 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 503.528 ms[39m
+[32m[39m
+Dec-12-2022 10:47:08 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 407.746 ms[39m
+[32m[39m
+Dec-12-2022 10:47:33 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 470.791 ms[39m
+[32m[39m
+Dec-12-2022 10:47:39 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 503.135 ms[39m
+[32m[39m
+Dec-12-2022 10:48:00 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 630.705 ms[39m
+[32m[39m
+Dec-12-2022 10:48:07 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 382.707 ms[39m
+[32m[39m
+Dec-12-2022 10:48:15 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 324.513 ms[39m
+[32m[39m
+Dec-12-2022 10:49:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 437.840 ms[39m
+[32m[39m
+Dec-12-2022 10:49:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 546.037 ms[39m
+[32m[39m
+Dec-12-2022 10:49:27 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 509.720 ms[39m
+[32m[39m
+Dec-12-2022 10:49:27 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 399.615 ms[39m
+[32m[39m
+Dec-12-2022 10:49:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 673.367 ms[39m
+[32m[39m
+Dec-12-2022 10:49:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 609.677 ms[39m
+[32m[39m
+Dec-12-2022 10:53:49 [32mhttp[39m: [32mPOST /user/login 200 500 - 3664.576 ms[39m
+[32m[39m
+Dec-12-2022 10:53:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 293.951 ms[39m
+[32m[39m
+Dec-12-2022 10:53:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 302.907 ms[39m
+[32m[39m
+Dec-12-2022 10:55:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 313.389 ms[39m
+[32m[39m
+Dec-12-2022 10:55:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 462.721 ms[39m
+[32m[39m
+Dec-12-2022 10:55:31 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 345.470 ms[39m
+[32m[39m
+Dec-12-2022 10:55:31 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 563.141 ms[39m
+[32m[39m
+Dec-12-2022 10:55:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 608.773 ms[39m
+[32m[39m
+Dec-12-2022 10:55:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 311.064 ms[39m
+[32m[39m
+Dec-12-2022 10:55:45 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 344.531 ms[39m
+[32m[39m
+Dec-12-2022 10:55:45 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 351.258 ms[39m
+[32m[39m
+Dec-12-2022 10:56:50 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 295.279 ms[39m
+[32m[39m
+Dec-12-2022 10:56:51 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 279.393 ms[39m
+[32m[39m
+Dec-12-2022 10:58:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 304.130 ms[39m
+[32m[39m
+Dec-12-2022 10:58:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 349.315 ms[39m
+[32m[39m
+Dec-12-2022 10:58:26 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 302.263 ms[39m
+[32m[39m
+Dec-12-2022 10:58:27 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 503.428 ms[39m
+[32m[39m
+Dec-12-2022 10:59:34 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 433.570 ms[39m
+[32m[39m
+Dec-12-2022 10:59:58 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 290.970 ms[39m
+[32m[39m
+Dec-12-2022 11:00:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 302.432 ms[39m
+[32m[39m
+Dec-12-2022 11:00:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 296.375 ms[39m
+[32m[39m
+Dec-12-2022 11:00:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 287.370 ms[39m
+[32m[39m
+Dec-12-2022 11:00:10 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 323.058 ms[39m
+[32m[39m
+Dec-12-2022 11:00:15 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 286.021 ms[39m
+[32m[39m
+Dec-12-2022 11:00:16 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 327.815 ms[39m
+[32m[39m
+Dec-12-2022 11:00:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 321.485 ms[39m
+[32m[39m
+Dec-12-2022 11:00:25 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 472.195 ms[39m
+[32m[39m
+Dec-12-2022 11:01:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 343.841 ms[39m
+[32m[39m
+Dec-12-2022 11:01:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 281.497 ms[39m
+[32m[39m
+Dec-12-2022 11:01:30 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 324.527 ms[39m
+[32m[39m
+Dec-12-2022 11:01:30 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 485.421 ms[39m
+[32m[39m
+Dec-12-2022 11:01:32 [32mhttp[39m: [32mGET /getPriceList 200 - - 319.467 ms[39m
+[32m[39m
+Dec-12-2022 11:01:33 [32mhttp[39m: [32mGET /getPriceList 304 - - 325.368 ms[39m
+[32m[39m
+Dec-12-2022 11:01:39 [32mhttp[39m: [32mGET /getPriceList 304 - - 367.113 ms[39m
+[32m[39m
+Dec-12-2022 11:01:40 [32mhttp[39m: [32mGET /getPriceList 304 - - 565.151 ms[39m
+[32m[39m
+Dec-12-2022 11:03:04 [32mhttp[39m: [32mGET /getPriceList 304 - - 392.739 ms[39m
+[32m[39m
+Dec-12-2022 11:03:04 [32mhttp[39m: [32mGET /getPriceList 304 - - 494.206 ms[39m
+[32m[39m
+Dec-12-2022 11:03:05 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 578.814 ms[39m
+[32m[39m
+Dec-12-2022 11:03:06 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 449.961 ms[39m
+[32m[39m
+Dec-12-2022 11:03:22 [32mhttp[39m: [32mPOST /user/login 200 500 - 1387.495 ms[39m
+[32m[39m
+Dec-12-2022 11:03:23 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 276.663 ms[39m
+[32m[39m
+Dec-12-2022 11:03:24 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 326.945 ms[39m
+[32m[39m
+Dec-12-2022 11:03:46 [32mhttp[39m: [32mPUT /organization/updateOrganization 200 51 - 665.950 ms[39m
+[32m[39m
+Dec-12-2022 11:03:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 200 615 - 282.910 ms[39m
+[32m[39m
+Dec-12-2022 11:03:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 302.957 ms[39m
+[32m[39m
+Dec-12-2022 11:03:58 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 475.430 ms[39m
+[32m[39m
+Dec-12-2022 11:03:59 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 285.297 ms[39m
+[32m[39m
+Dec-12-2022 11:04:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 437.672 ms[39m
+[32m[39m
+Dec-12-2022 11:04:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 287.259 ms[39m
+[32m[39m
+Dec-12-2022 11:05:32 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 418.042 ms[39m
+[32m[39m
+Dec-12-2022 11:05:32 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 505.726 ms[39m
+[32m[39m
+Dec-12-2022 11:05:38 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 283.575 ms[39m
+[32m[39m
+Dec-12-2022 11:05:38 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 285.986 ms[39m
+[32m[39m
+Dec-12-2022 11:05:46 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 300.788 ms[39m
+[32m[39m
+Dec-12-2022 11:05:46 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 285.900 ms[39m
+[32m[39m
+Dec-12-2022 11:06:38 [32mhttp[39m: [32mPOST /user/login 200 500 - 1441.350 ms[39m
+[32m[39m
+Dec-12-2022 11:06:39 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 322.370 ms[39m
+[32m[39m
+Dec-12-2022 11:06:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 503.560 ms[39m
+[32m[39m
+Dec-12-2022 11:06:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 386.912 ms[39m
+[32m[39m
+Dec-12-2022 11:06:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 327.553 ms[39m
+[32m[39m
+Dec-12-2022 11:06:47 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 372.438 ms[39m
+[32m[39m
+Dec-12-2022 11:06:47 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 525.484 ms[39m
+[32m[39m
+Dec-12-2022 11:07:13 [32mhttp[39m: [32mPOST /facility/createFacility 200 53 - 678.731 ms[39m
+[32m[39m
+Dec-12-2022 11:07:43 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 200 993 - 309.374 ms[39m
+[32m[39m
+Dec-12-2022 11:07:43 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 333.873 ms[39m
+[32m[39m
+Dec-12-2022 11:07:48 [32mhttp[39m: [32mDELETE /facility/deleteFacility?facilityID=FAC-61 200 53 - 336.386 ms[39m
+[32m[39m
+Dec-12-2022 11:07:49 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 200 523 - 313.252 ms[39m
+[32m[39m
+Dec-12-2022 11:10:25 [32mhttp[39m: [32mPOST /user/login 200 500 - 1345.717 ms[39m
+[32m[39m
+Dec-12-2022 11:10:27 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 296.971 ms[39m
+[32m[39m
+Dec-12-2022 11:10:28 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 307.222 ms[39m
+[32m[39m
+Dec-12-2022 11:10:33 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 341.262 ms[39m
+[32m[39m
+Dec-12-2022 11:10:33 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 282.010 ms[39m
+[32m[39m
+Dec-12-2022 11:10:37 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 306.433 ms[39m
+[32m[39m
+Dec-12-2022 11:10:37 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 295.556 ms[39m
+[32m[39m
+Dec-12-2022 11:10:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 310.186 ms[39m
+[32m[39m
+Dec-12-2022 11:10:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 301.003 ms[39m
+[32m[39m
+Dec-12-2022 11:12:00 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 290.908 ms[39m
+[32m[39m
+Dec-12-2022 11:12:00 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 301.372 ms[39m
+[32m[39m
+Dec-12-2022 11:12:49 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 291.940 ms[39m
+[32m[39m
+Dec-12-2022 11:12:49 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 299.137 ms[39m
+[32m[39m
+Dec-12-2022 11:12:56 [32mhttp[39m: [32mGET /getPriceList 304 - - 323.862 ms[39m
+[32m[39m
+Dec-12-2022 11:12:56 [32mhttp[39m: [32mGET /getPriceList 304 - - 321.393 ms[39m
+[32m[39m
+Dec-12-2022 11:14:34 [32mhttp[39m: [32mGET /getPriceList 304 - - 328.253 ms[39m
+[32m[39m
+Dec-12-2022 11:14:54 [32mhttp[39m: [32mGET /getPriceList 304 - - 554.121 ms[39m
+[32m[39m
+Dec-12-2022 11:14:55 [32mhttp[39m: [32mGET /getPriceList 304 - - 335.446 ms[39m
+[32m[39m
+Dec-12-2022 11:15:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 617.408 ms[39m
+[32m[39m
+Dec-12-2022 11:15:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 363.419 ms[39m
+[32m[39m
+Dec-12-2022 11:16:01 [32mhttp[39m: [32mGET /getPriceList 304 - - 397.985 ms[39m
+[32m[39m
+Dec-12-2022 11:16:04 [32mhttp[39m: [32mGET /getPriceList 304 - - 295.281 ms[39m
+[32m[39m
+Dec-12-2022 11:16:34 [32mhttp[39m: [32mGET /getPriceList 304 - - 537.730 ms[39m
+[32m[39m
+Dec-12-2022 11:16:34 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.739 ms[39m
+[32m[39m
+Dec-12-2022 11:21:10 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:21:10 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:21:10 [32minfo[39m: [32m2022-12-12T05:51:10.201Z[39m
+Dec-12-2022 11:21:38 [32mhttp[39m: [32mPOST /user/login 200 500 - 1549.979 ms[39m
+[32m[39m
+Dec-12-2022 11:21:39 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 312.375 ms[39m
+[32m[39m
+Dec-12-2022 11:21:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 325.746 ms[39m
+[32m[39m
+Dec-12-2022 11:21:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 468.697 ms[39m
+[32m[39m
+Dec-12-2022 11:21:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 302.339 ms[39m
+[32m[39m
+Dec-12-2022 11:21:44 [32mhttp[39m: [32mGET /getPriceList 200 - - 364.817 ms[39m
+[32m[39m
+Dec-12-2022 11:21:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 372.164 ms[39m
+[32m[39m
+Dec-12-2022 11:22:05 [32mhttp[39m: [32mGET /getPriceList 304 - - 307.587 ms[39m
+[32m[39m
+Dec-12-2022 11:22:06 [32mhttp[39m: [32mGET /getPriceList 304 - - 301.949 ms[39m
+[32m[39m
+Dec-12-2022 11:22:10 [32mhttp[39m: [32mGET /getPriceList 304 - - 311.843 ms[39m
+[32m[39m
+Dec-12-2022 11:22:11 [32mhttp[39m: [32mGET /getPriceList 304 - - 476.589 ms[39m
+[32m[39m
+Dec-12-2022 11:23:41 [32mhttp[39m: [32mGET /getPriceList 200 30 - 400.462 ms[39m
+[32m[39m
+Dec-12-2022 11:23:42 [32mhttp[39m: [32mGET /getPriceList 304 - - 502.786 ms[39m
+[32m[39m
+Dec-12-2022 11:23:45 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 575.792 ms[39m
+[32m[39m
+Dec-12-2022 11:23:45 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 295.345 ms[39m
+[32m[39m
+Dec-12-2022 11:23:50 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 292.031 ms[39m
+[32m[39m
+Dec-12-2022 11:23:50 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 325.628 ms[39m
+[32m[39m
+Dec-12-2022 11:24:03 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 352.610 ms[39m
+[32m[39m
+Dec-12-2022 11:24:03 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 296.698 ms[39m
+[32m[39m
+Dec-12-2022 11:24:07 [32mhttp[39m: [32mGET /getPriceList 304 - - 299.032 ms[39m
+[32m[39m
+Dec-12-2022 11:24:08 [32mhttp[39m: [32mGET /getPriceList 304 - - 303.829 ms[39m
+[32m[39m
+Dec-12-2022 11:25:50 [32mhttp[39m: [32mPOST /user/login 200 500 - 1677.779 ms[39m
+[32m[39m
+Dec-12-2022 11:25:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 291.350 ms[39m
+[32m[39m
+Dec-12-2022 11:25:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 329.575 ms[39m
+[32m[39m
+Dec-12-2022 11:25:58 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 292.394 ms[39m
+[32m[39m
+Dec-12-2022 11:25:58 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 304.984 ms[39m
+[32m[39m
+Dec-12-2022 11:26:02 [32mhttp[39m: [32mGET /getPriceList 200 - - 452.987 ms[39m
+[32m[39m
+Dec-12-2022 11:26:02 [32mhttp[39m: [32mGET /getPriceList 304 - - 290.615 ms[39m
+[32m[39m
+Dec-12-2022 11:26:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 303.306 ms[39m
+[32m[39m
+Dec-12-2022 11:26:56 [32mhttp[39m: [32mGET /getPriceList 304 - - 336.916 ms[39m
+[32m[39m
+Dec-12-2022 11:26:57 [32mhttp[39m: [32mGET /getPriceList 304 - - 286.619 ms[39m
+[32m[39m
+Dec-12-2022 11:27:04 [32mhttp[39m: [32mGET /getPriceList 304 - - 301.694 ms[39m
+[32m[39m
+Dec-12-2022 11:27:24 [32mhttp[39m: [32mGET /getPriceList 304 - - 356.990 ms[39m
+[32m[39m
+Dec-12-2022 11:27:55 [32mhttp[39m: [32mGET /getPriceList 304 - - 327.693 ms[39m
+[32m[39m
+Dec-12-2022 11:27:56 [32mhttp[39m: [32mGET /getPriceList 304 - - 314.598 ms[39m
+[32m[39m
+Dec-12-2022 11:28:56 [32mhttp[39m: [32mGET /getPriceList 304 - - 304.296 ms[39m
+[32m[39m
+Dec-12-2022 11:29:10 [32mhttp[39m: [32mGET /getPriceList 304 - - 361.945 ms[39m
+[32m[39m
+Dec-12-2022 11:29:12 [32mhttp[39m: [32mGET /getPriceList 304 - - 310.933 ms[39m
+[32m[39m
+Dec-12-2022 11:29:44 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:29:44 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:29:44 [32minfo[39m: [32m2022-12-12T05:59:44.955Z[39m
+Dec-12-2022 11:29:52 [32mhttp[39m: [32mGET /getPriceList - - - - ms[39m
+[32m[39m
+Dec-12-2022 11:29:56 [32mhttp[39m: [32mGET /getPriceList 200 - - 3528.807 ms[39m
+[32m[39m
+Dec-12-2022 11:29:57 [32mhttp[39m: [32mGET /getPriceList 304 - - 302.054 ms[39m
+[32m[39m
+Dec-12-2022 11:30:17 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:30:17 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:30:17 [32minfo[39m: [32m2022-12-12T06:00:17.366Z[39m
+Dec-12-2022 11:30:30 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:30:30 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:30:30 [32minfo[39m: [32m2022-12-12T06:00:30.349Z[39m
+Dec-12-2022 11:30:55 [32mhttp[39m: [32mGET /getPriceList 304 - - 474.588 ms[39m
+[32m[39m
+Dec-12-2022 11:30:55 [32mhttp[39m: [32mGET /getPriceList 304 - - 374.302 ms[39m
+[32m[39m
+Dec-12-2022 11:30:58 [32mhttp[39m: [32mGET /getPriceList 304 - - 452.143 ms[39m
+[32m[39m
+Dec-12-2022 11:30:59 [32mhttp[39m: [32mGET /getPriceList 304 - - 301.448 ms[39m
+[32m[39m
+Dec-12-2022 11:31:01 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 300.220 ms[39m
+[32m[39m
+Dec-12-2022 11:31:02 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 323.793 ms[39m
+[32m[39m
+Dec-12-2022 11:31:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 353.189 ms[39m
+[32m[39m
+Dec-12-2022 11:31:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 302.141 ms[39m
+[32m[39m
+Dec-12-2022 11:31:11 [32mhttp[39m: [32mGET /getPriceList 304 - - 363.093 ms[39m
+[32m[39m
+Dec-12-2022 11:31:11 [32mhttp[39m: [32mGET /getPriceList 304 - - 308.968 ms[39m
+[32m[39m
+Dec-12-2022 11:32:16 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:32:16 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:32:16 [32minfo[39m: [32m2022-12-12T06:02:16.620Z[39m
+Dec-12-2022 11:32:25 [32mhttp[39m: [32mGET /getPriceList - - - - ms[39m
+[32m[39m
+Dec-12-2022 11:32:27 [32mhttp[39m: [32mGET /getPriceList 200 - - 827.292 ms[39m
+[32m[39m
+Dec-12-2022 11:32:28 [32mhttp[39m: [32mGET /getPriceList 304 - - 280.675 ms[39m
+[32m[39m
+Dec-12-2022 11:32:34 [32mhttp[39m: [32mGET /getPriceList 304 - - 292.411 ms[39m
+[32m[39m
+Dec-12-2022 11:32:35 [32mhttp[39m: [32mGET /getPriceList 304 - - 330.915 ms[39m
+[32m[39m
+Dec-12-2022 11:32:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 293.473 ms[39m
+[32m[39m
+Dec-12-2022 11:32:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 304.881 ms[39m
+[32m[39m
+Dec-12-2022 11:32:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 536.840 ms[39m
+[32m[39m
+Dec-12-2022 11:32:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 276.078 ms[39m
+[32m[39m
+Dec-12-2022 11:33:18 [32mhttp[39m: [32mPOST /user/login 200 500 - 1776.663 ms[39m
+[32m[39m
+Dec-12-2022 11:33:20 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 383.401 ms[39m
+[32m[39m
+Dec-12-2022 11:33:21 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 309.349 ms[39m
+[32m[39m
+Dec-12-2022 11:33:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 485.110 ms[39m
+[32m[39m
+Dec-12-2022 11:33:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 282.745 ms[39m
+[32m[39m
+Dec-12-2022 11:33:30 [32mhttp[39m: [32mGET /getPriceList 304 - - 293.807 ms[39m
+[32m[39m
+Dec-12-2022 11:33:30 [32mhttp[39m: [32mGET /getPriceList 304 - - 287.864 ms[39m
+[32m[39m
+Dec-12-2022 11:33:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 297.398 ms[39m
+[32m[39m
+Dec-12-2022 11:33:37 [32mhttp[39m: [32mGET /getPriceList 304 - - 292.200 ms[39m
+[32m[39m
+Dec-12-2022 11:34:39 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:34:39 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:34:39 [32minfo[39m: [32m2022-12-12T06:04:39.113Z[39m
+Dec-12-2022 11:34:42 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 11:34:42 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 11:34:42 [32minfo[39m: [32m2022-12-12T06:04:42.019Z[39m
+Dec-12-2022 11:34:49 [32mhttp[39m: [32mPOST /upload 200 20 - 81.484 ms[39m
+[32m[39m
+Dec-12-2022 11:35:15 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 382.560 ms[39m
+[32m[39m
+Dec-12-2022 11:35:16 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 510.030 ms[39m
+[32m[39m
+Dec-12-2022 11:48:22 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 319.562 ms[39m
+[32m[39m
+Dec-12-2022 11:48:23 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 407.864 ms[39m
+[32m[39m
+Dec-12-2022 11:57:23 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 635.827 ms[39m
+[32m[39m
+Dec-12-2022 11:57:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 289.322 ms[39m
+[32m[39m
+Dec-12-2022 11:57:30 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 385.398 ms[39m
+[32m[39m
+Dec-12-2022 11:57:31 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 379.406 ms[39m
+[32m[39m
+Dec-12-2022 11:57:37 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 311.874 ms[39m
+[32m[39m
+Dec-12-2022 11:57:37 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-42 304 - - 316.789 ms[39m
+[32m[39m
+Dec-12-2022 11:57:41 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 325.888 ms[39m
+[32m[39m
+Dec-12-2022 11:57:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-42 304 - - 308.815 ms[39m
+[32m[39m
+Dec-12-2022 11:57:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 340.897 ms[39m
+[32m[39m
+Dec-12-2022 11:57:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 322.359 ms[39m
+[32m[39m
+Dec-12-2022 12:09:30 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:09:30 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:09:30 [32minfo[39m: [32m2022-12-12T06:39:30.185Z[39m
+Dec-12-2022 12:09:38 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:09:38 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:09:38 [32minfo[39m: [32m2022-12-12T06:39:38.039Z[39m
+Dec-12-2022 12:10:01 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:10:01 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:10:01 [32minfo[39m: [32m2022-12-12T06:40:01.201Z[39m
+Dec-12-2022 12:13:23 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:13:23 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:13:23 [32minfo[39m: [32m2022-12-12T06:43:23.433Z[39m
+Dec-12-2022 12:13:26 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:13:26 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:13:26 [32minfo[39m: [32m2022-12-12T06:43:26.961Z[39m
+Dec-12-2022 12:14:28 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:14:28 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:14:28 [32minfo[39m: [32m2022-12-12T06:44:28.885Z[39m
+Dec-12-2022 12:16:30 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:16:30 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:16:30 [32minfo[39m: [32m2022-12-12T06:46:30.944Z[39m
+Dec-12-2022 12:17:55 [32mhttp[39m: [32mPOST /publish 200 20 - 92.430 ms[39m
+[32m[39m
+Dec-12-2022 12:17:57 [31merror[39m: [31mUncaught Exception[39m
+Dec-12-2022 12:20:54 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 12:20:54 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 12:20:54 [32minfo[39m: [32m2022-12-12T06:50:54.210Z[39m
+Dec-12-2022 12:21:11 [32mhttp[39m: [32mPOST /publish 200 20 - 93.474 ms[39m
+[32m[39m
+Dec-12-2022 12:21:13 [31merror[39m: [31mUncaught Exception[39m
