@@ -13,6 +13,8 @@ router.get('/getPriceList',getPriceList);
 router.get('/getPriceListbyFacility',getPriceListbyFacility);
 router.put('/updatePricelist',updatePricelist);
 router.delete('/deletePricelist',deletePricelist);
+router.delete('/bulkdelete',bulkDelete);
+router.put("/bulkupdate", bulkUpdate)
 function getPriceList(req,res,next) {
   PricelistService.getPriceList().then(obj => {
       new ResObject(res,obj);
@@ -42,8 +44,8 @@ function publishPricelist(req, res,next) {
  
 }
 function getPriceListbyFacility(req,res,next) {
-  const facilityNPI = req.query.facilityNPI;
-  PricelistService.getPriceListbyFacility(facilityNPI).then(obj => {
+  const facilityID = req.query.facilityID;
+  PricelistService.getPriceListbyFacility(facilityID).then(obj => {
       new ResObject(res,obj);
   }).catch(next);
 }
@@ -51,6 +53,20 @@ function getPriceListbyFacility(req,res,next) {
 function updatePricelist(req,res,next) {
   const body = req.body ?? {};
 PricelistService.updatePricelist(body).then(obj => {
+      new ResObject(res,obj);
+  }).catch(next);
+}
+
+function bulkUpdate(req,res,next){
+  const body = req.body ?? {};
+PricelistService.bulkUpdate(body).then(obj => {
+      new ResObject(res,obj);
+  }).catch(next);
+}
+
+function bulkDelete(req,res,next){
+  const body = req.body ?? {};
+PricelistService.bulkDelete(body).then(obj => {
       new ResObject(res,obj);
   }).catch(next);
 }

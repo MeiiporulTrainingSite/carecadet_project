@@ -136,13 +136,13 @@ export default function UpdateFacility() {
           backgroundColor: "darkgray",
         }}
       />
-      <Grid container item xs={12} justifyContent="left">
+      {/* <Grid container item xs={12} justifyContent="left">
         <Button
           variant="outlined"
           type="button"
           onClick={() => {
             dispatch(tabValueNav(1));
-            // dispatch(editButton())
+            dispatch(editButton())
             navigate("/providerlanding");
           }}
           sx={{
@@ -160,7 +160,7 @@ export default function UpdateFacility() {
         >
           BACK
         </Button>
-      </Grid>
+      </Grid> */}
 
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>

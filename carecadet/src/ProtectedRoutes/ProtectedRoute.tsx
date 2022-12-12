@@ -22,7 +22,7 @@ const ProtectedRoute = ({ children }: Props) => {
   // let isAuth=true
   return isAuth ? (
     <Grid container justifyContent="center">
-      <Grid item xs={2.5} sx={{ display: { xs: "none", md:authUser.editOptions?"none":"block"} }}>
+      <Grid item xs={2.5} sx={{ display: { xs: "none", md:"block"} }}>
         <SideNavBar />
       </Grid>
       <Grid item xs={12} md={9.5} >

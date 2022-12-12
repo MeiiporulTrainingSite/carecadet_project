@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { Buttoncomponent } from '../../Components/Buttoncomp'
 //redux store
 import { useAppSelector, useAppDispatch } from '../../Redux/Hook';
-import { facilityInfo } from '../../Redux/facilitySlice';
+import { facilityInfo, serviceInfo } from '../../Redux/facilitySlice';
 // import {editButton} from "../../Redux/LoginSlice"
 
 
@@ -173,6 +173,7 @@ export default function ViewFacility() {
                                         </IconButton>
                                         <IconButton>
                                             <MedicalServicesIcon onClick = {() => {
+                                                 dispatch(serviceInfo(facility))
                                                 // dispatch(editButton())
                                                 navigate('/pricelistlanding')}} />
                                         </IconButton>

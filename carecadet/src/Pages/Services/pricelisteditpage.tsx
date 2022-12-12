@@ -14,7 +14,7 @@ import {
   GridActionsCellItem,
   GridEventListener,
   GridRowId,
-  GridRowModel,
+  GridRow,
 } from "@mui/x-data-grid";
 // import {
 //   randomCreatedDate,
@@ -30,23 +30,39 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import clsx from "clsx";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
+
 interface forminitialValues {
+  _id: "string";
   SNo: "string";
   ServiceCode: "string";
   DiagnosisTestorServiceName: "string";
+  Organisationid: "string";
   OrganisationPrices: "string";
+  FacilityID: "string";
+  FacilityPrices: "string";
 }
 
 export default function PricelistEditpage() {
-  const [data, setData] = useState([] as forminitialValues[]);
+  const [data, setData] = useState([] as any);
   const [pageSize, setPagesize] = useState(5);
-  const [csvEdit, setcsvEdit] = useState([] as forminitialValues[]);
-  const [csvdel, setcsvDel] = useState([] as forminitialValues[]);
+  const [csvEdit, setcsvEdit] = useState([] as any);
+  const [csvdel, setcsvDel] = useState([] as any);
   const [filename, setFilename] = useState("");
 
+  const dispatch = useAppDispatch();
+  // const facilityid=useAppSelector((state)=>state.editFacility.service);
+  // console.log("facilityid", facilityid);
+  // const [totalPages, setTotalPages] = useState(10);
+
+  const facilityinput = useAppSelector(
+    (state: { editFacility: { service: any } }) => state.editFacility.service
+  );
+  console.log(facilityinput, "facip");
   const getData = async () => {
     const pricelistdetails = await axios.get(
-      "http://localhost:5200/getPriceList"
+      `http://localhost:5200/getPriceListbyFacility?facilityID=FAC-59`
     );
     setData(pricelistdetails.data.data);
     console.log(pricelistdetails.data, "pricelist");
@@ -56,20 +72,21 @@ export default function PricelistEditpage() {
   }, []);
 
   const handleDeleteClick = (id: GridRowId) => () => {
-    setData(data.filter((row) => row.SNo !== id));
-    let store = data.filter((row) => row.SNo === id);
-    setcsvDel([...csvdel, ...store]);
+    setData(data.filter((row: any) => row.SNo !== id));
+    let store = data.filter((row: any) => row.SNo === id);
+    console.log(store, "store");
+    setcsvDel([...csvdel, store._id]);
   };
 
   const onCellEditCommit = async (cellData: any) => {
     const { id, field, value } = cellData;
     console.log(cellData);
-    let d = data.filter((data1) => data1.SNo === id);
+    let d = data.filter((data1: any) => data1.SNo === id);
 
-    let dd = csvEdit.filter((ddd) => ddd.SNo === id);
+    let dd = csvEdit.filter((ddd: any) => ddd.SNo === id);
 
     if (dd.length !== 0) {
-      let r = csvEdit.map((dd) => {
+      let r = csvEdit.map((dd: any) => {
         if (dd.SNo === id) {
           return { ...dd, [field]: value };
         }
@@ -104,77 +121,88 @@ export default function PricelistEditpage() {
     //return result; //JavaScript object
     return JSON.stringify(result); //JSON
   }
-  const upload = (e: any) => {
+  const update = (e: any) => {
     e.preventDefault();
     // if(output){
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
-    let datacheck = { name: filename, csv: data };
+    let datacheck = { name: filename, PriceList: csvEdit };
     axios
-      .post(
-        "http://localhost:4000/upload",
+      .put(
+        "http://localhost:5200/bulkupdate",
         datacheck
-        // {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //   },
-        // }
+       
       )
+    //   let datacheck1 = { name: filename, PriceList: csvdel };
+    //   axios
+    // .delete(
+    //   "http://localhost:5200/bulkdelete", datacheck1
+
+    
+    // )
       .then((res) => {
+       
         console.log("Success ", res);
         alert("success");
       });
     //  }
   };
 
-  const columns = [
+  const columns: GridColumns = [
     {
       field: "SNo",
       headerName: "S.No",
+      headerClassName: "super-app-theme--header",
+      width: 90,
       editable: true,
-      width: 100,
     },
     {
       field: "ServiceCode",
       headerName: "Service Code",
+      headerClassName: "super-app-theme--header",
+      width: 150,
       editable: true,
-      width: 100,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
+      headerClassName: "super-app-theme--header",
+      width: 360,
       editable: true,
-      width: 350,
     },
     {
       field: "Organisationid",
       headerName: "Organisation ID",
+      headerClassName: "super-app-theme--header",
+      width: 200,
       editable: true,
-      width: 100,
     },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
-      editable: true,
+      headerClassName: "super-app-theme--header",
       width: 100,
+      editable: true,
     },
     {
-      field: "FacilityNPI",
-      headerName: "FacilityNPI",
-      editable: true,
+      field: "FacilityID",
+      headerName: "FacilityID",
+      headerClassName: "super-app-theme--header",
       width: 100,
+      editable: true,
     },
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
-      editable: true,
+      headerClassName: "super-app-theme--header",
       width: 100,
+      editable: true,
     },
-
     {
       field: "actions",
       type: "actions",
       headerName: "Actions",
+      headerClassName: "super-app-theme--header",
       width: 100,
       cellClassName: "actions",
       getActions: (data: any) => {
@@ -191,6 +219,18 @@ export default function PricelistEditpage() {
       },
     },
   ];
+
+  function CustomRow(props: any) {
+    const { className, index, ...other } = props;
+
+    return (
+      <GridRow
+        index={index}
+        className={clsx(className, index % 2 === 0 ? "odd" : "even")}
+        {...other}
+      />
+    );
+  }
 
   const navigate = useNavigate();
 
@@ -219,7 +259,7 @@ export default function PricelistEditpage() {
             fontSize: "1.5rem",
           }}
         >
-          Pricelist Edit Page
+          Service Pricelist
         </Typography>
         <Grid container item xs={12} justifyContent="left">
           <Button
@@ -246,7 +286,21 @@ export default function PricelistEditpage() {
           </Button>
         </Grid>
         <>
-          <Box sx={{ display: "flex", gap: "2rem" }}>
+          <Box
+            sx={{
+              "& .super-app-theme--header": {
+                backgroundColor: "#4D77FF",
+              },
+              height: 400,
+              width: 1,
+              "& .odd": {
+                bgcolor: "white",
+              },
+              "& .even": {
+                bgcolor: "secondary.light",
+              },
+            }}
+          >
             <DataGrid
               autoHeight
               autoPageSize
@@ -258,7 +312,15 @@ export default function PricelistEditpage() {
               onPageSizeChange={(newPageSize) => setPagesize(newPageSize)}
               rowsPerPageOptions={[5, 10, 20]}
               onCellEditCommit={onCellEditCommit}
-              sx={{ m: 10, fontSize: "1rem", backgroundColor: "lightgray" }}
+              sx={{
+                fontSize: "1rem",
+                backgroundColor: "lightgray",
+                borderColor: "primary.light",
+                "& .MuiDataGrid-cell:hover": {
+                  color: "white",
+                },
+              }}
+              components={{ Row: CustomRow }}
             />
           </Box>
           <Buttoncomponent
@@ -267,7 +329,7 @@ export default function PricelistEditpage() {
             size="large"
             color="primary"
             // onClick={onSave}
-            onClick={(e) => upload(e)}
+            onClick={(e) => update(e)}
             sx={{
               mt: 2,
               backgroundColor: "secondary.dark",

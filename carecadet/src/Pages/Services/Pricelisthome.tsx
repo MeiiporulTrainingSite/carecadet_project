@@ -92,8 +92,8 @@ export default function Pricelisthome() {
       width: 100,
     },
     {
-      field: "FacilityNPI",
-      headerName: "FacilityNPI",
+      field: "FacilityID",
+      headerName: "FacilityID",
       editable:true,
       width: 100,
     },
