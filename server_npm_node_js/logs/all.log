@@ -9283,3 +9283,883 @@ Dec-12-2022 17:02:15 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?pr
 [32m[39m
 Dec-12-2022 17:03:52 [32mhttp[39m: [32mPOST /organization/createOrganization 200 53 - 719.102 ms[39m
 [32m[39m
+Dec-12-2022 18:31:15 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 18:31:15 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 18:31:15 [32minfo[39m: [32m2022-12-12T13:01:15.163Z[39m
+Dec-12-2022 18:31:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 365.867 ms[39m
+[32m[39m
+Dec-12-2022 18:31:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 397.746 ms[39m
+[32m[39m
+Dec-12-2022 18:32:02 [32mhttp[39m: [32mPOST /user/login 200 492 - 1400.029 ms[39m
+[32m[39m
+Dec-12-2022 18:32:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 256.522 ms[39m
+[32m[39m
+Dec-12-2022 18:32:04 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 274.005 ms[39m
+[32m[39m
+Dec-12-2022 18:32:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 457 - 253.958 ms[39m
+[32m[39m
+Dec-12-2022 18:32:10 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 270.047 ms[39m
+[32m[39m
+Dec-12-2022 18:32:13 [32mhttp[39m: [32mGET /getPriceList 200 - - 281.947 ms[39m
+[32m[39m
+Dec-12-2022 18:32:13 [32mhttp[39m: [32mGET /getPriceList 200 - - 294.655 ms[39m
+[32m[39m
+Dec-12-2022 18:47:27 [32mhttp[39m: [32mGET /getPriceList 304 - - 270.731 ms[39m
+[32m[39m
+Dec-12-2022 18:47:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 266.032 ms[39m
+[32m[39m
+Dec-12-2022 18:48:21 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:48:21 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:48:21 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:48:21 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.956 ms[39m
+[32m[39m
+Dec-12-2022 18:50:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:19 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:19 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:19 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.670 ms[39m
+[32m[39m
+Dec-12-2022 18:50:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:22 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:22 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.141 ms[39m
+[32m[39m
+Dec-12-2022 18:50:25 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:25 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:25 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:25 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.393 ms[39m
+[32m[39m
+Dec-12-2022 18:50:28 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:28 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:28 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:28 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.117 ms[39m
+[32m[39m
+Dec-12-2022 18:50:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:30 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:30 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:30 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.155 ms[39m
+[32m[39m
+Dec-12-2022 18:50:31 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:31 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:31 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:31 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 1.826 ms[39m
+[32m[39m
+Dec-12-2022 18:50:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:37 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:37 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:37 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.722 ms[39m
+[32m[39m
+Dec-12-2022 18:50:48 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:48 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:48 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:48 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.589 ms[39m
+[32m[39m
+Dec-12-2022 18:50:51 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:51 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:51 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:51 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.161 ms[39m
+[32m[39m
+Dec-12-2022 18:50:58 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:50:58 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:50:58 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:50:58 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.474 ms[39m
+[32m[39m
+Dec-12-2022 18:51:00 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:00 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:00 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:00 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 1.892 ms[39m
+[32m[39m
+Dec-12-2022 18:51:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:12 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:12 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:12 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.338 ms[39m
+[32m[39m
+Dec-12-2022 18:51:16 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:16 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:16 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:16 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.519 ms[39m
+[32m[39m
+Dec-12-2022 18:51:17 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:17 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:17 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:17 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.476 ms[39m
+[32m[39m
+Dec-12-2022 18:51:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:19 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:19 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:19 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 1.956 ms[39m
+[32m[39m
+Dec-12-2022 18:51:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:20 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:20 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:20 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 1.854 ms[39m
+[32m[39m
+Dec-12-2022 18:51:40 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:40 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:40 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:40 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.181 ms[39m
+[32m[39m
+Dec-12-2022 18:51:42 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:51:42 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:51:42 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:51:42 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.113 ms[39m
+[32m[39m
+Dec-12-2022 18:57:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:57:54 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:57:54 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:57:54 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.560 ms[39m
+[32m[39m
+Dec-12-2022 18:57:54 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:57:54 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:57:54 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:57:54 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.752 ms[39m
+[32m[39m
+Dec-12-2022 18:58:56 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:58:56 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:58:56 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:58:56 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.750 ms[39m
+[32m[39m
+Dec-12-2022 18:58:59 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:58:59 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:58:59 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:58:59 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 4.507 ms[39m
+[32m[39m
+Dec-12-2022 18:59:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:59:22 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:59:22 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:59:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.613 ms[39m
+[32m[39m
+Dec-12-2022 18:59:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:59:27 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:59:27 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:59:27 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.744 ms[39m
+[32m[39m
+Dec-12-2022 18:59:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:59:29 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:59:29 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:59:29 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.456 ms[39m
+[32m[39m
+Dec-12-2022 18:59:48 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:59:48 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:59:48 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:59:48 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.621 ms[39m
+[32m[39m
+Dec-12-2022 18:59:59 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 18:59:59 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 18:59:59 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 18:59:59 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.338 ms[39m
+[32m[39m
+Dec-12-2022 19:00:12 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:00:12 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:00:12 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:00:12 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.843 ms[39m
+[32m[39m
+Dec-12-2022 19:00:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:00:20 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:00:20 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:00:20 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.157 ms[39m
+[32m[39m
+Dec-12-2022 19:00:36 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:00:36 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:00:36 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:00:36 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.608 ms[39m
+[32m[39m
+Dec-12-2022 19:00:36 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:00:36 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:00:36 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:00:36 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.371 ms[39m
+[32m[39m
+Dec-12-2022 19:01:56 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:01:56 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:01:56 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:01:56 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 3.978 ms[39m
+[32m[39m
+Dec-12-2022 19:02:29 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:02:29 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:02:29 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:02:29 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.525 ms[39m
+[32m[39m
+Dec-12-2022 19:03:03 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:03 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:03 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:03 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.455 ms[39m
+[32m[39m
+Dec-12-2022 19:03:05 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:05 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:05 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:05 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.669 ms[39m
+[32m[39m
+Dec-12-2022 19:03:18 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:18 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:18 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:18 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.615 ms[39m
+[32m[39m
+Dec-12-2022 19:03:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:20 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:20 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:20 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.639 ms[39m
+[32m[39m
+Dec-12-2022 19:03:24 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:24 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:24 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:24 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.285 ms[39m
+[32m[39m
+Dec-12-2022 19:03:27 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:27 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:27 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:27 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.164 ms[39m
+[32m[39m
+Dec-12-2022 19:03:30 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:30 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:30 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:30 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.382 ms[39m
+[32m[39m
+Dec-12-2022 19:03:36 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:36 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:36 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:36 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.769 ms[39m
+[32m[39m
+Dec-12-2022 19:03:47 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:47 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:47 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:47 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.523 ms[39m
+[32m[39m
+Dec-12-2022 19:03:50 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:50 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:50 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:50 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.503 ms[39m
+[32m[39m
+Dec-12-2022 19:03:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:03:53 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:03:53 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:03:53 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.710 ms[39m
+[32m[39m
+Dec-12-2022 19:04:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:04:22 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:04:22 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:04:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.905 ms[39m
+[32m[39m
+Dec-12-2022 19:04:32 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:04:32 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:04:32 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:04:32 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 2.153 ms[39m
+[32m[39m
+Dec-12-2022 19:05:04 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 19:05:04 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 19:05:04 [32minfo[39m: [32m2022-12-12T13:35:04.863Z[39m
+Dec-12-2022 19:05:14 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:05:14 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:05:14 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:05:14 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:05:14 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:05:14 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:05:14 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 15.377 ms[39m
+[32m[39m
+Dec-12-2022 19:05:14 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 500 - - 7.339 ms[39m
+[32m[39m
+Dec-12-2022 19:06:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:06:19 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:06:19 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:06:19 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 4.075 ms[39m
+[32m[39m
+Dec-12-2022 19:06:26 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:06:26 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:06:26 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:06:26 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:06:26 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:06:26 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:06:26 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 2.998 ms[39m
+[32m[39m
+Dec-12-2022 19:06:26 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 1.943 ms[39m
+[32m[39m
+Dec-12-2022 19:08:10 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 19:08:10 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 19:08:10 [32minfo[39m: [32m2022-12-12T13:38:10.544Z[39m
+Dec-12-2022 19:08:27 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 19:08:27 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 19:08:27 [32minfo[39m: [32m2022-12-12T13:38:27.484Z[39m
+Dec-12-2022 19:08:39 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 19:08:39 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 19:08:39 [32minfo[39m: [32m2022-12-12T13:38:39.420Z[39m
+Dec-12-2022 19:08:46 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:08:46 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:08:46 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:08:46 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:08:46 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:08:46 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:08:46 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 13.997 ms[39m
+[32m[39m
+Dec-12-2022 19:08:46 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 3.473 ms[39m
+[32m[39m
+Dec-12-2022 19:08:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:08:53 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:08:53 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:08:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:08:53 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:08:53 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:08:53 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 3.190 ms[39m
+[32m[39m
+Dec-12-2022 19:08:53 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 2.872 ms[39m
+[32m[39m
+Dec-12-2022 19:09:02 [32mhttp[39m: [32mPOST /user/login 200 492 - 1485.502 ms[39m
+[32m[39m
+Dec-12-2022 19:09:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 274.606 ms[39m
+[32m[39m
+Dec-12-2022 19:09:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 313.280 ms[39m
+[32m[39m
+Dec-12-2022 19:09:05 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 457 - 308.889 ms[39m
+[32m[39m
+Dec-12-2022 19:09:05 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 314.303 ms[39m
+[32m[39m
+Dec-12-2022 19:09:09 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 295.793 ms[39m
+[32m[39m
+Dec-12-2022 19:09:09 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 858.282 ms[39m
+[32m[39m
+Dec-12-2022 19:09:17 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 333.848 ms[39m
+[32m[39m
+Dec-12-2022 19:09:17 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 369.290 ms[39m
+[32m[39m
+Dec-12-2022 19:09:18 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 343.344 ms[39m
+[32m[39m
+Dec-12-2022 19:09:18 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 457 - 344.012 ms[39m
+[32m[39m
+Dec-12-2022 19:09:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:19 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:19 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:19 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:19 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:19 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:19 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 2.224 ms[39m
+[32m[39m
+Dec-12-2022 19:09:19 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 2.682 ms[39m
+[32m[39m
+Dec-12-2022 19:09:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 307.198 ms[39m
+[32m[39m
+Dec-12-2022 19:09:26 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 316.979 ms[39m
+[32m[39m
+Dec-12-2022 19:09:29 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 264.147 ms[39m
+[32m[39m
+Dec-12-2022 19:09:29 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 457 - 328.410 ms[39m
+[32m[39m
+Dec-12-2022 19:09:46 [32mhttp[39m: [32mPUT /facility/updateFacility 200 53 - 656.554 ms[39m
+[32m[39m
+Dec-12-2022 19:09:47 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 384.478 ms[39m
+[32m[39m
+Dec-12-2022 19:09:47 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 389.063 ms[39m
+[32m[39m
+Dec-12-2022 19:09:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:49 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:49 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:49 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:49 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:49 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:49 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 1.917 ms[39m
+[32m[39m
+Dec-12-2022 19:09:49 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 2.295 ms[39m
+[32m[39m
+Dec-12-2022 19:09:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:53 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:53 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 19:09:53 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 19:09:53 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 19:09:53 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 1.926 ms[39m
+[32m[39m
+Dec-12-2022 19:09:53 [32mhttp[39m: [32mGET /getPriceListbyFacility 500 - - 3.139 ms[39m
+[32m[39m
+Dec-12-2022 19:10:19 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 330.942 ms[39m
+[32m[39m
+Dec-12-2022 19:10:43 [32mhttp[39m: [32mGET /getPriceList 200 - - 297.192 ms[39m
+[32m[39m
+Dec-12-2022 19:10:43 [32mhttp[39m: [32mGET /getPriceList 200 - - 345.942 ms[39m
+[32m[39m
+Dec-12-2022 19:11:07 [32mhttp[39m: [32mPOST /bulkupdate 404 150 - 2.905 ms[39m
+[32m[39m
+Dec-12-2022 19:12:21 [32mhttp[39m: [32mGET /bulku 404 144 - 1.647 ms[39m
+[32m[39m
+Dec-12-2022 19:12:25 [32mhttp[39m: [32mGET /bulkupd 404 146 - 0.792 ms[39m
+[32m[39m
+Dec-12-2022 19:12:29 [32mhttp[39m: [32mGET /bulkupdate 404 149 - 0.867 ms[39m
+[32m[39m
+Dec-12-2022 19:12:35 [32mhttp[39m: [32mGET /bulkupdate 404 149 - 0.535 ms[39m
+[32m[39m
+Dec-12-2022 19:12:35 [32mhttp[39m: [32mGET /bulkupdate 404 149 - 1.076 ms[39m
+[32m[39m
+Dec-12-2022 19:12:55 [32mhttp[39m: [32mGET /getPriceList 200 - - 297.997 ms[39m
+[32m[39m
+Dec-12-2022 19:14:05 [32mhttp[39m: [32mPOST /bulkupdate 404 150 - 1.293 ms[39m
+[32m[39m
+Dec-12-2022 19:22:40 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 282.466 ms[39m
+[32m[39m
+Dec-12-2022 19:22:40 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 283.543 ms[39m
+[32m[39m
+Dec-12-2022 19:37:14 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 288.720 ms[39m
+[32m[39m
+Dec-12-2022 19:37:14 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 316.823 ms[39m
+[32m[39m
+Dec-12-2022 19:37:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 334.222 ms[39m
+[32m[39m
+Dec-12-2022 19:40:44 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 309.729 ms[39m
+[32m[39m
+Dec-12-2022 19:41:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 322.165 ms[39m
+[32m[39m
+Dec-12-2022 19:42:57 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 285.490 ms[39m
+[32m[39m
+Dec-12-2022 19:42:57 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 293.270 ms[39m
+[32m[39m
+Dec-12-2022 19:43:07 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 330.903 ms[39m
+[32m[39m
+Dec-12-2022 19:43:09 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 460.913 ms[39m
+[32m[39m
+Dec-12-2022 19:43:11 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 381.493 ms[39m
+[32m[39m
+Dec-12-2022 19:43:21 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 317.931 ms[39m
+[32m[39m
+Dec-12-2022 19:43:21 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 328.807 ms[39m
+[32m[39m
+Dec-12-2022 19:44:02 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 319.257 ms[39m
+[32m[39m
+Dec-12-2022 19:44:58 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 466.390 ms[39m
+[32m[39m
+Dec-12-2022 19:45:05 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 308.647 ms[39m
+[32m[39m
+Dec-12-2022 19:45:29 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 334.451 ms[39m
+[32m[39m
+Dec-12-2022 19:46:23 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 327.411 ms[39m
+[32m[39m
+Dec-12-2022 19:46:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 338.619 ms[39m
+[32m[39m
+Dec-12-2022 19:46:47 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 305.855 ms[39m
+[32m[39m
+Dec-12-2022 19:46:57 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 329.926 ms[39m
+[32m[39m
+Dec-12-2022 19:47:17 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 315.198 ms[39m
+[32m[39m
+Dec-12-2022 19:47:32 [32mhttp[39m: [32mPOST /user/login 200 492 - 1489.869 ms[39m
+[32m[39m
+Dec-12-2022 19:47:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 329.929 ms[39m
+[32m[39m
+Dec-12-2022 19:47:34 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 338.950 ms[39m
+[32m[39m
+Dec-12-2022 19:47:40 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 394.030 ms[39m
+[32m[39m
+Dec-12-2022 19:47:40 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 388.727 ms[39m
+[32m[39m
+Dec-12-2022 19:47:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 307.281 ms[39m
+[32m[39m
+Dec-12-2022 19:47:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 307.902 ms[39m
+[32m[39m
+Dec-12-2022 19:48:14 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 331.243 ms[39m
+[32m[39m
+Dec-12-2022 19:48:16 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 338.399 ms[39m
+[32m[39m
+Dec-12-2022 19:48:24 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 329.092 ms[39m
+[32m[39m
+Dec-12-2022 19:49:21 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 317.393 ms[39m
+[32m[39m
+Dec-12-2022 19:49:31 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 333.691 ms[39m
+[32m[39m
+Dec-12-2022 19:49:40 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 269.101 ms[39m
+[32m[39m
+Dec-12-2022 19:49:40 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 292.762 ms[39m
+[32m[39m
+Dec-12-2022 19:49:52 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 307.909 ms[39m
+[32m[39m
+Dec-12-2022 19:50:00 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 302.888 ms[39m
+[32m[39m
+Dec-12-2022 19:50:59 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 316.927 ms[39m
+[32m[39m
+Dec-12-2022 19:51:08 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 315.564 ms[39m
+[32m[39m
+Dec-12-2022 19:51:21 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 335.489 ms[39m
+[32m[39m
+Dec-12-2022 19:51:27 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 314.162 ms[39m
+[32m[39m
+Dec-12-2022 19:51:31 [32mhttp[39m: [32mGET /getPriceList 304 - - 333.647 ms[39m
+[32m[39m
+Dec-12-2022 19:51:32 [32mhttp[39m: [32mGET /getPriceList 200 - - 350.361 ms[39m
+[32m[39m
+Dec-12-2022 19:52:26 [32mhttp[39m: [32mGET /getPriceList 304 - - 311.859 ms[39m
+[32m[39m
+Dec-12-2022 19:52:36 [32mhttp[39m: [32mGET /getPriceList 200 - - 336.700 ms[39m
+[32m[39m
+Dec-12-2022 19:52:36 [32mhttp[39m: [32mGET /getPriceList 200 - - 346.015 ms[39m
+[32m[39m
+Dec-12-2022 19:52:40 [32mhttp[39m: [32mGET /getPriceList 200 - - 296.327 ms[39m
+[32m[39m
+Dec-12-2022 19:52:43 [32mhttp[39m: [32mGET /getPriceList 200 - - 304.423 ms[39m
+[32m[39m
+Dec-12-2022 19:52:45 [32mhttp[39m: [32mGET /getPriceList 304 - - 328.310 ms[39m
+[32m[39m
+Dec-12-2022 19:52:47 [32mhttp[39m: [32mGET /getPriceList 200 - - 334.878 ms[39m
+[32m[39m
+Dec-12-2022 19:52:53 [32mhttp[39m: [32mGET /getPriceList 304 - - 295.248 ms[39m
+[32m[39m
+Dec-12-2022 19:52:56 [32mhttp[39m: [32mGET /getPriceList 200 - - 289.717 ms[39m
+[32m[39m
+Dec-12-2022 19:52:56 [32mhttp[39m: [32mGET /getPriceList 200 - - 333.164 ms[39m
+[32m[39m
+Dec-12-2022 19:55:08 [32mhttp[39m: [32mGET /getPriceList 304 - - 295.619 ms[39m
+[32m[39m
+Dec-12-2022 19:55:25 [32mhttp[39m: [32mPOST /bulkupdate 404 150 - 0.808 ms[39m
+[32m[39m
+Dec-12-2022 19:57:34 [32mhttp[39m: [32mGET /getPriceList 304 - - 334.714 ms[39m
+[32m[39m
+Dec-12-2022 19:57:37 [32mhttp[39m: [32mGET /getPriceList 304 - - 266.944 ms[39m
+[32m[39m
+Dec-12-2022 19:57:39 [32mhttp[39m: [32mGET /getPriceList 304 - - 319.806 ms[39m
+[32m[39m
+Dec-12-2022 19:57:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 295.269 ms[39m
+[32m[39m
+Dec-12-2022 19:58:20 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 285.685 ms[39m
+[32m[39m
+Dec-12-2022 19:58:20 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 302.906 ms[39m
+[32m[39m
+Dec-12-2022 19:58:26 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 272.772 ms[39m
+[32m[39m
+Dec-12-2022 19:58:26 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 310.907 ms[39m
+[32m[39m
+Dec-12-2022 19:58:33 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 311.880 ms[39m
+[32m[39m
+Dec-12-2022 19:58:33 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 319.139 ms[39m
+[32m[39m
+Dec-12-2022 19:58:38 [32mhttp[39m: [32mGET /getPriceList 200 - - 304.153 ms[39m
+[32m[39m
+Dec-12-2022 19:58:38 [32mhttp[39m: [32mGET /getPriceList 304 - - 327.668 ms[39m
+[32m[39m
+Dec-12-2022 19:59:14 [32mhttp[39m: [32mGET /getPriceList 304 - - 265.446 ms[39m
+[32m[39m
+Dec-12-2022 20:01:24 [32mhttp[39m: [32mGET /getPriceList 200 - - 306.639 ms[39m
+[32m[39m
+Dec-12-2022 20:01:24 [32mhttp[39m: [32mGET /getPriceList 200 - - 342.671 ms[39m
+[32m[39m
+Dec-12-2022 20:01:28 [32mhttp[39m: [32mGET /getPriceList 304 - - 327.978 ms[39m
+[32m[39m
+Dec-12-2022 20:01:28 [32mhttp[39m: [32mGET /getPriceList 200 - - 330.148 ms[39m
+[32m[39m
+Dec-12-2022 20:01:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 262.760 ms[39m
+[32m[39m
+Dec-12-2022 20:01:37 [32mhttp[39m: [32mGET /getPriceList 200 - - 266.252 ms[39m
+[32m[39m
+Dec-12-2022 20:01:45 [32mhttp[39m: [32mGET /getPriceList 200 - - 337.684 ms[39m
+[32m[39m
+Dec-12-2022 20:01:46 [32mhttp[39m: [32mGET /getPriceList 200 - - 1399.656 ms[39m
+[32m[39m
+Dec-12-2022 20:02:59 [32mhttp[39m: [32mGET /getPriceList 200 - - 308.146 ms[39m
+[32m[39m
+Dec-12-2022 20:02:59 [32mhttp[39m: [32mGET /getPriceList 200 - - 328.335 ms[39m
+[32m[39m
+Dec-12-2022 20:03:11 [32mhttp[39m: [32mGET /getPriceList 200 - - 268.553 ms[39m
+[32m[39m
+Dec-12-2022 20:03:11 [32mhttp[39m: [32mGET /getPriceList 200 - - 268.211 ms[39m
+[32m[39m
+Dec-12-2022 20:03:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 268.085 ms[39m
+[32m[39m
+Dec-12-2022 20:03:16 [32mhttp[39m: [32mGET /getPriceList 200 - - 310.303 ms[39m
+[32m[39m
+Dec-12-2022 20:03:27 [32mhttp[39m: [32mGET /getPriceList 304 - - 285.221 ms[39m
+[32m[39m
+Dec-12-2022 20:03:27 [32mhttp[39m: [32mGET /getPriceList 200 - - 269.776 ms[39m
+[32m[39m
+Dec-12-2022 20:03:30 [32mhttp[39m: [32mGET /getPriceList 200 - - 288.854 ms[39m
+[32m[39m
+Dec-12-2022 20:03:30 [32mhttp[39m: [32mGET /getPriceList 304 - - 315.809 ms[39m
+[32m[39m
+Dec-12-2022 20:08:23 [32mhttp[39m: [32mGET /getPriceList 200 - - 272.339 ms[39m
+[32m[39m
+Dec-12-2022 20:08:23 [32mhttp[39m: [32mGET /getPriceList 200 - - 269.115 ms[39m
+[32m[39m
+Dec-12-2022 20:08:32 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 258.402 ms[39m
+[32m[39m
+Dec-12-2022 20:08:32 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 293.036 ms[39m
+[32m[39m
+Dec-12-2022 20:08:40 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 261.066 ms[39m
+[32m[39m
+Dec-12-2022 20:08:40 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 279.805 ms[39m
+[32m[39m
+Dec-12-2022 20:08:45 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 297.140 ms[39m
+[32m[39m
+Dec-12-2022 20:08:45 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 294.227 ms[39m
+[32m[39m
+Dec-12-2022 20:09:18 [32mhttp[39m: [32mPOST /user/login 200 492 - 1513.479 ms[39m
+[32m[39m
+Dec-12-2022 20:09:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 259.655 ms[39m
+[32m[39m
+Dec-12-2022 20:09:19 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 321.082 ms[39m
+[32m[39m
+Dec-12-2022 20:09:22 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 271.339 ms[39m
+[32m[39m
+Dec-12-2022 20:09:22 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 299.816 ms[39m
+[32m[39m
+Dec-12-2022 20:09:25 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 299.392 ms[39m
+[32m[39m
+Dec-12-2022 20:09:25 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 300.569 ms[39m
+[32m[39m
+Dec-12-2022 20:09:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 305.689 ms[39m
+[32m[39m
+Dec-12-2022 20:09:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 324.647 ms[39m
+[32m[39m
+Dec-12-2022 20:09:41 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 284.673 ms[39m
+[32m[39m
+Dec-12-2022 20:09:41 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 337.503 ms[39m
+[32m[39m
+Dec-12-2022 20:09:44 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 318.039 ms[39m
+[32m[39m
+Dec-12-2022 20:09:44 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 316.976 ms[39m
+[32m[39m
+Dec-12-2022 20:12:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 263.442 ms[39m
+[32m[39m
+Dec-12-2022 20:12:52 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 290.782 ms[39m
+[32m[39m
+Dec-12-2022 20:13:00 [32mhttp[39m: [32mPOST /user/login 200 492 - 1242.907 ms[39m
+[32m[39m
+Dec-12-2022 20:13:02 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 259.539 ms[39m
+[32m[39m
+Dec-12-2022 20:13:02 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 263.060 ms[39m
+[32m[39m
+Dec-12-2022 20:13:04 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 260.552 ms[39m
+[32m[39m
+Dec-12-2022 20:13:04 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 787.689 ms[39m
+[32m[39m
+Dec-12-2022 20:13:06 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 546.065 ms[39m
+[32m[39m
+Dec-12-2022 20:13:06 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 546.231 ms[39m
+[32m[39m
+Dec-12-2022 20:13:50 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 276.269 ms[39m
+[32m[39m
+Dec-12-2022 20:13:50 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 328.388 ms[39m
+[32m[39m
+Dec-12-2022 20:13:56 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 273.539 ms[39m
+[32m[39m
+Dec-12-2022 20:13:56 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 270.847 ms[39m
+[32m[39m
+Dec-12-2022 20:13:58 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 292.819 ms[39m
+[32m[39m
+Dec-12-2022 20:13:58 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 321.216 ms[39m
+[32m[39m
+Dec-12-2022 20:14:31 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 200 - - 272.225 ms[39m
+[32m[39m
+Dec-12-2022 20:14:31 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 273.889 ms[39m
+[32m[39m
+Dec-12-2022 20:15:35 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=F-1 304 - - 267.217 ms[39m
+[32m[39m
+Dec-12-2022 20:15:37 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 20:15:37 [32minfo[39m: [32mdev err please provide facility npi[39m
+Dec-12-2022 20:15:37 [31merror[39m: [31mplease provide facility npi[39m
+Dec-12-2022 20:15:37 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID= 500 - - 2.405 ms[39m
+[32m[39m
+Dec-12-2022 20:15:41 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID={ 200 30 - 255.069 ms[39m
+[32m[39m
+Dec-12-2022 20:15:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID={} 200 30 - 268.482 ms[39m
+[32m[39m
+Dec-12-2022 20:15:56 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=${} 200 30 - 254.983 ms[39m
+[32m[39m
+Dec-12-2022 20:16:01 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=${fac} 200 30 - 281.314 ms[39m
+[32m[39m
+Dec-12-2022 20:16:09 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=${facilityinput.facilityis} 200 30 - 318.180 ms[39m
+[32m[39m
+Dec-12-2022 20:16:11 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=${facilityinput.facilityID} 200 30 - 279.069 ms[39m
+[32m[39m
+Dec-12-2022 20:16:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 279.654 ms[39m
+[32m[39m
+Dec-12-2022 20:17:01 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 262.721 ms[39m
+[32m[39m
+Dec-12-2022 20:17:01 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 322.824 ms[39m
+[32m[39m
+Dec-12-2022 20:17:57 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 258.577 ms[39m
+[32m[39m
+Dec-12-2022 20:17:57 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 267.883 ms[39m
+[32m[39m
+Dec-12-2022 20:18:16 [32mhttp[39m: [32mGET /getPriceList 200 30 - 270.688 ms[39m
+[32m[39m
+Dec-12-2022 20:18:16 [32mhttp[39m: [32mGET /getPriceList 200 30 - 271.526 ms[39m
+[32m[39m
+Dec-12-2022 20:18:39 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 257.888 ms[39m
+[32m[39m
+Dec-12-2022 20:18:39 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 261.222 ms[39m
+[32m[39m
+Dec-12-2022 20:18:41 [32mhttp[39m: [32mGET /getPriceList 304 - - 254.904 ms[39m
+[32m[39m
+Dec-12-2022 20:18:41 [32mhttp[39m: [32mGET /getPriceList 304 - - 265.849 ms[39m
+[32m[39m
+Dec-12-2022 20:18:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 261.144 ms[39m
+[32m[39m
+Dec-12-2022 20:18:43 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 275.360 ms[39m
+[32m[39m
+Dec-12-2022 20:18:44 [32mhttp[39m: [32mGET /getPriceList 304 - - 264.201 ms[39m
+[32m[39m
+Dec-12-2022 20:18:44 [32mhttp[39m: [32mGET /getPriceList 200 30 - 268.332 ms[39m
+[32m[39m
+Dec-12-2022 20:18:49 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 264.835 ms[39m
+[32m[39m
+Dec-12-2022 20:18:49 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 291.002 ms[39m
+[32m[39m
+Dec-12-2022 20:19:03 [32mhttp[39m: [32mPOST /publish 200 20 - 31.660 ms[39m
+[32m[39m
+Dec-12-2022 20:19:16 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 255.796 ms[39m
+[32m[39m
+Dec-12-2022 20:19:16 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 315.586 ms[39m
+[32m[39m
+Dec-12-2022 20:19:20 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 307.138 ms[39m
+[32m[39m
+Dec-12-2022 20:19:20 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 259.384 ms[39m
+[32m[39m
+Dec-12-2022 20:19:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 273.484 ms[39m
+[32m[39m
+Dec-12-2022 20:19:22 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 291.181 ms[39m
+[32m[39m
+Dec-12-2022 20:19:34 [32mhttp[39m: [32mGET /getPriceList 200 - - 260.796 ms[39m
+[32m[39m
+Dec-12-2022 20:19:34 [32mhttp[39m: [32mGET /getPriceList 200 - - 312.986 ms[39m
+[32m[39m
+Dec-12-2022 20:20:08 [32mhttp[39m: [32mGET /getPriceList 304 - - 329.468 ms[39m
+[32m[39m
+Dec-12-2022 20:20:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 277.448 ms[39m
+[32m[39m
+Dec-12-2022 20:20:19 [32mhttp[39m: [32mGET /getPriceList 304 - - 275.096 ms[39m
+[32m[39m
+Dec-12-2022 20:20:22 [32mhttp[39m: [32mGET /getPriceList 304 - - 271.464 ms[39m
+[32m[39m
+Dec-12-2022 20:21:23 [32mhttp[39m: [32mGET /getPriceList 304 - - 268.892 ms[39m
+[32m[39m
+Dec-12-2022 20:21:32 [32mhttp[39m: [32mGET /getPriceList 200 - - 313.876 ms[39m
+[32m[39m
+Dec-12-2022 20:21:33 [32mhttp[39m: [32mGET /getPriceList 200 - - 1357.063 ms[39m
+[32m[39m
+Dec-12-2022 20:22:00 [32mhttp[39m: [32mPUT /bulkupdate 200 20 - 16626.653 ms[39m
+[32m[39m
+Dec-12-2022 20:23:18 [32mhttp[39m: [32mGET /getPriceList 200 - - 298.259 ms[39m
+[32m[39m
+Dec-12-2022 20:23:18 [32mhttp[39m: [32mGET /getPriceList 200 - - 560.091 ms[39m
+[32m[39m
+Dec-12-2022 20:24:45 [32mhttp[39m: [32mGET /getPriceList 200 - - 260.884 ms[39m
+[32m[39m
+Dec-12-2022 20:24:46 [32mhttp[39m: [32mGET /getPriceList 304 - - 558.218 ms[39m
+[32m[39m
+Dec-12-2022 20:25:54 [32mhttp[39m: [32mPOST /user/login 200 492 - 1927.142 ms[39m
+[32m[39m
+Dec-12-2022 20:25:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 267.295 ms[39m
+[32m[39m
+Dec-12-2022 20:25:56 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 312.213 ms[39m
+[32m[39m
+Dec-12-2022 20:26:00 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 277.277 ms[39m
+[32m[39m
+Dec-12-2022 20:26:01 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 309.729 ms[39m
+[32m[39m
+Dec-12-2022 20:26:06 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 288.646 ms[39m
+[32m[39m
+Dec-12-2022 20:26:06 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 307.190 ms[39m
+[32m[39m
+Dec-12-2022 20:26:17 [32mhttp[39m: [32mPOST /upload 200 20 - 49.789 ms[39m
+[32m[39m
+Dec-12-2022 20:26:18 [32mhttp[39m: [32mPOST /publish 200 20 - 26.950 ms[39m
+[32m[39m
+Dec-12-2022 20:29:33 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 255.811 ms[39m
+[32m[39m
+Dec-12-2022 20:29:33 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 321.393 ms[39m
+[32m[39m
+Dec-12-2022 20:29:35 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 252.982 ms[39m
+[32m[39m
+Dec-12-2022 20:29:35 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 260.366 ms[39m
+[32m[39m
+Dec-12-2022 20:29:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 200 542 - 252.108 ms[39m
+[32m[39m
+Dec-12-2022 20:29:40 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-50 304 - - 265.484 ms[39m
+[32m[39m
+Dec-12-2022 20:29:50 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 263.039 ms[39m
+[32m[39m
+Dec-12-2022 20:29:50 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 328.218 ms[39m
+[32m[39m
+Dec-12-2022 20:29:52 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 255.734 ms[39m
+[32m[39m
+Dec-12-2022 20:29:52 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 313.937 ms[39m
+[32m[39m
+Dec-12-2022 20:29:59 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 255.030 ms[39m
+[32m[39m
+Dec-12-2022 20:29:59 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 323.909 ms[39m
+[32m[39m
+Dec-12-2022 20:30:20 [32mhttp[39m: [32mPUT /bulkupdate 200 20 - 6738.455 ms[39m
+[32m[39m
+Dec-12-2022 20:30:54 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 253.296 ms[39m
+[32m[39m
+Dec-12-2022 20:30:54 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 321.319 ms[39m
+[32m[39m
+Dec-12-2022 20:34:24 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 20:34:24 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 20:34:24 [32minfo[39m: [32m2022-12-12T15:04:24.184Z[39m
+Dec-12-2022 20:34:26 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 20:34:26 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 20:34:26 [32minfo[39m: [32m2022-12-12T15:04:26.451Z[39m
+Dec-12-2022 20:34:35 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 20:34:35 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 20:34:35 [32minfo[39m: [32m2022-12-12T15:04:35.357Z[39m
+Dec-12-2022 20:34:39 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 20:34:39 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 20:34:39 [32minfo[39m: [32m2022-12-12T15:04:39.311Z[39m
+Dec-12-2022 20:34:56 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 290.161 ms[39m
+[32m[39m
+Dec-12-2022 20:34:56 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 313.283 ms[39m
+[32m[39m
+Dec-12-2022 20:34:59 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 292.468 ms[39m
+[32m[39m
+Dec-12-2022 20:34:59 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 311.357 ms[39m
+[32m[39m
+Dec-12-2022 20:35:02 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 273.165 ms[39m
+[32m[39m
+Dec-12-2022 20:35:02 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 30 - 303.166 ms[39m
+[32m[39m
+Dec-12-2022 20:35:11 [32mhttp[39m: [32mPOST /upload 200 20 - 80.837 ms[39m
+[32m[39m
+Dec-12-2022 20:35:13 [32mhttp[39m: [32mPOST /publish 200 20 - 53.631 ms[39m
+[32m[39m
+Dec-12-2022 20:35:29 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 334.791 ms[39m
+[32m[39m
+Dec-12-2022 20:35:30 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 335.561 ms[39m
+[32m[39m
+Dec-12-2022 20:35:32 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 286.002 ms[39m
+[32m[39m
+Dec-12-2022 20:35:32 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 289.372 ms[39m
+[32m[39m
+Dec-12-2022 20:35:34 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 260.617 ms[39m
+[32m[39m
+Dec-12-2022 20:35:34 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 263.216 ms[39m
+[32m[39m
+Dec-12-2022 20:36:01 [32mhttp[39m: [32mPUT /bulkupdate 200 20 - 6623.672 ms[39m
+[32m[39m
+Dec-12-2022 20:38:03 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 754.118 ms[39m
+[32m[39m
+Dec-12-2022 20:38:06 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 320.286 ms[39m
+[32m[39m
+Dec-12-2022 20:38:06 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 321.400 ms[39m
+[32m[39m
+Dec-12-2022 20:38:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 304 - - 326.025 ms[39m
+[32m[39m
+Dec-12-2022 20:38:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-50 200 487 - 332.543 ms[39m
+[32m[39m
+Dec-12-2022 20:38:10 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 298.163 ms[39m
+[32m[39m
+Dec-12-2022 20:38:10 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 304.544 ms[39m
+[32m[39m
+Dec-12-2022 20:38:12 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 317.800 ms[39m
+[32m[39m
+Dec-12-2022 20:38:12 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 320.197 ms[39m
+[32m[39m
+Dec-12-2022 20:38:20 [32mhttp[39m: [32mPUT /bulkupdate 200 20 - 619.065 ms[39m
+[32m[39m
+Dec-12-2022 20:39:31 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 200 - - 282.731 ms[39m
+[32m[39m
+Dec-12-2022 20:39:38 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 324.981 ms[39m
+[32m[39m
+Dec-12-2022 20:39:50 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 263.493 ms[39m
+[32m[39m
+Dec-12-2022 20:39:52 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 283.861 ms[39m
+[32m[39m
+Dec-12-2022 20:39:58 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 286.164 ms[39m
+[32m[39m
+Dec-12-2022 20:40:01 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 308.753 ms[39m
+[32m[39m
+Dec-12-2022 20:40:06 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 290.695 ms[39m
+[32m[39m
+Dec-12-2022 20:40:07 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 282.006 ms[39m
+[32m[39m
+Dec-12-2022 20:40:12 [32mhttp[39m: [32mGET /getPriceListbyFacility?facilityID=FAC-60 304 - - 323.933 ms[39m
+[32m[39m
