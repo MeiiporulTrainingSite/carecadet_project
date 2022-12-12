@@ -9283,3 +9283,134 @@ Dec-12-2022 17:02:15 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?pr
 [32m[39m
 Dec-12-2022 17:03:52 [32mhttp[39m: [32mPOST /organization/createOrganization 200 53 - 719.102 ms[39m
 [32m[39m
+Dec-12-2022 17:07:54 [32mhttp[39m: [32mPOST /facility/createFacility 200 53 - 702.641 ms[39m
+[32m[39m
+Dec-12-2022 17:07:54 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 200 960 - 292.977 ms[39m
+[32m[39m
+Dec-12-2022 17:07:54 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 282.742 ms[39m
+[32m[39m
+Dec-12-2022 17:08:35 [32mhttp[39m: [32mPOST /facility/createFacility 200 53 - 842.957 ms[39m
+[32m[39m
+Dec-12-2022 17:08:35 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 200 - - 320.632 ms[39m
+[32m[39m
+Dec-12-2022 17:08:35 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 286.132 ms[39m
+[32m[39m
+Dec-12-2022 17:09:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-51 200 570 - 394.541 ms[39m
+[32m[39m
+Dec-12-2022 17:09:03 [32mhttp[39m: [32mGET /organization/getOrganizationByProvider?providerID=PVD-51 304 - - 279.091 ms[39m
+[32m[39m
+Dec-12-2022 17:09:21 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 377.634 ms[39m
+[32m[39m
+Dec-12-2022 17:09:21 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 289.431 ms[39m
+[32m[39m
+Dec-12-2022 17:10:16 [32mhttp[39m: [32mGET /getPriceList 200 - - 290.621 ms[39m
+[32m[39m
+Dec-12-2022 17:10:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 291.649 ms[39m
+[32m[39m
+Dec-12-2022 17:12:14 [32mhttp[39m: [32mGET /getPriceList 304 - - 335.765 ms[39m
+[32m[39m
+Dec-12-2022 17:12:14 [32mhttp[39m: [32mGET /getPriceList 304 - - 296.813 ms[39m
+[32m[39m
+Dec-12-2022 17:12:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 315.036 ms[39m
+[32m[39m
+Dec-12-2022 17:12:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 273.494 ms[39m
+[32m[39m
+Dec-12-2022 17:13:16 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 278.598 ms[39m
+[32m[39m
+Dec-12-2022 17:13:17 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 429.894 ms[39m
+[32m[39m
+Dec-12-2022 17:13:19 [32mhttp[39m: [32mGET /getPriceList 304 - - 283.851 ms[39m
+[32m[39m
+Dec-12-2022 17:13:19 [32mhttp[39m: [32mGET /getPriceList 304 - - 263.628 ms[39m
+[32m[39m
+Dec-12-2022 17:13:24 [32mhttp[39m: [32mGET /getPriceList 304 - - 380.992 ms[39m
+[32m[39m
+Dec-12-2022 17:13:25 [32mhttp[39m: [32mGET /getPriceList 304 - - 291.952 ms[39m
+[32m[39m
+Dec-12-2022 17:13:29 [32mhttp[39m: [32mGET /getPriceList 304 - - 335.496 ms[39m
+[32m[39m
+Dec-12-2022 17:13:30 [32mhttp[39m: [32mGET /getPriceList 304 - - 285.642 ms[39m
+[32m[39m
+Dec-12-2022 17:13:58 [32mhttp[39m: [32mGET /getPriceList 304 - - 474.630 ms[39m
+[32m[39m
+Dec-12-2022 17:13:58 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.665 ms[39m
+[32m[39m
+Dec-12-2022 17:14:16 [32mhttp[39m: [32mGET /getPriceList 304 - - 278.389 ms[39m
+[32m[39m
+Dec-12-2022 17:14:17 [32mhttp[39m: [32mGET /getPriceList 304 - - 280.522 ms[39m
+[32m[39m
+Dec-12-2022 17:14:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 282.025 ms[39m
+[32m[39m
+Dec-12-2022 17:14:42 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 291.972 ms[39m
+[32m[39m
+Dec-12-2022 17:15:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 366.232 ms[39m
+[32m[39m
+Dec-12-2022 17:15:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 283.858 ms[39m
+[32m[39m
+Dec-12-2022 17:16:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 281.750 ms[39m
+[32m[39m
+Dec-12-2022 17:16:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 282.098 ms[39m
+[32m[39m
+Dec-12-2022 17:16:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.784 ms[39m
+[32m[39m
+Dec-12-2022 17:16:36 [32mhttp[39m: [32mGET /getPriceList 304 - - 348.312 ms[39m
+[32m[39m
+Dec-12-2022 17:17:09 [32mhttp[39m: [32mGET /getPriceList 304 - - 294.135 ms[39m
+[32m[39m
+Dec-12-2022 17:17:09 [32mhttp[39m: [32mGET /getPriceList 304 - - 381.480 ms[39m
+[32m[39m
+Dec-12-2022 17:21:32 [32mhttp[39m: [32mGET /getPriceList 304 - - 300.097 ms[39m
+[32m[39m
+Dec-12-2022 17:21:32 [32mhttp[39m: [32mGET /getPriceList 304 - - 300.452 ms[39m
+[32m[39m
+Dec-12-2022 17:22:21 [32mhttp[39m: [32mGET /getPriceList 304 - - 351.021 ms[39m
+[32m[39m
+Dec-12-2022 17:22:39 [32mhttp[39m: [32mGET /getPriceList 304 - - 323.699 ms[39m
+[32m[39m
+Dec-12-2022 17:22:43 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.384 ms[39m
+[32m[39m
+Dec-12-2022 17:22:45 [32mhttp[39m: [32mGET /getPriceList 304 - - 357.115 ms[39m
+[32m[39m
+Dec-12-2022 17:22:48 [32mhttp[39m: [32mGET /getPriceList 304 - - 276.922 ms[39m
+[32m[39m
+Dec-12-2022 17:22:50 [32mhttp[39m: [32mGET /getPriceList 304 - - 278.886 ms[39m
+[32m[39m
+Dec-12-2022 17:22:53 [32mhttp[39m: [32mGET /getPriceList 304 - - 320.924 ms[39m
+[32m[39m
+Dec-12-2022 17:23:01 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.508 ms[39m
+[32m[39m
+Dec-12-2022 17:23:03 [32mhttp[39m: [32mGET /getPriceList 304 - - 374.563 ms[39m
+[32m[39m
+Dec-12-2022 17:23:05 [32mhttp[39m: [32mGET /getPriceList 304 - - 387.270 ms[39m
+[32m[39m
+Dec-12-2022 17:23:09 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 391.681 ms[39m
+[32m[39m
+Dec-12-2022 17:23:10 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 285.367 ms[39m
+[32m[39m
+Dec-12-2022 17:23:13 [32mhttp[39m: [32mGET /getPriceList 304 - - 293.867 ms[39m
+[32m[39m
+Dec-12-2022 17:23:13 [32mhttp[39m: [32mGET /getPriceList 304 - - 431.897 ms[39m
+[32m[39m
+Dec-12-2022 17:23:17 [32mhttp[39m: [32mGET /getPriceList 304 - - 284.758 ms[39m
+[32m[39m
+Dec-12-2022 17:23:18 [32mhttp[39m: [32mGET /getPriceList 304 - - 309.232 ms[39m
+[32m[39m
+Dec-12-2022 17:23:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 296.479 ms[39m
+[32m[39m
+Dec-12-2022 17:23:24 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 332.839 ms[39m
+[32m[39m
+Dec-12-2022 17:23:58 [32mhttp[39m: [32mGET /getPriceList 304 - - 282.850 ms[39m
+[32m[39m
+Dec-12-2022 17:23:58 [32mhttp[39m: [32mGET /getPriceList 304 - - 286.522 ms[39m
+[32m[39m
+Dec-12-2022 17:24:08 [32mhttp[39m: [32mGET /getPriceList 304 - - 292.230 ms[39m
+[32m[39m
+Dec-12-2022 17:24:08 [32mhttp[39m: [32mGET /getPriceList 304 - - 289.579 ms[39m
+[32m[39m
+Dec-12-2022 17:24:17 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 280.930 ms[39m
+[32m[39m
+Dec-12-2022 17:24:17 [32mhttp[39m: [32mGET /facility/getFacilityByProvider?providerID=PVD-51 304 - - 292.348 ms[39m
+[32m[39m
+Dec-12-2022 21:05:33 [32minfo[39m: [32mApp listening at http://localhost:5200[39m
+Dec-12-2022 21:05:33 [32minfo[39m: [32mEnvironment : development[39m
+Dec-12-2022 21:05:33 [32minfo[39m: [32m2022-12-12T15:35:33.996Z[39m

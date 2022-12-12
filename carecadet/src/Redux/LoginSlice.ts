@@ -98,7 +98,7 @@ export const {
   logoutButton,
   tabValueNav,
   loginButton,
-  editButton
+  // editButton
 } = loginSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.auth.login.token

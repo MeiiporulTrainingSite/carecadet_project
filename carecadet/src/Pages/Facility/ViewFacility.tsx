@@ -12,7 +12,7 @@ import { Buttoncomponent } from '../../Components/Buttoncomp'
 //redux store
 import { useAppSelector, useAppDispatch } from '../../Redux/Hook';
 import { facilityInfo } from '../../Redux/facilitySlice';
-import {editButton} from "../../Redux/LoginSlice"
+// import {editButton} from "../../Redux/LoginSlice"
 
 
 interface forminitialValues {
@@ -156,7 +156,7 @@ export default function ViewFacility() {
                                         <IconButton style={Pointer}>
                                             <EditIcon style={Pointer} onClick={() => {
                                                 dispatch(facilityInfo(facility))
-                                                dispatch(editButton())
+                                                // dispatch(editButton())
                                                 navigate('/update')
                                             }} />
                                         </IconButton>
@@ -173,7 +173,7 @@ export default function ViewFacility() {
                                         </IconButton>
                                         <IconButton>
                                             <MedicalServicesIcon onClick = {() => {
-                                                dispatch(editButton())
+                                                // dispatch(editButton())
                                                 navigate('/pricelistlanding')}} />
                                         </IconButton>
                                     </TableCell>

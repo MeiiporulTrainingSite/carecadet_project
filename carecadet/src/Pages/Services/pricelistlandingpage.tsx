@@ -12,7 +12,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../Redux/Hook";
-import { editButton, tabValueNav } from "../../Redux/LoginSlice";
+import {  tabValueNav } from "../../Redux/LoginSlice";
 
 interface forminitialValues {
   SNo: "string";
@@ -96,7 +96,7 @@ export default function Pricelistlandingpage() {
 
   const navigateToAdd = () => {
     // This will navigate to second component
-    dispatch(editButton())
+    // dispatch(editButton())
     navigate("/Pricelist");
   };
   const navigateToEdit = () => {
@@ -150,7 +150,8 @@ export default function Pricelistlandingpage() {
                   fontSize: "1rem",
                 },
               }}
-              onClick={()=>{dispatch(editButton())
+              onClick={()=>{
+                // dispatch(editButton())
                 dispatch(tabValueNav(1))
               navigate("/providerlanding")}}
             >

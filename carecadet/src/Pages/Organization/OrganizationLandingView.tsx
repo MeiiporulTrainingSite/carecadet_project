@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 
 import { organizationEdit } from "../../Redux/orgSlice";
-import { editButton } from "../../Redux/LoginSlice";
+// import { editButton } from "../../Redux/LoginSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 
 type Props = {};
@@ -44,7 +44,7 @@ const OrganizationLandingView = (props: Props) => {
               variant="contained"
               onClick={() => {
                 dispatch(organizationEdit({ ...data[0] }));
-                dispatch(editButton())
+                // dispatch(editButton())
                 navigate("/editOrg");
               }}
               

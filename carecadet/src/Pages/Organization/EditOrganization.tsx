@@ -10,7 +10,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
-import { editButton, tabValueNav } from "../../Redux/LoginSlice";
+import {  tabValueNav } from "../../Redux/LoginSlice";
 
 interface InitialValues {
   organizationInformation: {
@@ -246,7 +246,7 @@ const EditOrganization = () => {
           type="button"
           onClick={() => {
             dispatch(tabValueNav(0))
-            dispatch(editButton())
+            // dispatch(editButton())
             navigate("/providerlanding");
           }}
           sx={{
