@@ -176,7 +176,7 @@ const OrganizationLandingView = (props: Props) => {
         </Paper>
         </Box>
       ) : (
-        <Buttoncomponent type="submit" variant="contained" onClick={()=>{navigate("/org")}}>Create</Buttoncomponent>
+        navigate("/org")
       )}
     </>
   );

@@ -15,7 +15,7 @@ import FormTextField from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import SelectField from '../../Components/Select';
 import { axiosPrivate } from "../../axios/axios";
-import { tabValueNav } from "../../Redux/LoginSlice";
+import { editButton, tabValueNav } from "../../Redux/LoginSlice";
 
 
 interface forminitialValues {
@@ -118,6 +118,10 @@ export default function CreateFacility() {
                 // alert('success')
                 toast.success("Successfully Added ")               
                 console.log("i", res.data)
+                dispatch(tabValueNav(1))
+                // dispatch(editButton())
+                navigate("/providerlanding")
+
             })
             .catch((e) => console.log(e));
     };
@@ -143,8 +147,8 @@ export default function CreateFacility() {
                     backgroundColor: "darkgray",
                 }}
             />
-            <Grid container item xs={12} justifyContent="left">
-                {/* <button ></button> */}
+            {/* <Grid container item xs={12} justifyContent="left">
+                
                 <Button
                     variant="outlined"
                     type="button"
@@ -165,7 +169,7 @@ export default function CreateFacility() {
                     startIcon={<ArrowBackIcon fontSize="large" />}>
                     BACK
                 </Button>
-            </Grid>
+            </Grid> */}
 
             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
                 <Form>

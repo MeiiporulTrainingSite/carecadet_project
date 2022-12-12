@@ -172,7 +172,9 @@ export default function ViewFacility() {
                                                 }} />
                                         </IconButton>
                                         <IconButton>
-                                            <MedicalServicesIcon onClick = {() => navigate('/pricelistlanding')} />
+                                            <MedicalServicesIcon onClick = {() => {
+                                                dispatch(editButton())
+                                                navigate('/pricelistlanding')}} />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>

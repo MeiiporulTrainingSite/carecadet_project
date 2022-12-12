@@ -11,6 +11,8 @@ import { margin } from "@mui/system";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../Redux/Hook";
+import { editButton, tabValueNav } from "../../Redux/LoginSlice";
 
 interface forminitialValues {
   SNo: "string";
@@ -22,6 +24,8 @@ interface forminitialValues {
 export default function Pricelistlandingpage() {
   const [data, setData] = useState([] as forminitialValues[]);
   const [pageSize, setPagesize] = useState(5);
+  const dispatch=useAppDispatch()
+
   // const [totalPages, setTotalPages] = useState(10);
 
   const getData = async () => {
@@ -92,6 +96,7 @@ export default function Pricelistlandingpage() {
 
   const navigateToAdd = () => {
     // This will navigate to second component
+    dispatch(editButton())
     navigate("/Pricelist");
   };
   const navigateToEdit = () => {
@@ -123,6 +128,34 @@ export default function Pricelistlandingpage() {
                 ),
               }}
             ></TextField> */}
+             <Buttoncomponent
+              type="submit"
+              variant="contained"
+              size="large"
+              color="primary"
+              // onClick={onSave}
+              // onClick={(e) => upload(e)}
+              sx={{
+                justifycontent: "right",
+                alignitems: "right",
+                textalign: "right",
+                backgroundColor: "secondary.dark",
+                width: "10vw",
+                mr: 2,
+                color: "#fff",
+                "&:hover": {
+                  color: "secondary.dark",
+                  border: "1px solid blue",
+                  letterSpacing: "0.2rem",
+                  fontSize: "1rem",
+                },
+              }}
+              onClick={()=>{dispatch(editButton())
+                dispatch(tabValueNav(1))
+              navigate("/providerlanding")}}
+            >
+              Back
+            </Buttoncomponent>
             <Buttoncomponent
               type="submit"
               variant="contained"

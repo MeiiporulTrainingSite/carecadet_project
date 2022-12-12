@@ -725,3 +725,11 @@ Dec-12-2022 12:21:13 [31merror[39m: [31muncaughtException: pricelist validati
 [31m    at D:\HealthLensProvider\healthlens\carecadet_project\server_npm_node_js\node_modules\mongoose\lib\document.js:2885:17[39m
 [31m    at D:\HealthLensProvider\healthlens\carecadet_project\server_npm_node_js\node_modules\mongoose\lib\schematype.js:1349:9[39m
 [31m    at processTicksAndRejections (node:internal/process/task_queues:78:11)[39m
+Dec-12-2022 13:45:10 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 13:45:10 [31merror[39m: [31mAlready a user exists with this email[39m
+Dec-12-2022 13:45:13 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 13:45:13 [31merror[39m: [31mAlready a user exists with this email[39m
+Dec-12-2022 13:45:20 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 13:45:20 [31merror[39m: [31mAlready a user exists with this email[39m
+Dec-12-2022 13:45:22 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Dec-12-2022 13:45:22 [31merror[39m: [31mAlready a user exists with this email[39m

@@ -10,6 +10,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import OrganizationLandingView from "./OrganizationLandingView";
+import { useNavigate } from "react-router-dom";
 
 interface InitialValues {
   organizationInformation: {
@@ -34,6 +35,7 @@ interface InitialValues {
 
 const OrganizationInfo = () => {
   const select = useAppSelector((state) => state.auth.login);
+  const navigate=useNavigate()
 
   const initialValues: InitialValues = {
     organizationInformation: {
@@ -85,6 +87,7 @@ const OrganizationInfo = () => {
         actions.resetForm({
           values: initialValues,
         });
+        navigate("/addFacility")
       });
   };
 
@@ -328,6 +331,7 @@ const OrganizationInfo = () => {
                 size="large"
                 fullWidth={false}
                 variant="contained"
+              
                 sx={{
                   backgroundColor: "secondary.dark",
                   width: "10vw",
