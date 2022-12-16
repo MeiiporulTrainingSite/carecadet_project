@@ -42,7 +42,7 @@ async function getPriceList() {
         DiagnosisTestorServiceName: 1,
         Organisationid: 1,
         OrganisationPrices: 1,
-        FacilityID: 1,
+        FacilityNPI: 1,
         FacilityPrices: 1,
         createdBy: 1,
         createdDate: 1,
@@ -78,14 +78,14 @@ async function updatePricelist(body) {
   }
   const findPricelist = await Pricelist.findOne({
     _id: body._id,
-    FacilityID: body.FacilityID,
+    FacilityNPI: body.FacilityNPI,
     Organisationid: body.Organisationid,
   });
   if (findPricelist) {
     await Pricelist.findOneAndUpdate(
       {
         _id: body._id,
-        FacilityID: body.FacilityID,
+        FacilityNPI: body.FacilityNPI,
         Organisationid: body.Organisationid,
       },
       {
@@ -94,7 +94,7 @@ async function updatePricelist(body) {
         DiagnosisTestorServiceName: body.DiagnosisTestorServiceName,
         Organisationid: body.Organisationid,
         OrganisationPrices: body.OrganisationPrices,
-        FacilityID: body.FacilityID,
+        FacilityNPI: body.FacilityNPI,
         FacilityPrices: body.FacilityPrices,
         createdBy: body.FacilityNPI,
         createdDate: body.createdDate,
@@ -125,10 +125,13 @@ async function deletePricelist(id) {
   }
 }
 
-async function getPriceListbyFacility(FacilityID) {
-  if (FacilityID) {
+async function getPriceListbyFacility(body) {
+ const FacilityNPI=body.facilityNPI
+ const Organisationid=body.Organisationid
+  if (FacilityNPI) {
     const PricelistDetails = await Pricelist.aggregate([
-      { $match: { FacilityID: FacilityID } },
+      { $match: { FacilityNPI: FacilityNPI,
+      Organisationid: Organisationid} },
       {
         $project: {
           SNo: 1,
@@ -136,7 +139,7 @@ async function getPriceListbyFacility(FacilityID) {
           DiagnosisTestorServiceName: 1,
           Organisationid: 1,
           OrganisationPrices: 1,
-          FacilityID: 1,
+          FacilityNPI: 1,
           FacilityPrices: 1,
           createdBy: 1,
           createdDate: 1,

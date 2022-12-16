@@ -1,6 +1,8 @@
 import React from "react";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -44,13 +46,13 @@ function App() {
       <Router>
         <Layout>
           <Routes>
-            <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/>
+            {/* <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/> */}
             {appRoutes.map((route) => (
               <Route
                 key={route.key}
                 path={route.path}
                 element={
-                  <ProtectedRoute>
+                  <ProtectedRoute getData={route.key}>
                     <route.component />
                   </ProtectedRoute>
                 }
@@ -71,6 +73,7 @@ function App() {
           </Routes>
         </Layout>
       </Router>
+      <ToastContainer/>
     </ThemeProvider>
   );
 }

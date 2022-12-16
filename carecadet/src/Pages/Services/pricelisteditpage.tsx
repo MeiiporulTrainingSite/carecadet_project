@@ -32,15 +32,16 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import clsx from "clsx";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
+import { axiosPrivate } from "../../axios/axios";
 
 interface forminitialValues {
   _id: "string";
   SNo: "string";
   ServiceCode: "string";
   DiagnosisTestorServiceName: "string";
-  Organisationid: "string";
+  Organisationid?: "string";
   OrganisationPrices: "string";
-  FacilityID: "string";
+  FacilityINPI?: "string";
   FacilityPrices: "string";
 }
 
@@ -55,14 +56,14 @@ export default function PricelistEditpage() {
   // const facilityid=useAppSelector((state)=>state.editFacility.service);
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
-
+  const orgid = useAppSelector((state) => state.edit.orgEditData);
   const facilityinput = useAppSelector(
     (state: { editFacility: { service: any } }) => state.editFacility.service
   );
   console.log(facilityinput, "facip");
   const getData = async () => {
-    const pricelistdetails = await axios.get(
-      `http://localhost:5200/getPriceListbyFacility?facilityID=FAC-59`
+    const pricelistdetails = await axiosPrivate.get(
+      `/getPriceListbyFacility?facilityNPI=${facilityinput.facilityNPI}&Organisationid=${orgid[0].organizationID}`
     );
     setData(pricelistdetails.data.data);
     console.log(pricelistdetails.data, "pricelist");
@@ -127,21 +128,15 @@ export default function PricelistEditpage() {
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
     let datacheck = { name: filename, PriceList: csvEdit };
-    axios
-      .put(
-        "http://localhost:5200/bulkupdate",
-        datacheck
-       
-      )
-    //   let datacheck1 = { name: filename, PriceList: csvdel };
-    //   axios
-    // .delete(
-    //   "http://localhost:5200/bulkdelete", datacheck1
+    axiosPrivate
+      .put("http://localhost:5200/bulkupdate", datacheck)
+      //   let datacheck1 = { name: filename, PriceList: csvdel };
+      //   axios
+      // .delete(
+      //   "http://localhost:5200/bulkdelete", datacheck1
 
-    
-    // )
+      // )
       .then((res) => {
-       
         console.log("Success ", res);
         alert("success");
       });
@@ -175,7 +170,6 @@ export default function PricelistEditpage() {
       headerName: "Organisation ID",
       headerClassName: "super-app-theme--header",
       width: 200,
-      editable: true,
     },
     {
       field: "OrganisationPrices",
@@ -185,11 +179,10 @@ export default function PricelistEditpage() {
       editable: true,
     },
     {
-      field: "FacilityID",
-      headerName: "FacilityID",
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
       width: 100,
-      editable: true,
     },
     {
       field: "FacilityPrices",
@@ -282,7 +275,7 @@ export default function PricelistEditpage() {
             }}
             startIcon={<ArrowBackIcon fontSize="large" />}
           >
-            BACK
+            Service Info
           </Button>
         </Grid>
         <>

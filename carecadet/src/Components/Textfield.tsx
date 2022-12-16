@@ -9,7 +9,8 @@ interface props {
   fullWidth?: boolean;
   container:any;
   sx?:any
-  label?:string
+  label?:string;
+  multirow?:number;
 }
 const FormTextField = (props: props) => {
   return (
@@ -25,7 +26,9 @@ const FormTextField = (props: props) => {
         fullWidth={props.fullWidth}
         name={props.name}
         placeholder={props.placeholder}
+        rows={props.multirow}
         type={props.type}
+      multiline
         helperText={
           <ErrorMessage name={props.name}>
             {(error) => <ErrorProps>{error}</ErrorProps>}

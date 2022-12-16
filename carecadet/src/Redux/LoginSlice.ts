@@ -62,9 +62,10 @@ export const loginSlice = createSlice({
     },
     logoutButton: (state) => {
       return {
+        ...state,
         login: {},
         logoutButton: false,
-        pageUser: "",
+       
         tabValue: 0,
         editOptions:false
       };

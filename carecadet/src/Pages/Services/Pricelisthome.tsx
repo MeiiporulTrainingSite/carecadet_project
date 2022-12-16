@@ -1,15 +1,18 @@
 import * as React from "react";
 import { useState } from "react";
 import { Grid, Typography, Button, Paper, Box, Container } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import axios from "axios";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
+import { useNavigate } from "react-router";
 
 import { DataGrid } from "@mui/x-data-grid";
-import { useAppDispatch,useAppSelector } from "../../Redux/Hook";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
-
+import { orgid } from "../../Redux/orgSlice";
 type cvsItem = {
   id: string;
   SNo: string;
@@ -20,11 +23,22 @@ export default function Pricelisthome() {
   const [csvData, setCsvData] = useState<cvsItem[]>([]);
   const [filename, setFilename] = useState("");
   const [pageSize, setPagesize] = useState(5);
+  const navigate = useNavigate();
 
-  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
-  console.log(data,"dat")
+  const data = useAppSelector(
+    (state: { auth: { login: any } }) => state.auth.login
+  );
+  console.log(data, "dat");
   console.log(csvData, "checkd");
+  // organizationID: select.organizationID,
 
+  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  console.log("orgid", orgid[0].organizationID);
+  const facilityinput = useAppSelector(
+    (state: { editFacility: { service: any } }) => state.editFacility.service
+  );
+
+  const facilityNPI = facilityinput.facilityNPI;
   const onCellEditCommit = (cellData: any) => {
     const { id, field, value } = cellData;
     console.log(cellData);
@@ -64,43 +78,43 @@ export default function Pricelisthome() {
     {
       field: "SNo",
       headerName: "S.No",
-      editable:true,
+      editable: true,
       width: 100,
     },
     {
       field: "ServiceCode",
       headerName: "Service Code",
-      editable:true,
+      editable: true,
       width: 100,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
-      editable:true,
+      editable: true,
       width: 350,
     },
     {
       field: "Organisationid",
       headerName: "Organisation ID",
-      editable:true,
+      editable: true,
       width: 100,
     },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
-      editable:true,
+      editable: true,
       width: 100,
     },
     {
-      field: "FacilityID",
-      headerName: "FacilityID",
-      editable:true,
+      field: "FacilityNPI",
+      Name: "FacilityNPI",
+      editable: true,
       width: 100,
     },
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
-editable:true,
+      editable: true,
       width: 100,
     },
   ];
@@ -112,18 +126,23 @@ editable:true,
     var result = [];
 
     var headers = lines[0].split(",");
-console.log(headers,"headers")
-    for (var i = 1; i < lines.length-1; i++) {
-     
+    console.log(headers, "headers");
+    const facilityNPI = facilityinput.facilityNPI;
+    for (var i = 1; i < lines.length - 1; i++) {
       var obj: any = {};
       var currentline = lines[i].split(",");
 
+      obj["FacilityNPI"] = facilityNPI;
+      obj["Organisationid"] = orgid[0].organizationID;
       for (var j = 0; j < headers.length; j++) {
         obj[headers[j]] = currentline[j];
       }
+      console.log("facilityNPI", facilityNPI);
 
       result.push(obj);
+      // data:{$push:[{result , facilityNPI}]}
     }
+    // console.log(result,"res")
     setCsvData(result);
     //return result; //JavaScript object
     return JSON.stringify(result); //JSON
@@ -173,7 +192,7 @@ console.log(headers,"headers")
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
     let datacheck = { name: filename, csv: csvData };
-    axios
+    axiosPrivate
       .post(
         "http://localhost:5200/upload",
         datacheck
@@ -195,7 +214,7 @@ console.log(headers,"headers")
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
     let datacheck = { name: filename, csv: csvData };
-    axios
+    axiosPrivate
       .post(
         "http://localhost:5200/publish",
         datacheck
@@ -252,6 +271,30 @@ console.log(headers,"headers")
             backgroundColor: "darkgray",
           }}
         />
+        <Grid container item xs={12} justifyContent="left">
+          <Button
+            variant="outlined"
+            type="button"
+            onClick={() => {
+              // dispatch(tabValueNav(1));
+              navigate("/pricelistlanding");
+            }}
+            sx={{
+              backgroundColor: "secondary.dark",
+              width: "8vw",
+
+              marginBottom: "0.5rem",
+              color: "#fff",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+              },
+            }}
+            startIcon={<ArrowBackIcon fontSize="large" />}
+          >
+            Service Info
+          </Button>
+        </Grid>
         <Typography
           variant="h6"
           sx={{

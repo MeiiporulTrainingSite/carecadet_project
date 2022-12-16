@@ -89,7 +89,7 @@ const EditOrganization = () => {
       .then((res) => {
         alert("success");
         // dispatch(organizationEdit(orgdata))
-        // navigate("/org")
+        navigate("/providerlanding")
         // actions.resetForm({
         //   values: initialValues,
         // });
@@ -222,7 +222,7 @@ const EditOrganization = () => {
       }}
     >
       {/* <p>{JSON.stringify(select)}</p> */}
-      <Typography
+      {/* <Typography
         variant="h6"
         textAlign={"right"}
         justifyItems={"right"}
@@ -239,8 +239,8 @@ const EditOrganization = () => {
           height: "3px",
           backgroundColor: "darkgray",
         }}
-      />
-      <Grid container item xs={12} justifyContent="left">
+      /> */}
+      {/* <Grid container item xs={12} justifyContent="left">
         <Button
           variant="outlined"
           type="button"
@@ -264,7 +264,7 @@ const EditOrganization = () => {
         >
           BACK
         </Button>
-      </Grid>
+      </Grid> */}
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}

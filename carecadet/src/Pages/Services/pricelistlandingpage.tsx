@@ -12,17 +12,18 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import {  tabValueNav } from "../../Redux/LoginSlice";
+import { tabValueNav } from "../../Redux/LoginSlice";
 import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
+import { axiosPrivate } from "../../axios/axios";
 
 interface forminitialValues {
   SNo: "string";
   ServiceCode: "string";
   DiagnosisTestorServiceName: "string";
-  Organisationid: "string";
+  Organisationid?: "string";
   OrganisationPrices: "string";
-  FacilityID: "string";
+  FacilityNPI?: "string";
   FacilityPrices: "string";
 }
 
@@ -34,20 +35,30 @@ export default function Pricelistlandingpage() {
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
 
+  const orgid = useAppSelector((state) => state.edit.orgEditData);
   const facilityinput = useAppSelector(
     (state: { editFacility: { service: any } }) => state.editFacility.service
   );
+
   console.log(facilityinput, "facip");
-  const getData = async () => {
-    const pricelistdetails = await axios.get(
-      `http://localhost:5200/getPriceListbyFacility?facilityID=FAC-59`
-    );
-    setData(pricelistdetails.data.data);
-    console.log(pricelistdetails.data, "pricelist");
-  };
+  const navigate = useNavigate();
   useEffect(() => {
+    console.log("start");
     getData();
   }, []);
+  const getData = async () => {
+    const pricelistdetails = await axiosPrivate.get(
+      `/getPriceListbyFacility?facilityNPI=${facilityinput.facilityNPI}&Organisationid=${orgid[0].organizationID}`
+    );
+    const data = pricelistdetails.data.data;
+    if (data.length == 0) {
+      navigate("/pricelist");
+    } else {
+      setData(pricelistdetails.data.data);
+    }
+
+    console.log(pricelistdetails.data, "pricelist");
+  };
 
   const columns: GridColumns = [
     {
@@ -81,8 +92,8 @@ export default function Pricelistlandingpage() {
       width: 200,
     },
     {
-      field: "FacilityID",
-      headerName: "FacilityID",
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
       width: 170,
     },
@@ -93,8 +104,6 @@ export default function Pricelistlandingpage() {
       width: 170,
     },
   ];
-
-  const navigate = useNavigate();
 
   const navigateToAdd = () => {
     // This will navigate to second component
@@ -121,12 +130,12 @@ export default function Pricelistlandingpage() {
   return (
     <>
       <Paper
-        elevation={9}
+        // elevation={9}
         sx={{
           backgroundColor: "primary.light",
           padding: "0.2rem",
-          borderRadius: "15px",
-          height: "88.8vh",
+          // borderRadius: "15px",
+          // height: "88.8vh",
         }}
       >
         <>

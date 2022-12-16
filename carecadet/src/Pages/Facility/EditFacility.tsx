@@ -23,6 +23,7 @@ import SelectField from "../../Components/Select";
 //redux store
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import {  tabValueNav } from "../../Redux/LoginSlice";
+import { axiosPrivate } from "../../axios/axios";
 
 interface forminitialValues {
   providerID: string;
@@ -84,27 +85,27 @@ export default function UpdateFacility() {
       contact: values.contact,
     };
     alert(JSON.stringify(facilitydata, null, 2));
-    actions.resetForm({
-      values: {
-        facilityNPI: "",
-        facilityName: "",
-        facilityType: " ",
-        addressLine1: "",
-        addressLine2: "",
-        city: "",
-        state: "",
-        zipCode: "",
-        email: "",
-        contact: "",
-      },
-    });
-    axios
+    // actions.resetForm({
+    //   values: {
+    //     facilityNPI: "",
+    //     facilityName: "",
+    //     facilityType: " ",
+    //     addressLine1: "",
+    //     addressLine2: "",
+    //     city: "",
+    //     state: "",
+    //     zipCode: "",
+    //     email: "",
+    //     contact: "",
+    //   },
+    // });
+    axiosPrivate
       .put(`http://localhost:5200/facility/updateFacility`, facilitydata)
       .then((res) => {
         // alert('updated')
         toast.success("Successfully Updated");
         console.log("i", res.data);
-        navigate("/facility");
+        navigate("/providerlanding");
       })
       .catch((e) => console.log(e));
   };
@@ -115,10 +116,11 @@ export default function UpdateFacility() {
       sx={{
         backgroundColor: "primary.light",
         padding: "1.8rem",
-        borderRadius: "15px",
+        // borderRadius: "15px",
+        m:"1em"
       }}
     >
-      <Typography
+      {/* <Typography
         variant="h6"
         textAlign={"right"}
         justifyItems={"right"}
@@ -135,7 +137,7 @@ export default function UpdateFacility() {
           height: "3px",
           backgroundColor: "darkgray",
         }}
-      />
+      /> */}
       {/* <Grid container item xs={12} justifyContent="left">
         <Button
           variant="outlined"
@@ -172,7 +174,8 @@ export default function UpdateFacility() {
                   backgroundColor: "#B4C8FC",
                   padding: "0.7rem",
                   textAlign: "center",
-                  fontSize: "1.5rem",
+                  fontSize: "1.2rem",
+                  fontWeight:"bold"
                 }}
               >
                 Facility Information

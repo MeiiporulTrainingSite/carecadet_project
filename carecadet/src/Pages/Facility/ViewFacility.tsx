@@ -12,6 +12,7 @@ import { Buttoncomponent } from '../../Components/Buttoncomp'
 //redux store
 import { useAppSelector, useAppDispatch } from '../../Redux/Hook';
 import { facilityInfo, serviceInfo } from '../../Redux/facilitySlice';
+import { axiosPrivate } from '../../axios/axios';
 // import {editButton} from "../../Redux/LoginSlice"
 
 
@@ -50,7 +51,7 @@ export default function ViewFacility() {
 
     const getData = async () => {
         // const facilityDetails = await axios.get('http://localhost:5200/facility/getFacilityList')
-        const facilityDetails = await axios.get(`http://localhost:5200/facility/getFacilityByProvider?providerID=${getid.userID}`)
+        const facilityDetails = await axiosPrivate.get(`http://localhost:5200/facility/getFacilityByProvider?providerID=${getid.userID}`)
         setData(facilityDetails.data.data);
 
     }
@@ -85,15 +86,24 @@ export default function ViewFacility() {
     };
     return (
         // <Paper sx={{ backgroundColor: "primary.light" }}>
-        <Grid container justifyContent='center' display='flex'>
-            <TableContainer component={Paper} elevation={5} sx={{ backgroundColor: "primary.light", maxWidth: '78vw', borderRadius: '15px', m: '1em 0 1em 0' }}>
+        // <Grid container justifyContent='center' display='flex'>
+            <TableContainer component={Paper} 
+            // elevation={3}
+             sx={{
+                // m:"-20px 0 0 -20px",
+                width:"100%",               
+                 backgroundColor: "primary.light",  
+                //  borderRadius: '10px', 
+            //  m: '0em 0 1em 0em',
+            //  padding:"1rem 2.5rem 0 2.5rem" 
+            }}>
                 <Grid container>
                     <Grid item xs={12} sm={6}>
                         <Typography
                             sx={{
                                 padding: "1.5rem",
                                 textAlign: "left",
-                                fontSize: "1.5rem",
+                                fontSize: "1.2rem",
                                 fontWeight: 'bold'
                             }}>
                             Facility Listicle
@@ -122,16 +132,16 @@ export default function ViewFacility() {
 
 
                 <Grid item sx={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <Table sx={{ maxWidth: '78vw' }}>
+                    <Table sx={{maxWidth:"100%"}} >
                         <TableHead sx={{ backgroundColor: 'secondary.light' }}>
                             <TableRow>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility NPI</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Name</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Type</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Address</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Contact</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Email</TableCell>
-                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Actions</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility NPI</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Name</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Type</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Address</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Contact</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Email</TableCell>
+                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
 
@@ -142,40 +152,40 @@ export default function ViewFacility() {
                                 : data
                             ).map(facility => (
                                 <TableRow key={facility.facilityNPI}>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>{facility.facilityNPI}</TableCell>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>{facility.facilityName}</TableCell>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>{facility.facilityType}</TableCell>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>{facility.facilityNPI}</TableCell>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>{facility.facilityName}</TableCell>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>{facility.facilityType}</TableCell>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>
                                         <p style={{ margin: "0px" }}>{facility.address.addressLine1}<span style={{ marginLeft: '10px' }}>{facility.address.addressLine2}</span> </p>
-                                        <p style={{ margin: "0px" }}>{facility.address.city}<span style={{ marginLeft: '10px' }}>{facility.address.zipCode}</span> </p>
-                                        <p style={{ margin: "0px " }}>{facility.address.state}</p>
+                                        <p style={{ margin: "0px" }}>{facility.address.city}<span style={{ marginLeft: '10px' }}>{facility.address.state}</span> </p>
+                                        <p style={{ margin: "0px " }}>{facility.address.zipCode}</p>
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>{facility.contact}</TableCell>
-                                    <TableCell sx={{ fontSize: '1rem', textAlign: 'center' }}>{facility.email}</TableCell>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>{facility.contact}</TableCell>
+                                    <TableCell sx={{ fontSize: '0.8rem', textAlign: 'center' }}>{facility.email}</TableCell>
                                     <TableCell sx={{ textAlign: 'center' }} >
-                                        <IconButton style={Pointer}>
-                                            <EditIcon style={Pointer} onClick={() => {
+                                        <IconButton style={Pointer} onClick={() => {
                                                 dispatch(facilityInfo(facility))
                                                 // dispatch(editButton())
                                                 navigate('/update')
-                                            }} />
+                                            }}>
+                                            <EditIcon style={Pointer}  />
                                         </IconButton>
-                                        <IconButton style={Pointer}>
-                                            <DeleteIcon style={Pointer}
-                                                onClick={() => {
+                                        <IconButton style={Pointer} onClick={() => {
                                                     dispatch(facilityInfo({ facility }));
-                                                    axios.delete(`http://localhost:5200/facility/deleteFacility?facilityID=${facility.facilityID}`, facilityinput)
+                                                    axiosPrivate.delete(`http://localhost:5200/facility/deleteFacility?facilityID=${facility.facilityID}`, facilityinput)
                                                         .then(() => {
                                                             toast.success('Successfully Deleted')
                                                             getData();
                                                         })
-                                                }} />
+                                                }}>
+                                            <DeleteIcon style={Pointer}
+                                                />
                                         </IconButton>
-                                        <IconButton>
-                                            <MedicalServicesIcon onClick = {() => {
+                                        <IconButton onClick = {() => {
                                                  dispatch(serviceInfo(facility))
                                                 // dispatch(editButton())
-                                                navigate('/pricelistlanding')}} />
+                                                navigate('/pricelistlanding')}}>
+                                            <MedicalServicesIcon  />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
@@ -216,7 +226,7 @@ export default function ViewFacility() {
                     </Table>
                 </Grid>
             </TableContainer>
-        </Grid>
+        // </Grid>
         // </Paper>
     )
 }

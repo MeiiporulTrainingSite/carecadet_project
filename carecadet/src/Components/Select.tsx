@@ -19,7 +19,7 @@ interface selectprops{
 const SelectField= (props:props) => {
   return (
 <FormControl sx={{ width: "100%" }}>
-        <InputLabel sx={{letterSpacing:"0.2rem","&.MuiInputLabel-shrink": { letterSpacing:0 }}}>{props.label}</InputLabel>
+        <InputLabel sx={{letterSpacing:"0.2rem",fontSize:"0.8rem","&.MuiInputLabel-shrink": { letterSpacing:0 }}}>{props.label}</InputLabel>
         <Field as={props.container} name={props.name} label={props.label}    
          sx = {props.sx}
         inputProps={{

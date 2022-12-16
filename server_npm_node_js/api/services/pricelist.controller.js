@@ -1,79 +1,88 @@
 import { Router } from "express";
 import PricelistService from "./pricelist.service.js";
-import ResObject from '../../core/util/res-object.js';
+import ResObject from "../../core/util/res-object.js";
 const router = Router();
-
-
 
 export default router;
 
 router.post("/upload", uploadPricelist);
 router.post("/publish", publishPricelist);
-router.get('/getPriceList',getPriceList);
-router.get('/getPriceListbyFacility',getPriceListbyFacility);
-router.put('/updatePricelist',updatePricelist);
-router.delete('/deletePricelist',deletePricelist);
-router.delete('/bulkdelete',bulkDelete);
-router.put("/bulkupdate", bulkUpdate)
-function getPriceList(req,res,next) {
-  PricelistService.getPriceList().then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+router.get("/getPriceList", getPriceList);
+router.get("/getPriceListbyFacility", getPriceListbyFacility);
+router.put("/updatePricelist", updatePricelist);
+router.delete("/deletePricelist", deletePricelist);
+router.delete("/bulkdelete", bulkDelete);
+router.put("/bulkupdate", bulkUpdate);
+function getPriceList(req, res, next) {
+  PricelistService.getPriceList()
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
 
-
-function uploadPricelist(req, res,next) {
+function uploadPricelist(req, res, next) {
   // let file = req.files.screenshot;
   // console.log("Body",req.body);
-  let file=req.body;
-  PricelistService.uploadPricelist(file).then(obj => {
-  
-    new ResObject(res,obj);
-  }).catch(next);
-    // console.log("check");
-    // res.send(200);
-
+  let file = req.body;
+  PricelistService.uploadPricelist(file)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
+  // console.log("check");
+  // res.send(200);
 }
 
-function publishPricelist(req, res,next) {
-    let file = req.body;
-  PricelistService.publishPricelist(file).then(obj => {
-  
-    new ResObject(res,obj);
-  }).catch(next);
- 
+function publishPricelist(req, res, next) {
+  let file = req.body;
+  PricelistService.publishPricelist(file)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
-function getPriceListbyFacility(req,res,next) {
-  const facilityID = req.query.facilityID;
-  PricelistService.getPriceListbyFacility(facilityID).then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+function getPriceListbyFacility(req, res, next) {
+  const facilityNPI = req.query;
+  PricelistService.getPriceListbyFacility(facilityNPI)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
 
-function updatePricelist(req,res,next) {
+function updatePricelist(req, res, next) {
   const body = req.body ?? {};
-PricelistService.updatePricelist(body).then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+  PricelistService.updatePricelist(body)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
 
-function bulkUpdate(req,res,next){
+function bulkUpdate(req, res, next) {
   const body = req.body ?? {};
-PricelistService.bulkUpdate(body).then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+  PricelistService.bulkUpdate(body)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
 
-function bulkDelete(req,res,next){
+function bulkDelete(req, res, next) {
   const body = req.body ?? {};
-PricelistService.bulkDelete(body).then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+  PricelistService.bulkDelete(body)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }
 
-function deletePricelist(req,res,next) {
+function deletePricelist(req, res, next) {
   const SNo = req.query.SNo ?? null;
-PricelistService.deletePricelist(SNo).then(obj => {
-      new ResObject(res,obj);
-  }).catch(next);
+  PricelistService.deletePricelist(SNo)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
 }

@@ -3,11 +3,12 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Paper } from "@mui/material";
+import { Paper, Grid } from "@mui/material";
 
 //components
 
 import ViewFacility from "./Facility/ViewFacility";
+import Pricelist from "./Services/pricelist";
 import OrganizationLandingView from "./Organization/OrganizationLandingView";
 import { useAppSelector } from "../Redux/Hook";
 
@@ -44,30 +45,30 @@ function a11yProps(index: number) {
 }
 
 export default function ProviderLandingPage() {
-  const tabValue = useAppSelector((state) => state.auth.tabValue);
-  const tab=tabValue!==undefined||null?tabValue:0
-  const [value, setValue] = React.useState(tabValue);
-
+  // const tabValue = useAppSelector((state) => state.auth.tabValue);
+  // const tab=tabValue!==undefined||null?tabValue:0
+  // const [value, setValue] = React.useState(tabValue);
+  const [value, setValue] = React.useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
 
   return (
-    <Paper sx={{ backgroundColor: "primary.light" }}>
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <Tabs value={value} onChange={handleChange}>
-            <Tab label="Organization " {...a11yProps(0)} />
-            <Tab label="Facility" {...a11yProps(1)} />
-          </Tabs>
-        </Box>
-        <TabPanel value={value} index={0}>
-          <OrganizationLandingView />
-        </TabPanel>
-        <TabPanel value={value} index={1}>
-          <ViewFacility />
-        </TabPanel>
+    // <Paper sx={{ backgroundColor: "primary.light" }}>
+    <Box sx={{ m: 0, p: 0 }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="Facility " {...a11yProps(0)} />
+          <Tab label="Services" {...a11yProps(1)} />
+        </Tabs>
       </Box>
-    </Paper>
+      <TabPanel value={value} index={0}>
+        <ViewFacility />
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Pricelist />
+      </TabPanel>
+    </Box>
+    // </Paper>
   );
 }

@@ -29,11 +29,18 @@ export const editSlice = createSlice({
     refrestState:(state)=>{
       state.orgEditData={}
     },
+    orgid:(state, action: PayloadAction<any>) => {
+      return {
+        ...state,
+        orgid: action.payload,
+      };
+      
+    },
   },
 });
 
-export const { organizationEdit,refrestState } = editSlice.actions;
+export const { organizationEdit,refrestState ,orgid} = editSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.auth.login.token
-
+console.log("orgid", orgid)
 export default editSlice.reducer;

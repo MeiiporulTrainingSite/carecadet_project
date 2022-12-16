@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
-
+import {toast} from "react-toastify"
 import Cookies from "js-cookie";
+import { logoutButton } from "../Redux/LoginSlice";
 
 import { store } from "../Redux/Store";
 
@@ -21,21 +22,29 @@ axiosPrivate.interceptors.request.use(
     return config;
   }
 );
-// axiosPrivate.interceptors.response.use(
-//   (res) => res.data,
-//   (err) => {
-//     console.log(err.response.statusText)
-//   //   if (err.response) {
-//   //     return Promise.reject(err.response.data);
-//   //   }
 
-//   //   if (err.request) {
-//   //     return Promise.reject(err.request);
-//   //   }
 
-//   //   return Promise.reject(err.message);
-//    }
-// );
+axiosPrivate.interceptors.response.use(
+  (res) => res,
+  (err) => {
+    console.log(err.response.statusText)
+    if(err.response.statusText==="Unauthorized"){
+      store.dispatch(logoutButton())
+     
+      window.location.pathname="/login"
+      toast.error("test");
+    }
+  //   if (err.response) {
+  //     return Promise.reject(err.response.data);
+  //   }
+
+  //   if (err.request) {
+  //     return Promise.reject(err.request);
+  //   }
+
+  //   return Promise.reject(err.message);
+   }
+);
 // //axiosPrivate.interceptors.request.use((res) => {res.data});
 // let checkToken;
 // export const check = () => {

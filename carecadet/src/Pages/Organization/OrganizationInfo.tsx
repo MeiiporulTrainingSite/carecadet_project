@@ -217,7 +217,7 @@ const OrganizationInfo = () => {
       }}
     >
       {/* <p>{JSON.stringify(select)}</p> */}
-      <Typography
+      {/* <Typography
         variant="h6"
         textAlign={"right"}
         justifyItems={"right"}
@@ -234,7 +234,7 @@ const OrganizationInfo = () => {
           height: "3px",
           backgroundColor: "darkgray",
         }}
-      />
+      /> */}
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}

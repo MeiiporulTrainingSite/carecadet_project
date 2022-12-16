@@ -128,8 +128,12 @@ export default function CreateFacility() {
 
 
     return (
-        <Paper elevation={5} sx={{ backgroundColor: "primary.light", padding: "1.8rem", borderRadius: "15px" }}>
-            <Typography
+        <Paper elevation={5} sx={{ backgroundColor: "primary.light", 
+        padding: "1.8rem", 
+        // borderRadius: "15px",
+        // m:"0 1em 1em 1em"
+         }}>
+            {/* <Typography
                 variant="h6"
                 textAlign={"right"}
                 justifyItems={"right"}
@@ -146,7 +150,7 @@ export default function CreateFacility() {
                     height: "3px",
                     backgroundColor: "darkgray",
                 }}
-            />
+            /> */}
             {/* <Grid container item xs={12} justifyContent="left">
                 
                 <Button
@@ -176,23 +180,25 @@ export default function CreateFacility() {
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Typography
-                                mb={"0.5rem"}
+                                mb={"0.3rem"}
                                 sx={{
                                     backgroundColor: "secondary.light",
                                     padding: "0.7rem",
                                     textAlign: "center",
-                                    fontSize: "1.5rem",
+                                    fontSize: "1.2rem",
+                                    fontWeight:"bold"
                                 }}
                             >
-                                Facility Information
+                               Add Facility Information
                             </Typography>
                         </Grid>
                         <Grid item xs={12} sm={12}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Facility NPI
@@ -206,7 +212,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem"
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -217,9 +224,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={6}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Facility Name
@@ -233,7 +241,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem"
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -249,9 +258,10 @@ export default function CreateFacility() {
                             <Typography
                                 // variant="h6"
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Facility Type
@@ -264,9 +274,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={6}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Street Address1
@@ -280,7 +291,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -291,9 +303,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={6}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Street Address2
@@ -307,7 +320,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -318,9 +332,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={4}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 City
@@ -334,7 +349,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -345,9 +361,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={4}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 State
@@ -361,7 +378,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -372,9 +390,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={4}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 ZipCode
@@ -388,7 +407,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -399,9 +419,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={6}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Phone
@@ -415,7 +436,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
@@ -426,9 +448,10 @@ export default function CreateFacility() {
                         <Grid item xs={12} sm={6}>
                             <Typography
                                 sx={{
-                                    fontSize: "1.2rem",
+                                    fontSize: "1rem",
+                                    fontWeight:"bold",
                                     // m: "0.5rem 0 0.2rem 0",
-                                    mb: "0.5rem"
+                                    mb: "0.3rem"
                                 }}
                             >
                                 Email
@@ -442,7 +465,8 @@ export default function CreateFacility() {
                                 fullWidth={true}
                                 sx={{
                                     ".MuiFormLabel-root ": {
-                                        letterSpacing: "0.2rem"
+                                        letterSpacing: "0.2rem",
+                                        fontSize:"0.8rem",
                                     },
                                     ".MuiInputLabel-shrink": {
                                         letterSpacing: 0
