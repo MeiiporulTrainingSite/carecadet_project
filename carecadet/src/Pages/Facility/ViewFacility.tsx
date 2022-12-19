@@ -90,7 +90,8 @@ export default function ViewFacility() {
             <TableContainer component={Paper} 
             // elevation={3}
              sx={{
-                // m:"-20px 0 0 -20px",
+                //  m:"-20px 0px 0 -20px",
+              
                 width:"100%",               
                  backgroundColor: "primary.light",  
                 //  borderRadius: '10px', 
@@ -131,17 +132,17 @@ export default function ViewFacility() {
                 </Grid>
 
 
-                <Grid item sx={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Grid item sx={{ justifyContent: 'center',  }}>
                     <Table sx={{maxWidth:"100%"}} >
                         <TableHead sx={{ backgroundColor: 'secondary.light' }}>
                             <TableRow>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility NPI</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Name</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Type</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Address</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Contact</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Email</TableCell>
-                                <TableCell sx={{ fontSize: '0.8rem', fontWeight: 'bold', textAlign: 'center' }}>Actions</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility NPI</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Name</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Facility Type</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Address</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Contact</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Email</TableCell>
+                                <TableCell sx={{ fontSize: '1rem', fontWeight: 'bold', textAlign: 'center' }}>Actions</TableCell>
                             </TableRow>
                         </TableHead>
 
