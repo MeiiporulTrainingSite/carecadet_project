@@ -4,7 +4,7 @@ import logger ,{stream} from './core/logger/logger.js'
 import dotenv from 'dotenv';
 import compression from 'compression';
 import cors from 'cors';
-import fileUpload from "express-fileupload";
+// import fileUpload from "express-fileupload";
 
 
 import errorHandler from './core/error-handler/error-handler.js';
@@ -14,7 +14,7 @@ import ProviderController from './api/user/provider/provider.controller.js';
 import OrganizationController from './api/organization/organization.controller.js';
 import FacilityController from './api/facility/facility.controller.js';
 import PricelistController from "./api/services/pricelist.controller.js";
-// import { startAuthAPI } from './core/authentication/authapi.js';
+ import { startAuthAPI } from './core/authentication/authapi.js';
 
 // Configure env file
 dotenv.config();
@@ -34,7 +34,7 @@ const swaggerDocument = JSON.parse(
 
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use(fileUpload());
+// app.use(fileUpload());
 
 // Handle Exception
 process.on('uncaughtException',err=>{
@@ -79,11 +79,12 @@ app.get('/',(req,res) => {
 })
 
 app.use('/user',LoginController);
-
-// startAuthAPI(app);
+app.use('/provider',ProviderController);
+app.use(express.static("./image"))
+startAuthAPI(app);
 
 app.use('/collection-key-gen',CollectionKeyGenController);
-app.use('/provider',ProviderController);
+
 app.use('/organization',OrganizationController);
 app.use('/facility',FacilityController);
 app.use("/upload", PricelistController);
