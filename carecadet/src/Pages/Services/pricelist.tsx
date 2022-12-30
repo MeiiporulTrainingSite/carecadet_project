@@ -31,10 +31,10 @@ function Pricelist() {
       sx={{
         backgroundColor: "primary.light",
         padding: "1.5rem",
-        borderRadius: "15px",
+        // borderRadius: "15px",
       }}
     >
-      <Typography
+      {/* <Typography
         variant="h6"
         textAlign={"right"}
         justifyItems={"right"}
@@ -43,14 +43,14 @@ function Pricelist() {
         marginBottom={"5px"}
       >
         Hello {data.userID},
-      </Typography>
-      <div
+      </Typography> */}
+      {/* <div
         style={{
           flex: 1,
           height: "3px",
           backgroundColor: "darkgray",
         }}
-      />
+      /> */}
       <Typography
         variant="h6"
         margin={"40px"}
