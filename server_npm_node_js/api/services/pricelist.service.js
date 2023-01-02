@@ -14,6 +14,9 @@ export default {
   getPriceListbyFacility,
   bulkUpdate,
   bulkDelete,
+  // getPriceListone,
+  getPriceListbyService,
+  createService,
 };
 
 async function uploadPricelist(file) {
@@ -80,6 +83,7 @@ async function updatePricelist(body) {
     _id: body._id,
     FacilityNPI: body.FacilityNPI,
     Organisationid: body.Organisationid,
+    DiagnosisTestorServiceName: body.DiagnosisTestorServiceName,
   });
   if (findPricelist) {
     await Pricelist.findOneAndUpdate(
@@ -87,6 +91,7 @@ async function updatePricelist(body) {
         _id: body._id,
         FacilityNPI: body.FacilityNPI,
         Organisationid: body.Organisationid,
+        DiagnosisTestorServiceName: body.DiagnosisTestorServiceName,
       },
       {
         SNo: body.SNo,
@@ -126,15 +131,14 @@ async function deletePricelist(id) {
 }
 
 async function getPriceListbyFacility(body) {
- const FacilityNPI=body.facilityNPI
- const Organisationid=body.Organisationid
+  const FacilityNPI = body.facilityNPI;
+  const Organisationid = body.Organisationid;
   if (FacilityNPI) {
     const PricelistDetails = await Pricelist.aggregate([
-      { $match: { FacilityNPI: FacilityNPI,
-      Organisationid: Organisationid} },
+      { $match: { FacilityNPI: FacilityNPI, Organisationid: Organisationid } },
       {
         $project: {
-          SNo: 1,
+          // SNo: 1,
           ServiceCode: 1,
           DiagnosisTestorServiceName: 1,
           Organisationid: 1,
@@ -152,4 +156,91 @@ async function getPriceListbyFacility(body) {
   } else {
     throw Error("please provide facility npi");
   }
+}
+
+// async function getPriceListone() {
+//   // const PriceList = await Pricelist.aggregate([
+//   //   {
+//   //     $project: {
+//   //       SNo: 1,
+//   //       ServiceCode: 1,
+//   //       DiagnosisTestorServiceName: 1,
+//   //       Organisationid: 1,
+//   //       OrganisationPrices: 1,
+//   //       FacilityNPI: 1,
+//   //       FacilityPrices: 1,
+//   //       createdBy: 1,
+//   //       createdDate: 1,
+//   //       updatedBy: 1,
+//   //       updatedDate: 1,
+//   //     },
+//   //   },
+//   // ]);
+//   // return { data: PriceList };
+//   // if (DiagnosisTestorServiceName) {
+//   //   await Pricelist.unique({ DiagnosisTestorServiceName: DiagnosisTestorServiceName });
+//   //   return { message: "successfully filtered" };
+
+//   // }
+//   // await Pricelist.aggregate([
+//   const PriceList = Pricelist.find().distinct("DiagnosisTestorServiceName");
+//   return { data: PriceList }
+//   // console.log("checked", PriceList);
+//   // ]);
+// }
+
+async function getPriceListbyService(body) {
+  const DiagnosisTestorServiceName = body.DiagnosisTestorServiceName;
+  const Organisationid = body.Organisationid;
+  if (DiagnosisTestorServiceName) {
+    const PricelistDetails = await Pricelist.aggregate([
+      {
+        $match: {
+          DiagnosisTestorServiceName: DiagnosisTestorServiceName,
+          Organisationid: Organisationid,
+        },
+      },
+      {
+        $project: {
+         SNo: 1,
+          ServiceCode: 1,
+          DiagnosisTestorServiceName: 1,
+          Organisationid: 1,
+          OrganisationPrices: 1,
+          FacilityNPI: 1,
+          FacilityPrices: 1,
+          createdBy: 1,
+          createdDate: 1,
+          updatedBy: 1,
+          updatedDate: 1,
+        },
+      },
+    ]);
+    return { data: PricelistDetails };
+  } else {
+    throw Error("please provide service");
+  }
+}
+
+async function createService(body) {
+  // Check the Body parameters( atleast one parameter should be there)
+  console.log("body ", body);
+  if (Object.keys(body).length === 0) {
+    throw Error("Invalid body parameter");
+  }
+  // const findOrganization = await Organization.findOne({ providerID: body.providerID });
+  // if(!findOrganization){
+  const pricelist = new Pricelist();
+  pricelist.Organisationid = body.Organisationid,
+    pricelist.ServiceCode = body.ServiceCode,
+    pricelist.DiagnosisTestorServiceName = body.DiagnosisTestorServiceName,
+    pricelist.OrganisationPrices = body.OrganisationPrices,
+    pricelist.FacilityNPI = body.FacilityNPI,
+    pricelist.FacilityPrices = body.FacilityPrices,
+    // createdBy: body.FacilityNPI,
+    // createdDate: body.createdDate,
+    // updatedBy: body.FacilityNPI,
+    // updatedDate: new Date(),
+    await pricelist.save();
+  return { message: "Successfully created" };
 }

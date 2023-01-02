@@ -13,9 +13,14 @@ import CreateFacility from "./Pages/Facility/CreateFacility";
 import UpdateFacility from "./Pages/Facility/EditFacility";
 import ViewFacility from "./Pages/Facility/ViewFacility";
 import Pricelist from "./Pages/Services/pricelist";
-import Pricelisthome from "./Pages/Services/Pricelisthome";
+import PricelistUpload from "./Pages/Services/PricelistUpload";
 import PricelistEditpage from "./Pages/Services/pricelisteditpage";
 import Pricelistlandingpage from "./Pages/Services/pricelistlandingpage";
+import Servicelandingpage from "./Pages/Services/servicelandpage";
+import ServiceViewPage from "./Pages/Services/serviceview"
+import ServiceEditpage from "./Pages/Services/ServiceEditpage";
+import PricelistthroFacility from "./Pages/Services/pricelistthrofacility"
+import PricelistUploadthroFacility from "./Pages/Services/PricelistUploadthrofacility"
 
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
@@ -162,11 +167,11 @@ export const routespages: Array<Route> = [
     component: Pricelist,
   },
   {
-    key: "pricelisthome",
-    title: "Pricelisthome",
-    path: "/pricelisthome",
+    key: "pricelistupload",
+    title: "PricelistUpload",
+    path: "/PricelistUpload",
     enabled: true,
-    component: Pricelisthome,
+    component: PricelistUpload,
   },
   {
     key: "pricelistedit",
@@ -182,5 +187,39 @@ export const routespages: Array<Route> = [
     enabled: true,
     component: Pricelistlandingpage,
   },
-
+  {
+    key: "servicelanding",
+    title: "Servicelanding",
+    path: "/servicelanding",
+    enabled: true,
+    component: Servicelandingpage,
+  },
+  {
+    key: "serviceview",
+    title: "Serviceview",
+    path: "/serviceview",
+    enabled: true,
+    component: ServiceViewPage,
+  },
+  {
+    key: "serviceedit",
+    title: "ServiceEdit",
+    path: "/ServiceEditPage",
+    enabled: true,
+    component: ServiceEditpage,
+  },
+  {
+    key: "pricelist",
+    title: "Pricelistthrofacility",
+    path: "/pricelistthrofacility",
+    enabled: true,
+    component: PricelistthroFacility,
+  },
+  {
+    key: "pricelistuploadthrofacility",
+    title: "PricelistUploadthroFacility",
+    path: "/PricelistUploadthrofacility",
+    enabled: true,
+    component: PricelistUploadthroFacility,
+  },
 ];

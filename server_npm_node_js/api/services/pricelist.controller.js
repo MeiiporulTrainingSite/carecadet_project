@@ -5,14 +5,20 @@ const router = Router();
 
 export default router;
 
-router.post("/upload", uploadPricelist);
-router.post("/publish", publishPricelist);
+router.post("/uploadPricelist", uploadPricelist);
+router.post("/publishPricelist", publishPricelist);
 router.get("/getPriceList", getPriceList);
 router.get("/getPriceListbyFacility", getPriceListbyFacility);
+router.get("/getPriceListbyService", getPriceListbyService);
 router.put("/updatePricelist", updatePricelist);
 router.delete("/deletePricelist", deletePricelist);
 router.delete("/bulkdelete", bulkDelete);
 router.put("/bulkupdate", bulkUpdate);
+router.get("/getPriceListone", getPriceListone);
+router.post("/createservice", createService);
+
+
+
 function getPriceList(req, res, next) {
   PricelistService.getPriceList()
     .then((obj) => {
@@ -51,6 +57,14 @@ function getPriceListbyFacility(req, res, next) {
     .catch(next);
 }
 
+function getPriceListbyService(req, res, next) {
+  const DiagnosisTestorServiceName = req.query;
+  PricelistService.getPriceListbyService(DiagnosisTestorServiceName)
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
+}
 function updatePricelist(req, res, next) {
   const body = req.body ?? {};
   PricelistService.updatePricelist(body)
@@ -79,10 +93,29 @@ function bulkDelete(req, res, next) {
 }
 
 function deletePricelist(req, res, next) {
-  const SNo = req.query.SNo ?? null;
-  PricelistService.deletePricelist(SNo)
+  const _id = req.query._id ?? null;
+  PricelistService.deletePricelist(_id)
     .then((obj) => {
       new ResObject(res, obj);
     })
     .catch(next);
 }
+
+function getPriceListone(req, res, next) {
+  PricelistService.getPriceListone()
+    .then((obj) => {
+      new ResObject(res, obj);
+    })
+    .catch(next);
+}
+
+function createService(req,res,next) {
+  const body = req.body ?? {};
+ PricelistService.createService(body).then(obj => {
+      new ResObject(res,obj);
+  }).catch(next);
+}
+
+
+
+

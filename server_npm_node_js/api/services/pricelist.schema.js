@@ -4,13 +4,13 @@ var schema = Schema;
 
 const pricelistschema = new schema(
   {
-    SNo: { type: String, required: true },
+    SNo: { type: String, required: false },
     ServiceCode: { type: String, required: false },
     DiagnosisTestorServiceName: { type: String, required: true },
     Organisationid: { type: String, required: false },
     OrganisationPrices: { type: String, required: false },
-    FacilityNPI :{ type: String, required: false },
-    FacilityPrices:{type: String, required:false},
+    FacilityNPI: { type: String, required: false },
+    FacilityPrices: { type: String, required: false },
     createdBy: { type: String, default: "" },
     createdDate: { type: Date, default: Date.now },
     updatedBy: { type: String, default: "" },

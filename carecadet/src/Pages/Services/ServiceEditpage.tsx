@@ -46,7 +46,7 @@ interface forminitialValues {
   FacilityPrices: string;
 }
 
-export default function PricelistEditpage() {
+export default function ServiceEditpage() {
   const [data, setData] = useState([] as any);
   const [pageSize, setPagesize] = useState(5);
   const [csvEdit, setcsvEdit] = useState([] as any);
@@ -58,24 +58,33 @@ export default function PricelistEditpage() {
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
   const orgid = useAppSelector((state) => state.edit.orgEditData);
-  const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
+  const serviceinput = useAppSelector(
+    (state: { editservice: { serviceData: any } }) =>
+      state.editservice.serviceData
   );
-  console.log(facilityinput, "facip");
-  const getData = async () => {
-    const pricelistdetails = await axiosPrivate.get(
-      `/getPriceListbyFacility?facilityNPI=${facilityinput.facilityNPI}&Organisationid=${orgid[0].organizationID}`
-    );
-    setData(pricelistdetails.data.data);
-    console.log(pricelistdetails.data, "pricelist");
-  };
+  console.log(serviceinput, "serviceinput");
+
   useEffect(() => {
+    console.log("start");
     getData();
   }, []);
+  const getData = async () => {
+    const pricelistdetails = await axiosPrivate.get(
+      `/getPriceListbyService?DiagnosisTestorServiceName=${serviceinput}&Organisationid=${orgid[0].organizationID}`
+    );
+    const data = pricelistdetails.data.data;
+    // if (data.length == 0) {
+    //   navigate("/pricelist");
+    // } else {
+    setData(pricelistdetails.data.data);
+    // }
+
+    console.log(pricelistdetails.data, "pricelist");
+  };
 
   const handleDeleteClick = (id: GridRowId) => () => {
-    setData(data.filter((row: any) => row.SNo !== id));
-    let store = data.filter((row: any) => row.SNo === id);
+    setData(data.filter((row: any) => row._id !== id));
+    let store = data.filter((row: any) => row._id === id);
     console.log(store, "store");
     setcsvDel([...csvdel, store._id]);
   };
@@ -133,6 +142,7 @@ export default function PricelistEditpage() {
       .put("http://localhost:5200/bulkupdate", datacheck)
       //   let datacheck1 = { name: filename, PriceList: csvdel };
       //   axios
+
       // .delete(
       //   "http://localhost:5200/bulkdelete", datacheck1
 
@@ -143,17 +153,16 @@ export default function PricelistEditpage() {
       });
     //  }
   };
-
-  const currencyFormatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
-  
+
   const usdPrice: GridColTypeDef = {
-    type: 'number',
-    width: 130,
+    type: "number",
+    width: 200,
     valueFormatter: ({ value }) => currencyFormatter.format(value),
-    cellClassName: 'font-tabular-nums',
+    cellClassName: "font-tabular-nums",
   };
 
   const columns: GridColumns = [
@@ -168,35 +177,35 @@ export default function PricelistEditpage() {
       field: "ServiceCode",
       headerName: "Service Code",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      width: 200,
       editable: true,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
       headerClassName: "super-app-theme--header",
-      width: 360,
+      width: 450,
       editable: true,
     },
-    {
-      field: "Organisationid",
-      headerName: "Organisation ID",
-      headerClassName: "super-app-theme--header",
-      width: 200,
-    },
+    // {
+    //   field: "Organisationid",
+    //   headerName: "Organisation ID",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 200,
+    // },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       headerClassName: "super-app-theme--header",
       width: 100,
       editable: true,
-      ...usdPrice
+      ...usdPrice,
     },
     {
       field: "FacilityNPI",
       headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
-      width: 100,
+      width: 250,
     },
     {
       field: "FacilityPrices",
@@ -204,28 +213,28 @@ export default function PricelistEditpage() {
       headerClassName: "super-app-theme--header",
       width: 100,
       editable: true,
-      ...usdPrice
+      ...usdPrice,
     },
-    {
-      field: "actions",
-      type: "actions",
-      headerName: "Actions",
-      headerClassName: "super-app-theme--header",
-      width: 100,
-      cellClassName: "actions",
-      getActions: (data: any) => {
-        let id = data.id;
+    // {
+    //   field: "actions",
+    //   type: "actions",
+    //   headerName: "Actions",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 100,
+    //   cellClassName: "actions",
+    //   getActions: (data: any) => {
+    //     let id = data.id;
 
-        return [
-          <GridActionsCellItem
-            icon={<DeleteIcon />}
-            label="Delete"
-            onClick={handleDeleteClick(id)}
-            color="inherit"
-          />,
-        ];
-      },
-    },
+    //     return [
+    //       <GridActionsCellItem
+    //         icon={<DeleteIcon />}
+    //         label="Delete"
+    //         onClick={handleDeleteClick(id)}
+    //         color="inherit"
+    //       />,
+    //     ];
+    //   },
+    // },
   ];
 
   function CustomRow(props: any) {
@@ -244,7 +253,7 @@ export default function PricelistEditpage() {
 
   const navigateToAdd = () => {
     // This will navigate to second component
-    navigate("/PricelistUploadthrofacility");
+    navigate("/PricelistUpload");
   };
 
   return (
@@ -275,7 +284,7 @@ export default function PricelistEditpage() {
             type="button"
             onClick={() => {
               // dispatch(tabValueNav(1));
-              navigate("/pricelistlanding");
+              navigate("/providerlanding");
             }}
             sx={{
               backgroundColor: "secondary.dark",

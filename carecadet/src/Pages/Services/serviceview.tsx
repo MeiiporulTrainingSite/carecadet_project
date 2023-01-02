@@ -3,7 +3,12 @@ import { Paper, TextField, Box, Typography } from "@mui/material";
 import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 
-import { DataGrid, GridColumns, GridRow ,GridColTypeDef} from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColumns,
+  GridRow,
+  GridColTypeDef,
+} from "@mui/x-data-grid";
 
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { InputAdornment } from "@mui/material";
@@ -28,7 +33,7 @@ interface forminitialValues {
   FacilityPrices: string;
 }
 
-export default function Pricelistlandingpage() {
+export default function ServiceViewPage() {
   const [data, setData] = useState([] as forminitialValues[]);
   const [pageSize, setPagesize] = useState(5);
   const dispatch = useAppDispatch();
@@ -37,11 +42,12 @@ export default function Pricelistlandingpage() {
   // const [totalPages, setTotalPages] = useState(10);
 
   const orgid = useAppSelector((state) => state.edit.orgEditData);
-  const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
+  const serviceinput = useAppSelector(
+    (state: { editservice: { serviceData: any } }) =>
+      state.editservice.serviceData
   );
 
-  console.log(facilityinput, "facip");
+  console.log(serviceinput, "serviceinput");
   const navigate = useNavigate();
   useEffect(() => {
     console.log("start");
@@ -49,30 +55,28 @@ export default function Pricelistlandingpage() {
   }, []);
   const getData = async () => {
     const pricelistdetails = await axiosPrivate.get(
-      `/getPriceListbyFacility?facilityNPI=${facilityinput.facilityNPI}&Organisationid=${orgid[0].organizationID}`
+      `/getPriceListbyService?DiagnosisTestorServiceName=${serviceinput}&Organisationid=${orgid[0].organizationID}`
     );
     const data = pricelistdetails.data.data;
-    if (data.length == 0) {
-      navigate("/pricelistthrofacility");
-    } else {
-      setData(pricelistdetails.data.data);
-    }
+    // if (data.length == 0) {
+    //   navigate("/pricelist");
+    // } else {
+    setData(pricelistdetails.data.data);
+    // }
 
     console.log(pricelistdetails.data, "pricelist");
   };
-
-  const currencyFormatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
-  
+
   const usdPrice: GridColTypeDef = {
-    type: 'number',
-    width: 130,
+    type: "number",
+    width: 200,
     valueFormatter: ({ value }) => currencyFormatter.format(value),
-    cellClassName: 'font-tabular-nums',
+    cellClassName: "font-tabular-nums",
   };
-  
 
   const columns: GridColumns = [
     // {
@@ -85,52 +89,50 @@ export default function Pricelistlandingpage() {
       field: "ServiceCode",
       headerName: "Service Code",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      width: 200,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
       headerClassName: "super-app-theme--header",
-      width: 360,
+      width: 440,
     },
-    {
-      field: "Organisationid",
-      headerName: "Organisation ID",
-      headerClassName: "super-app-theme--header",
-      width: 200,
-    },
+    // {
+    //   field: "Organisationid",
+    //   headerName: "Organisation ID",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 200,
+    // },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       headerClassName: "super-app-theme--header",
       width: 200,
-      type: "number",
-      ...usdPrice
+      ...usdPrice,
     },
     {
       field: "FacilityNPI",
       headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
-      width: 170,
+      width: 300,
     },
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
       headerClassName: "super-app-theme--header",
-      width: 170,
-      type: "number",
-      ...usdPrice
+      width: 300,
+      ...usdPrice,
     },
   ];
 
   const navigateToAdd = () => {
     // This will navigate to second component
     // dispatch(editButton());
-    navigate("/Pricelistthrofacility");
+    navigate("/Pricelist");
   };
   const navigateToEdit = () => {
     // This will navigate to second component
-    navigate("/PricelistEdit");
+    navigate("/ServiceEditpage");
   };
 
   function CustomRow(props: any) {
@@ -204,10 +206,10 @@ export default function Pricelistlandingpage() {
             onClick={() => {
               // dispatch(editButton());
               dispatch(tabValueNav(1));
-              navigate("/providerlanding");
+              navigate("/servicelanding");
             }}
           >
-            Facilities info
+            Service info
           </Buttoncomponent>
           <Box
             display="flex"
@@ -273,7 +275,7 @@ export default function Pricelistlandingpage() {
             <DataGrid
               autoHeight
               autoPageSize
-              getRowId={(row) => row._id}
+              getRowId={(row) => row.FacilityNPI}
               rows={data}
               columns={columns}
               pagination={true}

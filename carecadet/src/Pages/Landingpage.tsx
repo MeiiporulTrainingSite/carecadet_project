@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import { Paper, Grid } from "@mui/material";
 
 //components
-
+import Servicelandingpage from "./Services/servicelandpage";
 import ViewFacility from "./Facility/ViewFacility";
 import Pricelist from "./Services/pricelist";
 import OrganizationLandingView from "./Organization/OrganizationLandingView";
@@ -66,7 +66,7 @@ export default function ProviderLandingPage() {
         <ViewFacility />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Pricelist />
+        <Servicelandingpage />
       </TabPanel>
     </Box>
     // </Paper>

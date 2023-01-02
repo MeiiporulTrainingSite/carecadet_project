@@ -7,7 +7,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router";
 
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColTypeDef } from "@mui/x-data-grid";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { axiosPrivate } from "../../axios/axios";
@@ -19,7 +19,7 @@ type cvsItem = {
   value: string;
 };
 
-export default function Pricelisthome() {
+export default function PricelistUpload() {
   const [csvData, setCsvData] = useState<cvsItem[]>([]);
   const [filename, setFilename] = useState("");
   const [pageSize, setPagesize] = useState(5);
@@ -74,6 +74,18 @@ export default function Pricelisthome() {
     setCsvData(r);
   };
 
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  const usdPrice: GridColTypeDef = {
+    type: "number",
+    width: 130,
+    valueFormatter: ({ value }) => currencyFormatter.format(value),
+    cellClassName: "font-tabular-nums",
+  };
+
   const columns = [
     {
       field: "SNo",
@@ -104,6 +116,7 @@ export default function Pricelisthome() {
       headerName: "Organisation Prices",
       editable: true,
       width: 100,
+      ...usdPrice,
     },
     {
       field: "FacilityNPI",
@@ -116,6 +129,7 @@ export default function Pricelisthome() {
       headerName: "Facility Prices",
       editable: true,
       width: 100,
+      ...usdPrice,
     },
   ];
 
@@ -155,7 +169,7 @@ export default function Pricelisthome() {
     const file = e.target.files[0];
     const { name } = file;
     setFilename(name);
-
+    console.log("name", name);
     const reader = new FileReader();
     let j: any = [];
     reader.onload = () => {
@@ -194,7 +208,7 @@ export default function Pricelisthome() {
     let datacheck = { name: filename, csv: csvData };
     axiosPrivate
       .post(
-        "http://localhost:5200/upload",
+        "http://localhost:5200/uploadPricelist",
         datacheck
         // {
         //   headers: {
@@ -216,7 +230,7 @@ export default function Pricelisthome() {
     let datacheck = { name: filename, csv: csvData };
     axiosPrivate
       .post(
-        "http://localhost:5200/publish",
+        "http://localhost:5200/publishPricelist",
         datacheck
         // {
         //   headers: {
@@ -276,8 +290,8 @@ export default function Pricelisthome() {
             variant="outlined"
             type="button"
             onClick={() => {
-              // dispatch(tabValueNav(1));
-              navigate("/pricelistlanding");
+              //dispatch(tabValueNav(1));
+              navigate("/servicelanding");
             }}
             sx={{
               backgroundColor: "secondary.dark",

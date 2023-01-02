@@ -12,11 +12,13 @@ import { persistReducer,FLUSH,
 import loginSlice from './LoginSlice'
 import {facilityReducer} from './facilitySlice';
 import  editSlice  from './orgSlice';
+import { serviceReducer } from './serviceSlice';
 
 const reducers = combineReducers({
   auth: loginSlice,
   edit:editSlice,
-  editFacility: facilityReducer
+  editFacility: facilityReducer,
+  editservice:serviceReducer
 });
 
 const persistConfig = {

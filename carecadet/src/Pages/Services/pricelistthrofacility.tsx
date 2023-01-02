@@ -22,7 +22,7 @@ import {
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { useAppDispatch,useAppSelector } from "../../Redux/Hook";
 
-import CreateService from "./Createmanually";
+import CreateServicethroFacility from "./CreatemanuallythroFacility";
 
 interface props {
   textalign: string;
@@ -206,7 +206,7 @@ function Pricelist() {
           Create Manually
         </Buttoncomponent>
         <Dialog open={open} onClose={handleClose} children={<div>
-        <CreateService />
+        <CreateServicethroFacility />
           
           </div>} />
       </Typography>
