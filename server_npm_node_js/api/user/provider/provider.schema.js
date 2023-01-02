@@ -18,8 +18,18 @@ let ProviderSchema = new schema({
     },
     password: { type: String,  required: [ true, 'Enter a password']},
     role: { type: String, default: 'owner'},
+    // status: {
+    //     type: String, 
+    //     enum: ['Pending', 'Active'],
+    //     default: 'Pending'
+    //   },
+    // confirmationCode: { type: String,unique: true },
+        
     remark: { type: String, default: "", uppercase: true, trim: true },
-    isActive: { type: String, required: [true, 'Enter a active status'], default: 'Y' },
+    isActive: { type: String, 
+    //     required: [true, 'Enter a active status'],default: 'Y'
+        enum: ['Pending', 'Active','Y']
+     },
     activeStartDate: { type: Date, default: Date.now },
     activeEndDate: { type: Date, default: null },
     createdBy: { type: String, default: ""},

@@ -2,6 +2,7 @@ import React from "react";
 import { Field, ErrorMessage } from "formik";
 import {TextField, FormControl, InputLabel, MenuItem, Select} from "@mui/material"
 import ErrorProps from "./Errorprops";
+
 interface props {
   name: string;
   placeholder: string;
@@ -11,6 +12,7 @@ interface props {
   sx?:any
   label?:string;
   multirow?:number;
+  multiline?:boolean;
 }
 const FormTextField = (props: props) => {
   return (
@@ -28,7 +30,7 @@ const FormTextField = (props: props) => {
         placeholder={props.placeholder}
         rows={props.multirow}
         type={props.type}
-      multiline
+      multiline={props.multiline}
         helperText={
           <ErrorMessage name={props.name}>
             {(error) => <ErrorProps>{error}</ErrorProps>}

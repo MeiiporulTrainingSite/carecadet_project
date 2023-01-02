@@ -22,6 +22,10 @@ import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import ProviderLandingPage from "./Pages/Landingpage";
 
+
+import Searchone from "./Pages/Searchone";
+import Searchtwo from "./Pages/Searchtwo";
+
 interface Route {
   key: string;
   title?: string;
@@ -80,6 +84,13 @@ export const login: Array<Route> = [
     enabled: true,
     component: Signup,
   },
+  // {
+  //   key: "contact",
+  //   title: "Contact",
+  //   path: "/contact",
+  //   enabled: true,
+  //   component: Contact,
+  // }
 ];
 
 export const routespages: Array<Route> = [
@@ -104,13 +115,13 @@ export const routespages: Array<Route> = [
     enabled: true,
     component: Payer,
   },
-  {
-    key: "contact",
-    title: "Contact",
-    path: "/contact",
-    enabled: true,
-    component: Contact,
-  },
+  // {
+  //   key: "contact",
+  //   title: "Contact",
+  //   path: "/contact",
+  //   enabled: true,
+  //   component: Contact,
+  // },
   {
     key: "providerorg",
     title: "providerOrg",
@@ -182,5 +193,19 @@ export const routespages: Array<Route> = [
     enabled: true,
     component: Pricelistlandingpage,
   },
+  {
+    key: "searchone",
+    title: "Searchone",
+    path: "/searchone",
+    enabled: true,
+    component: Searchone,
+  },
+  {
+    key: "searchtwo",
+    title: "Searchtwo",
+    path: "/searchtwo",
+    enabled: true,
+    component: Searchtwo,
+  }
 
 ];
