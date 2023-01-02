@@ -28,6 +28,7 @@ let OrganizationSchema = new schema({
         // unique: [true, 'provider id already exist'] 
     },
     organizationName: { type: String, required: [ true,'Enter Organization Name'] ,trim: true},
+    orgImg:{type:String},
     address: Address,
     email: { type: String,  required: [ true, 'Enter a email'], trim: true},
     contact: { type: String,  required: [ true, 'Enter a contact'], trim: true},

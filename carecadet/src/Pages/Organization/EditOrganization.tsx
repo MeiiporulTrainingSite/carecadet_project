@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid, Paper,Button } from "@mui/material";
+import { TextField, Box, Typography, Grid, Paper, Button } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import FormTextField from "../../Components/Textfield";
@@ -10,7 +10,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
-import {  tabValueNav } from "../../Redux/LoginSlice";
+import { tabValueNav } from "../../Redux/LoginSlice";
 
 interface InitialValues {
   organizationInformation: {
@@ -23,7 +23,9 @@ interface InitialValues {
     zipCode: string;
     phone: string;
     Email: string;
+    orgImg: String;
   };
+
   contactPersonInformation: {
     firstName: string;
     lastName: string;
@@ -35,10 +37,13 @@ interface InitialValues {
 
 const EditOrganization = () => {
   const dispatch = useAppDispatch();
+  const [currentFile, setCurrentFile] = useState<any>();
+  const [fileName, setFileName] = useState<any>("");
   const select = useAppSelector((state) => state.edit.orgEditData);
   const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
   const navigate = useNavigate();
   console.log(select, "s");
+  const fileInput = useRef<any>();
 
   const initialValues: InitialValues = {
     organizationInformation: {
@@ -51,7 +56,9 @@ const EditOrganization = () => {
       zipCode: select.address.zipCode,
       phone: select.contact,
       Email: select.email,
+      orgImg: select.orgImg,
     },
+
     contactPersonInformation: {
       firstName: select.contactPerson.firstName,
       lastName: select.contactPerson.lastName,
@@ -60,41 +67,67 @@ const EditOrganization = () => {
       email: select.contactPerson.email,
     },
   };
-  const onSubmit = (values: InitialValues, actions: any) => {
-    const orgdata = {
-      organizationID: select.organizationID,
-      providerID: values.organizationInformation.providerID,
-      organizationName: values.organizationInformation.organizationName,
 
-      address: {
-        addressLine1: values.organizationInformation.streetAdd1,
-        addressLine2: values.organizationInformation.streetAdd2,
-        city: values.organizationInformation.city,
-        state: values.organizationInformation.state,
-        zipCode: values.organizationInformation.zipCode,
-      },
-      email: values.organizationInformation.Email,
-      contact: values.organizationInformation.phone,
-      contactPerson: {
-        firstName: values.contactPersonInformation.firstName,
-        lastName: values.contactPersonInformation.lastName,
-        role: values.contactPersonInformation.role,
-        contact: values.contactPersonInformation.contactno,
-        email: values.contactPersonInformation.email,
-      },
-    };
-    alert(JSON.stringify(orgdata, null, 2));
-    axiosPrivate
+  const SingleFileChange = () => {
+
+    setCurrentFile(fileInput.current.files[0]);
+    setFileName(fileInput.current.files[0].name)
+
+  };
+  const onSubmit = async (values: InitialValues, actions: any) => {
+    let formData = new FormData();
+    formData.append("file", currentFile);
+    console.log(formData, "formData")
+    console.log(currentFile, "curr")
+    try {
+      axiosPrivate
+        .post("organization/image", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          console.log(res.data,'resedit')
+          const orgdata = {
+            organizationID: select.organizationID,
+            providerID: values.organizationInformation.providerID,
+            organizationName: values.organizationInformation.organizationName,
+            orgImg:  res.data.data.filename ,
+            address: {
+              addressLine1: values.organizationInformation.streetAdd1,
+              addressLine2: values.organizationInformation.streetAdd2,
+              city: values.organizationInformation.city,
+              state: values.organizationInformation.state,
+              zipCode: values.organizationInformation.zipCode,
+            },
+            email: values.organizationInformation.Email,
+            contact: values.organizationInformation.phone,
+            contactPerson: {
+              firstName: values.contactPersonInformation.firstName,
+              lastName: values.contactPersonInformation.lastName,
+              role: values.contactPersonInformation.role,
+              contact: values.contactPersonInformation.contactno,
+              email: values.contactPersonInformation.email,
+            },
+          };
+          alert(JSON.stringify(orgdata, null, 2));
+          console.log(orgdata, 'orgdata')
+          axiosPrivate
       .put("/organization/updateOrganization", orgdata)
       .then((res) => {
         alert("success");
         // dispatch(organizationEdit(orgdata))
         navigate("/providerlanding")
-        // actions.resetForm({
-        //   values: initialValues,
-        // });
+      
       });
+
+        });
+    } catch (err){ 
+      throw err
+    }
+
   };
+  
 
   const validationSchema = Yup.object().shape({
     organizationInformation: Yup.object().shape({
@@ -221,50 +254,6 @@ const EditOrganization = () => {
         borderRadius: "15px",
       }}
     >
-      {/* <p>{JSON.stringify(select)}</p> */}
-      {/* <Typography
-        variant="h6"
-        textAlign={"right"}
-        justifyItems={"right"}
-        sx={{ color: "Black" }}
-        margin={"10px"}
-        marginBottom={"5px"}
-      >
-        Hello {data.userID},
-      </Typography>
-      <div
-        style={{
-          marginBottom: "10px",
-          flex: 1,
-          height: "3px",
-          backgroundColor: "darkgray",
-        }}
-      /> */}
-      {/* <Grid container item xs={12} justifyContent="left">
-        <Button
-          variant="outlined"
-          type="button"
-          onClick={() => {
-            dispatch(tabValueNav(0))
-            // dispatch(editButton())
-            navigate("/providerlanding");
-          }}
-          sx={{
-            backgroundColor: "secondary.dark",
-            width: "8vw",
-
-            marginBottom: "0.5rem",
-            color: "#fff",
-            "&:hover": {
-              color: "secondary.dark",
-              border: "1px solid blue",
-            },
-          }}
-          startIcon={<ArrowBackIcon fontSize="large" />}
-        >
-          BACK
-        </Button>
-      </Grid> */}
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -285,6 +274,23 @@ const EditOrganization = () => {
                 Organization Information
               </Typography>
             </Grid>
+            <Grid xs={12}>
+                <label htmlFor="upload-photo">
+                  <input
+                   style = {{ display: "none" }}
+                    id = "upload-photo"
+                    type = "file"
+                    accept = 'image/*'
+                    ref = {fileInput} 
+                    onChange={SingleFileChange}
+                  />
+           <Button color="primary" variant="contained" component="span" sx={{backgroundColor:"#B4C8FC",marginLeft:"1rem"}}>
+                    Upload profile image
+                  </Button>
+                  </label> 
+                  <Box component="span"sx={{marginLeft:"1rem"}}>{fileName}</Box>
+                </Grid>
+           
             {organizationData.map((org, i) => (
               <Grid item xs={org.xs} key={i}>
                 <Typography

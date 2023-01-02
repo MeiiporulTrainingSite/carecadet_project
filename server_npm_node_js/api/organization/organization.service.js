@@ -21,6 +21,7 @@ async function createOrganization(body) {
         organizationDetails.organizationID = await createId(Organization.collection.name);
         organizationDetails.providerID = body.providerID;
         organizationDetails.organizationName = body.organizationName;
+        organizationDetails.orgImg = body.orgImg;
         organizationDetails.address = body.address;
         organizationDetails.email = body.email;
         organizationDetails.contact = body.contact;
@@ -42,19 +43,25 @@ async function updateOrganization(body) {
     if (Object.keys(body).length === 0) {
         throw Error("Invalid body parameter");
     }
+   
     const findOrganization = await Organization.findOne({ organizationID: body.organizationID });
+
     if(findOrganization){
         await Organization.findOneAndUpdate(
             { organizationID: body.organizationID },
             {
-                organizationName: body.organizationName,
-                address: body.address,
-                email: body.email,
-                contact: body.contact,
-                contactPerson:body.contactPerson,
-                remark: body.remark,
-                updatedBy: body.providerID,
-                updatedDate: new Date(),
+                $set:{
+                    organizationName: body.organizationName,
+                    orgImg:body.orgImg,
+                    address: body.address,
+                    email: body.email,
+                    contact: body.contact,
+                    contactPerson:body.contactPerson,
+                    remark: body.remark,
+                    updatedBy: body.providerID,
+                    updatedDate: new Date(),
+                }
+               
             }
         );
         return { message: 'Successfully saved' };
@@ -83,6 +90,7 @@ async function getOrganizationByProvider(providerID) {
                         organizationID: 1,
                         providerID: 1,
                         organizationName: 1,
+                        orgImg:1,
                         address: 1,
                         email: 1,
                         contact: 1,
@@ -115,6 +123,7 @@ async function getOrganizationList() {
                     organizationID: 1,
                     providerID: 1,
                     organizationName: 1,
+                    orgImg:1,
                     address: 1,
                     email: 1,
                     contact: 1,

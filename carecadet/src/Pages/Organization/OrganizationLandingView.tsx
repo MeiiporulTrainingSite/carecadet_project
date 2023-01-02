@@ -13,33 +13,20 @@ import PlaceIcon from "@mui/icons-material/Place";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import ContactsIcon from "@mui/icons-material/Contacts";
+import DefaultUserPic from '../../Images/DefaultUserpic.jpg';
 import icon from "../../Images/icon.jpg";
 interface Props  {
   data:any
 };
 
 const OrganizationLandingView = ({data}: Props) => {
-  // const [data, setData] = React.useState<any>([]);
+ 
   const [popUp, setPopUp] = React.useState<boolean>(false);
   const userID = useAppSelector((state) => state.auth.login.userID);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const typo = "1.2rem";
   console.log(userID);
-  // React.useEffect(() => {
-  //   axiosPrivate
-  //     .get(`/organization/getOrganizationByProvider?providerID=${userID}`)
-  //     .then((res) => {
-  //       const resData=res.data.data 
-  //       if(resData.length===0){
-  //         navigate("/org")
-  //       }else{
-  //       setData(res.data.data);
-  //       }
-  //       console.log(res.data.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, []);
 
   return (
     <>
@@ -73,10 +60,9 @@ const OrganizationLandingView = ({data}: Props) => {
               >
                 Organization Detail
               </Typography>
-              <Box>
+              <Box>             
                 <img
-                  src={icon}
-                  alt="profile"
+                  src={(data[0].orgImg)?`http://localhost:5200/${data[0].orgImg}`: icon}
                   style={{
                     width: "130px",
                     height: "130px",
@@ -84,6 +70,7 @@ const OrganizationLandingView = ({data}: Props) => {
                     left: "25%",
                     border: "2px solid white",
                     borderRadius: "50%",
+                    
                   }}
                 />
               </Box>

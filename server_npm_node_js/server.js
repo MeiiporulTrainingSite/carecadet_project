@@ -4,7 +4,7 @@ import logger ,{stream} from './core/logger/logger.js'
 import dotenv from 'dotenv';
 import compression from 'compression';
 import cors from 'cors';
-import fileUpload from "express-fileupload";
+// import fileUpload from "express-fileupload";
 
 
 import errorHandler from './core/error-handler/error-handler.js';
@@ -34,7 +34,7 @@ const swaggerDocument = JSON.parse(
 
 app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use(fileUpload());
+// app.use(fileUpload());
 
 // Handle Exception
 process.on('uncaughtException',err=>{
@@ -79,7 +79,7 @@ app.get('/',(req,res) => {
 })
 
 app.use('/user',LoginController);
-
+app.use(express.static('./images'))
 // startAuthAPI(app);
 
 app.use('/collection-key-gen',CollectionKeyGenController);

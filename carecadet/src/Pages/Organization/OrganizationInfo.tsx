@@ -1,7 +1,8 @@
 import React from "react";
+import { useState, useRef } from 'react';
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { TextField, Box, Typography, Grid, Paper } from "@mui/material";
+import { TextField, Box, Typography, Grid, Paper, Button } from "@mui/material";
 import axios from "axios";
 
 import FormTextField from "../../Components/Textfield";
@@ -11,8 +12,9 @@ import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import OrganizationLandingView from "./OrganizationLandingView";
 import { useNavigate } from "react-router-dom";
-
+// import FileUploadService from './Fileupload/FileUpload';
 interface InitialValues {
+  file: any,
   organizationInformation: {
     providerID: string;
     organizationName: string;
@@ -23,6 +25,7 @@ interface InitialValues {
     zipCode: string;
     phone: string;
     Email: string;
+
   };
   contactPersonInformation: {
     firstName: string;
@@ -30,14 +33,23 @@ interface InitialValues {
     role: string;
     contactno: string;
     email: string;
+
   };
 }
 
 const OrganizationInfo = () => {
   const select = useAppSelector((state) => state.auth.login);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+
+  const [currentFile, setCurrentFile] = useState<any>();
+
+  const [fileName, setFileName] = useState<any>("");
+
+  const fileInput = useRef<any>();
+  // console.log(currentFile,'single');
 
   const initialValues: InitialValues = {
+
     organizationInformation: {
       providerID: "",
       organizationName: "",
@@ -48,6 +60,7 @@ const OrganizationInfo = () => {
       zipCode: "",
       phone: "",
       Email: "",
+
     },
     contactPersonInformation: {
       firstName: "",
@@ -56,39 +69,67 @@ const OrganizationInfo = () => {
       contactno: "",
       email: "",
     },
+    file: ""
   };
-  const onSubmit = (values: InitialValues, actions: any) => {
-    const orgdata = {
-      providerID: select.userID,
-      organizationName: values.organizationInformation.organizationName,
+  const SingleFileChange = () => {
 
-      address: {
-        addressLine1: values.organizationInformation.streetAdd1,
-        addressLine2: values.organizationInformation.streetAdd2,
-        city: values.organizationInformation.city,
-        state: values.organizationInformation.state,
-        zipCode: values.organizationInformation.zipCode,
-      },
-      email: values.organizationInformation.Email,
-      contact: values.organizationInformation.phone,
-      contactPerson: {
-        firstName: values.contactPersonInformation.firstName,
-        lastName: values.contactPersonInformation.lastName,
-        role: values.contactPersonInformation.role,
-        contact: values.contactPersonInformation.contactno,
-        email: values.contactPersonInformation.email,
-      },
-    };
-    alert(JSON.stringify(orgdata, null, 2));
-    axiosPrivate
-      .post("/organization/createOrganization", orgdata)
-      .then((res) => {
-        alert("success");
-        actions.resetForm({
-          values: initialValues,
+    setCurrentFile(fileInput.current.files[0]);
+    setFileName(fileInput.current.files[0].name)
+
+  };
+
+
+  const onSubmit = async (values: InitialValues, actions: any) => {
+    let formData = new FormData();
+    formData.append("file", currentFile);
+    //  formData.append("file", fileName);
+    console.log(formData, "formData")
+    console.log(currentFile, "curr")
+    try {
+      axiosPrivate
+        .post("organization/image", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          const orgdata = {
+            providerID: select.userID,
+            organizationName: values.organizationInformation.organizationName,
+            orgImg: (res.data.data) ? res.data.data.filename : "",
+            address: {
+              addressLine1: values.organizationInformation.streetAdd1,
+              addressLine2: values.organizationInformation.streetAdd2,
+              city: values.organizationInformation.city,
+              state: values.organizationInformation.state,
+              zipCode: values.organizationInformation.zipCode,
+            },
+            email: values.organizationInformation.Email,
+            contact: values.organizationInformation.phone,
+            contactPerson: {
+              firstName: values.contactPersonInformation.firstName,
+              lastName: values.contactPersonInformation.lastName,
+              role: values.contactPersonInformation.role,
+              contact: values.contactPersonInformation.contactno,
+              email: values.contactPersonInformation.email,
+            },
+          };
+          alert(JSON.stringify(orgdata, null, 2));
+          console.log(orgdata, 'orgdata')
+          axiosPrivate
+            .post("/organization/createOrganization", orgdata)
+            .then((res) => {
+              alert("success");
+              actions.resetForm({
+                values: initialValues,
+              });
+              navigate("/addFacility")
+            });
+
         });
-        navigate("/addFacility")
-      });
+    } catch (err) {
+      throw err
+    }
   };
 
   const validationSchema = Yup.object().shape({
@@ -216,141 +257,146 @@ const OrganizationInfo = () => {
         borderRadius: "15px",
       }}
     >
-      {/* <p>{JSON.stringify(select)}</p> */}
-      {/* <Typography
-        variant="h6"
-        textAlign={"right"}
-        justifyItems={"right"}
-        sx={{ color: "Black" }}
-        margin={"10px"}
-        marginBottom={"5px"}
-      >
-        Hello {select.userID},
-      </Typography>
-      <div
-        style={{
-          marginBottom: "10px",
-          flex: 1,
-          height: "3px",
-          backgroundColor: "darkgray",
-        }}
-      /> */}
+
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <Typography
-                mb={"0.5rem"}
-                sx={{
-                  backgroundColor: "#B4C8FC",
-                  padding: "0.7rem",
-                  textAlign: "center",
-                  fontSize: "1.5rem",
-                }}
-              >
-                Organization Information
-              </Typography>
-            </Grid>
-            {organizationData.map((org, i) => (
-              <Grid item xs={org.xs} key={i}>
+
+        <>
+          <Form>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
                 <Typography
-                  // variant="h6"
+                  mb={"0.5rem"}
                   sx={{
-                    fontSize: "1.2rem",
-                    mb: "0.5rem",
+                    backgroundColor: "#B4C8FC",
+                    padding: "0.7rem",
+                    textAlign: "center",
+                    fontSize: "1.5rem",
                   }}
                 >
-                  {org.label}
+                  Organization Information
                 </Typography>
-                <FormTextField
-                  container={TextField}
-                  name={org.name}
-                  placeholder={org.placeholder}
-                  type={org.type}
-                  fullWidth={true}
+
+
+              </Grid>
+              <Grid xs={12}>
+                <label htmlFor="upload-photo">
+                  <input
+                    style={{ display: "none" }}
+                    id="upload-photo"
+                    // name="upload-photo"
+                    type="file"
+                    accept='image/*'
+                    ref={fileInput}
+                    onChange={SingleFileChange}
+                  />
+                  <Button color="primary" variant="contained" component="span" sx={{ backgroundColor: "#B4C8FC", marginLeft: "1rem" }}>
+                    Upload profile image
+                  </Button>
+                </label>
+                <Box component="span" sx={{ marginLeft: "1rem" }}>{fileName}</Box>
+              </Grid>
+
+              {organizationData.map((org, i) => (
+                <Grid item xs={org.xs} key={i}>
+                  <Typography
+                    // variant="h6"
+                    sx={{
+                      fontSize: "1.2rem",
+                      mb: "0.5rem",
+                    }}
+                  >
+                    {org.label}
+                  </Typography>
+                  <FormTextField
+                    container={TextField}
+                    name={org.name}
+                    placeholder={org.placeholder}
+                    type={org.type}
+                    fullWidth={true}
+                    sx={{
+                      "&::placeholder": {
+                        // color: "green",
+                        letterSpacing: "0.2rem",
+                        // fontSize: "1rem",
+                      },
+                    }}
+                  />
+                </Grid>
+              ))}
+
+              <Grid item xs={12}>
+                <Typography
+                  mb={"0.5rem"}
                   sx={{
-                    "&::placeholder": {
-                      // color: "green",
-                      letterSpacing: "0.2rem",
+                    backgroundColor: "#B4C8FC",
+                    padding: "0.7rem",
+                    textAlign: "center",
+                    fontSize: "1.5rem",
+                  }}
+                >
+                  Contact Person Information
+                </Typography>
+              </Grid>
+              {contactPersonData.map((person, i) => (
+                <Grid item xs={person.xs} key={i}>
+                  <Typography
+                    // variant="h6"
+                    sx={{
+                      fontSize: "1.2rem",
+                      mb: "0.5rem",
+                    }}
+                  >
+                    {person.label}
+                  </Typography>
+                  <FormTextField
+                    container={TextField}
+                    sx={{
+                      // boxShadow: "0 0 45px 1px red" ,
+                      "&::placeholder": {
+                        // color: "green",
+                        letterSpacing: "0.2rem",
+                        // fontSize: "1rem",
+                      },
+                    }}
+                    name={person.name}
+                    placeholder={person.placeholder}
+                    type={person.type}
+                    fullWidth={true}
+                  />
+                </Grid>
+              ))}
+
+              <Grid container item xs={12} justifyContent="right">
+                <Buttoncomponent
+                  type="submit"
+                  size="large"
+                  fullWidth={false}
+                  variant="contained"
+
+                  sx={{
+                    backgroundColor: "secondary.dark",
+                    width: "10vw",
+                    color: "#fff",
+                    "&:hover": {
+                      color: "secondary.dark",
+                      border: "1px solid blue",
+                      // letterSpacing: "0.2rem",
                       // fontSize: "1rem",
                     },
                   }}
-                />
-              </Grid>
-            ))}
-
-            <Grid item xs={12}>
-              <Typography
-                mb={"0.5rem"}
-                sx={{
-                  backgroundColor: "#B4C8FC",
-                  padding: "0.7rem",
-                  textAlign: "center",
-                  fontSize: "1.5rem",
-                }}
-              >
-                Contact Person Information
-              </Typography>
-            </Grid>
-            {contactPersonData.map((person, i) => (
-              <Grid item xs={person.xs} key={i}>
-                <Typography
-                  // variant="h6"
-                  sx={{
-                    fontSize: "1.2rem",
-                    mb: "0.5rem",
-                  }}
                 >
-                  {person.label}
-                </Typography>
-                <FormTextField
-                  container={TextField}
-                  sx={{
-                    // boxShadow: "0 0 45px 1px red" ,
-                    "&::placeholder": {
-                      // color: "green",
-                      letterSpacing: "0.2rem",
-                      // fontSize: "1rem",
-                    },
-                  }}
-                  name={person.name}
-                  placeholder={person.placeholder}
-                  type={person.type}
-                  fullWidth={true}
-                />
+                  Submit
+                </Buttoncomponent>
               </Grid>
-            ))}
-
-            <Grid container item xs={12} justifyContent="right">
-              <Buttoncomponent
-                type="submit"
-                size="large"
-                fullWidth={false}
-                variant="contained"
-              
-                sx={{
-                  backgroundColor: "secondary.dark",
-                  width: "10vw",
-                  color: "#fff",
-                  "&:hover": {
-                    color: "secondary.dark",
-                    border: "1px solid blue",
-                    // letterSpacing: "0.2rem",
-                    // fontSize: "1rem",
-                  },
-                }}
-              >
-                Submit
-              </Buttoncomponent>
             </Grid>
-          </Grid>
-        </Form>
+          </Form>
+        </>
       </Formik>
-   
+
     </Paper>
   );
 };

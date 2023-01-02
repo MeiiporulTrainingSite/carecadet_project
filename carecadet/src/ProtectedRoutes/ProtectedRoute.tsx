@@ -28,9 +28,11 @@ const ProtectedRoute = ({ children ,getData}: Props) => {
       .then((res) => {
         console.log(res,"resdata")
         const resData=res.data.data 
+        console.log(res.data.data,'resdatadata')
         if(resData.length===0){
           navigate("/org")
-        }else{
+        }
+        else{
           dispatch(organizationEdit(res.data.data))
         setData(res.data.data);
         }
