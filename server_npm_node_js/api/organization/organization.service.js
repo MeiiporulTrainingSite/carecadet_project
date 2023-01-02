@@ -15,8 +15,8 @@ async function createOrganization(body) {
     if (Object.keys(body).length === 0) {
         throw Error("Invalid body parameter");
     }
-    // const findOrganization = await Organization.findOne({ providerID: body.providerID });
-    // if(!findOrganization){
+    const findOrganization = await Organization.findOne({ providerID: body.providerID });
+    if(!findOrganization){
         const organizationDetails = new Organization();
         organizationDetails.organizationID = await createId(Organization.collection.name);
         organizationDetails.providerID = body.providerID;
@@ -33,9 +33,9 @@ async function createOrganization(body) {
         organizationDetails.createdDate = new Date();
         await organizationDetails.save();
         return { message: "Successfully created" };
-    // } else {
-    //     throw Error('Organization already exists');
-    // }
+    } else {
+        throw Error('Organization already exists');
+    }
 }
 
 async function updateOrganization(body) {

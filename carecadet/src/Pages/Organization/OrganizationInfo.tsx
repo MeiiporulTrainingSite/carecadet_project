@@ -1,9 +1,10 @@
 import React from "react";
-import { useState, useRef } from 'react';
+import { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextField, Box, Typography, Grid, Paper, Button } from "@mui/material";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 import FormTextField from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
@@ -14,7 +15,7 @@ import OrganizationLandingView from "./OrganizationLandingView";
 import { useNavigate } from "react-router-dom";
 // import FileUploadService from './Fileupload/FileUpload';
 interface InitialValues {
-  file: any,
+  file: any;
   organizationInformation: {
     providerID: string;
     organizationName: string;
@@ -25,7 +26,6 @@ interface InitialValues {
     zipCode: string;
     phone: string;
     Email: string;
-
   };
   contactPersonInformation: {
     firstName: string;
@@ -33,7 +33,6 @@ interface InitialValues {
     role: string;
     contactno: string;
     email: string;
-
   };
 }
 
@@ -49,7 +48,6 @@ const OrganizationInfo = () => {
   // console.log(currentFile,'single');
 
   const initialValues: InitialValues = {
-
     organizationInformation: {
       providerID: "",
       organizationName: "",
@@ -60,7 +58,6 @@ const OrganizationInfo = () => {
       zipCode: "",
       phone: "",
       Email: "",
-
     },
     contactPersonInformation: {
       firstName: "",
@@ -69,22 +66,19 @@ const OrganizationInfo = () => {
       contactno: "",
       email: "",
     },
-    file: ""
+    file: "",
   };
   const SingleFileChange = () => {
-
     setCurrentFile(fileInput.current.files[0]);
-    setFileName(fileInput.current.files[0].name)
-
+    setFileName(fileInput.current.files[0].name);
   };
-
 
   const onSubmit = async (values: InitialValues, actions: any) => {
     let formData = new FormData();
     formData.append("file", currentFile);
     //  formData.append("file", fileName);
-    console.log(formData, "formData")
-    console.log(currentFile, "curr")
+    console.log(formData, "formData");
+    console.log(currentFile, "curr");
     try {
       axiosPrivate
         .post("organization/image", formData, {
@@ -96,7 +90,7 @@ const OrganizationInfo = () => {
           const orgdata = {
             providerID: select.userID,
             organizationName: values.organizationInformation.organizationName,
-            orgImg: (res.data.data) ? res.data.data.filename : "",
+            orgImg: res.data.data ? res.data.data.filename : "",
             address: {
               addressLine1: values.organizationInformation.streetAdd1,
               addressLine2: values.organizationInformation.streetAdd2,
@@ -115,20 +109,23 @@ const OrganizationInfo = () => {
             },
           };
           alert(JSON.stringify(orgdata, null, 2));
-          console.log(orgdata, 'orgdata')
+          console.log(orgdata, "orgdata");
           axiosPrivate
             .post("/organization/createOrganization", orgdata)
             .then((res) => {
-              alert("success");
+              toast.success(res.data.message);
               actions.resetForm({
                 values: initialValues,
               });
-              navigate("/addFacility")
+              navigate("/addFacility");
+            })
+            .catch((err) => {
+              console.log(err, "orgErr");
+              toast.error(err.message);
             });
-
         });
     } catch (err) {
-      throw err
+      throw err;
     }
   };
 
@@ -257,13 +254,11 @@ const OrganizationInfo = () => {
         borderRadius: "15px",
       }}
     >
-
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-
         <>
           <Form>
             <Grid container spacing={2}>
@@ -279,8 +274,6 @@ const OrganizationInfo = () => {
                 >
                   Organization Information
                 </Typography>
-
-
               </Grid>
               <Grid xs={12}>
                 <label htmlFor="upload-photo">
@@ -289,15 +282,22 @@ const OrganizationInfo = () => {
                     id="upload-photo"
                     // name="upload-photo"
                     type="file"
-                    accept='image/*'
+                    accept="image/*"
                     ref={fileInput}
                     onChange={SingleFileChange}
                   />
-                  <Button color="primary" variant="contained" component="span" sx={{ backgroundColor: "#B4C8FC", marginLeft: "1rem" }}>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    component="span"
+                    sx={{ backgroundColor: "#B4C8FC", marginLeft: "1rem" }}
+                  >
                     Upload profile image
                   </Button>
                 </label>
-                <Box component="span" sx={{ marginLeft: "1rem" }}>{fileName}</Box>
+                <Box component="span" sx={{ marginLeft: "1rem" }}>
+                  {fileName}
+                </Box>
               </Grid>
 
               {organizationData.map((org, i) => (
@@ -376,7 +376,6 @@ const OrganizationInfo = () => {
                   size="large"
                   fullWidth={false}
                   variant="contained"
-
                   sx={{
                     backgroundColor: "secondary.dark",
                     width: "10vw",
@@ -396,7 +395,6 @@ const OrganizationInfo = () => {
           </Form>
         </>
       </Formik>
-
     </Paper>
   );
 };
