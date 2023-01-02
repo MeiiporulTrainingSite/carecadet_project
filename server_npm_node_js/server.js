@@ -79,6 +79,7 @@ app.get('/',(req,res) => {
 })
 
 app.use('/user',LoginController);
+app.use('/provider',ProviderController);
 app.use(express.static('./images'))
 startAuthAPI(app);
 
@@ -88,7 +89,8 @@ app.use('/organization',OrganizationController);
 app.use('/facility',FacilityController);
 app.use("/upload", PricelistController);
 app.use("/", PricelistController);
-app.use("/getPriceList",PricelistController)
+app.use("/getPriceList",PricelistController);
+
 
 // Handle All Errors 
 app.use(errorHandler);       

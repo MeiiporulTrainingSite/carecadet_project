@@ -16,11 +16,11 @@ import {
   DialogContent,
   DialogActions,
   DialogTitle,
-} from '@mui/material';
+} from "@mui/material";
 
 // import useStyles from "./style";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
-import { useAppDispatch,useAppSelector } from "../../Redux/Hook";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 
 import CreateService from "./Createmanually";
 
@@ -29,7 +29,7 @@ interface props {
   children: JSX.Element;
 }
 
-type CloseReason = 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick';
+type CloseReason = "backdropClick" | "escapeKeyDown" | "closeButtonClick";
 interface DialogProps extends MuiDialogProps {
   onClose: (reason: CloseReason) => void;
 }
@@ -44,16 +44,13 @@ const Dialog = ({ title, open, onClose, children, ...props }: DialogProps) => {
       <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
       <DialogContent>{children}</DialogContent>
       <DialogActions>
-        <Button onClick={() => onClose('closeButtonClick')} color="primary">
+        <Button onClick={() => onClose("closeButtonClick")} color="primary">
           Close
         </Button>
       </DialogActions>
     </MuiDialog>
   );
 };
-
-
-
 
 function Pricelist() {
   const [open, setOpen] = React.useState(false);
@@ -65,10 +62,12 @@ function Pricelist() {
     setOpen(false);
   };
   const navigate = useNavigate();
-  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+  const data = useAppSelector(
+    (state: { auth: { login: any } }) => state.auth.login
+  );
   const navigateToupload = () => {
     // This will navigate to second component
-    navigate("/PricelistUploadthrofacility");
+    navigate("/PricelistUpload");
   };
 
   return (
@@ -205,10 +204,15 @@ function Pricelist() {
         >
           Create Manually
         </Buttoncomponent>
-        <Dialog open={open} onClose={handleClose} children={<div>
-        <CreateService />
-          
-          </div>} />
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          children={
+            <div>
+              <CreateService />
+            </div>
+          }
+        />
       </Typography>
       <Typography
         variant="h6"

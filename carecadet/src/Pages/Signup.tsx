@@ -57,16 +57,19 @@ export default function Register() {
             .post("http://localhost:5200/provider/createProvider", Registerdata)
 
             .then((res) => {
+              toast.success(res.data.message);
               navigate("/login");
               alert("Success");
             })
-
             .catch((err) => {
-              toast.error(err.response.data);
-          
+              console.log(err,"signuperr");
+              // toast.error(err.response.data);
+              toast.error(err);
            });
         
         }}
+
+
       >
        
             <Form>

@@ -61,6 +61,7 @@ export default function Login() {
               axiosPrivate
                 .post("/user/login", Logindata)
                 .then((res) => {
+                  toast.success(res.data.message);
                   //  localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
                   //  localStorage.setItem("token", JSON.stringify(res.data.data.token));
                   // localStorage.setItem("auth",JSON.stringify(res.data.data))
@@ -76,16 +77,20 @@ export default function Login() {
                   navigate("/providerlanding");
                 })
                 .catch((err) => {
-                  if (
-                    err.response &&
-                    err.response.status >= 400 &&
-                    err.response.status <= 500
-                  ) {
-                    toast.error(err.response.message);
-                  }
+                  // if (
+                  //   err.response &&
+                  //   err.response.status >= 400 &&
+                  //   err.response.status <= 500
+                  // ) {
+                    toast.error(err.message);
+                  // }
                 });
-            }}
+             
+            }
+          
+            }
           >
+            
             <Form>
               <Typography variant="h4" sx={{ mt: 12, color: "#728AB7" }}>
                 Welcome Provider

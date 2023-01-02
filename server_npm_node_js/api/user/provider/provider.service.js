@@ -26,13 +26,13 @@ const transport
     secure: false,
     
 });
-var date = new Date();
-var mail = {
-    "id":ProviderDetails.providerID,
-    "created":date.toDateString()
-}
-const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
-var url = "http://localhost:5200+confirm?id=+token_mail_verification";
+// var date = new Date();
+// var mail = {
+//     "id":ProviderDetails.providerID,
+//     "created":date.toDateString()
+// }
+// const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
+// var url = "http://localhost:5200+confirm?id=+token_mail_verification";
 
 function sendConfirmationEmail (name,_email)  {
     console.log("Check");

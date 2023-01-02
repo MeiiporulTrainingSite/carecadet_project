@@ -4,7 +4,6 @@ import Provider from "./Pages/Provider";
 import Payer from "./Pages/Payer";
 import Contact from "./Pages/Contact";
 
-
 // other
 import { FC } from "react";
 import OrganizationInfo from "./Pages/Organization/OrganizationInfo";
@@ -17,16 +16,15 @@ import PricelistUpload from "./Pages/Services/PricelistUpload";
 import PricelistEditpage from "./Pages/Services/pricelisteditpage";
 import Pricelistlandingpage from "./Pages/Services/pricelistlandingpage";
 import Servicelandingpage from "./Pages/Services/servicelandpage";
-import ServiceViewPage from "./Pages/Services/serviceview"
+import ServiceViewPage from "./Pages/Services/serviceview";
 import ServiceEditpage from "./Pages/Services/ServiceEditpage";
-import PricelistthroFacility from "./Pages/Services/pricelistthrofacility"
-import PricelistUploadthroFacility from "./Pages/Services/PricelistUploadthrofacility"
+import PricelistthroFacility from "./Pages/Services/pricelistthrofacility";
+import PricelistUploadthroFacility from "./Pages/Services/PricelistUploadthrofacility";
 
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import ProviderLandingPage from "./Pages/Landingpage";
-
 
 import Searchone from "./Pages/Searchone";
 import Searchtwo from "./Pages/Searchtwo";
@@ -171,7 +169,7 @@ export const routespages: Array<Route> = [
     component: UpdateFacility,
   },
   {
-    key: "priceliat",
+    key: "pricelist",
     title: "Pricelist",
     path: "/pricelist",
     enabled: true,
@@ -199,7 +197,6 @@ export const routespages: Array<Route> = [
     component: Pricelistlandingpage,
   },
   {
-<<<<<<< HEAD
     key: "servicelanding",
     title: "Servicelanding",
     path: "/servicelanding",
@@ -221,7 +218,7 @@ export const routespages: Array<Route> = [
     component: ServiceEditpage,
   },
   {
-    key: "pricelist",
+    key: "pricelistthrofacility",
     title: "Pricelistthrofacility",
     path: "/pricelistthrofacility",
     enabled: true,
@@ -234,7 +231,7 @@ export const routespages: Array<Route> = [
     enabled: true,
     component: PricelistUploadthroFacility,
   },
-=======
+  {
     key: "searchone",
     title: "Searchone",
     path: "/searchone",
@@ -247,7 +244,5 @@ export const routespages: Array<Route> = [
     path: "/searchtwo",
     enabled: true,
     component: Searchtwo,
-  }
-
->>>>>>> 75ccd370522ddc2a67123d1b1d7978326744db46
+  },
 ];
