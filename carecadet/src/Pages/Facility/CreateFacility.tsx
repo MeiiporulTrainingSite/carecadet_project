@@ -116,14 +116,16 @@ export default function CreateFacility() {
             .post("http://localhost:5200/facility/createFacility", facilitydata)
             .then((res) => {
                 // alert('success')
-                toast.success("Successfully Added ")               
-                console.log("i", res.data)
+                toast.success(res.data.message);              
+                console.log("resfacilitypost", res.data)
                 dispatch(tabValueNav(1))
                 // dispatch(editButton())
                 navigate("/providerlanding")
 
             })
-            .catch((e) => console.log(e));
+            .catch((err) => {                
+                toast.error(err.message);
+              });
     };
 
 
