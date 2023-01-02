@@ -11,7 +11,8 @@ import { toast } from "react-toastify";
 import { Buttoncomponent } from '../../Components/Buttoncomp'
 //redux store
 import { useAppSelector, useAppDispatch } from '../../Redux/Hook';
-import { facilityInfo, serviceInfo } from '../../Redux/facilitySlice';
+import { facilityInfo } from '../../Redux/facilitySlice';
+import {serviceInfo} from '../../Redux/serviceSlice';
 import { axiosPrivate } from '../../axios/axios';
 // import {editButton} from "../../Redux/LoginSlice"
 

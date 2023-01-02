@@ -19,14 +19,14 @@ export const facilitySlice = createSlice({
         fData: action.payload,
       };
     },
-    serviceInfo: (state, action: PayloadAction<any>) => {
-      return {
-        ...state,
-        service: action.payload,
-      };
-    },
+    // serviceInfo: (state, action: PayloadAction<any>) => {
+    //   return {
+    //     ...state,
+    //     service: action.payload,
+    //   };
+    // },
   },
 });
 
-export const { facilityInfo, serviceInfo } = facilitySlice.actions;
+export const { facilityInfo } = facilitySlice.actions;
 export const facilityReducer = facilitySlice.reducer;

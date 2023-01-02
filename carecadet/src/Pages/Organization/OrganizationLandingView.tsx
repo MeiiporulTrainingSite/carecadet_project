@@ -6,7 +6,7 @@ import { axiosPrivate } from "../../axios/axios";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import ViewFacility from "../Facility/ViewFacility";
-import { organizationEdit } from "../../Redux/orgSlice";
+import { organizationEdit, organizationImage } from "../../Redux/orgSlice";
 // import { editButton } from "../../Redux/LoginSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 import PlaceIcon from "@mui/icons-material/Place";
@@ -163,6 +163,7 @@ const OrganizationLandingView = ({data}: Props) => {
               variant="contained"
               onClick={() => {
                 dispatch(organizationEdit({ ...data[0] }));
+                dispatch(organizationImage( data[0].orgImg ));
                 // dispatch(editButton())
                 navigate("/editOrg");
               }}
