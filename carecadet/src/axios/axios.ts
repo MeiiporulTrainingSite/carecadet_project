@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import { logoutButton } from "../Redux/LoginSlice";
 
 import { store } from "../Redux/Store";
+import {accessTokentest} from "../Redux/LoginSlice"
 
 
 
@@ -23,17 +24,58 @@ axiosPrivate.interceptors.request.use(
   }
 );
 
-
 axiosPrivate.interceptors.response.use(
-  (res) => res,
-  (err) => {
-    console.log(err.response.statusText)
-    if(err.response.statusText==="Unauthorized"){
-      store.dispatch(logoutButton())
-     
-      window.location.pathname="/login"
-      toast.error("test");
-    }
+  (res) => {
+    console.log(res, "checkkkk");
+    return res;
+  },
+  (error) => {
+    console.log(error.response, "errrr");
+    return new Promise((resolve) => {
+
+      const originalRequest = error.config;
+      console.log("checkkk")
+      const refreshToken = store.getState().auth.login.token;
+      if (error.response && error.response.status === 401 && refreshToken) {
+        console.log("res")
+        originalRequest._retry = true;
+       
+
+        // body: formBody
+        const response = axios
+          .post("http://localhost:5200/user/access", { token: refreshToken })
+          .then((res) => {
+            console.log(res, "ccccc");
+            return res
+          })
+          .then((res) => {
+
+            store.dispatch(accessTokentest(res.data.accessToken))
+            console.log(res.data.accessToken,"access")
+            // alert(JSON.stringify(store.getState().auth.login.token))
+            originalRequest.headers.authorization = res.data.accessToken;
+            console.log(originalRequest,"original")
+            return axios(originalRequest);
+          })
+          .catch((e) => {
+            return Promise.reject(e);
+          });
+        resolve(response);
+      }
+
+      if (error.response) {
+        throw error.response.data;
+      }
+
+      return Promise.reject(error);
+    });
+  }
+  // if (err.response.statusText === "Unauthorized") {
+  //   store.dispatch(logoutButton());
+
+  //   window.location.pathname = "/login";
+  //   toast.error("test");
+  //}
   //   if (err.response) {
   //     return Promise.reject(err.response.data);
   //   }
@@ -43,12 +85,6 @@ axiosPrivate.interceptors.response.use(
   //   }
 
   //   return Promise.reject(err.message);
-   }
 );
-// //axiosPrivate.interceptors.request.use((res) => {res.data});
-// let checkToken;
-// export const check = () => {
-//   let token = Cookies.get("token");
-//   console.log(token);
-//   checkToken = token;
-// };
+
+
