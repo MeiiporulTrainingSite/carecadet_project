@@ -1,5 +1,8 @@
 import Provider from './provider.schema.js'
 import { createId } from '../../../shared/common-util.js'
+import nodemailer from "nodemailer";
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 
 export default {
     createProvider,
@@ -7,6 +10,43 @@ export default {
     getProviderList,
     deleteProvider,
 }
+dotenv.config();
+
+const useremail ="carecadet.demo@gmail.com";
+const emailpass ="acfpfefwtqbmfdih";
+
+const transport
+ = nodemailer.createTransport({
+    host:"smtp.gmail.com",
+    auth:{
+        user:useremail,
+        pass:emailpass
+    },
+    port:587,
+    secure: false,
+    
+});
+var date = new Date();
+var mail = {
+    "id":ProviderDetails.providerID,
+    "created":date.toDateString()
+}
+const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
+var url = "http://localhost:5200+confirm?id=+token_mail_verification";
+
+function sendConfirmationEmail (name,_email)  {
+    console.log("Check");
+    transport.sendMail({
+      from: 'carecadet.demo@gmail.com',
+      to: _email,
+      subject: "Please confirm your account",
+      html: `<h1>Email Confirmation</h1>
+          <h2>Hello ${name}</h2>
+          <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
+          <a href=http://localhost:5200/confirm?name=${name};secret=> Click here</a>
+          </div>`,
+    }).catch(err => console.log(err));
+  };
 
 // TO create a provider ( use createId to create unique ID)
 async function createProvider(body) {
@@ -30,11 +70,12 @@ async function createProvider(body) {
         ProviderDetails.password =body.password;
         ProviderDetails.role = body.role;
         ProviderDetails.remark = body.remark;
-        ProviderDetails.isActive = 'Y';
+        ProviderDetails.isActive = 'Active';
         ProviderDetails.activeStartDate = new Date();
         ProviderDetails.createdBy = body.userID;
         ProviderDetails.createdDate = new Date();
         await ProviderDetails.save();
+        sendConfirmationEmail(body.firstName,body.email);  
         return { message: 'Successfully created'}
     }
 }
@@ -47,7 +88,7 @@ async function updateProvider(body){
     }
     const findProvider = await Provider.findOne({ providerID: body.providerID })
     if(!findProvider){
-        throw Error(' provider dose exists ')
+        throw Error(' provider does exists ')
     } else {
         await Provider.findOneAndUpdate(
             { providerID: body.providerID },

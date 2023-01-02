@@ -17,6 +17,7 @@ import ProtectedLogin from "./ProtectedRoutes/ProtectedLogin";
 
 import { useAppDispatch, useAppSelector } from "./Redux/Hook";
 import ProviderLandingPage from "./Pages/Landingpage";
+import Contact from "./Pages/Contact";
 
 function App() {
   const theme = createTheme({
@@ -47,6 +48,7 @@ function App() {
         <Layout>
           <Routes>
             {/* <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/> */}
+            <Route path = "/contact" element = {<Contact/>}/>
             {appRoutes.map((route) => (
               <Route
                 key={route.key}
@@ -73,18 +75,7 @@ function App() {
           </Routes>
         </Layout>
       </Router>
-      <ToastContainer
-        position="bottom-center"
-        autoClose={5000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
+      <ToastContainer/>
     </ThemeProvider>
   );
 }

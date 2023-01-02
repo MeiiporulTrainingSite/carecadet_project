@@ -43,6 +43,15 @@ async function login(body){
                 responseObj.firstName = findProvider.firstName;
                 responseObj.lastName = findProvider.lastName;
                 responseObj.email = findProvider.email;
+                responseObj.isActive = findProvider.isActive;
+                if(responseObj.isActive!="Pending")
+                    {
+                        // return res.status(401).send({
+                        //   message: "Pending Account. Please Verify Your Email!",
+                        // });
+                        throw Error('Pending Account');
+                      }
+                
                 responseObj.userType = "PROVIDER";
                 responseObj.token = token;
                 responseObj.refreshToken = refreshToken;
@@ -50,7 +59,7 @@ async function login(body){
                 return {data: responseObj};
             } else {
                 throw Error('Incorrect password');
-            }
+                            }
         }
     // } 
     else {

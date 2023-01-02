@@ -15,9 +15,9 @@ async function createFacility(body) {
     if (Object.keys(body).length === 0) {
         throw Error("Invalid body parameter");
     }
-    // const findFacility = await Facility.findOne({ providerID: body.providerID });
-    // console.log('findfacility',findFacility)
-    // if(!findFacility){
+    const findFacility = await Facility.findOne({ facilityNPI: body.facilityNPI });
+    console.log('findfacility',findFacility)
+    if(!findFacility){
         const facilityDetails = new Facility();
         facilityDetails.facilityID = await createId(Facility.collection.name);      
         facilityDetails.providerID = body.providerID;        
@@ -34,9 +34,9 @@ async function createFacility(body) {
         facilityDetails.createdDate = new Date();
         await facilityDetails.save();
         return { message: "Successfully created" };
-    // } else {
-    //     throw Error('Facility already exists');
-    // }
+    } else {
+        throw Error('Facility already exists');
+    }
 }
 
 async function updateFacility(body) {
