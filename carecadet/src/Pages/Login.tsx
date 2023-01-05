@@ -74,7 +74,7 @@ export default function Login() {
                  
                   //  window.location = "/profile";
                   alert("Success");
-                  navigate("/providerlanding");
+                  navigate("/viewFacility");
                 })
                 .catch((err) => {
                   // if (

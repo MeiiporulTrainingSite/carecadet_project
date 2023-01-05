@@ -51,5 +51,5 @@ export const editSlice = createSlice({
 export const { organizationEdit,organizationImage,refrestState ,orgid} = editSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.auth.login.token
-console.log("orgid", orgid)
+// console.log("orgid", orgid)
 export default editSlice.reducer;

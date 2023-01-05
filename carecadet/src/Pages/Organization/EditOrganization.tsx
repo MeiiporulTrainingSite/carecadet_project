@@ -432,12 +432,12 @@ const EditOrganization = () => {
   const dispatch = useAppDispatch();
   const [currentFile, setCurrentFile] = useState<any>();
   const [fileName, setFileName] = useState<any>("");
-  const select = useAppSelector((state) => state.edit.orgEditData);
+  const select = useAppSelector((state) => state.edit.orgEditData[0]);
   const image = useAppSelector((state)=> state.edit.orgEditImage);
   console.log("imageedit",image)
   const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
   const navigate = useNavigate();
-  console.log(select, "s");
+  console.log(select, "shjjhjh");
   const fileInput = useRef<any>();
 
   const initialValues: InitialValues = {

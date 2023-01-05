@@ -45,7 +45,7 @@ export default function Servicelandingpage() {
   //   (state: { editservice: { serviceInfo: any } }) => state.editservice.serviceInfo
   // );
 
-  console.log(serviceInfo, "facip");
+  // console.log(serviceInfo, "facip");
   const navigate = useNavigate();
   useEffect(() => {
     console.log("start");

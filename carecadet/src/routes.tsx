@@ -125,13 +125,13 @@ export const routespages: Array<Route> = [
   //   enabled: true,
   //   component: Contact,
   // },
-  {
-    key: "providerorg",
-    title: "providerOrg",
-    path: "/providerlanding",
-    enabled: true,
-    component: ProviderLandingPage,
-  },
+  // {
+  //   key: "providerorg",
+  //   title: "providerOrg",
+  //   path: "/providerlanding",
+  //   enabled: true,
+  //   component: ProviderLandingPage,
+  // },
 
   {
     key: "org",
@@ -141,7 +141,7 @@ export const routespages: Array<Route> = [
     component: OrganizationInfo,
   },
   {
-    key: "editorg",
+    key: "editOrg",
     title: "editOrg",
     path: "/editOrg",
     enabled: true,
@@ -150,7 +150,7 @@ export const routespages: Array<Route> = [
   {
     key: "viewFacility",
     title: "Facility",
-    path: "/facility",
+    path: "/viewFacility",
     enabled: true,
     component: ViewFacility,
   },
@@ -195,6 +195,13 @@ export const routespages: Array<Route> = [
     path: "/pricelistlanding",
     enabled: true,
     component: Pricelistlandingpage,
+  },
+  {
+    key: "listSevices",
+    title: "listSevices",
+    path: "/listService",
+    enabled: true,
+    component: Servicelandingpage,
   },
   {
     key: "servicelanding",
