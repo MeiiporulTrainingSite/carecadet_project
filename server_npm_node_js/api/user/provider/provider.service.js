@@ -9,11 +9,13 @@ export default {
     updateProvider,
     getProviderList,
     deleteProvider,
+    confirmEmail,
+    updateConfirmEmail
 }
 dotenv.config();
 
 const useremail ="carecadet.demo@gmail.com";
-const emailpass ="acfpfefwtqbmfdih";
+const emailpass ="iiwcefbinvtgqjyc";
 
 const transport
  = nodemailer.createTransport({
@@ -43,10 +45,48 @@ function sendConfirmationEmail (name,_email)  {
       html: `<h1>Email Confirmation</h1>
           <h2>Hello ${name}</h2>
           <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
-          <a href=http://localhost:5200/confirm?name=${name};secret=> Click here</a>
+          <a href=http://localhost:5200/provider/confirm?name=${name}&email=${_email}> Click here</a>
           </div>`,
-    }).catch(err => console.log(err));
+    },
+   function (error,info){
+    console.log("sentMail returned!");
+    if(error){
+        console.log("Error!!!!!",error);
+            }else{
+                console.log("Email sent:"+info.response);
+
+            }
+   }
+   
+    )
+    // .catch(err => console.log(err));
   };
+  function confirmEmail(query){
+    console.log("query",query)
+  }
+
+  async function updateConfirmEmail(body){
+    console.log("body",body);
+   
+    if (Object.keys(body).length === 0) {
+        throw Error("Invalid body parameter");
+    }
+    const findProvider = await Provider.findOne({ email: body.email })
+    if(!findProvider){
+        throw Error(' provider does exists ')
+    } else {
+        await Provider.findOneAndUpdate(
+            { email: body.email },
+            {
+                $set: {
+                  isActive:'Active',
+                    updatedDate: new Date(),
+                }
+            }
+        );
+        return { message: 'Successfully updated'}
+    }
+}
 
 // TO create a provider ( use createId to create unique ID)
 async function createProvider(body) {
@@ -70,7 +110,7 @@ async function createProvider(body) {
         ProviderDetails.password =body.password;
         ProviderDetails.role = body.role;
         ProviderDetails.remark = body.remark;
-        ProviderDetails.isActive = 'Active';
+        ProviderDetails.isActive = 'Pending';
         ProviderDetails.activeStartDate = new Date();
         ProviderDetails.createdBy = body.userID;
         ProviderDetails.createdDate = new Date();

@@ -10,6 +10,7 @@ router.get('/getProviderList', getProviderList);
 router.post('/createProvider',createProvider);
 router.put('/updateProvider',updateProvider);
 router.delete('/deleteProvider',deleteProvider);
+router.get('/confirm',confirmEmail)
 
 function getProviderList(req,res,next){
     ProviderService.getProviderList().then(obj => {
@@ -36,4 +37,14 @@ function deleteProvider(req,res,next){
     ProviderService.deleteProvider(providerID).then(obj => {
         new ResObject(res,obj);
     }).catch(next);
+}
+
+
+
+function confirmEmail(req,res,next){
+    const query= req.query
+    ProviderService.updateConfirmEmail(query).then(obj=>{
+        console.log("verify successully")
+        res.json("sucess updated")
+    }).catch(next)
 }
