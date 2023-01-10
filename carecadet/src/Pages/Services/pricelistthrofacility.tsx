@@ -65,10 +65,10 @@ function Pricelist() {
     setOpen(false);
   };
   const navigate = useNavigate();
-  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+  const data = useAppSelector((state: { providerAuth: { login: any; } }) => state.providerAuth.login)
   const navigateToupload = () => {
     // This will navigate to second component
-    navigate("/PricelistUploadthrofacility");
+    navigate("/provider/facility/PricelistUploadthrofacility");
   };
 
   return (

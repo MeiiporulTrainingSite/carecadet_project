@@ -7,7 +7,7 @@ let ProviderSchema = new schema({
     providerID: { type: String, unique: [ true, 'Provider already exists '], required: [ true, 'Enter a provider id']},
     firstName: { type: String, required: [ true, 'Enter a first name']},
     lastName: { type: String,  
-        // required: [ true, 'Enter a last name']
+        required: [ true, 'Enter a last name']
     },
     email: { type: String,  required: [ true, 'Enter a email'], unique: [ true, 'Already a email exists']},
     contact: { type: String,  

@@ -5,6 +5,9 @@ import csvjson from "csvtojson";
 import pkg from "json-2-csv";
 const { json2csv } = pkg;
 const __dirname = path.resolve(path.dirname(""));
+
+import nodemailer from "nodemailer";
+
 export default {
   uploadPricelist,
   publishPricelist,
@@ -19,6 +22,51 @@ export default {
   createService,
 };
 
+const useremail = "carecadet.demo@gmail.com";
+const emailpass = "iiwcefbinvtgqjyc";
+
+const transport = nodemailer.createTransport({
+  host: "smtp.gmail.com",
+  auth: {
+    user: useremail,
+    pass: emailpass,
+  },
+  port: 587,
+  secure: false,
+});
+// var date = new Date();
+// var mail = {
+//     "id":ProviderDetails.providerID,
+//     "created":date.toDateString()
+// }
+// const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
+// var url = "http://localhost:5200+confirm?id=+token_mail_verification";
+
+function sendConfirmationEmail(emailData) {
+  console.log("Check");
+  transport.sendMail(
+    {
+      from: "carecadet.demo@gmail.com",
+      to: "divyag.meiiporul@gmail.com",
+      subject: "Please confirm your account",
+      html: `<h1>PriceList Confirmation</h1>
+          <h2>Hello Admin</h2>
+          <p>Pleas ${emailData.userID}, ${emailData.name} , ${emailData.email}</p>
+          
+          </div>`,
+    },
+    function (error, info) {
+      console.log("sentMail returned!");
+      if (error) {
+        console.log("Error!!!!!", error);
+      } else {
+        console.log("Email sent:" + info.response);
+      }
+    }
+  );
+  // .catch(err => console.log(err));
+}
+
 async function uploadPricelist(file) {
   const filedata = file.csv;
 
@@ -31,7 +79,11 @@ async function uploadPricelist(file) {
     let uploadPath = __dirname + "/uploads/" + filename;
     fs.writeFile(uploadPath, csvData, (err) => {
       if (err) console.error(err);
-      else console.log("Ok");
+      else {
+        console.log("Ok");
+        // sendConfirmationEmail(file.emailData);
+        console.log(file.emailData);
+      }
     });
   });
 }
@@ -46,6 +98,7 @@ async function getPriceList() {
         Organisationid: 1,
         OrganisationPrices: 1,
         FacilityNPI: 1,
+        FacilityName: 1,
         FacilityPrices: 1,
         createdBy: 1,
         createdDate: 1,
@@ -100,6 +153,7 @@ async function updatePricelist(body) {
         Organisationid: body.Organisationid,
         OrganisationPrices: body.OrganisationPrices,
         FacilityNPI: body.FacilityNPI,
+        FacilityName: body.FacilityName,
         FacilityPrices: body.FacilityPrices,
         createdBy: body.FacilityNPI,
         createdDate: body.createdDate,
@@ -144,6 +198,7 @@ async function getPriceListbyFacility(body) {
           Organisationid: 1,
           OrganisationPrices: 1,
           FacilityNPI: 1,
+          FacilityName: 1,
           FacilityPrices: 1,
           createdBy: 1,
           createdDate: 1,
@@ -202,12 +257,13 @@ async function getPriceListbyService(body) {
       },
       {
         $project: {
-         SNo: 1,
+          SNo: 1,
           ServiceCode: 1,
           DiagnosisTestorServiceName: 1,
           Organisationid: 1,
           OrganisationPrices: 1,
           FacilityNPI: 1,
+          FacilityName: 1,
           FacilityPrices: 1,
           createdBy: 1,
           createdDate: 1,
@@ -231,12 +287,13 @@ async function createService(body) {
   // const findOrganization = await Organization.findOne({ providerID: body.providerID });
   // if(!findOrganization){
   const pricelist = new Pricelist();
-  pricelist.Organisationid = body.Organisationid,
-    pricelist.ServiceCode = body.ServiceCode,
-    pricelist.DiagnosisTestorServiceName = body.DiagnosisTestorServiceName,
-    pricelist.OrganisationPrices = body.OrganisationPrices,
-    pricelist.FacilityNPI = body.FacilityNPI,
-    pricelist.FacilityPrices = body.FacilityPrices,
+  (pricelist.Organisationid = body.Organisationid),
+    (pricelist.ServiceCode = body.ServiceCode),
+    (pricelist.DiagnosisTestorServiceName = body.DiagnosisTestorServiceName),
+    (pricelist.OrganisationPrices = body.OrganisationPrices),
+    (pricelist.FacilityNPI = body.FacilityNPI),
+    (pricelist.FacilityName = body.FacilityName),
+    (pricelist.FacilityPrices = body.FacilityPrices),
     // createdBy: body.FacilityNPI,
     // createdDate: body.createdDate,
     // updatedBy: body.FacilityNPI,

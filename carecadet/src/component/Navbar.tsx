@@ -186,19 +186,30 @@ import {
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import { routes } from "../routes";
-import { NavLink, useNavigate } from "react-router-dom";
+import { navRoutes } from "../routes";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Buttoncomponent } from "../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../Redux/Hook";
-import { logoutButton, storeLoginInfo } from "../Redux/LoginSlice";
+import {
+  logoutButton,
+  pageUser,
+  storeLoginInfo,
+} from "../Redux/ProviderRedux/LoginSlice";
 import Cookies from "js-cookie";
-import { refrestState } from "../Redux/orgSlice";
+import { refrestState } from "../Redux/ProviderRedux/orgSlice";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const logout = useAppSelector((state) => state.auth.logoutButton);
-  const dispatch=useAppDispatch()
-  const navigate=useNavigate()
+  const logout = useAppSelector((state) => state.providerAuth.providerLogoutButton);
+  const userType = useAppSelector((state) => state.providerAuth.pageUser);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const char =
+    location.pathname.split("/")[1] === ""
+      ? "patient"
+      : location.pathname.split("/")[1];
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
@@ -207,13 +218,12 @@ const Navbar = () => {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-  const onLogout=()=>{
-    dispatch(logoutButton())
-   dispatch(refrestState())
-    Cookies.remove("token")
-    localStorage.removeItem("pageUserType")
-    navigate("/")
-  }
+  
+
+  const onPageUser = (user: any, path: string) => {
+    dispatch(pageUser(user));
+    navigate(path);
+  };
 
   return (
     <Paper
@@ -266,7 +276,7 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {routes.map((page) => (
+              {navRoutes.map((page) => (
                 <Link
                   key={page.key}
                   component={NavLink}
@@ -299,47 +309,34 @@ const Navbar = () => {
             </Box>
           </Typography>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Box
-              sx={{ marginLeft: { md: "45em" }, display: "flex" }}
-            >
-              {routes.map((page) => (
-                <Link
+            <Box sx={{ marginLeft: { md: "45em" }, display: "flex" }}>
+              {navRoutes.map((page) => (
+                <Typography
                   key={page.key}
-                  component={NavLink}
-                  to={page.path}
-                  color="primary.main"
-                  underline="none"
+                  color={char === page.color ? "#4D77FF" : "primary.main"}
                   variant="button"
-                  sx={{ fontSize: "1.2rem", marginLeft: "2rem" }}
+                  onClick={() => {
+                    onPageUser(page.title, page.path);
+                  }}
+                  sx={{ fontSize: "1.2rem", marginLeft: "2rem" ,cursor:"pointer"}}
                 >
                   {page.title}
-                </Link>
+                </Typography>
+                // <Link
+                //   key={page.key}
+                //   component={NavLink}
+                //   to={page.path}
+                //   color="primary.main"
+                //   underline="none"
+                //   variant="button"
+                //   sx={{ fontSize: "1.2rem", marginLeft: "2rem" }}
+                // >
+                //   {page.title}
+                // </Link>
               ))}
-           
-            {logout ? (
-              <Buttoncomponent
-                type="button"
-                size="small"
-                fullWidth={false}
-                variant="contained"
-                onClick={onLogout}
-                sx={{
-                  backgroundColor: "secondary.dark",
-                  width: "7vw",
-                  color: "#fff",
-                  ml:"15px",
-                  "&:hover": {
-                    color: "secondary.dark",
-                    border: "1px solid blue",
-                    // letterSpacing: "0.2rem",
-                    // fontSize: "1rem",
-                  },
-                }}
-              >
-                Logout
-              </Buttoncomponent>
-            ) : null}
-          </Box>
+
+             
+            </Box>
           </Box>
         </Toolbar>
       </Container>
@@ -348,4 +345,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

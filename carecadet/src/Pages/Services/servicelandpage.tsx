@@ -12,17 +12,17 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import { tabValueNav } from "../../Redux/LoginSlice";
+import { tabValueNav } from "../../Redux/ProviderRedux/LoginSlice";
 
 import AddIcon from "@mui/icons-material/Add";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import clsx from "clsx";
 import { axiosPrivate } from "../../axios/axios";
-import { serviceInfo } from "../../Redux/serviceSlice";
+import { serviceInfo } from "../../Redux/ProviderRedux/serviceSlice";
 import { BorderClear } from "@mui/icons-material";
 
 interface forminitialValues {
-  _id:string;
+  _id: string;
   SNo: string;
   ServiceCode: string;
   DiagnosisTestorServiceName: string;
@@ -30,6 +30,7 @@ interface forminitialValues {
   OrganisationPrices: string;
   FacilityNPI?: string;
   FacilityPrices: string;
+  GridAlignment: "left" | "right" | "center";
 }
 
 export default function Servicelandingpage() {
@@ -40,12 +41,19 @@ export default function Servicelandingpage() {
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
 
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
   // const serviceinput = useAppSelector(
   //   (state: { editservice: { serviceInfo: any } }) => state.editservice.serviceInfo
   // );
+  const facilityinput = useAppSelector((state) => state.providerService.serviceData);
 
-  // console.log(serviceInfo, "facip");
+  console.log(facilityinput, "facip");
+  const serviceinput = useAppSelector(
+    (state: { providerService: { serviceData: any } }) =>
+      state.providerService.serviceData
+  );
+
+  console.log(serviceInfo, "facip");
   const navigate = useNavigate();
   useEffect(() => {
     console.log("start");
@@ -63,7 +71,7 @@ export default function Servicelandingpage() {
         ddd.push(s);
       });
       if (ddd.length == 0) {
-        navigate("/pricelist");
+        navigate("/provider/service/pricelist");
       } else {
         setData(ddd);
         // console.log("getpricedata", getpricedata);
@@ -130,11 +138,11 @@ export default function Servicelandingpage() {
   const navigateToAdd = () => {
     // This will navigate to second component
     // dispatch(editButton());
-    navigate("/Pricelist");
+    navigate("/provider/service/Pricelist");
   };
   const navigateToEdit = () => {
     // This will navigate to second component
-    navigate("/PricelistEdit");
+    navigate("/provider/service/PricelistEdit");
   };
 
   function CustomRow(props: any) {
@@ -158,21 +166,22 @@ export default function Servicelandingpage() {
           padding: "0.2rem",
           borderRadius: "15px",
           height: "76vh",
-     
         }}
       >
         <>
           <Typography
+            mb={"0.5rem"}
             sx={{
-              padding: "1.5rem",
-              textAlign: "left",
-              fontSize: "2.5rem",
-              fontWeight: "bold",
-              mr: 10,
+              backgroundColor: "#B4C8FC",
+              padding: "0.7rem",
+              textAlign: "center",
+              fontSize: "1.5rem",
             }}
           >
-            Services
-            <Grid container>
+            Service Pricelist
+          </Typography>
+
+          {/* <Grid container>
             <Button
             variant="outlined"
             type="button"
@@ -195,19 +204,16 @@ export default function Servicelandingpage() {
           >
             Facility Info
           </Button>
-          </Grid>
-            <Box
+          </Grid> */}
+          <Box
             display="flex"
             justifyContent="flex-end"
             alignItems="flex-end"
             sx={{
               gap: "2rem",
-              mt:-5,
+              mb:2
             }}
           >
-             
-
-      
             <Avatar
               sx={{
                 // backgroundColor: "secondary.dark",
@@ -220,6 +226,7 @@ export default function Servicelandingpage() {
                   // border: "1px solid blue",
                   letterSpacing: "0.2rem",
                   fontSize: "1rem",
+                  
                 },
               }}
               onClick={navigateToAdd}
@@ -245,8 +252,7 @@ export default function Servicelandingpage() {
               <EditIcon />
             </Avatar> */}
           </Box>
-        
-          </Typography>
+
           {/* <Buttoncomponent
             type="submit"
             variant="contained"
@@ -277,23 +283,8 @@ export default function Servicelandingpage() {
           >
             Facilities info
           </Buttoncomponent> */}
-          
-          <Box
-            sx={{
-              "& .super-app-theme--header": {
-                backgroundColor: "#4D77FF",
-              },
-              height: 400,
-              width: 1,
-              "& .odd": {
-                bgcolor: "white",
-              },
-              "& .even": {
-                bgcolor: "secondary.light",
-              },
-            }}
-          >
-            {/* <DataGrid
+
+          {/* <DataGrid
               autoHeight
               autoPageSize
               getRowId={(row) => row.SNo}
@@ -314,29 +305,27 @@ export default function Servicelandingpage() {
               components={{ Row: CustomRow }}
             /> */}
 
-            {/* {JSON.stringify(data)} */}
+          {/* {JSON.stringify(data)} */}
+          <Box style={{ width: "1000px" }}>
             <div>
               {data.map((d: any, key: any) => {
                 return (
                   <button
-
-                  
                     style={{
-                      height: "40px",
-                      width: "1290px",
+                      height: "35px",
+                      width: "1300px",
                       border: "0",
-                      borderRadius:"5px",
+                      borderRadius: "5px",
                       fontSize: "1.2rem",
                       textAlign: "left",
-                      backgroundColor:"primary.light"
+                      // backgroundColor:"primary.light"
                     }}
-                  
                     key={key}
                     onClick={() => {
                       // dispatch(editButton());
                       //dispatch(tabValueNav(1));
                       dispatch(serviceInfo(d));
-                      navigate("/serviceview");
+                      navigate("/provider/service/serviceview");
                     }}
                   >
                     {d}{" "}

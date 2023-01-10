@@ -118,16 +118,15 @@
 //         alert("success");
 //         // dispatch(organizationEdit(orgdata))
 //         navigate("/providerlanding")
-      
+
 //       });
 
 //         });
-//     } catch (err){ 
+//     } catch (err){
 //       throw err
 //     }
 
 //   };
-  
 
 //   const validationSchema = Yup.object().shape({
 //     organizationInformation: Yup.object().shape({
@@ -281,16 +280,16 @@
 //                     id = "upload-photo"
 //                     type = "file"
 //                     accept = 'image/*'
-//                     ref = {fileInput} 
+//                     ref = {fileInput}
 //                     onChange={SingleFileChange}
 //                   />
 //            <Button color="primary" variant="contained" component="span" sx={{backgroundColor:"#B4C8FC",marginLeft:"1rem"}}>
 //                     Upload profile image
 //                   </Button>
-//                   </label> 
+//                   </label>
 //                   <Box component="span"sx={{marginLeft:"1rem"}}>{fileName}</Box>
 //                 </Grid>
-           
+
 //             {organizationData.map((org, i) => (
 //               <Grid item xs={org.xs} key={i}>
 //                 <Typography
@@ -394,16 +393,16 @@ import React, { useState, useRef } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextField, Box, Typography, Grid, Paper, Button } from "@mui/material";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import FormTextField from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import {organizationImage} from '../../Redux/orgSlice';
+import { organizationImage } from "../../Redux/ProviderRedux/orgSlice";
 import { axiosPrivate } from "../../axios/axios";
 import { useNavigate } from "react-router-dom";
-import { tabValueNav } from "../../Redux/LoginSlice";
+import { tabValueNav } from "../../Redux/ProviderRedux/LoginSlice";
 
 interface InitialValues {
   organizationInformation: {
@@ -432,10 +431,13 @@ const EditOrganization = () => {
   const dispatch = useAppDispatch();
   const [currentFile, setCurrentFile] = useState<any>();
   const [fileName, setFileName] = useState<any>("");
-  const select = useAppSelector((state) => state.edit.orgEditData[0]);
-  const image = useAppSelector((state)=> state.edit.orgEditImage);
-  console.log("imageedit",image)
-  const data = useAppSelector((state: { auth: { login: any; } }) => state.auth.login)
+  const select = useAppSelector((state) => state.providerOrganization.orgEditData);
+  console.log(select)
+  const image = useAppSelector((state) => state.providerOrganization.orgEditImage);
+  console.log("imageedit", image);
+  const data = useAppSelector(
+    (state: { providerAuth: { login: any } }) => state.providerAuth.login
+  );
   const navigate = useNavigate();
   console.log(select, "shjjhjh");
   const fileInput = useRef<any>();
@@ -463,27 +465,25 @@ const EditOrganization = () => {
     },
   };
   const handleFiles = (e: any) => {
-    var files = e.target.files
+    var files = e.target.files;
     let formData = new FormData();
     formData.append("file", files[0]);
-    console.log(formData, "formDataonchangeedit")
+    console.log(formData, "formDataonchangeedit");
     setCurrentFile(files[0]);
-
   };
   const SingleFileChange = () => {
-
     setCurrentFile(fileInput.current.files[0]);
-    setFileName(fileInput.current.files[0].name)
-//     let formData = new FormData();
-//     formData.append("file", currentFile);  
-// console.log(currentFile,'currentedit')
+    setFileName(fileInput.current.files[0].name);
+    //     let formData = new FormData();
+    //     formData.append("file", currentFile);
+    // console.log(currentFile,'currentedit')
   };
   const onSubmit = async (values: InitialValues, actions: any) => {
     let formData = new FormData();
     formData.append("file", currentFile);
     // formData.append("file", fileName);
-    console.log(formData, "formData")
-    console.log(currentFile, "curredit")
+    console.log(formData, "formData");
+    console.log(currentFile, "curredit");
     try {
       axiosPrivate
         .post("organization/image", formData, {
@@ -492,12 +492,12 @@ const EditOrganization = () => {
           },
         })
         .then((res) => {
-          console.log(res.data,'resedit')
+          console.log(res.data, "resedit");
           const orgdata = {
             organizationID: select.organizationID,
             providerID: values.organizationInformation.providerID,
             organizationName: values.organizationInformation.organizationName,
-            orgImg:  res.data.data ? res.data.data.filename : image ,
+            orgImg: res.data.data ? res.data.data.filename : image,
             address: {
               addressLine1: values.organizationInformation.streetAdd1,
               addressLine2: values.organizationInformation.streetAdd2,
@@ -516,23 +516,20 @@ const EditOrganization = () => {
             },
           };
           alert(JSON.stringify(orgdata, null, 2));
-          console.log(orgdata, 'orgdata')
+          console.log(orgdata, "orgdata");
           axiosPrivate
-      .put("/organization/updateOrganization", orgdata)
-      .then((res) => {
-        alert("success");
-        // dispatch(organizationEdit(orgdata))
-        navigate("/providerlanding")
-        // actions.resetForm({
-        //   values: initialValues,
-        // });
-      });
-
+            .put("/organization/updateOrganization", orgdata)
+            .then((res) => {
+              alert("success");
+              // dispatch(organizationEdit(orgdata))
+              navigate("/providerlanding");
+              // actions.resetForm({
+              //   values: initialValues,
+              // });
+            });
         });
-    } catch { }
-
+    } catch {}
   };
-  
 
   const validationSchema = Yup.object().shape({
     organizationInformation: Yup.object().shape({
@@ -724,23 +721,30 @@ const EditOrganization = () => {
               </Typography>
             </Grid>
             <Grid xs={12}>
-                <label htmlFor="upload-photo">
-                  <input
-                   style = {{ display: "none" }}
-                    id = "upload-photo"
-                    // name="upload-photo"
-                    type = "file"
-                    accept = 'image/*'
-                    ref = {fileInput} 
-                    onChange={SingleFileChange}
-                  />
-           <Button color="primary" variant="contained" component="span" sx={{backgroundColor:"#B4C8FC",marginLeft:"1rem"}}>
-                    Upload profile image
-                  </Button>
-                  </label> 
-                  <Box component="span"sx={{marginLeft:"1rem"}}>{fileName}</Box>
-                </Grid>
-            
+              <label htmlFor="upload-photo">
+                <input
+                  style={{ display: "none" }}
+                  id="upload-photo"
+                  // name="upload-photo"
+                  type="file"
+                  accept="image/*"
+                  ref={fileInput}
+                  onChange={SingleFileChange}
+                />
+                <Button
+                  color="primary"
+                  variant="contained"
+                  component="span"
+                  sx={{ backgroundColor: "#B4C8FC", marginLeft: "1rem" }}
+                >
+                  Upload profile image
+                </Button>
+              </label>
+              <Box component="span" sx={{ marginLeft: "1rem" }}>
+                {fileName}
+              </Box>
+            </Grid>
+
             {organizationData.map((org, i) => (
               <Grid item xs={org.xs} key={i}>
                 <Typography
@@ -840,4 +844,3 @@ const EditOrganization = () => {
 };
 
 export default EditOrganization;
-

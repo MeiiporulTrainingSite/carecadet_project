@@ -3,17 +3,21 @@ import { TextField, Box, Typography, Grid } from "@mui/material";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
 import axios from "axios";
-import login from "../Images/login.jpg";
+import login from "../../Images/login.jpg";
 import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
-import Cookie from "js-cookie"
+import Cookie from "js-cookie";
 
-import FormTextField from "../Components/Textfield";
-import { Buttoncomponent } from "../Components/Buttoncomp";
+import FormTextField from "../../Components/Textfield";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
 
-import { useAppDispatch,useAppSelector } from "../Redux/Hook";
-import { loginButton, storeLoginInfo } from "../Redux/LoginSlice";
-import { axiosPrivate } from "../axios/axios";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
+import {
+  loginButton,
+  storeLoginInfo,
+} from "../../Redux/ProviderRedux/LoginSlice";
+import { axiosPrivate } from "../../axios/axios";
+import { patientLoginInfo } from "../../Redux/PatientRedux/patientAuth";
 
 const schema = yup.object().shape({
   email: yup
@@ -25,33 +29,23 @@ const schema = yup.object().shape({
     .required("password is a required field")
     .min(4, "password must be at least 4 characters"),
 });
-export default function Login() {
+export default function LoginPatient() {
   const navigate = useNavigate();
-  const dispatch=useAppDispatch();
+  const dispatch = useAppDispatch();
   return (
-  
-      <Box
-        sx={{backgroundColor:"#EBF3FA", height:"95vh",mt:"-0.5vh" }}
-      >
-            <Grid
-              container
-                                 
-            >
-              <Grid item md={7}
-                sx={{display:"flex",justifyContent:"center"
-                              }}
-                             
-              >
-        <Formik
-          validationSchema={schema}
-          initialValues={{
-            email: "",
-            password: "",
-            userType: "PROVIDER",
-          }}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values));
-            const Logindata={
+    <Box sx={{ backgroundColor: "#EBF3FA", height: "95vh", mt: "-0.5vh" }}>
+      <Grid container>
+        <Grid item md={7} sx={{ display: "flex", justifyContent: "center" }}>
+          <Formik
+            validationSchema={schema}
+            initialValues={{
+              email: "",
+              password: "",
+              userType: "PROVIDER",
+            }}
+            onSubmit={(values) => {
+              alert(JSON.stringify(values));
+              const Logindata = {
                 userName: values.email,
                 password: values.password,
                 userType: values.userType,
@@ -65,16 +59,20 @@ export default function Login() {
                   //  localStorage.setItem("userType", JSON.stringify(res.data.data.userType));
                   //  localStorage.setItem("token", JSON.stringify(res.data.data.token));
                   // localStorage.setItem("auth",JSON.stringify(res.data.data))
-                  Cookie.set("token",JSON.stringify(res.data.data),{secure:true,sameSite:"strict",path:"/"})
-                  localStorage.setItem("pageUserType",res.data.data.userType)
-                  dispatch(storeLoginInfo(res.data.data))
-                  dispatch(loginButton())
-                  console.log(res);
-                  
+                  Cookie.set("token", JSON.stringify(res.data.data), {
+                    secure: true,
+                    sameSite: "strict",
+                    path: "/",
+                  });
+                  // localStorage.setItem("pageUserType",res.data.data.userType)
+                  const resData=res.data.data
+                  dispatch(patientLoginInfo({...resData,["userType"]:"PATIENT"}));
                  
+                  console.log(res);
+
                   //  window.location = "/profile";
                   alert("Success");
-                  navigate("/viewFacility");
+                  navigate("/patient/checkPage");
                 })
                 .catch((err) => {
                   // if (
@@ -82,18 +80,14 @@ export default function Login() {
                   //   err.response.status >= 400 &&
                   //   err.response.status <= 500
                   // ) {
-                    toast.error(err.message);
+                  toast.error(err.message);
                   // }
                 });
-             
-            }
-          
-            }
+            }}
           >
-            
             <Form>
               <Typography variant="h4" sx={{ mt: 12, color: "#728AB7" }}>
-                Welcome Provider
+                Welcome Patient
               </Typography>
 
               <Grid>
@@ -189,7 +183,7 @@ export default function Login() {
                 </Buttoncomponent>
               </Grid>
               <Typography sx={{ color: "#728AB7" }}>
-                Don't have an account.<Link to="/signup">Signup</Link>
+                Don't have an account.<Link to="/patient/signup">Signup</Link>
               </Typography>
             </Form>
           </Formik>

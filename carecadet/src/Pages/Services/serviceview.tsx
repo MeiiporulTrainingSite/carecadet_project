@@ -8,6 +8,7 @@ import {
   GridColumns,
   GridRow,
   GridColTypeDef,
+  GridValueFormatterParams,
 } from "@mui/x-data-grid";
 
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
@@ -17,7 +18,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import { tabValueNav } from "../../Redux/LoginSlice";
+
 import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
 import { axiosPrivate } from "../../axios/axios";
@@ -31,22 +32,25 @@ interface forminitialValues {
   OrganisationPrices: string;
   FacilityNPI?: string;
   FacilityPrices: string;
+  FacilityName?: string;
+  GridAlignment: "left" | "right" | "center";
 }
 
 export default function ServiceViewPage() {
   const [data, setData] = useState([] as forminitialValues[]);
   const [pageSize, setPagesize] = useState(5);
+  const [tabValue, setTabValue] = useState("foi");
   const dispatch = useAppDispatch();
-  // const facilityid=useAppSelector((state)=>state.editFacility.service);
+  // const facilityid=useAppSelector((state)=>state.editFacility.service);v
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
 
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
   const serviceinput = useAppSelector(
-    (state: { editservice: { serviceData: any } }) =>
-      state.editservice.serviceData
+    (state: { providerService: { serviceData: any } }) =>
+      state.providerService.serviceData
   );
-
+  const facilityinput = useAppSelector(    (state) => state.providerService.serviceData  );
   console.log(serviceinput, "serviceinput");
   const navigate = useNavigate();
   useEffect(() => {
@@ -73,8 +77,16 @@ export default function ServiceViewPage() {
 
   const usdPrice: GridColTypeDef = {
     type: "number",
-    width: 200,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
+    width: 250,
+    // valueFormatter: ({ value }) => currencyFormatter.format(value),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return "";
+      }
+
+      const valueFormatted = Number(params.value).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
     cellClassName: "font-tabular-nums",
   };
 
@@ -91,36 +103,39 @@ export default function ServiceViewPage() {
       headerClassName: "super-app-theme--header",
       width: 200,
     },
-    {
-      field: "DiagnosisTestorServiceName",
-      headerName: "Diagnosis Test/Service Name",
-      headerClassName: "super-app-theme--header",
-      width: 440,
-    },
     // {
-    //   field: "Organisationid",
-    //   headerName: "Organisation ID",
+    //   field: "DiagnosisTestorServiceName",
+    //   headerName: "Diagnosis Test/Service Name",
     //   headerClassName: "super-app-theme--header",
-    //   width: 200,
+    //   width: 440,
     // },
     {
-      field: "OrganisationPrices",
-      headerName: "Organisation Prices",
+      field: "FacilityName",
+      headerName: "Facility Name",
       headerClassName: "super-app-theme--header",
-      width: 200,
-      ...usdPrice,
+      width: 300,
     },
     {
       field: "FacilityNPI",
       headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
-      width: 300,
+      width: 290,
     },
+    {
+      field: "OrganisationPrices",
+      headerName: "Organisation Prices",
+      headerClassName: "super-app-theme--header",
+      width: 200,
+      align: "right",
+      ...usdPrice,
+    },
+
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
       headerClassName: "super-app-theme--header",
-      width: 300,
+      width: 500,
+      align: "right",
       ...usdPrice,
     },
   ];
@@ -128,11 +143,11 @@ export default function ServiceViewPage() {
   const navigateToAdd = () => {
     // This will navigate to second component
     // dispatch(editButton());
-    navigate("/Pricelist");
+    navigate("/provider/service/Pricelist");
   };
   const navigateToEdit = () => {
     // This will navigate to second component
-    navigate("/ServiceEditpage");
+    navigate("/provider/service/ServiceEditpage");
   };
 
   function CustomRow(props: any) {
@@ -171,56 +186,57 @@ export default function ServiceViewPage() {
               }}
             ></TextField> */}
           <Typography
+            mb={"0.5rem"}
             sx={{
-              padding: "1.5rem",
-              textAlign: "left",
-              fontSize: "2.5rem",
-              fontWeight: "bold",
-              mr: 10,
+              backgroundColor: "#B4C8FC",
+              padding: "0.7rem",
+              textAlign: "center",
+              fontSize: "1.5rem",
             }}
           >
-            Services
+            Service Pricelist
           </Typography>
-          <Buttoncomponent
-            type="submit"
-            variant="contained"
-            size="large"
-            color="primary"
-            // onClick={onSave}
-            // onClick={(e) => upload(e)}
-            sx={{
-              justifycontent: "right",
-              alignitems: "right",
-              textalign: "right",
-              backgroundColor: "secondary.dark",
-              width: "10vw",
-              mr: 2,
-              color: "#fff",
-              "&:hover": {
-                color: "secondary.dark",
-                border: "1px solid blue",
-
-                fontSize: "0.9rem",
-              },
-            }}
-            onClick={() => {
-              // dispatch(editButton());
-              dispatch(tabValueNav(1));
-              navigate("/servicelanding");
-            }}
-          >
-            Service info
-          </Buttoncomponent>
           <Box
             display="flex"
             justifyContent="flex-end"
             alignItems="flex-end"
             sx={{
-              gap: "2rem",
+              gap: "40rem",
               mb: 2,
             }}
           >
-            <Avatar
+            <Buttoncomponent
+              type="submit"
+              variant="text"
+              size="large"
+              color="primary"
+              // onClick={onSave}
+              // onClick={(e) => upload(e)}
+              sx={{
+                // justifycontent: "right",
+                // alignitems: "right",
+                textalign: "left",
+                // backgroundColor: "secondary.dark",
+                width: "50vw",
+                // mr: 2,
+                color: "black",
+                // "&:hover": {
+                //   color: "secondary.dark",
+                //   border: "1px solid blue",
+
+                //   fontSize: "0.9rem",
+                // },
+              }}
+              onClick={() => {
+             
+               
+                navigate("/provider/service/listservice");
+              }}
+            >
+              {serviceinput}
+            </Buttoncomponent>
+
+            {/* <Avatar
               sx={{
                 // backgroundColor: "secondary.dark",
 
@@ -237,7 +253,7 @@ export default function ServiceViewPage() {
               onClick={navigateToAdd}
             >
               <AddIcon />
-            </Avatar>
+            </Avatar> */}
             <Avatar
               sx={{
                 // backgroundColor: "secondary.dark",
@@ -275,7 +291,7 @@ export default function ServiceViewPage() {
             <DataGrid
               autoHeight
               autoPageSize
-              getRowId={(row) => row.FacilityNPI}
+              getRowId={(row) => row._id}
               rows={data}
               columns={columns}
               pagination={true}

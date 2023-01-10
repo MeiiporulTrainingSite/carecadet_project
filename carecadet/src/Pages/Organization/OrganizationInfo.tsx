@@ -37,7 +37,7 @@ interface InitialValues {
 }
 
 const OrganizationInfo = () => {
-  const select = useAppSelector((state) => state.auth.login);
+  const select = useAppSelector((state) => state.providerAuth.login);
   const navigate = useNavigate();
 
   const [currentFile, setCurrentFile] = useState<any>();
@@ -117,7 +117,7 @@ const OrganizationInfo = () => {
               actions.resetForm({
                 values: initialValues,
               });
-              navigate("/addFacility");
+              navigate("/provider/facility/addFacility");
             })
             .catch((err) => {
               console.log(err, "orgErr");

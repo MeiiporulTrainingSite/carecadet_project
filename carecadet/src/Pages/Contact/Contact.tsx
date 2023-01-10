@@ -2,10 +2,12 @@ import * as React from "react";
 import { ReactElement, FC } from "react";
 import { Formik, Form } from "formik";
 import { Box, Typography, Paper, Grid, TextField } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../Redux/Hook";
-import { Buttoncomponent } from "../Components/Buttoncomp";
-import FormTextField from "../Components/Textfield";
+import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
+import { Buttoncomponent } from "../../Components/Buttoncomp";
+import FormTextField from "../../Components/Textfield";
 import * as Yup from "yup";
+import { axiosPrivate } from "../../axios/axios";
+import { toast } from "react-toastify";
 
 interface forminitialValues {
   Subject: string;
@@ -14,7 +16,7 @@ interface forminitialValues {
 
 const Contact = () => {
   const data = useAppSelector(
-    (state: { auth: { login: any } }) => state.auth.login
+    (state: { providerAuth: { login: any } }) => state.providerAuth.login
   );
 
   const initialValues: forminitialValues = {
@@ -27,6 +29,9 @@ const Contact = () => {
       Subject: values.Subject,
       Message: values.Message,
     };
+    axiosPrivate.post("/contact/contactEmail",contactdata).then(res=>{
+      toast.success(res.data.message)
+    })
     alert(JSON.stringify(contactdata, null, 2));
     actions.resetForm({
       values: {

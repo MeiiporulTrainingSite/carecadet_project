@@ -6,23 +6,25 @@ import { axiosPrivate } from "../../axios/axios";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
 import ViewFacility from "../Facility/ViewFacility";
-import { organizationEdit, organizationImage } from "../../Redux/orgSlice";
+import {
+  organizationEdit,
+  organizationImage,
+} from "../../Redux/ProviderRedux/orgSlice";
 // import { editButton } from "../../Redux/LoginSlice";
 import { Navigate, useNavigate } from "react-router-dom";
 import PlaceIcon from "@mui/icons-material/Place";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import ContactsIcon from "@mui/icons-material/Contacts";
-import DefaultUserPic from '../../Images/DefaultUserpic.jpg';
+import DefaultUserPic from "../../Images/DefaultUserpic.jpg";
 import icon from "../../Images/icon.jpg";
-interface Props  {
-  data:any
-};
+interface Props {
+  data: any;
+}
 
-const OrganizationLandingView = ({data}: Props) => {
- 
+const OrganizationLandingView = ({ data }: Props) => {
   const [popUp, setPopUp] = React.useState<boolean>(false);
-  const userID = useAppSelector((state) => state.auth.login.userID);
+  const userID = useAppSelector((state) => state.providerAuth.login.userID);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const typo = "1.2rem";
@@ -32,8 +34,8 @@ const OrganizationLandingView = ({data}: Props) => {
     <>
       {data.length !== 0 ? (
         // <Grid container >
-        <Box >
-           {/* <Box sx={{ display: "flex", width:"20%"}}> */}
+        <Box>
+          {/* <Box sx={{ display: "flex", width:"20%"}}> */}
           <Paper
             // elevation={5}
             square
@@ -46,23 +48,26 @@ const OrganizationLandingView = ({data}: Props) => {
               // m:"1rem 2rem 1rem 2rem"
             }}
           >
-           
-             <Box  sx={{ display: "flex", flexDirection: "column"}}>
-            {/* <Grid item xs={3} sx={{ display: "flex", flexDirection: "column"}}> */}
+            <Box sx={{ display: "flex", flexDirection: "column" }}>
+              {/* <Grid item xs={3} sx={{ display: "flex", flexDirection: "column"}}> */}
               <Typography
-              noWrap
+                noWrap
                 sx={{
-                   padding: "1rem 1rem 1rem 2rem",
+                  padding: "1rem 1rem 1rem 2rem",
                   textAlign: "left",
                   fontSize: "1.2rem",
-                  fontWeight: "bold",              
+                  fontWeight: "bold",
                 }}
               >
                 Organization Detail
               </Typography>
-              <Box>             
+              <Box>
                 <img
-                  src={(data[0].orgImg)?`http://localhost:5200/${data[0].orgImg}`: icon}
+                  src={
+                    data[0].orgImg
+                      ? `http://localhost:5200/${data[0].orgImg}`
+                      : icon
+                  }
                   style={{
                     width: "130px",
                     height: "130px",
@@ -70,11 +75,10 @@ const OrganizationLandingView = ({data}: Props) => {
                     left: "25%",
                     border: "2px solid white",
                     borderRadius: "50%",
-                    
                   }}
                 />
               </Box>
-              <Box sx={{ display: "flex",m:'0.5rem' }}>
+              <Box sx={{ display: "flex", m: "0.5rem" }}>
                 <PlaceIcon />
                 <Typography
                   sx={{
@@ -103,13 +107,13 @@ const OrganizationLandingView = ({data}: Props) => {
                   <Box sx={{ ml: "0.5rem" }}>{data[0].address.zipCode}</Box>
                 </Box>
               </Typography>
-              <Box sx={{ display: "flex",m:'0.3rem' }}>
+              <Box sx={{ display: "flex", m: "0.3rem" }}>
                 <PhoneIcon />
                 <Typography sx={{ m: "0 0 0.5rem 0.5rem" }}>
                   {data[0].contact}
                 </Typography>
               </Box>
-              <Box sx={{ display: "flex",m:'0.3rem' }}>
+              <Box sx={{ display: "flex", m: "0.3rem" }}>
                 <EmailIcon />
                 <Typography sx={{ ml: "0.5rem" }}>{data[0].email}</Typography>
               </Box>
@@ -117,7 +121,7 @@ const OrganizationLandingView = ({data}: Props) => {
               <Box
                 sx={{ display: "flex", flexDirection: "column", mt: "1.5rem" }}
               >
-                <Box sx={{ display: "flex",m:'0.5rem' }}>
+                <Box sx={{ display: "flex", m: "0.5rem" }}>
                   <ContactsIcon />
                   <Typography
                     sx={{
@@ -131,61 +135,64 @@ const OrganizationLandingView = ({data}: Props) => {
                   </Typography>
                 </Box>
                 <Typography sx={{ ml: "2.5rem" }}>
-                <Box sx={{ display: "flex" }}>
-                {data[0].contactPerson.firstName}
-                  <Box sx={{ ml: "0.5rem" }}>
-                  {data[0].contactPerson.lastName}
+                  <Box sx={{ display: "flex" }}>
+                    {data[0].contactPerson.firstName}
+                    <Box sx={{ ml: "0.5rem" }}>
+                      {data[0].contactPerson.lastName}
+                    </Box>
                   </Box>
+                </Typography>
+
+                <Typography
+                  sx={{ display: "flex", ml: "2.5rem", mb: "0.5rem" }}
+                >
+                  {data[0].contactPerson.role}
+                </Typography>
+
+                <Box sx={{ display: "flex", m: "0.3rem" }}>
+                  <PhoneIcon />
+                  <Typography sx={{ m: "0 0 0.5rem 0.5rem" }}>
+                    {data[0].contactPerson.contact}
+                  </Typography>
                 </Box>
-                </Typography>
-               
-                  <Typography sx={{ display: "flex",ml: "2.5rem",mb: "0.5rem"  }}>
-                    {data[0].contactPerson.role}
-                  </Typography> 
-               
-                <Box sx={{ display: "flex",m:'0.3rem' }}>
-                <PhoneIcon />
-                <Typography sx={{ m: "0 0 0.5rem 0.5rem" }}>
-                {data[0].contactPerson.contact}
-                </Typography>
-              </Box>
-              <Box sx={{ display: "flex",m:'0.3rem 0 0.5rem 0' }}>
-                <EmailIcon />
-                <Typography sx={{ ml: "0.5rem" }}> {data[0].contactPerson.email}</Typography>
-              </Box>
-               
+                <Box sx={{ display: "flex", m: "0.3rem 0 0.5rem 0" }}>
+                  <EmailIcon />
+                  <Typography sx={{ ml: "0.5rem" }}>
+                    {" "}
+                    {data[0].contactPerson.email}
+                  </Typography>
+                </Box>
               </Box>
               <Grid container item justifyContent="right">
-            <Buttoncomponent
-              type="submit"
-              size="large"
-              fullWidth={false}
-              variant="contained"
-              onClick={() => {
-                dispatch(organizationEdit({ ...data[0] }));
-                dispatch(organizationImage( data[0].orgImg ));
-                // dispatch(editButton())
-                navigate("/editOrg");
-              }}
-
-              sx={{
-                fontSize:"0.8rem",
-                mt:"0.5rem",
-                backgroundColor: "secondary.dark",
-                width: "10vw",
-                color: "#fff",
-                "&:hover": {
-                  color: "secondary.dark",
-                  border: "1px solid blue",
-                  // letterSpacing: "0.2rem",
-                  fontSize: "1rem",
-                },
-              }}
-            >
-              Edit
-            </Buttoncomponent>
-          </Grid>
-            {/* </Grid> */}
+                <Buttoncomponent
+                  type="submit"
+                  size="large"
+                  fullWidth={false}
+                  variant="contained"
+                  onClick={() => {
+                    dispatch(organizationEdit({ ...data[0] }));
+                    dispatch(organizationImage(data[0].orgImg));
+                    // dispatch(editButton())
+                    navigate("/provider/editOrg");
+                  }}
+                  sx={{
+                    fontSize: "0.8rem",
+                    mt: "0.5rem",
+                    backgroundColor: "secondary.dark",
+                    width: "10vw",
+                    color: "#fff",
+                    "&:hover": {
+                      color: "secondary.dark",
+                      border: "1px solid blue",
+                      // letterSpacing: "0.2rem",
+                      fontSize: "1rem",
+                    },
+                  }}
+                >
+                  Edit
+                </Buttoncomponent>
+              </Grid>
+              {/* </Grid> */}
             </Box>
           </Paper>
           {/* </Box> */}
@@ -194,13 +201,11 @@ const OrganizationLandingView = ({data}: Props) => {
             <ViewFacility />
             </Box> */}
           {/* </Grid> */}
-         {/* </Grid> */}
-
+          {/* </Grid> */}
         </Box>
-      ) : (
-        null
-        // navigate("/org")
-      )}
+      ) : null
+      // navigate("/org")
+      }
     </>
   );
 };

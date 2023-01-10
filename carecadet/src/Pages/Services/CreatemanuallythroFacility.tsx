@@ -22,14 +22,13 @@ interface InitialValues {
 }
 
 const CreateServicethroFacility = () => {
-  const select = useAppSelector((state) => state.auth.login);
+  const select = useAppSelector((state) => state.providerAuth.login);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const Organisationid = useAppSelector((state) => state.edit.orgEditData);
+  const Organisationid = useAppSelector((state) => state.providerOrganization.orgEditData);
   const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
-  );
-  console.log(facilityinput.facilityNPI, "ggg")
+    (state) => state.providerService.serviceData)
+  console.log(facilityinput.facilityName, "ggg")
   const initialValues: InitialValues = {
     Organisationid: "",
     ServiceCode: "",
@@ -53,7 +52,7 @@ const CreateServicethroFacility = () => {
       actions.resetForm({
         values: initialValues,
       });
-      navigate("/pricelistlanding");
+      navigate("/provider/facility/pricelistlanding");
     });
   };
 

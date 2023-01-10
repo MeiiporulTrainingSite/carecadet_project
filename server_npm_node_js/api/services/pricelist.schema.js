@@ -10,6 +10,7 @@ const pricelistschema = new schema(
     Organisationid: { type: String, required: false },
     OrganisationPrices: { type: String, required: false },
     FacilityNPI: { type: String, required: false },
+    FacilityName: { type: String, required: false },
     FacilityPrices: { type: String, required: false },
     createdBy: { type: String, default: "" },
     createdDate: { type: Date, default: Date.now },

@@ -13,6 +13,7 @@ import {
   MuiEvent,
   GridToolbarContainer,
   GridActionsCellItem,
+  GridValueFormatterParams,
   GridEventListener,
   GridRowId,
   GridRow,
@@ -44,6 +45,7 @@ interface forminitialValues {
   OrganisationPrices: string;
   FacilityNPI?: string;
   FacilityPrices: string;
+  GridAlignment : 'left' | 'right' | 'center';
 }
 
 export default function PricelistEditpage() {
@@ -57,10 +59,8 @@ export default function PricelistEditpage() {
   // const facilityid=useAppSelector((state)=>state.editFacility.service);
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
-  const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
-  );
+  const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
+  const facilityinput = useAppSelector(    (state) => state.providerService.serviceData  );
   console.log(facilityinput, "facip");
   const getData = async () => {
     const pricelistdetails = await axiosPrivate.get(
@@ -74,10 +74,11 @@ export default function PricelistEditpage() {
   }, []);
 
   const handleDeleteClick = (id: GridRowId) => () => {
-    setData(data.filter((row: any) => row.SNo !== id));
-    let store = data.filter((row: any) => row.SNo === id);
-    console.log(store, "store");
-    setcsvDel([...csvdel, store._id]);
+    setData(data.filter((row: any) => row._id !== id));
+    let store = data.filter((row: any) => row._id === id);
+    console.log(store[0]._id, "store");
+    setcsvDel([...csvdel, store[0]._id]);
+    console.log(csvdel,"checkdel")
   };
 
   const onCellEditCommit = async (cellData: any) => {
@@ -131,18 +132,41 @@ export default function PricelistEditpage() {
     let datacheck = { name: filename, PriceList: csvEdit };
     axiosPrivate
       .put("http://localhost:5200/bulkupdate", datacheck)
+      .then((res) => {
+      let datacheck1 = {data: { name: filename, PriceList: csvdel }};
+      axiosPrivate
+      
+        .delete(
+          "http://localhost:5200/bulkdelete", datacheck1)
+  
+     
+        .then((res) => {
+          console.log("Success ", res);
+          alert("success");
+      })
+      .then((res) => {
+        alert("success");
+        // dispatch(organizationEdit(orgdata))
+        navigate("/provider/facility/pricelistlanding")
+        // actions.resetForm({
+        //   values: initialValues,
+        // });
+      });
+    })};
       //   let datacheck1 = { name: filename, PriceList: csvdel };
       //   axios
       // .delete(
       //   "http://localhost:5200/bulkdelete", datacheck1
 
       // )
-      .then((res) => {
-        console.log("Success ", res);
-        alert("success");
-      });
+      // .then((res) => {
+      //   console.log("Success ", res);
+      //   alert("success");
+      // });
+
+     
     //  }
-  };
+  // };
 
   const currencyFormatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -150,9 +174,17 @@ export default function PricelistEditpage() {
   });
   
   const usdPrice: GridColTypeDef = {
-    type: 'number',
-    width: 130,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
+    type: 'string',
+    width: 250,
+    // valueFormatter: ({ value }) => currencyFormatter.format(parseFloat(value)),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return '';
+      }
+
+      const valueFormatted = Number(params.value ).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
     cellClassName: 'font-tabular-nums',
   };
 
@@ -168,42 +200,44 @@ export default function PricelistEditpage() {
       field: "ServiceCode",
       headerName: "Service Code",
       headerClassName: "super-app-theme--header",
-      width: 150,
-      editable: true,
+      width: 200,
+      // editable: true,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
       headerClassName: "super-app-theme--header",
-      width: 360,
-      editable: true,
+      width: 400,
+      // editable: true,
     },
-    {
-      field: "Organisationid",
-      headerName: "Organisation ID",
-      headerClassName: "super-app-theme--header",
-      width: 200,
-    },
+    // {
+    //   field: "Organisationid",
+    //   headerName: "Organisation ID",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 200,
+    // },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       headerClassName: "super-app-theme--header",
-      width: 100,
+      width: 200,
       editable: true,
+      align:'right',
       ...usdPrice
     },
-    {
-      field: "FacilityNPI",
-      headerName: "FacilityNPI",
-      headerClassName: "super-app-theme--header",
-      width: 100,
-    },
+    // {
+    //   field: "FacilityNPI",
+    //   headerName: "FacilityNPI",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 100,
+    // },
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
       headerClassName: "super-app-theme--header",
       width: 100,
       editable: true,
+      align:'right',
       ...usdPrice
     },
     {
@@ -211,7 +245,7 @@ export default function PricelistEditpage() {
       type: "actions",
       headerName: "Actions",
       headerClassName: "super-app-theme--header",
-      width: 100,
+      width: 130,
       cellClassName: "actions",
       getActions: (data: any) => {
         let id = data.id;
@@ -244,7 +278,7 @@ export default function PricelistEditpage() {
 
   const navigateToAdd = () => {
     // This will navigate to second component
-    navigate("/PricelistUploadthrofacility");
+    navigate("/provider/facility/PricelistUploadthrofacility");
   };
 
   return (
@@ -269,7 +303,8 @@ export default function PricelistEditpage() {
         >
           Service Pricelist
         </Typography>
-        <Grid container item xs={12} justifyContent="left">
+        <Typography sx={{ fontSize: "1.5rem",}}> <div>{facilityinput.facilityName}</div></Typography>
+        {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"
             type="button"
@@ -292,7 +327,7 @@ export default function PricelistEditpage() {
           >
             Service Info
           </Button>
-        </Grid>
+        </Grid> */}
         <>
           <Box
             sx={{

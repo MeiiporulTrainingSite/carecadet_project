@@ -12,7 +12,7 @@ const Patient: FC<any> = (): ReactElement => {
         alignItems: "center",
       }}
     >
-      <Typography variant="h3">Patient</Typography>
+      <Typography variant="h3">Patient page</Typography>
     </Box>
   );
 };

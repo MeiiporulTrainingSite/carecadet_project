@@ -1,28 +1,33 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit";
 
-import storage from 'redux-persist/lib/storage';
-import { combineReducers } from 'redux';
-import { persistReducer,FLUSH,
+import storage from "redux-persist/lib/storage";
+import { combineReducers } from "redux";
+import {
+  persistReducer,
+  FLUSH,
   REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER, } from 'redux-persist';
+  REGISTER,
+} from "redux-persist";
 
-import loginSlice from './LoginSlice'
-import {facilityReducer} from './facilitySlice';
-import  editSlice  from './orgSlice';
-import { serviceReducer } from './serviceSlice';
+import {loginReducer} from "./ProviderRedux/LoginSlice";
+import { facilityReducer } from "./ProviderRedux/facilitySlice";
+import {organizationReducer} from "./ProviderRedux/orgSlice";
+import { serviceReducer } from "./ProviderRedux/serviceSlice";
+import { patientLoginReducer } from "./PatientRedux/patientAuth";
 
 const reducers = combineReducers({
-  auth: loginSlice,
-  edit:editSlice,
-  editFacility: facilityReducer,
-  editservice:serviceReducer
+  providerAuth: loginReducer,
+  providerOrganization: organizationReducer,
+  providerFacility: facilityReducer,
+  providerService: serviceReducer,
+  patientAuth:patientLoginReducer
 });
 
 const persistConfig = {
-  key: 'root',
+  key: "root",
   storage,
 };
 
@@ -34,12 +39,12 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [   PERSIST, REGISTER],
+        ignoredActions: [PERSIST, REGISTER],
       },
     }),
-})
+});
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+export type AppDispatch = typeof store.dispatch;

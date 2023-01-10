@@ -9,15 +9,25 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { routespages as appRoutes } from "./routes";
-import { login as appLogin } from "./routes";
+
+import {
+  providerRoutespages as appRoutes,
+  commonHome,
+  providerLogin as appLogin,
+  patientLogin,
+  payerLogin,
+  patientRoutes,
+} from "./routes";
+
 import Layout from "./component/Layout";
 import ProtectedRoute from "./ProtectedRoutes/ProtectedRoute";
 import ProtectedLogin from "./ProtectedRoutes/ProtectedLogin";
+import ProviderLandingPage from "./Pages/testPages/Landingpage";
+import Contact from "./Pages/Contact/Contact";
 
 import { useAppDispatch, useAppSelector } from "./Redux/Hook";
-import ProviderLandingPage from "./Pages/Landingpage";
-import Contact from "./Pages/Contact";
+import PatientLogin from "./ProtectedRoutes/PatientLogin";
+import PatientRoute from "./ProtectedRoutes/PatientRoute";
 
 function App() {
   const theme = createTheme({
@@ -30,7 +40,7 @@ function App() {
       },
       secondary: {
         main: "#4db6ac",
-        light: "#B4C8FC",//"#728AB7", // Title background
+        light: "#B4C8FC", //"#728AB7", // Title background
         dark: "#4D77FF", //button
         contrastText: "#000",
       },
@@ -48,15 +58,27 @@ function App() {
         <Layout>
           <Routes>
             {/* <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/> */}
-            <Route path = "/contact" element = {<Contact/>}/>
-            {appRoutes.map((route) => (
+
+            {patientLogin.map((route) => (
               <Route
                 key={route.key}
                 path={route.path}
                 element={
-                  <ProtectedRoute getData={route.key}>
+                  <PatientLogin>
                     <route.component />
-                  </ProtectedRoute>
+                  </PatientLogin>
+                }
+              />
+            ))}
+
+            {patientRoutes.map((patient) => (
+              <Route
+                key={patient.key}
+                path={patient.path}
+                element={
+                  <PatientRoute>
+                    <patient.component />
+                  </PatientRoute>
                 }
               />
             ))}
@@ -72,10 +94,48 @@ function App() {
                 }
               />
             ))}
+            {appRoutes.map((route) => (
+              <Route
+                key={route.key}
+                path={route.path}
+                element={
+                  <ProtectedRoute getData={route.key}>
+                    <route.component />
+                  </ProtectedRoute>
+                }
+              />
+            ))}
+
+            {payerLogin.map((route) => (
+              <Route
+                key={route.key}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
+
+            {commonHome.map((route) => (
+              <Route
+                key={route.key}
+                path={route.path}
+                element={<route.component />}
+              />
+            ))}
           </Routes>
         </Layout>
       </Router>
-      <ToastContainer/>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </ThemeProvider>
   );
 }

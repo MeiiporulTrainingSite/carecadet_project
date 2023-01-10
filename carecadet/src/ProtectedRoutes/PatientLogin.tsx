@@ -9,24 +9,26 @@ import { refresh } from "../Redux/ProviderRedux/LoginSlice";
 type Props = {
   children: React.ReactNode;
 };
-const ProtectedLogin = ({ children }: Props) => {
+const PatientLogin = ({ children }: Props) => {
   // const dispatch = useAppDispatch();
   // dispatch(refresh());
   const location = useLocation().pathname.split("/")[1];
+  const path=location===""?"patient":location
   const authUser = useAppSelector(
-    (state) => state.providerAuth.providerLogoutButton
+    (state) => state.patientAuth.patientLogoutButton
   );
+
   console.log("check");
 
   // let isAuth=true
-  return !authUser && location === "provider" ? (
+  return !authUser && path==="patient" ? (
     <> {children}</>
   ) : (
-    <Navigate to="/provider/facility/viewFacility" replace />
+    <Navigate to="/patient/checkPage" replace />
   );
 };
 
-export default ProtectedLogin;
+export default PatientLogin;
 
 // import React from "react";
 // import { Route, RouteProps, Navigate } from "react-router";

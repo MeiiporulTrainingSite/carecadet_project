@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./Store";
+import type { RootState } from "../Store";
 
 import Cookies from "js-cookie";
 
@@ -8,7 +8,7 @@ import Cookies from "js-cookie";
 interface CounterState {
   login: any;
   pageUser: string;
-  logoutButton: boolean;
+  providerLogoutButton: boolean;
   editOptions: boolean;
   tabValue: number;
 }
@@ -16,8 +16,8 @@ interface CounterState {
 // Define the initial state using that type
 const initialState: CounterState = {
   login: {},
-  pageUser: "",
-  logoutButton: false,
+  pageUser: "PATIENT",
+  providerLogoutButton: false,
   editOptions: false,
   tabValue: 0,
 };
@@ -64,16 +64,16 @@ export const loginSlice = createSlice({
       return {
         ...state,
         login: {},
-        logoutButton: false,
-       
+        providerLogoutButton: false,
+
         tabValue: 0,
-        editOptions:false
+        editOptions: false,
       };
     },
     loginButton: (state) => {
       return {
         ...state,
-        logoutButton: true,
+        providerLogoutButton: true,
       };
     },
     editButton: (state) => {
@@ -105,10 +105,12 @@ export const {
   logoutButton,
   tabValueNav,
   loginButton,
-  accessTokentest
+  accessTokentest,
   // editButton
 } = loginSlice.actions;
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.auth.login.token
 
-export default loginSlice.reducer;
+
+
+export const loginReducer = loginSlice.reducer;

@@ -7,16 +7,22 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router";
 
-import { DataGrid, GridColTypeDef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColTypeDef,
+  GridValueFormatterParams,
+  GridColumns,
+} from "@mui/x-data-grid";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
-import { orgid } from "../../Redux/orgSlice";
+import { orgid } from "../../Redux/ProviderRedux/orgSlice";
 type cvsItem = {
   id: string;
   SNo: string;
   value: string;
+  GridAlignment: "left" | "right" | "center";
 };
 
 export default function PricelistUpload() {
@@ -26,19 +32,20 @@ export default function PricelistUpload() {
   const navigate = useNavigate();
 
   const data = useAppSelector(
-    (state: { auth: { login: any } }) => state.auth.login
+    (state: { providerAuth: { login: any } }) => state.providerAuth.login
   );
   console.log(data, "dat");
   console.log(csvData, "checkd");
   // organizationID: select.organizationID,
 
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector(
+    (state) => state.providerOrganization.orgEditData
+  );
   console.log("orgid", orgid[0].organizationID);
   const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
+    (state) => state.providerService.serviceData
   );
-
-  const facilityNPI = facilityinput.facilityNPI;
+  console.log("facilitydetail", facilityinput);
   const onCellEditCommit = (cellData: any) => {
     const { id, field, value } = cellData;
     console.log(cellData);
@@ -82,11 +89,19 @@ export default function PricelistUpload() {
   const usdPrice: GridColTypeDef = {
     type: "number",
     width: 130,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
+    // valueFormatter: ({ value }) => currencyFormatter.format(value),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return "";
+      }
+
+      const valueFormatted = Number(params.value).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
     cellClassName: "font-tabular-nums",
   };
 
-  const columns = [
+  const columns: GridColumns = [
     {
       field: "SNo",
       headerName: "S.No",
@@ -112,15 +127,22 @@ export default function PricelistUpload() {
       width: 100,
     },
     {
+      field: "FacilityName",
+      headerName: "FacilityName",
+      editable: true,
+      width: 100,
+    },
+    {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       editable: true,
       width: 100,
+      align: "right",
       ...usdPrice,
     },
     {
       field: "FacilityNPI",
-      Name: "FacilityNPI",
+      headerName: "FacilityNPI",
       editable: true,
       width: 100,
     },
@@ -129,6 +151,7 @@ export default function PricelistUpload() {
       headerName: "Facility Prices",
       editable: true,
       width: 100,
+      align: "right",
       ...usdPrice,
     },
   ];
@@ -142,10 +165,11 @@ export default function PricelistUpload() {
     var headers = lines[0].split(",");
     console.log(headers, "headers");
     const facilityNPI = facilityinput.facilityNPI;
+    const facilityName = facilityinput.facilityName;
     for (var i = 1; i < lines.length - 1; i++) {
       var obj: any = {};
       var currentline = lines[i].split(",");
-
+      obj["FacilityName"] = facilityName;
       obj["FacilityNPI"] = facilityNPI;
       obj["Organisationid"] = orgid[0].organizationID;
       for (var j = 0; j < headers.length; j++) {
@@ -201,11 +225,12 @@ export default function PricelistUpload() {
   };
 
   const upload = (e: any) => {
+    console.log("emaildata", data);
     e.preventDefault();
     // if(output){
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
-    let datacheck = { name: filename, csv: csvData };
+    let datacheck = { name: filename, csv: csvData, emailData: data };
     axiosPrivate
       .post(
         "http://localhost:5200/uploadPricelist",
@@ -241,6 +266,7 @@ export default function PricelistUpload() {
       .then((res) => {
         console.log("Success ", res);
         alert("success");
+        navigate("/provider/service/listService");
       }); //  }
   };
   return (
@@ -285,7 +311,7 @@ export default function PricelistUpload() {
             backgroundColor: "darkgray",
           }}
         />
-        <Grid container item xs={12} justifyContent="left">
+        {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"
             type="button"
@@ -308,7 +334,7 @@ export default function PricelistUpload() {
           >
             Service Info
           </Button>
-        </Grid>
+        </Grid> */}
         <Typography
           variant="h6"
           sx={{

@@ -7,6 +7,7 @@ import {
   GridRowModesModel,
   GridRowModes,
   DataGrid,
+  GridValueFormatterParams,
   GridColumns,
   GridColTypeDef,
   GridRowParams,
@@ -43,7 +44,9 @@ interface forminitialValues {
   Organisationid?: string;
   OrganisationPrices: string;
   FacilityNPI?: string;
+  FacilityName?: string,
   FacilityPrices: string;
+  GridAlignment: "left" | "right" | "center";
 }
 
 export default function ServiceEditpage() {
@@ -57,13 +60,13 @@ export default function ServiceEditpage() {
   // const facilityid=useAppSelector((state)=>state.editFacility.service);
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
   const serviceinput = useAppSelector(
-    (state: { editservice: { serviceData: any } }) =>
-      state.editservice.serviceData
+    (state: { providerService: { serviceData: any } }) =>
+      state.providerService.serviceData
   );
   console.log(serviceinput, "serviceinput");
-
+  const facilityinput = useAppSelector(    (state) => state.providerService.serviceData  );
   useEffect(() => {
     console.log("start");
     getData();
@@ -148,9 +151,14 @@ export default function ServiceEditpage() {
 
       // )
       .then((res) => {
-        console.log("Success ", res);
         alert("success");
+        // dispatch(organizationEdit(orgdata))
+        navigate("/provider/service/serviceview");
+        // actions.resetForm({
+        //   values: initialValues,
+        // });
       });
+
     //  }
   };
   const currencyFormatter = new Intl.NumberFormat("en-US", {
@@ -160,8 +168,16 @@ export default function ServiceEditpage() {
 
   const usdPrice: GridColTypeDef = {
     type: "number",
-    width: 200,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
+    width: 300,
+    // valueFormatter: ({ value }) => currencyFormatter.format(value),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return "";
+      }
+
+      const valueFormatted = Number(params.value).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
     cellClassName: "font-tabular-nums",
   };
 
@@ -178,14 +194,20 @@ export default function ServiceEditpage() {
       headerName: "Service Code",
       headerClassName: "super-app-theme--header",
       width: 200,
-      editable: true,
+      // editable: true,
     },
+    // {
+    //   field: "DiagnosisTestorServiceName",
+    //   headerName: "Diagnosis Test/Service Name",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 450,
+    //   editable: true,
+    // },
     {
-      field: "DiagnosisTestorServiceName",
-      headerName: "Diagnosis Test/Service Name",
+      field: "FacilityName",
+      headerName: "Facility Name",
       headerClassName: "super-app-theme--header",
-      width: 450,
-      editable: true,
+      width: 220,
     },
     // {
     //   field: "Organisationid",
@@ -194,25 +216,28 @@ export default function ServiceEditpage() {
     //   width: 200,
     // },
     {
+      field: "FacilityNPI",
+      headerName: "FacilityNPI",
+      headerClassName: "super-app-theme--header",
+      width: 210,
+    },
+    {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       headerClassName: "super-app-theme--header",
       width: 100,
       editable: true,
+      align: "right",
       ...usdPrice,
     },
-    {
-      field: "FacilityNPI",
-      headerName: "FacilityNPI",
-      headerClassName: "super-app-theme--header",
-      width: 250,
-    },
+ 
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
       headerClassName: "super-app-theme--header",
       width: 100,
       editable: true,
+      align: "right",
       ...usdPrice,
     },
     // {
@@ -253,7 +278,7 @@ export default function ServiceEditpage() {
 
   const navigateToAdd = () => {
     // This will navigate to second component
-    navigate("/PricelistUpload");
+    navigate("/provider/service/PricelistUpload");
   };
 
   return (
@@ -278,7 +303,11 @@ export default function ServiceEditpage() {
         >
           Service Pricelist
         </Typography>
-        <Grid container item xs={12} justifyContent="left">
+        <Typography sx={{ fontSize: "1.5rem" }}>
+          {" "}
+          <div>{serviceinput}</div>
+        </Typography>
+        {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"
             type="button"
@@ -301,7 +330,7 @@ export default function ServiceEditpage() {
           >
             Service Info
           </Button>
-        </Grid>
+        </Grid> */}
         <>
           <Box
             sx={{

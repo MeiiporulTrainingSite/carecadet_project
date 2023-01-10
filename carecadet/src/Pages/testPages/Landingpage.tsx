@@ -6,11 +6,11 @@ import Box from "@mui/material/Box";
 import { Paper, Grid } from "@mui/material";
 
 //components
-import Servicelandingpage from "./Services/servicelandpage";
-import ViewFacility from "./Facility/ViewFacility";
-import Pricelist from "./Services/pricelist";
-import OrganizationLandingView from "./Organization/OrganizationLandingView";
-import { useAppSelector } from "../Redux/Hook";
+import Servicelandingpage from "../Services/servicelandpage";
+import ViewFacility from "../Facility/ViewFacility";
+import Pricelist from "../Services/pricelist";
+import OrganizationLandingView from "../Organization/OrganizationLandingView";
+import { useAppSelector } from "../../Redux/Hook";
 
 interface TabPanelProps {
   children?: React.ReactNode;

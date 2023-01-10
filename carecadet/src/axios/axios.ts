@@ -1,24 +1,21 @@
 import axios, { AxiosRequestConfig } from "axios";
-import {toast} from "react-toastify"
+import { toast } from "react-toastify";
 import Cookies from "js-cookie";
-import { logoutButton } from "../Redux/LoginSlice";
+import { logoutButton } from "../Redux/ProviderRedux/LoginSlice";
 
 import { store } from "../Redux/Store";
-import {accessTokentest} from "../Redux/LoginSlice"
-
-
+import { accessTokentest } from "../Redux/ProviderRedux/LoginSlice";
 
 export const axiosPrivate = axios.create({
   baseURL: "http://localhost:5200",
 });
-
 
 axiosPrivate.interceptors.request.use(
   (config: AxiosRequestConfig): AxiosRequestConfig => {
     const tokenData = store.getState();
     // console.log(store1)
     config.headers = config.headers || {};
-    config.headers["authorization"] = tokenData.auth.login.token;
+    config.headers["authorization"] = tokenData.providerAuth.login.token;
     // console.info(`[request] [${JSON.stringify(config)}]`);
     return config;
   }
@@ -32,29 +29,26 @@ axiosPrivate.interceptors.response.use(
   (error) => {
     console.log(error.response, "errrr");
     return new Promise((resolve) => {
-
       const originalRequest = error.config;
-      console.log("checkkk")
-      const refreshToken = store.getState().auth.login.token;
+      console.log("checkkk");
+      const refreshToken = store.getState().providerAuth.login.token;
       if (error.response && error.response.status === 401 && refreshToken) {
-        console.log("res")
+        console.log("res");
         originalRequest._retry = true;
-       
 
         // body: formBody
         const response = axios
           .post("http://localhost:5200/user/access", { token: refreshToken })
           .then((res) => {
             console.log(res, "ccccc");
-            return res
+            return res;
           })
           .then((res) => {
-
-            store.dispatch(accessTokentest(res.data.accessToken))
-            console.log(res.data.accessToken,"access")
+            store.dispatch(accessTokentest(res.data.accessToken));
+            console.log(res.data.accessToken, "access");
             // alert(JSON.stringify(store.getState().auth.login.token))
             originalRequest.headers.authorization = res.data.accessToken;
-            console.log(originalRequest,"original")
+            console.log(originalRequest, "original");
             return axios(originalRequest);
           })
           .catch((e) => {
@@ -86,5 +80,3 @@ axiosPrivate.interceptors.response.use(
 
   //   return Promise.reject(err.message);
 );
-
-

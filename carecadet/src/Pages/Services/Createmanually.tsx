@@ -18,20 +18,22 @@ interface InitialValues {
   DiagnosisTestorServiceName: string;
   OrganisationPrices?: string;
   FacilityNPI?: string;
+  FacilityName?: string;
   FacilityPrices: string;
 }
 
 const CreateService = () => {
-  const select = useAppSelector((state) => state.auth.login);
+  const select = useAppSelector((state) => state.providerAuth.login);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const Organisationid = useAppSelector((state) => state.edit.orgEditData);
+  const Organisationid = useAppSelector((state) => state.providerOrganization.orgEditData);
   const initialValues: InitialValues = {
     Organisationid: "",
     ServiceCode: "",
     DiagnosisTestorServiceName: "",
     OrganisationPrices: "",
     FacilityNPI: "",
+    FacilityName: "",
     FacilityPrices: "",
   };
   const onSubmit = (values: InitialValues, actions: any) => {
@@ -41,6 +43,7 @@ const CreateService = () => {
       DiagnosisTestorServiceName: values.DiagnosisTestorServiceName,
       OrganisationPrices: values.OrganisationPrices,
       FacilityNPI: values.FacilityNPI,
+      FacilityName: values.FacilityName,
       FacilityPrices: values.FacilityPrices,
     };
     alert(JSON.stringify(servicedata, null, 2));
@@ -49,7 +52,7 @@ const CreateService = () => {
       actions.resetForm({
         values: initialValues,
       });
-      navigate("/servicelanding");
+      navigate("/provider/service/listservice");
     });
   };
 
@@ -81,6 +84,13 @@ const CreateService = () => {
       label: "Organisation Prices",
       name: "OrganisationPrices",
       placeholder: "Organisation Prices",
+      type: "text",
+    },
+    {
+      xs: 12,
+      label: "Facility Name",
+      name: "FacilityName",
+      placeholder: "FacilityName",
       type: "text",
     },
     {

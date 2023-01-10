@@ -7,16 +7,22 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router";
 
-import { DataGrid, GridColTypeDef } from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColTypeDef,
+  GridValueFormatterParams,
+  GridColumns,
+} from "@mui/x-data-grid";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
-import { orgid } from "../../Redux/orgSlice";
+import { orgid } from "../../Redux/ProviderRedux/orgSlice";
 type cvsItem = {
   id: string;
   SNo: string;
   value: string;
+  GridAlignment: "left" | "right" | "center";
 };
 
 export default function PricelistUploadthroFacility() {
@@ -25,20 +31,20 @@ export default function PricelistUploadthroFacility() {
   const [pageSize, setPagesize] = useState(5);
   const navigate = useNavigate();
 
-  const data = useAppSelector(
-    (state: { auth: { login: any } }) => state.auth.login
-  );
+  const data = useAppSelector
+(state=>state.providerAuth.login);
+ 
   console.log(data, "dat");
   console.log(csvData, "checkd");
   // organizationID: select.organizationID,
 
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
   console.log("orgid", orgid[0].organizationID);
-  const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
-  );
+  const facilityinput = useAppSelector((state) => state.providerService.serviceData);
 
-  const facilityNPI = facilityinput.facilityNPI;
+  console.log(facilityinput, "facip");
+
+
   const onCellEditCommit = (cellData: any) => {
     const { id, field, value } = cellData;
     console.log(cellData);
@@ -74,19 +80,27 @@ export default function PricelistUploadthroFacility() {
     setCsvData(r);
   };
 
-  const currencyFormatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
-  
+
   const usdPrice: GridColTypeDef = {
-    type: 'number',
+    type: "number",
     width: 130,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
-    cellClassName: 'font-tabular-nums',
+    // valueFormatter: ({ value }) => currencyFormatter.format(value),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return "";
+      }
+
+      const valueFormatted = Number(params.value).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
+    cellClassName: "font-tabular-nums",
   };
 
-  const columns = [
+  const columns: GridColumns = [
     {
       field: "SNo",
       headerName: "S.No",
@@ -106,6 +120,12 @@ export default function PricelistUploadthroFacility() {
       width: 350,
     },
     {
+      field: "FacilityName",
+      headerName: "Facility Name",
+      editable: true,
+      width: 100,
+    },
+    {
       field: "Organisationid",
       headerName: "Organisation ID",
       editable: true,
@@ -116,11 +136,12 @@ export default function PricelistUploadthroFacility() {
       headerName: "Organisation Prices",
       editable: true,
       width: 100,
-      ...usdPrice
+      align: "right",
+      ...usdPrice,
     },
     {
       field: "FacilityNPI",
-      Name: "FacilityNPI",
+      headerName: "FacilityNPI",
       editable: true,
       width: 100,
     },
@@ -129,7 +150,8 @@ export default function PricelistUploadthroFacility() {
       headerName: "Facility Prices",
       editable: true,
       width: 100,
-      ...usdPrice
+      align: "right",
+      ...usdPrice,
     },
   ];
 
@@ -142,17 +164,18 @@ export default function PricelistUploadthroFacility() {
     var headers = lines[0].split(",");
     console.log(headers, "headers");
     const facilityNPI = facilityinput.facilityNPI;
+    const facilityName = facilityinput.facilityName;
     for (var i = 1; i < lines.length - 1; i++) {
       var obj: any = {};
       var currentline = lines[i].split(",");
-
+      obj["FacilityName"] = facilityName;
       obj["FacilityNPI"] = facilityNPI;
       obj["Organisationid"] = orgid[0].organizationID;
       for (var j = 0; j < headers.length; j++) {
         obj[headers[j]] = currentline[j];
       }
       console.log("facilityNPI", facilityNPI);
-
+      console.log("facilityName", facilityName);
       result.push(obj);
       // data:{$push:[{result , facilityNPI}]}
     }
@@ -241,6 +264,7 @@ export default function PricelistUploadthroFacility() {
       .then((res) => {
         console.log("Success ", res);
         alert("success");
+        navigate("/provider/facility/pricelistlanding");
       }); //  }
   };
   return (
@@ -285,7 +309,7 @@ export default function PricelistUploadthroFacility() {
             backgroundColor: "darkgray",
           }}
         />
-        <Grid container item xs={12} justifyContent="left">
+        {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"
             type="button"
@@ -308,7 +332,7 @@ export default function PricelistUploadthroFacility() {
           >
             Service Info
           </Button>
-        </Grid>
+        </Grid> */}
         <Typography
           variant="h6"
           sx={{

@@ -22,7 +22,7 @@ import SelectField from "../../Components/Select";
 
 //redux store
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import {  tabValueNav } from "../../Redux/LoginSlice";
+import { tabValueNav } from "../../Redux/ProviderRedux/LoginSlice";
 import { axiosPrivate } from "../../axios/axios";
 
 interface forminitialValues {
@@ -48,11 +48,9 @@ const options = [
 export default function UpdateFacility() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const getid = useAppSelector(
-    (state: { auth: { login: any } }) => state.auth.login
-  );
+  const getid = useAppSelector(state=>state.providerAuth.login);
   const facilityinput = useAppSelector(
-    (state: { editFacility: { fData: any } }) => state.editFacility.fData
+    (state: { providerFacility: { fData: any } }) => state.providerFacility.fData
   );
   const initialValues = {
     providerID: getid.userID,
@@ -105,7 +103,7 @@ export default function UpdateFacility() {
         // alert('updated')
         toast.success("Successfully Updated");
         console.log("i", res.data);
-        navigate("/providerlanding");
+        navigate("/provider/facility/viewFacility");
       })
       .catch((e) => console.log(e));
   };
@@ -117,7 +115,7 @@ export default function UpdateFacility() {
         backgroundColor: "primary.light",
         padding: "1.8rem",
         // borderRadius: "15px",
-        m:"1em"
+        m: "1em",
       }}
     >
       {/* <Typography
@@ -175,7 +173,7 @@ export default function UpdateFacility() {
                   padding: "0.7rem",
                   textAlign: "center",
                   fontSize: "1.2rem",
-                  fontWeight:"bold"
+                  fontWeight: "bold",
                 }}
               >
                 Facility Information

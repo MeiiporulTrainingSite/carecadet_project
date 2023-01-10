@@ -3,7 +3,13 @@ import { Paper, TextField, Box, Typography } from "@mui/material";
 import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 
-import { DataGrid, GridColumns, GridRow ,GridColTypeDef} from "@mui/x-data-grid";
+import {
+  DataGrid,
+  GridColumns,
+  GridRow,
+  GridColTypeDef,
+  GridValueFormatterParams,
+} from "@mui/x-data-grid";
 
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { InputAdornment } from "@mui/material";
@@ -12,7 +18,7 @@ import { Buttoncomponent } from "../../Components/Buttoncomp";
 import Avatar from "@mui/material/Avatar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
-import { tabValueNav } from "../../Redux/LoginSlice";
+
 import AddIcon from "@mui/icons-material/Add";
 import clsx from "clsx";
 import { axiosPrivate } from "../../axios/axios";
@@ -26,6 +32,7 @@ interface forminitialValues {
   OrganisationPrices: string;
   FacilityNPI?: string;
   FacilityPrices: string;
+  GridAlignment: "left" | "right" | "center";
 }
 
 export default function Pricelistlandingpage() {
@@ -36,9 +43,11 @@ export default function Pricelistlandingpage() {
   // console.log("facilityid", facilityid);
   // const [totalPages, setTotalPages] = useState(10);
 
-  const orgid = useAppSelector((state) => state.edit.orgEditData);
+  const orgid = useAppSelector(
+    (state) => state.providerOrganization.orgEditData
+  );
   const facilityinput = useAppSelector(
-    (state: { editFacility: { service: any } }) => state.editFacility.service
+    (state) => state.providerService.serviceData
   );
 
   console.log(facilityinput, "facip");
@@ -53,7 +62,7 @@ export default function Pricelistlandingpage() {
     );
     const data = pricelistdetails.data.data;
     if (data.length == 0) {
-      navigate("/pricelistthrofacility");
+      navigate("/provider/facility/pricelistthrofacility");
     } else {
       setData(pricelistdetails.data.data);
     }
@@ -61,18 +70,25 @@ export default function Pricelistlandingpage() {
     console.log(pricelistdetails.data, "pricelist");
   };
 
-  const currencyFormatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+  const currencyFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
   });
-  
+
   const usdPrice: GridColTypeDef = {
-    type: 'number',
-    width: 130,
-    valueFormatter: ({ value }) => currencyFormatter.format(value),
-    cellClassName: 'font-tabular-nums',
+    type: "number",
+    width: 240,
+    // valueFormatter: ({ value }) => currencyFormatter.format(value),
+    valueFormatter: (params: GridValueFormatterParams<number>) => {
+      if (params.value == null) {
+        return "";
+      }
+
+      const valueFormatted = Number(params.value).toLocaleString();
+      return `$ ${valueFormatted} `;
+    },
+    cellClassName: "font-tabular-nums",
   };
-  
 
   const columns: GridColumns = [
     // {
@@ -85,52 +101,60 @@ export default function Pricelistlandingpage() {
       field: "ServiceCode",
       headerName: "Service Code",
       headerClassName: "super-app-theme--header",
-      width: 150,
+      width: 200,
     },
     {
       field: "DiagnosisTestorServiceName",
       headerName: "Diagnosis Test/Service Name",
       headerClassName: "super-app-theme--header",
-      width: 360,
+      width: 405,
     },
-    {
-      field: "Organisationid",
-      headerName: "Organisation ID",
-      headerClassName: "super-app-theme--header",
-      width: 200,
-    },
+    // {
+    //   field: "FacilityName",
+    //   headerName: "Facility Name",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 170,
+    // },
+    // {
+    //   field: "Organisationid",
+    //   headerName: "Organisation ID",
+    //   headerClassName: "super-app-theme--header",
+    //   width: 200,
+    // },
     {
       field: "OrganisationPrices",
       headerName: "Organisation Prices",
       headerClassName: "super-app-theme--header",
       width: 200,
       type: "number",
-      ...usdPrice
+      align: "right",
+      ...usdPrice,
     },
     {
       field: "FacilityNPI",
       headerName: "FacilityNPI",
       headerClassName: "super-app-theme--header",
-      width: 170,
+      width: 200,
     },
     {
       field: "FacilityPrices",
       headerName: "Facility Prices",
       headerClassName: "super-app-theme--header",
-      width: 170,
+      width: 200,
       type: "number",
-      ...usdPrice
+      align: "right",
+      ...usdPrice,
     },
   ];
 
   const navigateToAdd = () => {
     // This will navigate to second component
     // dispatch(editButton());
-    navigate("/Pricelistthrofacility");
+    navigate("/provider/facility/Pricelistthrofacility");
   };
   const navigateToEdit = () => {
     // This will navigate to second component
-    navigate("/PricelistEdit");
+    navigate("/provider/facility/PricelistEdit");
   };
 
   function CustomRow(props: any) {
@@ -169,45 +193,45 @@ export default function Pricelistlandingpage() {
               }}
             ></TextField> */}
           <Typography
+            mb={"0.5rem"}
             sx={{
-              padding: "1.5rem",
-              textAlign: "left",
-              fontSize: "2.5rem",
-              fontWeight: "bold",
-              mr: 10,
+              backgroundColor: "#B4C8FC",
+              padding: "0.7rem",
+              textAlign: "center",
+              fontSize: "1.5rem",
             }}
           >
-            Services
+            Service Pricelist
           </Typography>
           <Buttoncomponent
             type="submit"
-            variant="contained"
+            variant="text"
             size="large"
-            color="primary"
+            // color="primary"
             // onClick={onSave}
             // onClick={(e) => upload(e)}
             sx={{
-              justifycontent: "right",
-              alignitems: "right",
-              textalign: "right",
-              backgroundColor: "secondary.dark",
-              width: "10vw",
-              mr: 2,
-              color: "#fff",
-              "&:hover": {
-                color: "secondary.dark",
-                border: "1px solid blue",
+              justifycontent: "left",
+              alignitems: "left",
+              textalign: "left",
+              // backgroundColor: "secondary.dark",
+              width: "20vw",
+              // mr: 2,
+              color: "black",
+              // "&:hover": {
+              //   color: "secondary.dark",
+              //   border: "1px solid blue",
 
-                fontSize: "0.9rem",
-              },
+              //   fontSize: "0.9rem",
+              // },
             }}
             onClick={() => {
               // dispatch(editButton());
-              dispatch(tabValueNav(1));
-              navigate("/providerlanding");
+              // dispatch(tabValueNav(1));
+              navigate("/provider/facility/viewfacility");
             }}
           >
-            Facilities info
+            {facilityinput.facilityName}
           </Buttoncomponent>
           <Box
             display="flex"
