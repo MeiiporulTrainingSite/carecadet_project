@@ -15,7 +15,8 @@ async function createFacility(body) {
     if (Object.keys(body).length === 0) {
         throw Error("Invalid body parameter");
     }
-    const findFacility = await Facility.findOne({ facilityNPI: body.facilityNPI });
+    
+    const findFacility = await Facility.findOne({ facilityNPI: body.facilityNPI,organizationID:body.organizationID });
     console.log('findfacility',findFacility)
     if(!findFacility){
         const facilityDetails = new Facility();
@@ -44,12 +45,12 @@ async function updateFacility(body) {
     if (Object.keys(body).length === 0) {
         throw Error("Invalid body parameter");
     }
-    const findFacility = await Facility.findOne({facilityID: body.facilityID });
+    const findFacility = await Facility.findOne({facilityID: body.facilityID,organizationID:body.organizationID });
     console.log(body.facilityID,'facid')
     if(findFacility){
         console.log(findFacility,'findFacility')
         await Facility.findOneAndUpdate(
-            { facilityID: body.facilityID },
+            { facilityID: body.facilityID ,organizationID:body.organizationID},
             {
               $set:{
                 facilityNPI: body.facilityNPI,
@@ -89,6 +90,7 @@ async function getFacilityByProvider(providerID) {
                         _id: 0,
                         facilityID: 1,
                         providerID: 1,
+                        organizationID:1,
                         facilityName: 1,
                         facilityType:1,
                         facilityNPI:1,
@@ -122,6 +124,7 @@ async function getFacilityList() {
                     _id: 0,
                     facilityID: 1,
                     providerID: 1,
+                    organization:1,
                     facilityName: 1,
                     facilityType:1,
                     facilityNPI:1,

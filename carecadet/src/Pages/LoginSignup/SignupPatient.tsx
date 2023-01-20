@@ -64,7 +64,7 @@ export default function SignupPatient() {
             .then((res) => {
               toast.success(res.data.message);
               navigate("/patient/login");
-              alert("Success");
+              // alert("Success");
             })
             .catch((err) => {
               console.log(err, "signuperr");

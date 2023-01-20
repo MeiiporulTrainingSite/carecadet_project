@@ -9,13 +9,20 @@ export default {
     updateProvider,
     getProviderList,
     deleteProvider,
-    confirmEmail,
-    updateConfirmEmail
+    // confirmEmail,
+    // updateConfirmEmail
 }
 dotenv.config();
 
 const useremail ="carecadet.demo@gmail.com";
 const emailpass ="iiwcefbinvtgqjyc";
+
+// const useremail ="healthlens.demo@meiiporul.com";
+// const emailpass ="healthlens@23";
+
+// https://meiiporul.com:2096/
+// user: healthlens.demo@meiiporul.com
+// pass: healthlens@23
 
 const transport
  = nodemailer.createTransport({
@@ -28,65 +35,60 @@ const transport
     secure: false,
     
 });
-// var date = new Date();
-// var mail = {
-//     "id":ProviderDetails.providerID,
-//     "created":date.toDateString()
-// }
-// const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
-// var url = "http://localhost:5200+confirm?id=+token_mail_verification";
 
-function sendConfirmationEmail (name,_email)  {
+// const transport
+//  = nodemailer.createTransport({
+//     host:"Meiiporul.com",
+//     auth:{
+//         user:useremail,
+//         pass:emailpass
+//     },
+//     port:2096,
+//     secure: false,
+    
+// });
+
+
+
+
+async function sendConfirmationEmail (firstName,_email)  {
     console.log("Check");
+    var date = new Date();
+    var mail = {
+        "email":_email,
+        "created":date.toDateString()
+    }
+    const tokenmailverification = jwt.sign(mail,process.env.SECRET_KEY,{ expiresIn: '1d' })
     transport.sendMail({
       from: 'carecadet.demo@gmail.com',
       to: _email,
       subject: "Please confirm your account",
       html: `<h1>Email Confirmation</h1>
-          <h2>Hello ${name}</h2>
+          <h2>Hello ${firstName}</h2>
           <p>Thank you for subscribing. Please confirm your email by clicking on the following link</p>
-          <a href=http://localhost:5200/provider/confirm?name=${name}&email=${_email}> Click here</a>
+       
+        <a href=http://localhost:5200/user/confirm?firstName=${firstName}&email=${tokenmailverification}> Click here</a>
           </div>`,
     },
-   function (error,info){
-    console.log("sentMail returned!");
-    if(error){
-        console.log("Error!!!!!",error);
-            }else{
-                console.log("Email sent:"+info.response);
+     //    <a href=http://localhost:5200/user/confirm?firstName=${firstName}&email=${_email}> Click here</a>//
+//    function (error,info){
+//     console.log("sentMail returned!");
+//     if(error){
+//         console.log("Error!!!!!",error);
+//             }else{
+//                 console.log("Email sent:"+info.response);
 
-            }
-   }
+//             }
+//    }
    
     )
-    // .catch(err => console.log(err));
+    return {message:"success"}
   };
-  function confirmEmail(query){
-    console.log("query",query)
-  }
+//   function confirmEmail(query){
+//     console.log("query",query)
+//   }
 
-  async function updateConfirmEmail(body){
-    console.log("body",body);
-   
-    if (Object.keys(body).length === 0) {
-        throw Error("Invalid body parameter");
-    }
-    const findProvider = await Provider.findOne({ email: body.email })
-    if(!findProvider){
-        throw Error(' provider does exists ')
-    } else {
-        await Provider.findOneAndUpdate(
-            { email: body.email },
-            {
-                $set: {
-                  isActive:'Active',
-                    updatedDate: new Date(),
-                }
-            }
-        );
-        return { message: 'Successfully updated'}
-    }
-}
+  
 
 // TO create a provider ( use createId to create unique ID)
 async function createProvider(body) {
@@ -115,10 +117,33 @@ async function createProvider(body) {
         ProviderDetails.createdBy = body.userID;
         ProviderDetails.createdDate = new Date();
         await ProviderDetails.save();
-        sendConfirmationEmail(body.firstName,body.email);  
+       await sendConfirmationEmail(body.firstName,body.email);  
         return { message: 'Successfully created'}
     }
 }
+
+// async function updateConfirmEmail(body){
+//     console.log("body",body);
+   
+//     if (Object.keys(body).length === 0) {
+//         throw Error("Invalid body parameter");
+//     }
+//     const findProvider = await Provider.findOne({ email: body.email })
+//     if(!findProvider){
+//         throw Error(' provider does exists ')
+//     } else {
+//         await Provider.findOneAndUpdate(
+//             { email: body.email },
+//             {
+//                 $set: {
+//                   isActive:'Active',
+//                     updatedDate: new Date(),
+//                 }
+//             }
+//         );
+//         return { message: 'Successfully updated'}
+//     }
+// }
 //testing
 async function updateProvider(body){
     // Check the Body parameters( atleast one parameter should be there)

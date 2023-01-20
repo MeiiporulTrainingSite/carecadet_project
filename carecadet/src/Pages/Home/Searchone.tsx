@@ -61,7 +61,7 @@ const Searchone = () => {
     const facilitydata = {
       facilityName: values.facilityName,
     };
-    alert(JSON.stringify(facilitydata, null, 2));
+    // alert(JSON.stringify(facilitydata, null, 2));
     actions.resetForm({
       values: {
         facilityName: "",
@@ -77,13 +77,13 @@ const Searchone = () => {
       .catch((e) => console.log(e));
   };
   return (
-    <Paper
-      elevation={5}
-      sx={{
-        backgroundColor: "primary.light",
-        padding: "1.8rem",
-      }}
-    >
+    <Box
+    // elevation={5}
+    sx={{
+      background: "transparent",
+      
+    }}
+  >
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -93,7 +93,7 @@ const Searchone = () => {
           <Box
             sx={{
               width: "100%",
-              height: "160vh",
+              // height: "160vh",
               backgroundColor: "primary.light",
             }}
           >
@@ -122,7 +122,7 @@ const Searchone = () => {
             </Grid>
 <Grid container sx={{marginBottom:"30px",padding:"10px" }}>
   <Grid>
-              <Grid
+              {/* <Grid
                 container
                 direction="row"
                 justifyContent="flex-start"
@@ -142,7 +142,7 @@ const Searchone = () => {
                 >
                   I am <Box sx={{ color: "#4D77FF" }}> &ensp;Provider/Employer</Box>
                 </Typography>
-              </Grid>
+              </Grid> */}
 
               <Grid
                 container
@@ -261,8 +261,9 @@ const Searchone = () => {
 
             <Card
               raised
-              sx={{ backgroundColor: "primary.light", padding: "20px",marginTop:"0px",height:"300px",marginBottom:"20px" }}
+              sx={{ backgroundColor:"RGB(217 229 251)",padding: "20px",marginTop:"0px",height:"35em",marginBottom:"80px"  }}
             >
+            <Grid container sx={{ padding: "10px" }}>
               <Grid
                 container
                 direction="row"
@@ -272,65 +273,70 @@ const Searchone = () => {
               >
                 <Typography
                   variant="h3"
-                  sx={{ color: "#728AB7", padding: "10px" }}
+                  sx={{ color: "#728AB7", padding: "10px",mb:"40px" }}
                 >
                   Products
                 </Typography>
               </Grid>
 
-              <Grid container direction="row" item spacing={1}>
-                <Grid item xs={4}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+             
+               <Grid container direction="row" 
+               justifyContent="center"
+               item 
+              spacing={45}
+              >
+                <Grid item >
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em"}}>
                          
                     <CardMedia
-                      sx={{ width: "120px", height: "100px" }}
+                      sx={{width: "100px", height: "90px" }}
                       component="img"
                       image={dashboardicon}
                       title="payer dashboard"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
-                        Dashboards for Payer negotiated rates
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
+                        Dashboards for Payer<br></br> negotiated rates
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item xs={4}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+                {/* <Grid item xs={4}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em"  }}>
+                         
                     <CardMedia
-                      sx={{ width: "120px", height: "100px" }}
+                      sx={{width: "100px", height: "90px" }}
                       component="img"
                       image={dashboardicon}
-                      title="payer dashboard"
+                      // title="payer dashboard"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
-                        Dashboards for hospital cash price
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
+                        Dashboards for hospital<br></br> cash price
                       </Typography>
                     </CardContent>
                   </Card>
-                </Grid>
-                <Grid item xs={4}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+                </Grid> */}
+                <Grid item >
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em",mb:"30px"}}>
                     <CardMedia
-                      sx={{ width: "120px", height: "100px" }}
+                      sx={{ width: "100px", height: "90px" }}
                       component="img"
                       image={dashboardicon}
                       title="payer dashboard"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
-                        Customized rate report
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
+                        Customized Rate report
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
               </Grid>
+            </Grid>
             </Card>
-            <Card
-              raised
-              sx={{ backgroundColor: "primary.light", padding: "20px",height:"250px",marginTop:"50px" }}
-            >
+          
+            
             <Grid container sx={{ padding: "10px" }}>
          
               <Grid
@@ -339,97 +345,103 @@ const Searchone = () => {
                 justifyContent="center"
                 alignItems="center"
                 item
-               
+               sx={{mb:"20px"}}
               >
                 <Typography
-                  variant="h6"
+                  variant="h5"
                   sx={{ color: "#4D77FF", fontWeight: "bold",padding:"5px" }}
                 >
                   Providers
                 </Typography>
-                <Typography variant="h3" sx={{ color: "#728AB7",padding:"5px" }}>
+                <Typography variant="h3" sx={{ color: "#728AB7",padding:"5px",letterSpacing:"0.2rem" }}>
                   Help Patients find you
                 </Typography>
-                <Typography sx={{ padding: "10px", fontSize: "1rem" }}>
+                <Typography sx={{ padding: "10px", fontSize: "1rem",mt:"15px" }}>
                   Use our free service to manage your price listing
                 </Typography>
               </Grid>
-
-              <Grid
+ <Grid
                 container
                 direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={1}
+                // justifyContent="center"
+                // alignItems="center"
+                spacing={3}
                 item
               >
-                <Grid item xs={3}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
-                    <CardMedia
-                      sx={{ width: "120px", height: "120px" }}
+                <Grid item xs={3} >
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em" }} >
+                    <CardMedia 
+                      sx={{ width: "100px", height: "90px"}}
                       component="img"
                       image={emergency}
                       title="emergency"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
+                   
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
                         Urgent care
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={3}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
-                      sx={{ width: "120px", height: "120px" }}
+                     sx={{ width: "100px", height: "90px" }}
                       component="img"
                       image={dentallogo}
                       title="dentalcarelogo"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
                         Dental care
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={3}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
-                      sx={{ width: "120px", height: "120px" }}
+                    sx={{ width: "90px", height: "100px" }}
                       component="img"
                       image={lab}
                       title="lab"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
                         Labs
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
                 <Grid item xs={3}>
-                  <Card raised sx={{ display: "flex", flexDirection: "row" }}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
-                      sx={{ width: "120px", height: "120px" }}
+                     sx={{ width: "90px", height: "100px" }}
                       component="img"
                       image={care}
                       title="care"
                     />
                     <CardContent>
-                      <Typography variant="body2" color="textSecondary">
+                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
                         others
                       </Typography>
                     </CardContent>
                   </Card>
                 </Grid>
-              </Grid>
+              </Grid> 
+              
             </Grid>
-            </Card>
+           <Box sx={{backgroundColor:"RGB(217 229 251)",height:"10em",mt:"50px"}}>
+           <Box sx={{ display: "flex", fontWeight: "bold",fontSize:"30px",padding:"50px" }}>
+              Care<Box sx={{ color: "#4D77FF" }}>Cadet</Box>
+            </Box>
+            
+           </Box>
           </Box>
         </Form>
       </Formik>
-    </Paper>
+    </Box>
   );
 };
 

@@ -44,7 +44,7 @@ export default function LoginPatient() {
               userType: "PROVIDER",
             }}
             onSubmit={(values) => {
-              alert(JSON.stringify(values));
+              // alert(JSON.stringify(values));
               const Logindata = {
                 userName: values.email,
                 password: values.password,
@@ -71,7 +71,7 @@ export default function LoginPatient() {
                   console.log(res);
 
                   //  window.location = "/profile";
-                  alert("Success");
+                  // alert("Success");
                   navigate("/patient/checkPage");
                 })
                 .catch((err) => {

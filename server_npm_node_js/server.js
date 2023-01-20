@@ -14,7 +14,10 @@ import ProviderController from './api/user/provider/provider.controller.js';
 import OrganizationController from './api/organization/organization.controller.js';
 import FacilityController from './api/facility/facility.controller.js';
 import PricelistController from "./api/services/pricelist.controller.js";
+import ContactController from "./api/contact/contact.controller.js"
 import { startAuthAPI } from './core/authentication/authapi.js';
+
+import PathPricelistController from "./api/pathPricelist/pathPricelist.controller.js"
 
 // Configure env file
 dotenv.config();
@@ -80,7 +83,10 @@ app.get('/',(req,res) => {
 
 app.use('/user',LoginController);
 app.use('/provider',ProviderController);
+app.use("/contact",ContactController)
+app.use("/pathPricelist",PathPricelistController)
 app.use(express.static('./images'))
+app.use(express.static('./uploads'))
 startAuthAPI(app);
 
 app.use('/collection-key-gen',CollectionKeyGenController);

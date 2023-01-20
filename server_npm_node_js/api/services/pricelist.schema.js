@@ -22,10 +22,10 @@ const pricelistschema = new schema(
   {
     versionKey: false,
     strict: true,
-    collection: "pricelist",
+    collection: "Pricelist",
   }
 );
 
-var Pricelist = db.model("pricelist", pricelistschema);
+var Pricelist = db.model("Pricelist", pricelistschema);
 
 export default Pricelist;

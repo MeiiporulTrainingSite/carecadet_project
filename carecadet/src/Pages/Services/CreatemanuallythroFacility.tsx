@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../Redux/Hook";
 import { axiosPrivate } from "../../axios/axios";
 import Pricelistlandingpage from "./pricelistlandingpage";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 interface InitialValues {
   Organisationid: string;
@@ -46,14 +47,16 @@ const CreateServicethroFacility = () => {
       FacilityNPI: facilityinput.facilityNPI,
       FacilityPrices: values.FacilityPrices,
     };
-    alert(JSON.stringify(servicedata, null, 2));
+    // alert(JSON.stringify(servicedata, null, 2));
     axiosPrivate.post("/createservice", servicedata).then((res) => {
-      alert("success");
+      toast.success(res.data.message)
       actions.resetForm({
         values: initialValues,
       });
       navigate("/provider/facility/pricelistlanding");
-    });
+    }).catch(err=>{
+      toast.error(err.message)
+    })
   };
 
   const validationSchema = Yup.object().shape({

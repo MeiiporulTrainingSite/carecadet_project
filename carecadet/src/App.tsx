@@ -17,6 +17,7 @@ import {
   patientLogin,
   payerLogin,
   patientRoutes,
+  homePage,
 } from "./routes";
 
 import Layout from "./component/Layout";
@@ -28,6 +29,7 @@ import Contact from "./Pages/Contact/Contact";
 import { useAppDispatch, useAppSelector } from "./Redux/Hook";
 import PatientLogin from "./ProtectedRoutes/PatientLogin";
 import PatientRoute from "./ProtectedRoutes/PatientRoute";
+import HomePage from "./ProtectedRoutes/HomePage";
 
 function App() {
   const theme = createTheme({
@@ -59,6 +61,16 @@ function App() {
           <Routes>
             {/* <Route path = "/providerlanding" element = {<ProviderLandingPage/>}/> */}
 
+            {homePage.map((page)=>(
+              <Route key={page.key}
+              path={page.path}
+              element={
+                <HomePage getData={page.key}>
+                  <page.component/>
+                </HomePage>
+              }
+              />
+            ))}
             {patientLogin.map((route) => (
               <Route
                 key={route.key}

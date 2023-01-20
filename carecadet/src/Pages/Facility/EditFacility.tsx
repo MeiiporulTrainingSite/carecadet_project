@@ -27,6 +27,7 @@ import { axiosPrivate } from "../../axios/axios";
 
 interface forminitialValues {
   providerID: string;
+  organizationID:string;
   facilityNPI?: string | number;
   facilityName: string;
   facilityType: string;
@@ -54,6 +55,7 @@ export default function UpdateFacility() {
   );
   const initialValues = {
     providerID: getid.userID,
+    organizationID:facilityinput.organizationID,
     facilityNPI: facilityinput.facilityNPI,
     facilityName: facilityinput.facilityName,
     facilityType: facilityinput.facilityType,
@@ -68,6 +70,7 @@ export default function UpdateFacility() {
   const onSubmit = (values: forminitialValues, actions: any) => {
     const facilitydata = {
       facilityID: facilityinput.facilityID,
+      organizationID:values.organizationID,
       providerID: values.providerID,
       facilityNPI: values.facilityNPI,
       facilityName: values.facilityName,
@@ -82,7 +85,7 @@ export default function UpdateFacility() {
       email: values.email,
       contact: values.contact,
     };
-    alert(JSON.stringify(facilitydata, null, 2));
+    // alert(JSON.stringify(facilitydata, null, 2));
     // actions.resetForm({
     //   values: {
     //     facilityNPI: "",

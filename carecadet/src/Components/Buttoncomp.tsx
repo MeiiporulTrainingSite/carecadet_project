@@ -8,6 +8,7 @@ fullWidth?: boolean;
 variant?: "text" | "outlined" | "contained" ;
 color?: "inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning" ;
 onClick?:React.MouseEventHandler<HTMLButtonElement> | undefined   
+disable?:boolean;
 sx?:any
 children:React.ReactNode;
 }
@@ -16,6 +17,7 @@ export function Buttoncomponent (props: IAppProps) {
   return (
     <Button
          href={props.href}
+         disabled={props.disable}
           size={props.size}
           type={props.type}
           fullWidth={props.fullWidth}

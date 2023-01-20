@@ -142,7 +142,7 @@ export default function PricelistEditpage() {
      
         .then((res) => {
           console.log("Success ", res);
-          alert("success");
+          // alert("success");
       })
       .then((res) => {
         alert("success");

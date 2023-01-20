@@ -30,7 +30,7 @@ const FormTextField = (props: props) => {
         placeholder={props.placeholder}
         rows={props.multirow}
         type={props.type}
-      multiline={props.multiline}
+        multiline={props.multiline}
         helperText={
           <ErrorMessage name={props.name}>
             {(error) => <ErrorProps>{error}</ErrorProps>}

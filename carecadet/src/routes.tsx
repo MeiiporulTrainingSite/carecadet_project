@@ -30,6 +30,8 @@ import Searchone from "./Pages/Home/Searchone";
 import Searchtwo from "./Pages/Home/Searchtwo";
 import LoginPatient from "./Pages/LoginSignup/LoginPatient";
 import SignupPatient from "./Pages/LoginSignup/SignupPatient";
+import ServiceView from "./Pages/serviceView/ServiceView";
+import PublishService from "./Pages/serviceView/PublishService";
 
 interface Route {
   key: string;
@@ -41,30 +43,30 @@ interface Route {
 }
 
 export const navRoutes: Array<Route> = [
-  {
-    key: "patient",
-    title: "Patient",
-    path: "/",
-    color: "patient",
-    enabled: true,
-    component: Searchtwo,
-  },
-  {
-    key: "provider",
-    title: "Provider",
-    color: "provider",
-    path: "/provider/home",
-    enabled: true,
-    component: Searchone,
-  },
-  {
-    key: "payer",
-    title: "Payer",
-    path: "/payer",
-    color: "payer",
-    enabled: true,
-    component: Payer,
-  },
+  // {
+  //   key: "patient",
+  //   title: "Patient",
+  //   path: "/",
+  //   color: "patient",
+  //   enabled: true,
+  //   component: Searchtwo,
+  // },
+  // {
+  //   key: "provider",
+  //   title: "Provider",
+  //   color: "provider",
+  //   path: "/provider/home",
+  //   enabled: true,
+  //   component: Searchone,
+  // },
+  // {
+  //   key: "payer",
+  //   title: "Payer",
+  //   path: "/payer",
+  //   color: "payer",
+  //   enabled: true,
+  //   component: Payer,
+  // },
   {
     key: "contact",
     title: "Contact",
@@ -84,12 +86,12 @@ export const providerLogin: Array<Route> = [
   //   enabled: true,
   //   component: Searchtwo,
   // },
-  {
-    key: "providerHome",
-    path: "/provider/home",
-    enabled: true,
-    component: Searchone,
-  },
+  // {
+  //   key: "providerHome",
+  //   path: "/provider/home",
+  //   enabled: true,
+  //   component: Searchone,
+  // },
   {
     key: "login",
     title: "login",
@@ -178,6 +180,20 @@ export const providerRoutespages: Array<Route> = [
     path: "/provider/editOrg",
     enabled: true,
     component: EditOrganization,
+  },
+  {
+    key: "serviceView",
+    title: "serviceView",
+    path: "/provider/serviceView/serviceView",
+    enabled: true,
+    component: ServiceView,
+  },
+  {
+    key: "publishservice",
+    title: "publishservice",
+    path: "/provider/serviceView/publishservice",
+    enabled: true,
+    component: PublishService,
   },
   {
     key: "viewFacility",
@@ -295,12 +311,12 @@ export const providerRoutespages: Array<Route> = [
 
 //*******************************************Patient Router ****************************************/
 export const patientLogin: Array<Route> = [
-  {
-    key: "patientHome",
-    path: "/",
-    enabled: true,
-    component: Searchtwo,
-  },
+  // {
+  //   key: "patientHome",
+  //   path: "/",
+  //   enabled: true,
+  //   component: Searchtwo,
+  // },
   {
     key: "patitentLogin",
     path: "/patient/login",
@@ -362,3 +378,18 @@ export const commonHome: Array<Route> = [
     component: Contact,
   },
 ];
+
+export const homePage:Array<Route>=[
+  {
+    key: "patientHome",
+    path: "/",
+    enabled: true,
+    component: Searchtwo,
+  },
+  {
+    key: "providerHome",
+    path: "/provider/home",
+    enabled: true,
+    component: Searchone,
+  },
+]

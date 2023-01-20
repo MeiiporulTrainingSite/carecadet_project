@@ -108,7 +108,7 @@ const OrganizationInfo = () => {
               email: values.contactPersonInformation.email,
             },
           };
-          alert(JSON.stringify(orgdata, null, 2));
+          // alert(JSON.stringify(orgdata, null, 2));
           console.log(orgdata, "orgdata");
           axiosPrivate
             .post("/organization/createOrganization", orgdata)

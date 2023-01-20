@@ -151,7 +151,7 @@ export default function ServiceEditpage() {
 
       // )
       .then((res) => {
-        alert("success");
+        // alert("success");
         // dispatch(organizationEdit(orgdata))
         navigate("/provider/service/serviceview");
         // actions.resetForm({

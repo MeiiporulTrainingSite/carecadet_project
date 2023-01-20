@@ -7,6 +7,7 @@ import bcrypt from 'bcryptjs';
 export default {
     logout,
     login,
+    updateConfirmEmail
 }
 
 async function logout(body){
@@ -24,16 +25,18 @@ async function logout(body){
 }
 
 async function login(body){
-    // var userType = body.userType;
-    // if(userType == "PROVIDER") {
+    console.log(body,"login");
+    var userType = body.userType;
+    if(userType == "PROVIDER") {
         var username = body.userName;
         var password = body.password;
         var sessionKey = await uuid();
         const findProvider = await Provider.findOne({ username: username });
         console.log('findProvider',findProvider);
-        if(findProvider) {
+        if(findProvider!== null||undefined) {
             let comparePassword = await bcrypt.compare(password, findProvider.password);
             if(comparePassword){
+                if(findProvider.isActive!=="Pending"){
                 const token = jwt.sign({ userName: findProvider.username }, process.env.SECRET_KEY + username + sessionKey, { expiresIn: process.env.TOKEN_EXPIRY_TIME });
                 const refreshToken = jwt.sign({ userName: findProvider.username },process.env.SECRET_KEY, { expiresIn: process.env.TOKEN_EXPIRY_TIME });
                 console.log("token", token);
@@ -43,25 +46,22 @@ async function login(body){
                 responseObj.firstName = findProvider.firstName;
                 responseObj.lastName = findProvider.lastName;
                 responseObj.email = findProvider.email;
-                // responseObj.isActive = findProvider.isActive;
-                // if(responseObj.isActive!="Pending")
-                //     {
-                //         // return res.status(401).send({
-                //         //   message: "Pending Account. Please Verify Your Email!",
-                //         // });
-                //         throw Error('Pending Account');
-                //       }
+                responseObj.isActive = findProvider.isActive;
+             
                 
                 responseObj.userType = "PROVIDER";
                 responseObj.token = token;
                 responseObj.refreshToken = refreshToken;
                 await createUserSession(findProvider.username,sessionKey, "Provider", findProvider.providerID)
-                return {data: responseObj};
+                return {data: responseObj};}
+                else{throw Error('Pending Account.Please Verify Your Email!');}
             } else {
                 throw Error('Incorrect password');
                             }
+        } else {
+            throw Error("User not found")
         }
-    // } 
+    } 
     else {
         throw Error("User not found")
     }
@@ -107,3 +107,33 @@ async function createUserSession(userName,sessionKey, collectionName, userID) {
     }
 
 }
+
+async function updateConfirmEmail(body){
+        console.log("body",body);
+       
+        if (Object.keys(body).length === 0) {
+            throw Error("Invalid body parameter");
+        }
+        const decoded = jwt.verify(body.email,process.env.SECRET_KEY)
+       
+        // console.log("decoded",decoded);
+        const findProvider = await Provider.findOne({ email:decoded.email })
+        console.log("findProvider",findProvider)
+        if(!findProvider){
+            throw Error(' provider does exists ')
+        } else {
+           
+            await Provider.findOneAndUpdate(
+                { email:decoded.email},
+               
+                
+                {
+                    $set: {
+                      isActive:'Active',
+                        updatedDate: new Date(),
+                    }
+                }
+            );
+            return { message: 'Successfully updated'}
+        }
+    }

@@ -131,7 +131,7 @@ export default function ViewFacility() {
               fontWeight: "bold",
             }}
           >
-            Facility Listicle
+            Facility List
           </Typography>
         </Grid>
         <Grid container item xs={12} sm={6} justifyContent="right">

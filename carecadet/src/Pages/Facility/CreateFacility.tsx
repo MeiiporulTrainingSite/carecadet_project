@@ -27,6 +27,7 @@ import { tabValueNav } from "../../Redux/ProviderRedux/LoginSlice";
 
 interface forminitialValues {
   providerID: string;
+  organizationID:string,
   facilityNPI?: string | number;
   facilityName: string;
   facilityType: string;
@@ -49,10 +50,12 @@ export default function CreateFacility() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const data = useAppSelector(state=>state.providerAuth.login);
-  console.log("data", data);
+  const orgID=useAppSelector((state) => state.providerOrganization.orgEditData);
+  console.log("data", orgID);
 
   const initialValues: forminitialValues = {
     providerID: data.userID,
+    organizationID:orgID[0].organizationID,
     facilityNPI: "",
     facilityName: "",
     facilityType: "",
@@ -82,6 +85,7 @@ export default function CreateFacility() {
   const onSubmit = (values: forminitialValues, actions: any) => {
     const facilitydata = {
       providerID: values.providerID,
+      organizationID:values.organizationID,
       facilityNPI: values.facilityNPI,
       facilityName: values.facilityName,
       facilityType: values.facilityType,
@@ -95,7 +99,7 @@ export default function CreateFacility() {
       email: values.email,
       contact: values.contact,
     };
-    alert(JSON.stringify(facilitydata, null, 2));
+    // alert(JSON.stringify(facilitydata, null, 2));
     actions.resetForm({
       values: {
         facilityNPI: "",

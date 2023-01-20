@@ -9,6 +9,7 @@ import styles from "./styles.module.css";
 import { Grid, Box, Typography, TextField, Paper } from "@mui/material";
 import Formtext from "../../Components/Textfield";
 import { Buttoncomponent } from "../../Components/Buttoncomp";
+import { axiosPrivate } from "../../axios/axios";
 
 // interface Iconprops{
 //  icon: any
@@ -58,18 +59,18 @@ export default function Signup() {
             email: values.email,
           };
 
-          axios
+          axiosPrivate
             .post("http://localhost:5200/provider/createProvider", Registerdata)
 
             .then((res) => {
               toast.success(res.data.message);
               navigate("/provider/login");
-              alert("Success");
+              // alert("Success");
             })
             .catch((err) => {
               console.log(err, "signuperr");
               // toast.error(err.response.data);
-              toast.error(err);
+              toast.error(err.message);
             });
         }}
       >

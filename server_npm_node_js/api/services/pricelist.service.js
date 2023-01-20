@@ -1,12 +1,15 @@
 import Pricelist from "./pricelist.schema.js";
 import path from "path";
 import fs from "fs";
-import csvjson from "csvtojson";
+// import csvjson from "csvtojson";
 import pkg from "json-2-csv";
 const { json2csv } = pkg;
+
+import csvjson from "csvjson";
 const __dirname = path.resolve(path.dirname(""));
 
 import nodemailer from "nodemailer";
+import PathPricelist from "../pathPricelist/pathPricelist.schema.js";
 
 export default {
   uploadPricelist,
@@ -42,50 +45,117 @@ const transport = nodemailer.createTransport({
 // const token_mail_verification = jwt.sign(mail,config.jet_secret_mail,{ expiresIn: '1d' })
 // var url = "http://localhost:5200+confirm?id=+token_mail_verification";
 
-function sendConfirmationEmail(emailData) {
-  console.log("Check");
-  transport.sendMail(
+async function sendConfirmationEmail(emailData, orgID, filename) {
+  // console.log("Check");
+
+  const mailOptions = await transport.sendMail(
     {
       from: "carecadet.demo@gmail.com",
-      to: "divyag.meiiporul@gmail.com",
+      to: "kavya.meiiporul@gmail.com",
       subject: "Please confirm your account",
       html: `<h1>PriceList Confirmation</h1>
-          <h2>Hello Admin</h2>
-          <p>Pleas ${emailData.userID}, ${emailData.name} , ${emailData.email}</p>
-          
+          <h2>Hello Admin,</h2>
+          <p>Please Validate and Verify the uploaded pricelist from <br/> User ID : ${emailData.userID},<br/> User Name : ${emailData.userName} ,<br/> User Email : ${emailData.email}</p>
+          <a href=http://localhost:5200/pathPricelist/verify?filename=/uploads/${filename}&providerID=${emailData.userID}&orgID=${orgID}><button style="color: white;background-color: blue;padding:1rem; font-size: 15px;border:none ; border-radius:10px">Verify</button></a>
           </div>`,
-    },
-    function (error, info) {
-      console.log("sentMail returned!");
-      if (error) {
-        console.log("Error!!!!!", error);
-      } else {
-        console.log("Email sent:" + info.response);
-      }
+      attachments: [
+        {
+          filename: filename,
+          path: __dirname + "/uploads/" + filename,
+        },
+      ],
     }
+    // function (error, info) {
+    //   console.log("sentMail returned!");
+    //   if (error) {
+    //     console.log("Error!!!!!", error);
+    //     sendMessage="suerr"
+    //   } else {
+    //     console.log("Email sent:" + info.response);
+    //     sendMessage="suerr"
+    //   }
+    // }
   );
+  if (mailOptions) {
+    return { message: "success" };
+  } else {
+    throw Error("mail not sent");
+  }
   // .catch(err => console.log(err));
+  // return {message: sendMessage}
 }
+
+async function pathConfirmPricelist(emailData, orgID, filename) {
+  console.log("checkPath");
+  const pathPriceListDetails = new PathPricelist();
+  pathPriceListDetails.status = "Pending";
+  pathPriceListDetails.filePath = "/uploads/" + filename;
+  pathPriceListDetails.providerName = emailData.userName;
+  pathPriceListDetails.providerID = emailData.userID;
+  pathPriceListDetails.organizationID = orgID;
+  pathPriceListDetails.createdBy = emailData.userName;
+  pathPriceListDetails.createdDate = new Date();
+  await pathPriceListDetails.save();
+  return { message: "success" };
+}
+
+//****************************************************create&update&delete********************** */
 
 async function uploadPricelist(file) {
   const filedata = file.csv;
-
-  console.log("fileop", filedata);
-  json2csv(filedata, (err, csvData) => {
-    if (err) {
-      throw err;
-    }
-    const filename = Date.now() + "_" + file.name;
-    let uploadPath = __dirname + "/uploads/" + filename;
-    fs.writeFile(uploadPath, csvData, (err) => {
-      if (err) console.error(err);
-      else {
-        console.log("Ok");
-        // sendConfirmationEmail(file.emailData);
-        console.log(file.emailData);
+  if (filedata.length !== 0) {
+    var finalCSV = [];
+    for (let i = 0; i < filedata.length; i++) {
+      console.log(filedata[i].FacilityNPI,filedata[i].Organisationid)
+      const findService = await Pricelist.findOne({
+        FacilityNPI: filedata[i].FacilityNPI,
+        Organisationid: filedata[i].Organisationid,
+        DiagnosisTestorServiceName: filedata[i].DiagnosisTestorServiceName,
+      });
+      if (findService) {
+        console.log(findService,"checkFind")
+        finalCSV.push(filedata[i].DiagnosisTestorServiceName);
       }
-    });
-  });
+    }
+    console.log(finalCSV.length,"checklength")
+    if (finalCSV.length !== 0) {
+      throw Error(`${finalCSV} already exists`);
+    } else {
+      const csvData = csvjson.toCSV(filedata, {
+        headers: "key",
+      });
+      const filename = Date.now() + "_" + file.name;
+      let uploadPath = __dirname + "/uploads/" + filename;
+
+      fs.writeFile(uploadPath, csvData, (err) => {
+        if (err) console.error(err);
+        else {
+          console.log("Ok");
+        }
+      });
+      const pathConfirmation = await pathConfirmPricelist(
+        file.emailData,
+        file.organizationID,
+        filename
+      );
+      if (pathConfirmation.message === "success") {
+        const mailConfrimation = await sendConfirmationEmail(
+          file.emailData,
+          file.organizationID,
+          filename
+        );
+        if (mailConfrimation.message === "success") {
+          return { message: "Successfully sent your request to admin" };
+        } else {
+          throw Error("mail not sent");
+        }
+      } else {
+        throw Error("Something Wrong");
+      }
+    }
+} else {
+    throw Error("Invalid data");
+  }
 }
 
 async function getPriceList() {
@@ -112,9 +182,30 @@ async function getPriceList() {
 
 async function publishPricelist(file) {
   const originaldata = file.csv;
-  Pricelist.create(originaldata, function (err, documents) {
-    if (err) throw err;
-  });
+  var finalPublish = [];
+  for (let i = 0; i < originaldata.length; i++) {
+    const facprice = {
+      ...originaldata[i],
+      ["FacilityPrices"]:
+        originaldata[i].FacilityPrices === "" || null || undefined || 0
+          ? originaldata[i].OrganisationPrices
+          : originaldata[i].FacilityPrices,
+    };
+    finalPublish.push(facprice);
+  }
+
+const createPricelist=await   Pricelist.create(finalPublish
+//     , function (err, documents) {
+//     if (err) throw err;
+//   }
+);
+ if(createPricelist.length===0){
+  throw Error("Not Create")
+ }else{
+  return {
+    message:"Successfully Published"
+  }
+ }
 }
 
 async function bulkUpdate(body) {
@@ -286,18 +377,28 @@ async function createService(body) {
   }
   // const findOrganization = await Organization.findOne({ providerID: body.providerID });
   // if(!findOrganization){
-  const pricelist = new Pricelist();
-  (pricelist.Organisationid = body.Organisationid),
-    (pricelist.ServiceCode = body.ServiceCode),
-    (pricelist.DiagnosisTestorServiceName = body.DiagnosisTestorServiceName),
-    (pricelist.OrganisationPrices = body.OrganisationPrices),
-    (pricelist.FacilityNPI = body.FacilityNPI),
-    (pricelist.FacilityName = body.FacilityName),
-    (pricelist.FacilityPrices = body.FacilityPrices),
-    // createdBy: body.FacilityNPI,
-    // createdDate: body.createdDate,
-    // updatedBy: body.FacilityNPI,
-    // updatedDate: new Date(),
-    await pricelist.save();
-  return { message: "Successfully created" };
+
+  const findPricelist = await Pricelist.findOne({
+    FacilityNPI: body.FacilityNPI,
+    Organisationid: body.Organisationid,
+    DiagnosisTestorServiceName: body.DiagnosisTestorServiceName,
+  });
+  if (!findPricelist) {
+    const pricelist = new Pricelist();
+    (pricelist.Organisationid = body.Organisationid),
+      (pricelist.ServiceCode = body.ServiceCode),
+      (pricelist.DiagnosisTestorServiceName = body.DiagnosisTestorServiceName),
+      (pricelist.OrganisationPrices = body.OrganisationPrices),
+      (pricelist.FacilityNPI = body.FacilityNPI),
+      (pricelist.FacilityName = body.FacilityName),
+      (pricelist.FacilityPrices = body.FacilityPrices),
+      // createdBy: body.FacilityNPI,
+      // createdDate: body.createdDate,
+      // updatedBy: body.FacilityNPI,
+      // updatedDate: new Date(),
+      await pricelist.save();
+    return { message: "Successfully created" };
+  } else {
+    throw Error("Service already exists");
+  }
 }

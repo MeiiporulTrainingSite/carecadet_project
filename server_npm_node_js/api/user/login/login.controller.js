@@ -16,6 +16,7 @@ router.post("/login", login);
 router.post("/logout", logout);
 // router.post("/refresh", refreshToken);
 router.post("/access", accessToken);
+router.get('/confirm',confirmEmail);
 
 function login(req, res, next) {
   var body = req.body ?? {};
@@ -188,3 +189,40 @@ async function accessToken(req, res) {
     }
   }
 }
+
+function confirmEmail(req,res,next){
+  const query= req.query
+  console.log("confirmEmail",query)
+
+  LoginService.updateConfirmEmail(query).then(obj=>{
+    console.log("verify successully")
+    res.json("sucess updated")
+}
+).catch(next)
+}
+
+  // if (query){
+  //   try{
+  //     jwt.verify(query,process.env.SECRET_KEY,(e,decoded)=>{
+  //       if(e){
+  //         console.log(e)
+  //         return res.sendStatus(403)
+  //       }
+  //       else{
+  //         query.email = decoded;
+  //         console.log("decoded",email);
+
+  //         LoginService.updateConfirmEmail(decoded).then(obj=>{
+  //           console.log("verify successully")
+  //           res.json("sucess updated")
+  //       }
+  //       ).catch(next)
+  //       }
+  //     })
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+
+//

@@ -515,14 +515,14 @@ const EditOrganization = () => {
               email: values.contactPersonInformation.email,
             },
           };
-          alert(JSON.stringify(orgdata, null, 2));
+          // alert(JSON.stringify(orgdata, null, 2));
           console.log(orgdata, "orgdata");
           axiosPrivate
             .put("/organization/updateOrganization", orgdata)
             .then((res) => {
-              alert("success");
+              // alert("success");
               // dispatch(organizationEdit(orgdata))
-              navigate("/providerlanding");
+              navigate("/provider/facility/viewFacility");
               // actions.resetForm({
               //   values: initialValues,
               // });

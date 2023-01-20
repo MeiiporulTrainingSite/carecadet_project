@@ -93,13 +93,13 @@ const PatientRoute = ({ children, getData }: Props) => {
 //     }
 //   }, [getData]);
 
-const onLogout = () => {
-    dispatch(patientLogoutButton());
+// const onLogout = () => {
+//     dispatch(patientLogoutButton());
    
-    // Cookies.remove("token");
-    // localStorage.removeItem("pageUserType");
-    navigate("/");
-  };
+//     // Cookies.remove("token");
+//     // localStorage.removeItem("pageUserType");
+//     navigate("/");
+//   };
 
 
   let isAuth =
@@ -110,31 +110,9 @@ const onLogout = () => {
 
   return isAuth ? (
 
-<Box> {logout ? (
-    <Grid container justifyContent="flex-end">
-                <Buttoncomponent
-                  type="button"
-                  size="small"
-                  fullWidth={false}
-                  variant="contained"
-                  onClick={onLogout}
-                  sx={{
-                    backgroundColor: "secondary.dark",
-                    width: "7vw",
-                    color: "#fff",
-                    ml: "15px",
-                    "&:hover": {
-                      color: "secondary.dark",
-                      border: "1px solid blue",
-                      // letterSpacing: "0.2rem",
-                      // fontSize: "1rem",
-                    },
-                  }}
-                >
-                  Logout
-                </Buttoncomponent>
-                </Grid>
-              ) : null}{children}</Box>
+<Box> 
+
+              {children}</Box>
     // <Grid container columnSpacing={"1rem"}>
     //   <Grid
     //     item

@@ -17,13 +17,17 @@ import { facilityReducer } from "./ProviderRedux/facilitySlice";
 import {organizationReducer} from "./ProviderRedux/orgSlice";
 import { serviceReducer } from "./ProviderRedux/serviceSlice";
 import { patientLoginReducer } from "./PatientRedux/patientAuth";
+import { serviceViewReducer } from "./ProviderRedux/serviceViewSlice";
+
 
 const reducers = combineReducers({
   providerAuth: loginReducer,
   providerOrganization: organizationReducer,
   providerFacility: facilityReducer,
   providerService: serviceReducer,
+  providerServiceView:serviceViewReducer,
   patientAuth:patientLoginReducer
+
 });
 
 const persistConfig = {

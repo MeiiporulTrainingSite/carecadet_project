@@ -9,7 +9,7 @@ let ProviderSchema = new schema({
     lastName: { type: String,  
         required: [ true, 'Enter a last name']
     },
-    email: { type: String,  required: [ true, 'Enter a email'], unique: [ true, 'Already a email exists']},
+    email: { type:String,  required: [ true, 'Enter a email'], unique: [ true, 'Already a email exists']},
     contact: { type: String,  
         // required: [ true, 'Enter a contact']
     },
@@ -27,7 +27,7 @@ let ProviderSchema = new schema({
         
     remark: { type: String, default: "", uppercase: true, trim: true },
     isActive: { type: String, 
-    //     required: [true, 'Enter a active status'],default: 'Y'
+        // required: [true, 'Enter a active status'],default: 'Y',
         enum: ['Pending', 'Active','Y']
      },
     activeStartDate: { type: Date, default: Date.now },

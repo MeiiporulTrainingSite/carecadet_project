@@ -183,33 +183,39 @@ import {
   Toolbar,
   Typography,
   Paper,
+  Grid
 } from "@mui/material";
+import {toast} from "react-toastify"
+
 
 import MenuIcon from "@mui/icons-material/Menu";
 import { navRoutes } from "../routes";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Buttoncomponent } from "../Components/Buttoncomp";
 import { useAppDispatch, useAppSelector } from "../Redux/Hook";
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { axiosPrivate } from "../axios/axios";
+
+
 import {
   logoutButton,
   pageUser,
   storeLoginInfo,
 } from "../Redux/ProviderRedux/LoginSlice";
-import Cookies from "js-cookie";
+import { patientLogoutButton } from "../Redux/PatientRedux/patientAuth";
 import { refrestState } from "../Redux/ProviderRedux/orgSlice";
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const logout = useAppSelector((state) => state.providerAuth.providerLogoutButton);
-  const userType = useAppSelector((state) => state.providerAuth.pageUser);
+  const providerLogout = useAppSelector((state) => state.providerAuth.providerLogoutButton);
+  const patientLogout=useAppSelector((state)=>state.patientAuth.patientLogoutButton)
+  const userID=useAppSelector((state)=>state.providerAuth.login.userID)
+  const userName=useAppSelector(state=>state.providerAuth.login.userName)
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const char =
-    location.pathname.split("/")[1] === ""
-      ? "patient"
-      : location.pathname.split("/")[1];
+  const char =location.pathname.split("/")[1] === ""? "patient": location.pathname.split("/")[1];
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
@@ -224,7 +230,21 @@ const Navbar = () => {
     dispatch(pageUser(user));
     navigate(path);
   };
-
+  const onLogout = (type:string) => {
+    if(type==="patient"){
+      dispatch(patientLogoutButton());
+      navigate("/");
+    }
+    if(type==="provider"){
+    axiosPrivate.post("/user/logout",userName).then(res=>{
+        console.log(res,"logout")
+        dispatch(logoutButton());
+        dispatch(refrestState());
+        toast.success(res.data.message)
+        navigate("/provider/home");
+    })
+  }
+  };
   return (
     <Paper
       sx={{
@@ -237,12 +257,12 @@ const Navbar = () => {
       }}
     >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{display:"flex",justifyContent:"space-between"}}>
           <Typography
             variant="h5"
             noWrap
             sx={{
-              mr: 2,
+              // mr: 2,
               display: { xs: "none", md: "flex" },
             }}
           >
@@ -308,8 +328,8 @@ const Navbar = () => {
               CareCadet
             </Box>
           </Typography>
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Box sx={{ marginLeft: { md: "45em" }, display: "flex" }}>
+         <Box sx={{width:"30%",display:{ xs: "none", md: "flex",xl:"flex" },justifyContent:"flex-end"}}>
+            <Box sx={{ display:"flex" }}>
               {navRoutes.map((page) => (
                 <Typography
                   key={page.key}
@@ -337,7 +357,68 @@ const Navbar = () => {
 
              
             </Box>
-          </Box>
+            {providerLogout ? (
+          <Box sx={{display:"flex"}}>
+           
+          <Buttoncomponent
+            type="button"
+            size="small"
+            fullWidth={false}
+            variant="contained"
+            onClick={()=>{onLogout("provider")}}
+            sx={{
+              backgroundColor: "secondary.dark",
+              width: "7vw",
+              color: "#fff",
+              ml: "15px",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+                // letterSpacing: "0.2rem",
+                // fontSize: "1rem",
+              },
+            }}
+          >
+            Logout
+          </Buttoncomponent>
+          <Box sx={{width:"7vw",display:"flex",flexWrap:"nowrap",gap:"0.5rem",margin:"0 0 0 1.5rem"}}>
+              <AccountCircleOutlinedIcon fontSize="large"/>
+              <Typography sx={{margin:"0.2rem 0 0 0"}}>{userID}</Typography>
+              </Box>
+        </Box>
+      ) : null}
+           {patientLogout ? (
+        <Box  >
+           {/* <Box sx={{width:"7vw",display:"flex",flexWrap:"nowrap",gap:"0.5rem",margin:"0 0 0 1.5rem"}}>
+              <AccountCircleOutlinedIcon fontSize="large"/>
+              <Typography sx={{margin:"0.2rem 0 0 0"}}>{userID}</Typography>
+              </Box> */}
+          <Buttoncomponent
+            type="button"
+            size="small"
+            fullWidth={false}
+            variant="contained"
+            onClick={()=>{onLogout("patient")}}
+            sx={{
+              backgroundColor: "secondary.dark",
+              width: "7vw",
+              color: "#fff",
+              ml: "15px",
+              "&:hover": {
+                color: "secondary.dark",
+                border: "1px solid blue",
+                // letterSpacing: "0.2rem",
+                // fontSize: "1rem",
+              },
+            }}
+          >
+            Logout
+          </Buttoncomponent>
+        </Box>
+      ) : null}
+      </Box>
+          
+        
         </Toolbar>
       </Container>
     </Paper>

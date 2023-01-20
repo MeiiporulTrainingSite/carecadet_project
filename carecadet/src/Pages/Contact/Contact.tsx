@@ -18,27 +18,39 @@ const Contact = () => {
   const data = useAppSelector(
     (state: { providerAuth: { login: any } }) => state.providerAuth.login
   );
-
+console.log(data,"check")
   const initialValues: forminitialValues = {
     Subject: "",
     Message: "",
   };
 
   const onSubmit = (values: forminitialValues, actions: any) => {
+    var check=""
+    if(data.email===undefined||null||""){
+      check="kavya.meiiporul@gmail.com"
+     
+    }
+    else{
+      check=data.email
+    }
+
     const contactdata = {
       Subject: values.Subject,
       Message: values.Message,
+      email:check
     };
+    // alert(JSON.stringify(contactdata, null, 2));
     axiosPrivate.post("/contact/contactEmail",contactdata).then(res=>{
       toast.success(res.data.message)
-    })
-    alert(JSON.stringify(contactdata, null, 2));
-    actions.resetForm({
-      values: {
-        Subject: "",
-        Message: "",
-      },
-    });
+      actions.resetForm({
+        values: {
+          Subject: "",
+          Message: "",
+        },
+      });
+    }).catch(error=>{toast.error(error.message)})
+   
+   
   };
   const validationSchema = Yup.object().shape({
     Subject: Yup.string().required("Required"),
@@ -55,7 +67,7 @@ const Contact = () => {
       }}
     >
       <>
-        <Typography
+        {/* <Typography
           variant="h6"
           textAlign={"right"}
           justifyItems={"right"}
@@ -71,7 +83,7 @@ const Contact = () => {
             height: "3px",
             backgroundColor: "darkgray",
           }}
-        />
+        /> */}
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -93,7 +105,7 @@ const Contact = () => {
 
                 <FormTextField
                   container={TextField}
-                  name="subject"
+                  name="Subject"
                   placeholder="Subject"
                   type="text"
                   sx={{
@@ -105,7 +117,7 @@ const Contact = () => {
                       fontSize: "1rem",
                     },
                   }}
-                  fullWidth
+                fullWidth={true}
                 />
               </Grid>
               <Grid container justifyContent={"left"}>
@@ -122,7 +134,7 @@ const Contact = () => {
 
                 <FormTextField
                   container={TextField}
-                  name="message"
+                  name="Message"
                   placeholder="Message"
                   type="textArea"
                   sx={{
@@ -135,7 +147,8 @@ const Contact = () => {
                     },
                   }}
                   multirow={8}
-                  fullWidth
+                  multiline={true}
+                  fullWidth={true}
                 />
               </Grid>
               <Grid container item justifyContent="center">

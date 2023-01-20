@@ -18,6 +18,7 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
 import { orgid } from "../../Redux/ProviderRedux/orgSlice";
+import { toast } from "react-toastify";
 type cvsItem = {
   id: string;
   SNo: string;
@@ -230,7 +231,7 @@ export default function PricelistUpload() {
     // if(output){
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
-    let datacheck = { name: filename, csv: csvData, emailData: data };
+    let datacheck = { name: filename, csv: csvData, emailData: data ,organizationID:orgid[0].organizationID};
     axiosPrivate
       .post(
         "http://localhost:5200/uploadPricelist",
@@ -243,8 +244,12 @@ export default function PricelistUpload() {
       )
       .then((res) => {
         console.log("Success ", res);
-        alert("success");
-      }); //  }
+        // alert("success");
+        toast.success(res.data.message)
+      }).catch(err=>{
+        console.log(err,"checkerror")
+        toast.error(err.message)
+     }) 
   };
 
   const onSubmit = (e: any) => {
@@ -253,21 +258,16 @@ export default function PricelistUpload() {
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
     let datacheck = { name: filename, csv: csvData };
-    axiosPrivate
-      .post(
-        "http://localhost:5200/publishPricelist",
-        datacheck
-        // {
-        //   headers: {
-        //     "Content-Type": "multipart/form-data",
-        //   },
-        // }
-      )
+    axiosPrivate.post(
+        "http://localhost:5200/publishPricelist",datacheck)
       .then((res) => {
         console.log("Success ", res);
-        alert("success");
+        // alert("success");
         navigate("/provider/service/listService");
-      }); //  }
+      }).catch(err=>{
+         console.log(err,"checkerror")
+         toast.error(err.data.message)
+      }) 
   };
   return (
     <>
@@ -425,7 +425,7 @@ export default function PricelistUpload() {
           >
             Save
           </Buttoncomponent>
-          <Buttoncomponent
+          {/* <Buttoncomponent
             type="submit"
             variant="contained"
             size="large"
@@ -445,7 +445,7 @@ export default function PricelistUpload() {
             onClick={onSubmit}
           >
             Publish
-          </Buttoncomponent>
+          </Buttoncomponent> */}
         </Box>
       </Paper>
     </>

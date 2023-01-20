@@ -18,6 +18,7 @@ import UploadFileIcon from "@mui/icons-material/UploadFile";
 import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
 import { orgid } from "../../Redux/ProviderRedux/orgSlice";
+import { toast } from "react-toastify";
 type cvsItem = {
   id: string;
   SNo: string;
@@ -41,7 +42,7 @@ export default function PricelistUploadthroFacility() {
   const orgid = useAppSelector((state) => state.providerOrganization.orgEditData);
   console.log("orgid", orgid[0].organizationID);
   const facilityinput = useAppSelector((state) => state.providerService.serviceData);
-
+  const emailData=useAppSelector(state=>state.providerAuth.login)
   console.log(facilityinput, "facip");
 
 
@@ -228,7 +229,7 @@ export default function PricelistUploadthroFacility() {
     // if(output){
     //    let formData = new FormData();
     //  formData.append("screenshot", output);
-    let datacheck = { name: filename, csv: csvData };
+    let datacheck = { name: filename, csv: csvData,emailData:emailData,organizationID:orgid[0].organizationID };
     axiosPrivate
       .post(
         "http://localhost:5200/uploadPricelist",
@@ -241,8 +242,11 @@ export default function PricelistUploadthroFacility() {
       )
       .then((res) => {
         console.log("Success ", res);
-        alert("success");
-      }); //  }
+        toast.success(res.data.message)
+      }).catch(err=>{
+        console.log(err,"cdfjdk")
+        toast.error(err.message)
+      })
   };
 
   const onSubmit = (e: any) => {
@@ -263,7 +267,7 @@ export default function PricelistUploadthroFacility() {
       )
       .then((res) => {
         console.log("Success ", res);
-        alert("success");
+        // alert("success");
         navigate("/provider/facility/pricelistlanding");
       }); //  }
   };
@@ -423,7 +427,7 @@ export default function PricelistUploadthroFacility() {
           >
             Save
           </Buttoncomponent>
-          <Buttoncomponent
+          {/* <Buttoncomponent
             type="submit"
             variant="contained"
             size="large"
@@ -443,7 +447,7 @@ export default function PricelistUploadthroFacility() {
             onClick={onSubmit}
           >
             Publish
-          </Buttoncomponent>
+          </Buttoncomponent> */}
         </Box>
       </Paper>
     </>
