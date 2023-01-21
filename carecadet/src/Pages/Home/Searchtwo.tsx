@@ -233,7 +233,7 @@ const Searchtwo = () => {
              
               </Grid>
               </Grid>   
-       <Grid item sx={{marginLeft:"59px"}}>
+       <Grid item sx={{marginLeft:"49px"}}>
       
           <img
             src={healthcare}
@@ -358,6 +358,10 @@ const Searchtwo = () => {
                 item
               >
                 <Grid item xs={3} >
+               
+                  <Link  to="/provider/urgentcarelogin" style={{textDecoration:"none"}}> 
+                  
+                  
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em" }} >
                     <CardMedia 
                       sx={{ width: "100px", height: "90px"}}
@@ -372,8 +376,10 @@ const Searchtwo = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                  <Link style={{textDecoration:"none"}}to="/provider/dentalcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "100px", height: "90px" }}
@@ -387,8 +393,11 @@ const Searchtwo = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                
+                <Link style={{textDecoration:"none"}}to="/provider/labcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                     sx={{ width: "90px", height: "100px" }}
@@ -402,8 +411,10 @@ const Searchtwo = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                <Link style={{textDecoration:"none"}}to="/provider/otherslogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "90px", height: "100px" }}
@@ -417,6 +428,7 @@ const Searchtwo = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
               </Grid> 
               

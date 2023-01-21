@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom"
 
 import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -243,7 +244,7 @@ const Searchone = () => {
              
               </Grid>
               </Grid>   
-       <Grid item sx={{marginLeft:"59px"}}>
+       <Grid item sx={{marginLeft:"49px"}}>
       
           <img
             src={healthcare}
@@ -301,22 +302,7 @@ const Searchone = () => {
                     </CardContent>
                   </Card>
                 </Grid>
-                {/* <Grid item xs={4}>
-                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em"  }}>
-                         
-                    <CardMedia
-                      sx={{width: "100px", height: "90px" }}
-                      component="img"
-                      image={dashboardicon}
-                      // title="payer dashboard"
-                    />
-                    <CardContent>
-                      <Typography variant="h6" color="textSecondary" sx={{textAlign:"center"}}>
-                        Dashboards for hospital<br></br> cash price
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid> */}
+             
                 <Grid item >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em",mb:"30px"}}>
                     <CardMedia
@@ -369,6 +355,7 @@ const Searchone = () => {
                 item
               >
                 <Grid item xs={3} >
+                <Link  to="/provider/urgentcarelogin" style={{textDecoration:"none"}}>
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em" }} >
                     <CardMedia 
                       sx={{ width: "100px", height: "90px"}}
@@ -383,8 +370,10 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                <Link style={{textDecoration:"none"}}to="/provider/dentalcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "100px", height: "90px" }}
@@ -398,8 +387,10 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                <Link style={{textDecoration:"none"}}to="/provider/labcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                     sx={{ width: "90px", height: "100px" }}
@@ -413,8 +404,10 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                <Link style={{textDecoration:"none"}}to="/provider/otherslogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "90px", height: "100px" }}
@@ -428,6 +421,7 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
               </Grid> 
               

@@ -28,6 +28,10 @@ import ProviderLandingPage from "./Pages/testPages/Landingpage";
 
 import Searchone from "./Pages/Home/Searchone";
 import Searchtwo from "./Pages/Home/Searchtwo";
+import Loginurgentcare from "./Pages/LoginSignup/Loginurgentcare";
+import Logindentalcare from "./Pages/LoginSignup/Logindentalcare";
+import Loginlabs from "./Pages/LoginSignup/Loginlabs";
+import Loginothers from "./Pages/LoginSignup/Loginothers";
 import LoginPatient from "./Pages/LoginSignup/LoginPatient";
 import SignupPatient from "./Pages/LoginSignup/SignupPatient";
 import ServiceView from "./Pages/serviceView/ServiceView";
@@ -106,6 +110,31 @@ export const providerLogin: Array<Route> = [
     enabled: true,
     component: Signup,
   },
+  {
+    key: "login",
+    path: "/provider/urgentcarelogin",
+    enabled: true,
+    component: Loginurgentcare,
+  },
+  {
+    key: "login",
+    path: "/provider/dentalcarelogin",
+    enabled: true,
+    component: Logindentalcare,
+  },
+  {
+    key: "login",
+    path: "/provider/labcarelogin",
+    enabled: true,
+    component: Loginlabs,
+  },
+  {
+    key: "login",
+    path: "/provider/otherslogin",
+    enabled: true,
+    component: Loginothers,
+  },
+
   // {
   //   key: "home",
   //   title: "Org",
@@ -329,6 +358,7 @@ export const patientLogin: Array<Route> = [
     enabled: true,
     component: SignupPatient,
   },
+
 ];
 
 export const patientRoutes: Array<Route> = [

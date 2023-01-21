@@ -1626,3 +1626,7 @@ Jan-20-2023 15:49:42 [31merror[39m: [31merr{"name":"NoAuthorizationProvided",
 Jan-20-2023 15:49:42 [31merror[39m: [31mNo Authorization provided[39m
 Jan-20-2023 15:55:35 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
 Jan-20-2023 15:55:35 [31merror[39m: [31mFacility already exists[39m
+Jan-21-2023 13:25:17 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-21-2023 13:25:17 [31merror[39m: [31mNo Authorization provided[39m
+Jan-21-2023 13:25:17 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-21-2023 13:25:17 [31merror[39m: [31mNo Authorization provided[39m
