@@ -26,8 +26,8 @@ import Home from "./Pages/testPages/Home";
 import Signup from "./Pages/LoginSignup/Signup";
 import ProviderLandingPage from "./Pages/testPages/Landingpage";
 
-import Searchone from "./Pages/Home/Searchone";
-import Searchtwo from "./Pages/Home/Searchtwo";
+import Providerhomepage from "./Pages/Home/providerhomepage";
+import Patienthomepage from "./Pages/Home/patienthomepage";
 import Loginurgentcare from "./Pages/LoginSignup/Loginurgentcare";
 import Logindentalcare from "./Pages/LoginSignup/Logindentalcare";
 import Loginlabs from "./Pages/LoginSignup/Loginlabs";
@@ -414,12 +414,12 @@ export const homePage:Array<Route>=[
     key: "patientHome",
     path: "/",
     enabled: true,
-    component: Searchtwo,
+    component: Patienthomepage,
   },
   {
     key: "providerHome",
     path: "/provider/home",
     enabled: true,
-    component: Searchone,
+    component:Providerhomepage,
   },
 ]

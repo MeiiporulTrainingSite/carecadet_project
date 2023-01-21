@@ -49,7 +49,7 @@ const options = [
   { value: "Type2", item: "Type2" },
   { value: "Type3", item: "Type3" },
 ];
-const Searchtwo = () => {
+const Patienthomepage = () => {
   const navigate = useNavigate();
   const initialValues: forminitialValues = {
     facilityName: "",
@@ -446,4 +446,4 @@ const Searchtwo = () => {
   );
 };
 
-export default Searchtwo;
+export default Patienthomepage;

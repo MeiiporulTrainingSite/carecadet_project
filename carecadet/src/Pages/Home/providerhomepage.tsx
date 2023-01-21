@@ -50,7 +50,7 @@ const options = [
   { value: "Type2", item: "Type2" },
   { value: "Type3", item: "Type3" },
 ];
-const Searchone = () => {
+const Providerhomepage = () => {
   const navigate = useNavigate();
   const initialValues: forminitialValues = {
     facilityName: "",
@@ -284,10 +284,12 @@ const Searchone = () => {
                <Grid container direction="row" 
                justifyContent="center"
                item 
-              spacing={45}
+              spacing={30}
               >
-                <Grid item >
-                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em"}}>
+                <Grid item xs={4} >
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em"
+                  // ,width:"18em"
+                  }}>
                          
                     <CardMedia
                       sx={{width: "100px", height: "90px" }}
@@ -303,8 +305,8 @@ const Searchone = () => {
                   </Card>
                 </Grid>
              
-                <Grid item >
-                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em",mb:"30px"}}>
+                <Grid item xs={4} >
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em",mb:"30px"}}>
                     <CardMedia
                       sx={{ width: "100px", height: "90px" }}
                       component="img"
@@ -439,4 +441,4 @@ const Searchone = () => {
   );
 };
 
-export default Searchone;
+export default Providerhomepage;
