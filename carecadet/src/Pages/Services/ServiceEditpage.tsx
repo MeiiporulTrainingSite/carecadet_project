@@ -151,7 +151,7 @@ export default function ServiceEditpage() {
 
       // )
       .then((res) => {
-        // alert("success");
+        alert("success");
         // dispatch(organizationEdit(orgdata))
         navigate("/provider/service/serviceview");
         // actions.resetForm({
@@ -301,12 +301,12 @@ export default function ServiceEditpage() {
             fontSize: "1.5rem",
           }}
         >
-          Service Pricelist
+          {serviceinput} Pricelist
         </Typography>
-        <Typography sx={{ fontSize: "1.5rem" }}>
+        {/* <Typography sx={{ fontSize: "1.5rem" }}>
           {" "}
           <div>{serviceinput}</div>
-        </Typography>
+        </Typography> */}
         {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"

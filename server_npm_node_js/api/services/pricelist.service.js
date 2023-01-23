@@ -51,7 +51,7 @@ async function sendConfirmationEmail(emailData, orgID, filename) {
   const mailOptions = await transport.sendMail(
     {
       from: "carecadet.demo@gmail.com",
-      to: "kavya.meiiporul@gmail.com",
+      to: "carecadet.demo@gmail.com",
       subject: "Please confirm your account",
       html: `<h1>PriceList Confirmation</h1>
           <h2>Hello Admin,</h2>

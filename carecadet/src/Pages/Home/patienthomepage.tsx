@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import healthcare from "../../Images/healthcare.jpg";
 import SearchIcon from '@mui/icons-material/Search';
+import {Link} from "react-router-dom"
 
 import {
   Grid,
@@ -18,7 +19,6 @@ import {
   Card,
   CardContent,
   CardMedia,
-  
 } from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
@@ -49,7 +49,7 @@ const options = [
   { value: "Type2", item: "Type2" },
   { value: "Type3", item: "Type3" },
 ];
-const Searchone = () => {
+const Patienthomepage = () => {
   const navigate = useNavigate();
   const initialValues: forminitialValues = {
     facilityName: "",
@@ -103,7 +103,7 @@ const Searchone = () => {
                 size="small"
                 fullWidth={false}
                 variant="contained"
-                onClick={() => navigate("/provider/login")}
+                onClick={() => navigate("/patient/login")}
                 sx={{
                   backgroundColor: "secondary.dark",
                   width: "7vw",
@@ -130,6 +130,7 @@ const Searchone = () => {
                 item
                
               >
+              
                 <Typography
                   variant="h3"
                   sx={{
@@ -140,8 +141,10 @@ const Searchone = () => {
                     marginBottom:"50px"
                   }}
                 >
-                  I am <Box sx={{ color: "#4D77FF" }}> &ensp;Provider/Employer</Box>
+
+                  I am <Box sx={{ color: "#4D77FF" }}>&ensp;  <Link to="/">Patient </Link> <Link to = "/provider/home">/Provider or Employer</Link></Box>
                 </Typography>
+               
               </Grid> */}
 
               <Grid
@@ -151,14 +154,7 @@ const Searchone = () => {
                 justifyContent="flex-start"
                 alignItems="flex-start"
               >
-                <Grid item xs={4}>
-                  <SelectField
-                    container={Select}
-                    name="Payer"
-                    label="Payer"
-                    selectData={options}
-                  />
-                </Grid>
+                
                 <Grid item xs={4}>
                   <FormTextField
                     container={TextField}
@@ -176,13 +172,7 @@ const Searchone = () => {
                         letterSpacing: 0,
                       },
                     }}
-                    // inputProps={{
-                    //     startAdornment: (
-                    //       <InputAdornment position="start">
-                    //         <LocationOnIcon />
-                    //       </InputAdornment>
-                    //     ),
-                    //   }}
+                
                   />
                 </Grid>
 
@@ -223,7 +213,7 @@ const Searchone = () => {
                       color: "#fff",
                       display:"flex",
                       justifyContent:"center",
-                      gap:"1.8rem",
+                      gap:"1.2rem",
 
                       "&:hover": {
                         color: "secondary.dark",
@@ -234,7 +224,7 @@ const Searchone = () => {
                     }}
                   >
                  
-                  <SearchIcon/>  Find negotiated rates
+                  <SearchIcon/>  Find care
                   </Buttoncomponent>
 
 
@@ -243,7 +233,7 @@ const Searchone = () => {
              
               </Grid>
               </Grid>   
-       <Grid item sx={{marginLeft:"59px"}}>
+       <Grid item sx={{marginLeft:"49px"}}>
       
           <img
             src={healthcare}
@@ -259,9 +249,10 @@ const Searchone = () => {
        </Grid>
             </Grid>
 
+            
             <Card
               raised
-              sx={{ backgroundColor:"RGB(217 229 251)",padding: "20px",marginTop:"0px",height:"35em",marginBottom:"80px"  }}
+              sx={{ backgroundColor:"RGB(217 229 251)",padding: "20px",marginTop:"0px",height:"30em",marginBottom:"140px"  }}
             >
             <Grid container sx={{ padding: "10px" }}>
               <Grid
@@ -280,13 +271,11 @@ const Searchone = () => {
               </Grid>
 
              
-               <Grid container direction="row" 
-               justifyContent="center"
-               item 
-              spacing={45}
+               <Grid container direction="row" item 
+              spacing={10}
               >
-                <Grid item >
-                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em"}}>
+                <Grid item xs={4}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em"  }}>
                          
                     <CardMedia
                       sx={{width: "100px", height: "90px" }}
@@ -301,7 +290,7 @@ const Searchone = () => {
                     </CardContent>
                   </Card>
                 </Grid>
-                {/* <Grid item xs={4}>
+                <Grid item xs={4}>
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em"  }}>
                          
                     <CardMedia
@@ -316,9 +305,9 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
-                </Grid> */}
-                <Grid item >
-                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"20em",width:"18em",mb:"30px"}}>
+                </Grid>
+                <Grid item xs={4}>
+                  <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"10px",height:"15em" }}>
                     <CardMedia
                       sx={{ width: "100px", height: "90px" }}
                       component="img"
@@ -369,6 +358,10 @@ const Searchone = () => {
                 item
               >
                 <Grid item xs={3} >
+               
+                  <Link  to="/provider/urgentcarelogin" style={{textDecoration:"none"}}> 
+                  
+                  
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em" }} >
                     <CardMedia 
                       sx={{ width: "100px", height: "90px"}}
@@ -383,8 +376,10 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                  <Link style={{textDecoration:"none"}}to="/provider/dentalcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "100px", height: "90px" }}
@@ -398,8 +393,11 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                
+                <Link style={{textDecoration:"none"}}to="/provider/labcarelogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                     sx={{ width: "90px", height: "100px" }}
@@ -413,8 +411,10 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
                 <Grid item xs={3}>
+                <Link style={{textDecoration:"none"}}to="/provider/otherslogin" >
                   <Card raised sx={{ display: "flex", flexDirection: "column",justifyContent:"center",alignItems:"center",padding:"5px",height:"15em"}}>
                     <CardMedia
                      sx={{ width: "90px", height: "100px" }}
@@ -428,6 +428,7 @@ const Searchone = () => {
                       </Typography>
                     </CardContent>
                   </Card>
+                  </Link>
                 </Grid>
               </Grid> 
               
@@ -445,4 +446,4 @@ const Searchone = () => {
   );
 };
 
-export default Searchone;
+export default Patienthomepage;

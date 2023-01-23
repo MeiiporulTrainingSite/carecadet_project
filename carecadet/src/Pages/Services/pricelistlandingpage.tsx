@@ -201,9 +201,9 @@ export default function Pricelistlandingpage() {
               fontSize: "1.5rem",
             }}
           >
-            Service Pricelist
+            {facilityinput.facilityName} Pricelist
           </Typography>
-          <Buttoncomponent
+          {/* <Buttoncomponent
             type="submit"
             variant="text"
             size="large"
@@ -232,7 +232,7 @@ export default function Pricelistlandingpage() {
             }}
           >
             {facilityinput.facilityName}
-          </Buttoncomponent>
+          </Buttoncomponent> */}
           <Box
             display="flex"
             justifyContent="flex-end"

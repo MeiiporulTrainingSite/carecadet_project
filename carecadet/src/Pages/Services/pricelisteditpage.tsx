@@ -142,7 +142,7 @@ export default function PricelistEditpage() {
      
         .then((res) => {
           console.log("Success ", res);
-          // alert("success");
+          alert("success");
       })
       .then((res) => {
         alert("success");
@@ -301,9 +301,9 @@ export default function PricelistEditpage() {
             fontSize: "1.5rem",
           }}
         >
-          Service Pricelist
+         {facilityinput.facilityName} Pricelist
         </Typography>
-        <Typography sx={{ fontSize: "1.5rem",}}> <div>{facilityinput.facilityName}</div></Typography>
+        {/* <Typography sx={{ fontSize: "1.5rem",}}> <div>{facilityinput.facilityName}</div></Typography> */}
         {/* <Grid container item xs={12} justifyContent="left">
           <Button
             variant="outlined"
