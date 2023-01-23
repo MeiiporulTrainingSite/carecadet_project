@@ -62,7 +62,7 @@ const ProtectedRoute = ({ children, getData }: Props) => {
 
 
   const [data, setData] = React.useState<any>([]);
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(false);
   const path=location.pathname.split("/")[1]
 
   // const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -78,15 +78,18 @@ const ProtectedRoute = ({ children, getData }: Props) => {
 
   React.useEffect(() => {
     if (data.length === 0 || getData === "providerorg") {
+      setValue(true)
       axiosPrivate
         .get(`/organization/getOrganizationByProvider?providerID=${userID}`)
         .then((res) => {
           const resData = res.data.data;
           if (resData.length === 0) {
             navigate("/provider/org");
+            
           } else {
             dispatch(organizationEdit(resData));
             setData(res.data.data);
+            setValue(false)
           }
         })
         .catch((err) => console.log(err));
@@ -111,6 +114,7 @@ const ProtectedRoute = ({ children, getData }: Props) => {
       >
         <OrganizationLandingView data={data} />
       </Grid>
+     
       <Grid item xs={data.length === 0 ? 12 : 9.5}>
         {getData !== "org" && getData !== "editOrg" ? (
           // <Box sx={{ m: 0, p: 0 }}>
@@ -131,6 +135,7 @@ const ProtectedRoute = ({ children, getData }: Props) => {
           //     </TabPanel>
           //   )}
           // </Box>
+          value?"....loading":
           <Box display={"flex"} flexDirection="column" gap="0.5rem">
             <OrganizationNav/>
             <Divider/>
