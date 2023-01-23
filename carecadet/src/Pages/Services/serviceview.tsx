@@ -10,7 +10,7 @@ import {
   GridColTypeDef,
   GridValueFormatterParams,
 } from "@mui/x-data-grid";
-
+import { serviceInfo} from "../../Redux/ProviderRedux/serviceSlice";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { InputAdornment } from "@mui/material";
 import { margin } from "@mui/system";
@@ -194,7 +194,7 @@ export default function ServiceViewPage() {
               fontSize: "1.5rem",
             }}
           >
-            Service Pricelist
+            {serviceinput} Pricelist
           </Typography>
           <Box
             display="flex"
@@ -205,7 +205,7 @@ export default function ServiceViewPage() {
               mb: 2,
             }}
           >
-            <Buttoncomponent
+            {/* <Buttoncomponent
               type="submit"
               variant="text"
               size="large"
@@ -234,7 +234,7 @@ export default function ServiceViewPage() {
               }}
             >
               {serviceinput}
-            </Buttoncomponent>
+            </Buttoncomponent> */}
 
             {/* <Avatar
               sx={{

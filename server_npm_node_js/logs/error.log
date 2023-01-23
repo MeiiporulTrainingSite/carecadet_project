@@ -1630,3 +1630,21 @@ Jan-21-2023 13:25:17 [31merror[39m: [31merr{"name":"NoAuthorizationProvided",
 Jan-21-2023 13:25:17 [31merror[39m: [31mNo Authorization provided[39m
 Jan-21-2023 13:25:17 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
 Jan-21-2023 13:25:17 [31merror[39m: [31mNo Authorization provided[39m
+Jan-23-2023 10:06:56 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:06:56 [31merror[39m: [31mIncorrect password[39m
+Jan-23-2023 10:08:34 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:08:34 [31merror[39m: [31mPending Account.Please Verify Your Email![39m
+Jan-23-2023 10:08:44 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:08:44 [31merror[39m: [31mNo Authorization provided[39m
+Jan-23-2023 10:26:20 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:26:20 [31merror[39m: [31mNo Authorization provided[39m
+Jan-23-2023 10:31:55 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:31:55 [31merror[39m: [31m2D Echo,4D Scan,ACTH (Adreno Corticotropic Hormone) Test,Adenosine Deaminase Test,AEC (Absolute Eosinophil Count) Test,AFB (Acid Fast Bacilli) Culture Test,AFP (Alpha Feto Protein) Test,Alberts Stain,Albumin Test already exists[39m
+Jan-23-2023 10:34:53 [31merror[39m: [31merr{"statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:34:53 [31merror[39m: [31m2D Echo,4D Scan,ACTH (Adreno Corticotropic Hormone) Test,Adenosine Deaminase Test,AEC (Absolute Eosinophil Count) Test,AFB (Acid Fast Bacilli) Culture Test,AFP (Alpha Feto Protein) Test,Alberts Stain,Albumin Test,Aldolase Test already exists[39m
+Jan-23-2023 10:37:58 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-23-2023 10:37:58 [31merror[39m: [31mNo Authorization provided[39m
+Jan-23-2023 11:13:53 [31merror[39m: [31merr{"errno":-4058,"code":"ENOENT","syscall":"stat","path":"F:\\carecadet_project\\server_npm_node_js\\PathPrice.html","expose":false,"statusCode":404,"status":404}[39m
+Jan-23-2023 11:13:53 [31merror[39m: [31mENOENT: no such file or directory, stat 'F:\carecadet_project\server_npm_node_js\PathPrice.html'[39m
+Jan-23-2023 11:13:53 [31merror[39m: [31merr{"name":"NoAuthorizationProvided","statusCode":500,"status":"error"}[39m
+Jan-23-2023 11:13:53 [31merror[39m: [31mNo Authorization provided[39m
