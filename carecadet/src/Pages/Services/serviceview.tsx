@@ -10,7 +10,7 @@ import {
   GridColTypeDef,
   GridValueFormatterParams,
 } from "@mui/x-data-grid";
-import { serviceInfo} from "../../Redux/ProviderRedux/serviceSlice";
+import { serviceInfo, facilitynameInfo } from "../../Redux/ProviderRedux/serviceSlice";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { InputAdornment } from "@mui/material";
 import { margin } from "@mui/system";

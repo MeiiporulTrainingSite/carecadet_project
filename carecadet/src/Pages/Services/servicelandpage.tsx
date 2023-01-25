@@ -18,9 +18,9 @@ import AddIcon from "@mui/icons-material/Add";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import clsx from "clsx";
 import { axiosPrivate } from "../../axios/axios";
-import { serviceInfo } from "../../Redux/ProviderRedux/serviceSlice";
+import { serviceInfo, facilitynameInfo } from "../../Redux/ProviderRedux/serviceSlice";
 import { BorderClear } from "@mui/icons-material";
-
+import { facilityInfo } from "../../Redux/ProviderRedux/facilitySlice";
 interface forminitialValues {
   _id: string;
   SNo: string;
@@ -45,7 +45,7 @@ export default function Servicelandingpage() {
   // const serviceinput = useAppSelector(
   //   (state: { editservice: { serviceInfo: any } }) => state.editservice.serviceInfo
   // );
-  const facilityinput = useAppSelector((state) => state.providerService.serviceData);
+  const facilityinput = useAppSelector((state) => state.providerService.facilityData);
 
   console.log(facilityinput, "facip");
   const serviceinput = useAppSelector(
@@ -53,7 +53,7 @@ export default function Servicelandingpage() {
       state.providerService.serviceData
   );
 
-  console.log(serviceInfo, "facip");
+  console.log(facilitynameInfo, "facip");
   const navigate = useNavigate();
   useEffect(() => {
     console.log("start");
@@ -62,7 +62,9 @@ export default function Servicelandingpage() {
 
   useEffect(() => {}, []);
   const getData = async () => {
-    axiosPrivate.get("/getPriceList").then((resp) => {
+    axiosPrivate
+    .get(`/getPriceListbyOrg?Organisationid=${orgid[0].organizationID}`)
+    .then((resp) => {
       const d = resp.data.data;
       const dd = d.map((c: any) => c.DiagnosisTestorServiceName);
       const set = new Set<string>(dd);
@@ -324,6 +326,7 @@ export default function Servicelandingpage() {
                     onClick={() => {
                       // dispatch(editButton());
                       //dispatch(tabValueNav(1));
+                      dispatch(facilitynameInfo(facilityInfo));
                       dispatch(serviceInfo(d));
                       navigate("/provider/service/serviceview");
                     }}

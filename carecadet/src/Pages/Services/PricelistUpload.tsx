@@ -19,6 +19,8 @@ import { axiosPrivate } from "../../axios/axios";
 // import { parse } from "csv-parse/browser/esm/sync";
 import { orgid } from "../../Redux/ProviderRedux/orgSlice";
 import { toast } from "react-toastify";
+import { facilitynameInfo } from "../../Redux/ProviderRedux/serviceSlice";
+import { store } from "../../Redux/Store";
 type cvsItem = {
   id: string;
   SNo: string;
@@ -44,7 +46,7 @@ export default function PricelistUpload() {
   );
   console.log("orgid", orgid[0].organizationID);
   const facilityinput = useAppSelector(
-    (state) => state.providerService.serviceData
+    (state) => state.providerService.facilityData
   );
   console.log("facilitydetail", facilityinput);
   const onCellEditCommit = (cellData: any) => {
@@ -172,6 +174,20 @@ export default function PricelistUpload() {
       var currentline = lines[i].split(",");
       obj["FacilityName"] = facilityName;
       obj["FacilityNPI"] = facilityNPI;
+      console.log("currentline", currentline);
+      let storefacility = facilityinput.filter(
+        (data: any) => data.facilityNPI === currentline[4]
+      );
+      console.log(storefacility, "storefacility");
+      // if(storefacility[0]===undefined)
+      // {
+      //   toast.error(`${currentline[4]} is Invalid NPI`)
+      // }
+      var finalfacility =
+        storefacility[0] == undefined
+          ? "Facility name unavailable"
+          : storefacility[0].facilityName;
+      obj["FacilityName"] = finalfacility;
       obj["Organisationid"] = orgid[0].organizationID;
       for (var j = 0; j < headers.length; j++) {
         obj[headers[j]] = currentline[j];
